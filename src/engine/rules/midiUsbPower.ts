@@ -1,5 +1,6 @@
 // MIDI, USB and PWR rules (spec §5.12).
 import type { Connection, Connector } from '@/domain/types';
+import { modelWatts } from '../power';
 import { barrelSize, connectionFlow, domainFamily } from '../connections';
 import { nodeKey } from '../graph';
 import type { Issue } from '../issues';
@@ -496,12 +497,7 @@ const sourceFor = (ctx: SetupContext, f: Feed) =>
 
 /** Estimated mains draw (W) of a unit: maxW, else typicalW, else DC draw × voltage. */
 function unitWatts(ctx: SetupContext, unitId: string): number | null {
-  const m = ctx.model(unitId);
-  if (!m) return null;
-  if (m.power.maxW) return m.power.maxW;
-  if (m.power.typicalW) return m.power.typicalW;
-  const s = m.power.sources.find((x) => x.drawMa && x.nominalV);
-  return s ? (s.drawMa! * s.nominalV!) / 1000 : null;
+  return modelWatts(ctx.model(unitId));
 }
 
 const powerRules: Rule[] = [

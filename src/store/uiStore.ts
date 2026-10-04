@@ -2,7 +2,7 @@
 import { createStore } from 'zustand/vanilla';
 
 export type SidebarTab = 'inventory' | 'library' | 'setups' | 'issues';
-export type CanvasTab = 'layout' | 'patch' | 'face' | 'tables';
+export type CanvasTab = 'layout' | 'patch' | 'face' | 'tables' | 'compare';
 export type SelectionKind =
   'gear-unit' | 'gear-model' | 'stand-unit' | 'stand-model' | 'cable-model' | 'connection' | 'port';
 export interface Selection {
@@ -21,6 +21,12 @@ export interface UiState {
   trace: { start: string; pinned: boolean } | null;
   /** Follow-signal playback: the path being stepped through and the current hop. */
   follow: { path: string[]; step: number } | null;
+  /** Setup active before the current one (A/B toggle, spec §5.11). */
+  previousSetupId: string | null;
+  /** Setup whose unit positions are drawn as ghosts on the layout canvas (compare overlay). */
+  ghostsFrom: string | null;
+  setPreviousSetupId(id: string | null): void;
+  setGhostsFrom(id: string | null): void;
   setTrace(t: { start: string; pinned: boolean } | null): void;
   setFollow(f: { path: string[]; step: number } | null): void;
   setSidebarTab(tab: SidebarTab): void;
@@ -39,6 +45,10 @@ export function createUiStore(initialDark = false) {
     darkMode: initialDark,
     trace: null,
     follow: null,
+    previousSetupId: null,
+    ghostsFrom: null,
+    setPreviousSetupId: (previousSetupId) => set({ previousSetupId }),
+    setGhostsFrom: (ghostsFrom) => set({ ghostsFrom }),
     setTrace: (trace) => set({ trace }),
     setFollow: (follow) => set({ follow }),
     setSidebarTab: (sidebarTab) => set({ sidebarTab }),

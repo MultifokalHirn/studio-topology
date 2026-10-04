@@ -1,6 +1,7 @@
 // MIDI/clock tree, USB tree and power tree (spec §5.14).
 import { useMemo } from 'react';
 import { buildSignalGraph } from '@/engine/graph';
+import { modelWatts } from '@/engine/power';
 import { clockMasters, clockTree, powerForest, usbForest, type PowerNode, type UsbNode } from '@/engine/trees';
 import { usbBudgetMa } from '@/engine/rules/midiUsbPower';
 import { t } from '@/i18n';
@@ -121,14 +122,7 @@ export function TreesView({ kind }: { kind: 'clock' | 'usb' | 'power' }) {
     );
   }
 
-  const watts = (id: string): number | null => {
-    const m = modelOf(id);
-    if (!m) return null;
-    if (m.power.maxW) return m.power.maxW;
-    if (m.power.typicalW) return m.power.typicalW;
-    const s = m.power.sources.find((x) => x.drawMa && x.nominalV);
-    return s ? (s.drawMa! * s.nominalV!) / 1000 : null;
-  };
+  const watts = (id: string): number | null => modelWatts(modelOf(id));
   const total = (n: PowerNode): { w: number; unknown: number } =>
     n.children.length
       ? n.children.map(total).reduce((a, b) => ({ w: a.w + b.w, unknown: a.unknown + b.unknown }), { w: 0, unknown: 0 })

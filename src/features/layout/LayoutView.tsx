@@ -20,7 +20,7 @@ import type { Point, Project, Setup } from '@/domain/types';
 import { RACK_UNIT_MM } from '@/domain/units';
 import { landmarks } from '@/engine/body';
 import { analyzeLayout, type LayoutReport } from '@/engine/layout';
-import { unitSize, type ResolvedSurface, type ResolvedUnit } from '@/engine/placement';
+import { resolveLayout, unitSize, type ResolvedSurface, type ResolvedUnit } from '@/engine/placement';
 import { t } from '@/i18n';
 import { projectStore, uiStore, useProject, useUi } from '@/store';
 import { useViewport, Viewport } from '@/render/Viewport';
@@ -167,6 +167,18 @@ function LayoutCanvas(props: CanvasProps) {
   const selectedUnit = selection?.kind === 'gear-unit' ? selection.id : null;
   const box = useMemo(() => bounds(view, report), [view, report]);
   const [cursor, setCursor] = useState<Point | null>(null);
+  const ghostsFrom = useUi((s) => s.ghostsFrom);
+  const ghostSetup =
+    ghostsFrom && ghostsFrom !== setup.id ? project.setups.find((s) => s.id === ghostsFrom) : undefined;
+
+  // Keep the camera when switching between setups of the same project (A/B toggle); refit when the content grows
+  // within a setup or a different project is loaded.
+  const sizeKey = `${box.w}x${box.h}`;
+  const [fit, setFit] = useState({ setupId: setup.id, size: sizeKey, n: 0 });
+  if (fit.setupId !== setup.id) {
+    const sameProject = project.setups.some((s) => s.id === fit.setupId);
+    setFit({ setupId: setup.id, size: sizeKey, n: sameProject ? fit.n : fit.n + 1 });
+  } else if (fit.size !== sizeKey) setFit({ ...fit, size: sizeKey, n: fit.n + 1 });
 
   const onDrop = (p: Point, e: React.DragEvent) => {
     if (props.readOnly) return;
@@ -234,6 +246,7 @@ function LayoutCanvas(props: CanvasProps) {
     <Viewport
       aria-label={t('{view} layout of {setup}', { view, setup: setup.name })}
       content={box}
+      fitKey={String(fit.n)}
       onPointerMoveWorld={setCursor}
       onBackgroundClickWorld={() => uiStore.getState().select(null)}
       onDropWorld={onDrop}
@@ -263,6 +276,7 @@ function LayoutCanvas(props: CanvasProps) {
           <UnitShape key={u.unitId} {...props} u={u} selected={selectedUnit === u.unitId} />
         ))}
       {props.overlays && view === 'side' && <SideSightLines {...props} />}
+      {ghostSetup && <Ghosts {...props} other={ghostSetup} />}
     </Viewport>
   );
 }
@@ -781,4 +795,90 @@ function applyDrag(
       },
     };
   }
+}
+
+/** Compare overlay (spec §5.11): where units sit in another setup, with arrows to their position here. */
+function Ghosts({ view, project, report, other }: CanvasProps & { other: Setup }) {
+  const ghost = useMemo(() => resolveLayout(project, other), [project, other]);
+  const rect = (u: ResolvedUnit) => {
+    const pts = u.corners.map((c) => toView(view, c));
+    const xs = pts.map((p) => p.x);
+    const ys = pts.map((p) => p.y);
+    return {
+      x: Math.min(...xs),
+      y: Math.min(...ys),
+      w: Math.max(...xs) - Math.min(...xs),
+      h: Math.max(...ys) - Math.min(...ys),
+    };
+  };
+  const out: React.ReactNode[] = [];
+  for (const g of ghost.units.values()) {
+    const here = report.layout.units.get(g.unitId);
+    const a = rect(g);
+    const ca = { x: a.x + a.w / 2, y: a.y + a.h / 2 };
+    if (here) {
+      const b = rect(here);
+      const cb = { x: b.x + b.w / 2, y: b.y + b.h / 2 };
+      if (Math.hypot(ca.x - cb.x, ca.y - cb.y) < 5) continue;
+      out.push(
+        <g key={g.unitId} data-ghost={g.unitId}>
+          <rect
+            x={a.x}
+            y={a.y}
+            width={a.w}
+            height={a.h}
+            fill="none"
+            stroke="#6366f1"
+            strokeDasharray="6 4"
+            vectorEffect="non-scaling-stroke"
+          />
+          <line
+            x1={ca.x}
+            y1={ca.y}
+            x2={cb.x}
+            y2={cb.y}
+            stroke="#6366f1"
+            strokeWidth={1.5}
+            markerEnd="url(#ghost-arrow)"
+            vectorEffect="non-scaling-stroke"
+          />
+        </g>,
+      );
+    } else
+      out.push(
+        <g key={g.unitId} data-ghost={g.unitId}>
+          <rect
+            x={a.x}
+            y={a.y}
+            width={a.w}
+            height={a.h}
+            fill="none"
+            stroke="#a3a3a3"
+            strokeDasharray="3 3"
+            vectorEffect="non-scaling-stroke"
+          />
+          <text x={a.x + 4} y={a.y + 14} fontSize={12} fill="#a3a3a3">
+            {g.unit.nickname}
+          </text>
+        </g>,
+      );
+  }
+  return (
+    <g pointerEvents="none" aria-label={t('Positions in {setup}', { setup: other.name })}>
+      <defs>
+        <marker
+          id="ghost-arrow"
+          viewBox="0 0 10 10"
+          refX="9"
+          refY="5"
+          markerWidth="6"
+          markerHeight="6"
+          orient="auto-start-reverse"
+        >
+          <path d="M0 0 L10 5 L0 10 z" fill="#6366f1" />
+        </marker>
+      </defs>
+      {out}
+    </g>
+  );
 }

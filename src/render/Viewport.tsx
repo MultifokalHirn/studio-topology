@@ -45,6 +45,8 @@ export function Viewport(props: {
   /** HTML drag-and-drop onto the canvas, in world coordinates. */
   onDropWorld?: (p: { x: number; y: number }, e: React.DragEvent<SVGSVGElement>) => void;
   onKeyDown?: (e: React.KeyboardEvent<SVGSVGElement>) => void;
+  /** Refit only when this key changes (default: whenever the content size changes). */
+  fitKey?: string;
   svgProps?: React.SVGProps<SVGSVGElement>;
 }) {
   const ref = useRef<SVGSVGElement>(null);
@@ -71,7 +73,7 @@ export function Viewport(props: {
   }, [props, size]);
 
   // Fit once the container has a size (and when the content box changes identity in size).
-  const key = `${props.content.w}x${props.content.h}`;
+  const key = props.fitKey ?? `${props.content.w}x${props.content.h}`;
   const lastKey = useRef(key);
   useEffect(() => {
     if (size.w && (!fitted || lastKey.current !== key)) {

@@ -17,6 +17,7 @@ import type { CanvasTab, SidebarTab } from './store/uiStore';
 import { GearEditorHost } from './features/gear-editor/GearEditor';
 import { Inspector } from './features/inspector/Inspector';
 import { TablesView } from './features/tables/TablesView';
+import { CompareView } from './features/setups/CompareView';
 import { FaceView } from './features/face/FaceView';
 import { LayoutView } from './features/layout/LayoutView';
 import { PatchView } from './features/patch/PatchView';
@@ -46,7 +47,25 @@ const CANVAS_TABS: [CanvasTab, string][] = [
   ['patch', 'Patch'],
   ['face', 'Face'],
   ['tables', 'Tables'],
+  ['compare', 'Compare'],
 ];
+
+const isTyping = (t: EventTarget | null) =>
+  t instanceof HTMLInputElement ||
+  t instanceof HTMLTextAreaElement ||
+  t instanceof HTMLSelectElement ||
+  (t instanceof HTMLElement && t.isContentEditable);
+
+/** A/B toggle (spec §5.11): swap to the previously active setup (else the one this was derived from). */
+function toggleAB() {
+  const { project } = projectStore.getState();
+  const prev = uiStore.getState().previousSetupId;
+  const active = project.setups.find((s) => s.id === project.activeSetupId);
+  const target = [prev, active?.derivedFromId].find(
+    (id) => id && id !== active?.id && project.setups.some((s) => s.id === id),
+  );
+  if (target) projectStore.getState().change((p) => void (p.activeSetupId = target), { label: 'A/B toggle' });
+}
 
 function ToolButton(props: { label: string; onClick: () => void; disabled?: boolean; children: React.ReactNode }) {
   return (
@@ -77,6 +96,12 @@ export function App() {
   const setups = useProject((s) => s.project.setups);
   const activeSetupId = useProject((s) => s.project.activeSetupId);
   const [pending, setPending] = useState<PendingLoad | null>(null);
+  // Remember the previously active setup for the A/B toggle.
+  const [lastActive, setLastActive] = useState(activeSetupId);
+  if (lastActive !== activeSetupId) {
+    if (lastActive) uiStore.getState().setPreviousSetupId(lastActive);
+    setLastActive(activeSetupId);
+  }
   const [recovery, dismissRecovery, snapshotsChecked] = useRecoverySnapshot();
 
   useAutosave();
@@ -91,6 +116,11 @@ export function App() {
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       const mod = e.metaKey || e.ctrlKey;
+      if (!mod && !e.altKey && e.key === '\\' && !isTyping(e.target)) {
+        e.preventDefault();
+        toggleAB();
+        return;
+      }
       if (!mod) return;
       const key = e.key.toLowerCase();
       if (key === 'z' && !e.shiftKey) projectStore.getState().undo();
@@ -270,6 +300,8 @@ export function App() {
                   <LayoutView />
                 ) : canvasTab === 'patch' ? (
                   <PatchView />
+                ) : canvasTab === 'compare' ? (
+                  <CompareView />
                 ) : (
                   <div className="flex h-full items-center justify-center text-sm text-neutral-500">
                     {t('{view} view arrives in a later milestone', {

@@ -594,6 +594,8 @@ export const Setup = z.object({
   createdAt: IsoDate,
   updatedAt: IsoDate,
   suppressedIssues: z.array(z.object({ ruleId: z.string(), entityIds: z.array(z.string()), reason: z.string() })),
+  /** Migration checklist progress towards this setup, keyed by the source setup id: ids of checked items (spec §5.11). */
+  migrationChecks: z.record(z.string(), z.array(z.string())).optional(),
 });
 
 // ---------- settings ----------
