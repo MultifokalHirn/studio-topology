@@ -4,6 +4,7 @@ import clsx from 'clsx';
 import { useMemo, useState } from 'react';
 import { ErrorBoundary } from '@/components/ErrorBoundary';
 import { Button, Modal, Select } from '@/components/ui';
+import { type AssetItem, pruneUnusedAssets } from '@/domain/assets';
 import { checkGearModel, valueAtPath } from '@/domain/integrity';
 import { newId } from '@/domain/ids';
 import { modelLabel, templateFromModel } from '@/domain/libraryOps';
@@ -12,23 +13,27 @@ import { zodIssuesToLoadIssues } from '@/domain/serialize';
 import type { GearModel, Provenance } from '@/domain/types';
 import { t } from '@/i18n';
 import { projectStore, uiStore, useProject, useUi } from '@/store';
+import {
+  readSessionProvenanceKind,
+  SESSION_PROVENANCE_OPTIONS,
+  writeSessionProvenanceKind,
+} from '../provenanceSession';
+import { ImagesSection } from '../images/ImagesSection';
 import { ConnectorsSection } from './ConnectorsSection';
+import { PanelSection } from './PanelSection';
 import { ProvenanceSection } from './ProvenanceSection';
 import { RoutingSection } from './RoutingSection';
-import {
-  DimensionsSection,
-  ErgonomicsSection,
-  IdentitySection,
-  ImagesSection,
-  PowerSection,
-  UsbMidiClockSection,
-} from './sections';
+import { DimensionsSection, ErgonomicsSection, IdentitySection, PowerSection, UsbMidiClockSection } from './sections';
 
 export interface EditorApi {
   draft: GearModel;
   /** Apply a recipe to the draft. Pass `stamp` paths to record provenance for edited values. */
   update(recipe: (d: Draft<GearModel>) => void, stamp?: string[]): void;
   provenanceKind: Provenance['kind'];
+  /** Asset by id: images added in this editor session first, then the project's. */
+  assetItem(id: string | undefined): AssetItem | undefined;
+  /** Stage a new image asset; it is written to the project on Save (Cancel leaves no orphans). */
+  addAsset(item: AssetItem): string;
 }
 
 const SECTIONS = [
@@ -40,19 +45,10 @@ const SECTIONS = [
   ['usb-midi-clock', 'USB / MIDI / Clock'],
   ['ergonomics', 'Ergonomics'],
   ['images', 'Images'],
+  ['panel', 'Panel layout'],
   ['provenance', 'Provenance'],
 ] as const;
 type SectionId = (typeof SECTIONS)[number][0];
-
-const PROV_KEY = 'studio-planner:provenance-kind';
-function readSessionKind(): Provenance['kind'] {
-  try {
-    const v = sessionStorage.getItem(PROV_KEY);
-    return v === 'measured' || v === 'datasheet' || v === 'manufacturer' || v === 'retailer' ? v : 'user';
-  } catch {
-    return 'user';
-  }
-}
 
 export function GearEditorHost() {
   const id = useUi((s) => s.editingGearModelId);
@@ -65,9 +61,11 @@ export function GearEditor({ modelId }: { modelId: string }) {
   const readOnly = useProject((s) => s.readOnly);
   const [draft, setDraft] = useState<GearModel | null>(() => (original ? structuredClone(original) : null));
   const [section, setSection] = useState<SectionId>('identity');
-  const [provenanceKind, setProvenanceKind] = useState<Provenance['kind']>(readSessionKind);
+  const [provenanceKind, setProvenanceKind] = useState<Provenance['kind']>(readSessionProvenanceKind);
   const [confirmDiscard, setConfirmDiscard] = useState(false);
   const [savedTemplate, setSavedTemplate] = useState<string | null>(null);
+  const [pendingAssets, setPendingAssets] = useState<Record<string, AssetItem>>({});
+  const projectAssets = useProject((s) => s.project.assets.items);
 
   const issues = useMemo(() => {
     if (!draft) return [];
@@ -88,6 +86,12 @@ export function GearEditor({ modelId }: { modelId: string }) {
   const api: EditorApi = {
     draft,
     provenanceKind,
+    assetItem: (id) => (id ? (pendingAssets[id] ?? projectAssets[id]) : undefined),
+    addAsset(item) {
+      const id = newId();
+      setPendingAssets((a) => ({ ...a, [id]: item }));
+      return id;
+    },
     update(recipe, stamp) {
       setDraft(
         (d) =>
@@ -106,6 +110,8 @@ export function GearEditor({ modelId }: { modelId: string }) {
       (p) => {
         const i = p.library.gearModels.findIndex((m) => m.id === modelId);
         if (i >= 0) p.library.gearModels[i] = structuredClone(draft);
+        for (const [id, item] of Object.entries(pendingAssets)) p.assets.items[id] = item;
+        pruneUnusedAssets(p);
       },
       { label: `Edit ${modelLabel(draft)}` },
     );
@@ -169,14 +175,10 @@ export function GearEditor({ modelId }: { modelId: string }) {
             {t('New values are')}
             <Select
               value={provenanceKind}
-              options={['user', 'measured', 'datasheet', 'manufacturer', 'retailer']}
+              options={SESSION_PROVENANCE_OPTIONS}
               onChange={(v) => {
                 setProvenanceKind(v);
-                try {
-                  sessionStorage.setItem(PROV_KEY, v);
-                } catch {
-                  /* per-session convenience only */
-                }
+                writeSessionProvenanceKind(v);
               }}
             />
           </label>
@@ -190,7 +192,8 @@ export function GearEditor({ modelId }: { modelId: string }) {
             {section === 'power' && <PowerSection api={api} />}
             {section === 'usb-midi-clock' && <UsbMidiClockSection api={api} />}
             {section === 'ergonomics' && <ErgonomicsSection api={api} />}
-            {section === 'images' && <ImagesSection />}
+            {section === 'images' && <ImagesSection api={api} />}
+            {section === 'panel' && <PanelSection api={api} />}
             {section === 'provenance' && <ProvenanceSection api={api} />}
           </ErrorBoundary>
           {issues.length > 0 && (

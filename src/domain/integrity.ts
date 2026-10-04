@@ -1,5 +1,6 @@
 // Referential-integrity and data-truthfulness checks beyond what the Zod schema can express.
 // Used by `seed:validate`, tests, and (later) the DATA rules.
+import { missingAssetRefs } from './assets';
 import type { GearModel, Project, Provenance, StandModel } from './types';
 
 export interface IntegrityIssue {
@@ -163,6 +164,12 @@ export function checkProject(p: Project): IntegrityIssue[] {
     if (!cableIds.has(c.modelId))
       issues.push({ level: 'error', path: `inventory.cables.${i}`, message: `Unknown cable model "${c.modelId}"` });
   });
+  for (const miss of missingAssetRefs(p))
+    issues.push({
+      level: 'warning',
+      path: `library[${miss.modelId}].images.${miss.slot}`,
+      message: `Image asset "${miss.assetId}" is missing; a placeholder is shown`,
+    });
   if (p.activeSetupId && !p.setups.some((s) => s.id === p.activeSetupId))
     issues.push({ level: 'error', path: 'activeSetupId', message: 'Active setup does not exist' });
 

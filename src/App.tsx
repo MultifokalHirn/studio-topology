@@ -17,6 +17,7 @@ import type { CanvasTab, SidebarTab } from './store/uiStore';
 import { GearEditorHost } from './features/gear-editor/GearEditor';
 import { Inspector } from './features/inspector/Inspector';
 import { ConnectionsTable } from './features/tables/ConnectionsTable';
+import { FaceView } from './features/face/FaceView';
 import { InventoryPanel } from './features/library/InventoryPanel';
 import { LibraryPanel } from './features/library/LibraryPanel';
 import { UnverifiedList } from './features/library/UnverifiedList';
@@ -261,6 +262,8 @@ export function App() {
               <ErrorBoundary label={t('Canvas')}>
                 {canvasTab === 'tables' ? (
                   <ConnectionsTable />
+                ) : canvasTab === 'face' ? (
+                  <FaceView />
                 ) : (
                   <div className="flex h-full items-center justify-center text-sm text-neutral-500">
                     {t('{view} view arrives in a later milestone', {

@@ -996,16 +996,3 @@ export function ErgonomicsSection({ api }: { api: EditorApi }) {
     </section>
   );
 }
-
-export function ImagesSection() {
-  return (
-    <section>
-      <H>{t('Images')}</H>
-      <p className="text-sm text-neutral-500">
-        {t(
-          'Image import, rectification and connector placement on panel photos arrive in the next milestone (M3). Connector positions can be typed in the Connectors section meanwhile.',
-        )}
-      </p>
-    </section>
-  );
-}
