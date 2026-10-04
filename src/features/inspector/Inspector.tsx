@@ -8,6 +8,7 @@ import { formatLength } from '@/domain/units';
 import { t } from '@/i18n';
 import { projectStore, uiStore, useProject, useUi } from '@/store';
 import { MeasureDialog } from '../gear-editor/sections';
+import { StandInspector } from './StandInspector';
 
 export function Inspector() {
   const sel = useUi((s) => s.selection);
@@ -24,23 +25,7 @@ export function Inspector() {
     const unit = sel.kind === 'stand-unit' ? project.inventory.standUnits.find((u) => u.id === sel.id) : undefined;
     const model = project.library.standModels.find((m) => m.id === (unit ? unit.modelId : sel.id));
     if (!model) return null;
-    return (
-      <div className="space-y-2 p-3 text-sm">
-        <h2 className="font-semibold">{unit?.nickname ?? model.name}</h2>
-        <p className="text-xs text-neutral-500">
-          {[model.manufacturer, model.name].filter(Boolean).join(' ')} · {model.type}
-        </p>
-        <ul className="text-xs">
-          {model.surfaces.map((s) => (
-            <li key={s.id}>
-              {s.label}: {s.usable.w} × {s.usable.d} mm{s.loadKg !== null ? `, ${s.loadKg} kg` : ''}
-              {s.rack ? `, ${s.rack.u}U` : ''}
-            </li>
-          ))}
-        </ul>
-        {model.notes && <p className="text-xs text-neutral-500">{model.notes}</p>}
-      </div>
-    );
+    return <StandInspector model={model} standUnitId={unit?.id} />;
   }
   return null;
 }

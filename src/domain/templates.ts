@@ -1,5 +1,6 @@
 // Template instantiation (spec §5.2): pre-fill a new model from a template plus numeric parameters.
 import { newId } from './ids';
+import { RACK_UNIT_MM } from './units';
 import { ensureUnknownProvenance } from './integrity';
 import { desk, eurorackStand, rackStand, tieredAFrame } from './stands';
 import type { Connector, GearModel, StandModel, Template } from './types';
@@ -59,7 +60,10 @@ export function instantiateGearTemplate(
     dimensions.w = keyboardWidthMm(params.keys, dimensions.keyboard.keyType);
     provenance['dimensions.w'] = { kind: 'estimated', note: 'Computed from key count and key pitch.' };
   }
-  if (dimensions.rack && params.u) dimensions.rack.u = params.u;
+  if (dimensions.rack && params.u) {
+    dimensions.rack.u = params.u;
+    dimensions.h = params.u * RACK_UNIT_MM;
+  }
   if (dimensions.eurorack && params.hp) dimensions.eurorack.hp = params.hp;
   for (const k of ['w', 'd', 'h', 'weightKg'] as const) {
     if (dimensions[k] === null) provenance[`dimensions.${k}`] ??= { kind: 'unknown' };
@@ -137,7 +141,16 @@ export function instantiateStandTemplate(
       });
     }
     case 'rack':
-      return rackStand({ id, name: t.name, u: Math.round(n('u', 12)), depthMm: n('depthMm', 400) });
+    case 'rack-case':
+      return rackStand({
+        id,
+        name: t.name,
+        u: Math.round(n('u', 12)),
+        depthMm: n('depthMm', 400),
+        standard: n('inches', 19) === 10 ? '10in' : '19in',
+        kind: t.generator,
+        rearRails: n('rearRails', 0) > 0,
+      });
     case 'desk':
       return desk({ id, name: t.name, w: n('w', 1600), d: n('d', 800), h: n('h', 740) });
     case 'eurorack-stand':

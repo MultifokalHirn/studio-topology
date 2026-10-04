@@ -25,7 +25,6 @@
       "repeat": "outlets"
     }
   ],
-  "description": "Set the voltage and the total current rating (e.g. 16 A) in Power → distribution (JSON) or per outlet.",
   "gear": {
     "category": "power-strip",
     "connectors": [
@@ -44,9 +43,13 @@
     ],
     "dimensions": {
       "d": null,
-      "h": null,
-      "heightIncludesKnobsFeet": true,
-      "w": null,
+      "h": 44.45,
+      "heightIncludesKnobsFeet": false,
+      "rack": {
+        "earsIncluded": true,
+        "u": 1
+      },
+      "w": 482.6,
       "weightKg": null
     },
     "ergonomics": {
@@ -54,7 +57,10 @@
       "interaction": "set-and-forget",
       "needsDisplayVisibility": false
     },
-    "formFactor": "other",
+    "formFactor": "rack",
+    "mounting": {
+      "rackEars": true
+    },
     "power": {
       "distribution": {
         "switched": true,
@@ -68,13 +74,19 @@
     ]
   },
   "group": "Power",
-  "id": "tpl-power-strip",
-  "name": "Power strip (N outlets)",
+  "id": "tpl-rack-pdu",
+  "name": "Rack power distributor 1U (N outlets)",
   "params": [
     {
-      "default": 6,
+      "default": 8,
       "key": "outlets",
       "label": "Outlets"
+    },
+    {
+      "default": 1,
+      "key": "u",
+      "label": "Rack units",
+      "unit": "U"
     }
   ],
   "target": "gear"

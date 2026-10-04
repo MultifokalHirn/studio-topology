@@ -3,7 +3,7 @@
     "power.ac"
   ],
   "endA": "IEC-C13",
-  "endB": "IEC-C13",
+  "endB": "Mains-plug",
   "id": "cable-iec",
   "kind": "cable",
   "lengthsMm": [

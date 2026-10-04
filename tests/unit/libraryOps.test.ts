@@ -107,10 +107,13 @@ describe('templates (spec §5.2)', () => {
       'Audio infrastructure',
       'Computers',
       'Connector groups',
+      'Custom',
       'Desktop gear',
       'Effects',
       'MIDI/CV',
+      'Monitoring',
       'Power',
+      'Rack',
       'Stands',
     ]);
     expect(templates.filter((t) => t.target === 'connectors')).toHaveLength(11);

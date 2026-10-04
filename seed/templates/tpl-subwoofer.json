@@ -1,7 +1,6 @@
 {
-  "description": "One model for the pair: In L feeds the left speaker, In R the right.",
   "gear": {
-    "category": "monitor-speaker",
+    "category": "subwoofer",
     "connectors": [
       {
         "channel": {
@@ -44,6 +43,46 @@
         }
       },
       {
+        "channel": {
+          "group": "out",
+          "role": "L"
+        },
+        "direction": "out",
+        "domain": "audio.analog",
+        "face": "back",
+        "id": "out-l",
+        "jack": "jack-6.35-TRS",
+        "label": "Out (high-passed) L",
+        "pos": {
+          "x": 0,
+          "y": 0
+        },
+        "signal": {
+          "balance": "balanced",
+          "level": "+4dBu"
+        }
+      },
+      {
+        "channel": {
+          "group": "out",
+          "role": "R"
+        },
+        "direction": "out",
+        "domain": "audio.analog",
+        "face": "back",
+        "id": "out-r",
+        "jack": "jack-6.35-TRS",
+        "label": "Out (high-passed) R",
+        "pos": {
+          "x": 0,
+          "y": 0
+        },
+        "signal": {
+          "balance": "balanced",
+          "level": "+4dBu"
+        }
+      },
+      {
         "direction": "in",
         "domain": "power.ac",
         "face": "back",
@@ -69,6 +108,31 @@
       "needsDisplayVisibility": false
     },
     "formFactor": "speaker",
+    "internalPaths": [
+      {
+        "channelMap": [
+          {
+            "from": "in-l",
+            "to": "out-l"
+          },
+          {
+            "from": "in-r",
+            "to": "out-r"
+          }
+        ],
+        "condition": "High-pass to satellites",
+        "from": [
+          "in-l",
+          "in-r"
+        ],
+        "id": "crossover",
+        "mode": "process",
+        "to": [
+          "out-l",
+          "out-r"
+        ]
+      }
+    ],
     "power": {
       "mainsRegion": "unknown",
       "sources": [
@@ -81,10 +145,13 @@
           }
         }
       ]
-    }
+    },
+    "tags": [
+      "monitoring"
+    ]
   },
   "group": "Monitoring",
-  "id": "tpl-monitor-speakers",
-  "name": "Monitor speakers (pair)",
+  "id": "tpl-subwoofer",
+  "name": "Subwoofer (with satellite outs)",
   "target": "gear"
 }

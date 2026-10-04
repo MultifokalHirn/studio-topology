@@ -158,6 +158,11 @@ export function checkProject(p: Project): IntegrityIssue[] {
       issues.push({ level: 'error', path: `inventory.standUnits.${i}`, message: `Unknown stand model "${u.modelId}"` });
     else standUnitModel.set(u.id, m);
   });
+  const cableUnitById = new Map(p.inventory.cables.map((c) => [c.id, c]));
+  p.inventory.cables.forEach((c, i) => {
+    if (!cableIds.has(c.modelId))
+      issues.push({ level: 'error', path: `inventory.cables.${i}`, message: `Unknown cable model "${c.modelId}"` });
+  });
   if (p.activeSetupId && !p.setups.some((s) => s.id === p.activeSetupId))
     issues.push({ level: 'error', path: 'activeSetupId', message: 'Active setup does not exist' });
 
@@ -169,6 +174,37 @@ export function checkProject(p: Project): IntegrityIssue[] {
     s.stands.forEach((st, i) => {
       if (!standUnitModel.has(st.standUnitId))
         issues.push({ level: 'error', path: at(`stands.${i}`), message: `Unknown stand unit "${st.standUnitId}"` });
+      const on = st.onSurface;
+      if (on) {
+        const parent = standUnitModel.get(on.standUnitId);
+        if (!standsInSetup.has(on.standUnitId))
+          issues.push({
+            level: 'error',
+            path: at(`stands.${i}.onSurface`),
+            message: `Parent stand "${on.standUnitId}" is not in this setup`,
+          });
+        else if (parent && !parent.surfaces.some((x) => x.id === on.surfaceId))
+          issues.push({
+            level: 'error',
+            path: at(`stands.${i}.onSurface`),
+            message: `Unknown surface "${on.surfaceId}"`,
+          });
+        // Cycle: follow the chain of parents.
+        const seen = new Set([st.standUnitId]);
+        let cur = s.stands.find((x) => x.standUnitId === on.standUnitId);
+        while (cur?.onSurface) {
+          if (seen.has(cur.standUnitId)) {
+            issues.push({
+              level: 'error',
+              path: at(`stands.${i}.onSurface`),
+              message: 'Stands are stacked in a cycle',
+            });
+            break;
+          }
+          seen.add(cur.standUnitId);
+          cur = s.stands.find((x) => x.standUnitId === cur!.onSurface!.standUnitId);
+        }
+      }
     });
     const placed = new Set<string>();
     s.placements.forEach((pl, i) => {
@@ -220,10 +256,31 @@ export function checkProject(p: Project): IntegrityIssue[] {
           path: at(`connections.${i}`),
           message: `Unknown cable model "${c.cable.modelId}"`,
         });
+      if (c.cable.unitId) {
+        const cu = cableUnitById.get(c.cable.unitId);
+        if (!cu)
+          issues.push({
+            level: 'error',
+            path: at(`connections.${i}`),
+            message: `Unknown owned cable "${c.cable.unitId}"`,
+          });
+        else if (c.cable.modelId && cu.modelId !== c.cable.modelId)
+          issues.push({
+            level: 'warning',
+            path: at(`connections.${i}`),
+            message: 'Assigned cable is a different cable type',
+          });
+      }
       for (const a of c.cable.adapters)
         if (!cableIds.has(a))
           issues.push({ level: 'error', path: at(`connections.${i}`), message: `Unknown adapter "${a}"` });
     });
+    const cableUse = new Map<string, number>();
+    for (const c of s.connections)
+      if (c.cable.unitId) cableUse.set(c.cable.unitId, (cableUse.get(c.cable.unitId) ?? 0) + 1);
+    for (const [id, n] of cableUse)
+      if (n > 1)
+        issues.push({ level: 'warning', path: at('connections'), message: `Owned cable "${id}" is used ${n} times` });
     for (const [unitId, cfg] of Object.entries(s.unitConfigs)) {
       const m = unitModel.get(unitId);
       if (!m) {

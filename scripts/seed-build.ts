@@ -5,11 +5,12 @@ import { join } from 'node:path';
 import { toCanonicalJson } from '../src/domain/serialize.ts';
 import { cableModels, standModels, templates } from './seed/catalog.ts';
 import { instrumentModels } from './seed/gear-instruments.ts';
+import { powerDistributionModels } from './seed/gear-power.ts';
 import { psuModels, studioModels } from './seed/gear-studio.ts';
 import { sampleProject } from './seed/sample.ts';
 
 const ROOT = new URL('../seed/', import.meta.url).pathname;
-const gearModels = [...instrumentModels, ...studioModels, ...psuModels];
+const gearModels = [...instrumentModels, ...studioModels, ...psuModels, ...powerDistributionModels];
 
 const files = new Map<string, string>();
 const put = (dir: string, list: { id: string }[]) =>

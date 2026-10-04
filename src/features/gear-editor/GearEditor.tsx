@@ -5,7 +5,8 @@ import { useMemo, useState } from 'react';
 import { ErrorBoundary } from '@/components/ErrorBoundary';
 import { Button, Modal, Select } from '@/components/ui';
 import { checkGearModel, valueAtPath } from '@/domain/integrity';
-import { modelLabel } from '@/domain/libraryOps';
+import { newId } from '@/domain/ids';
+import { modelLabel, templateFromModel } from '@/domain/libraryOps';
 import { GearModel as GearSchema } from '@/domain/schemas';
 import { zodIssuesToLoadIssues } from '@/domain/serialize';
 import type { GearModel, Provenance } from '@/domain/types';
@@ -66,6 +67,7 @@ export function GearEditor({ modelId }: { modelId: string }) {
   const [section, setSection] = useState<SectionId>('identity');
   const [provenanceKind, setProvenanceKind] = useState<Provenance['kind']>(readSessionKind);
   const [confirmDiscard, setConfirmDiscard] = useState(false);
+  const [savedTemplate, setSavedTemplate] = useState<string | null>(null);
 
   const issues = useMemo(() => {
     if (!draft) return [];
@@ -125,6 +127,17 @@ export function GearEditor({ modelId }: { modelId: string }) {
                 ? t('Unsaved changes')
                 : t('No changes')}
           </span>
+          <Button
+            disabled={readOnly || errors.length > 0}
+            title={t('Store this model as a reusable template (My templates)')}
+            onClick={() => {
+              const tpl = templateFromModel(draft, newId());
+              projectStore.getState().change((p) => void p.library.templates.push(tpl), { label: 'Save as template' });
+              setSavedTemplate(tpl.name);
+            }}
+          >
+            {savedTemplate ? t('Saved as template ✓') : t('Save as template')}
+          </Button>
           <Button onClick={() => (dirty ? setConfirmDiscard(true) : close())}>{t('Cancel')}</Button>
           <Button variant="primary" disabled={readOnly || !dirty || errors.length > 0} onClick={save}>
             {t('Save model')}

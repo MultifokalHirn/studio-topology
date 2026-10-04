@@ -225,6 +225,24 @@
         "id": "unit-psu-nifty",
         "modelId": "gear-cre8audio-niftycase-psu",
         "nickname": "NiftyCASE power supply (nifty)"
+      },
+      {
+        "id": "unit-strip-desk",
+        "modelId": "gear-generic-power-strip-8",
+        "nickname": "Power strip 8× (desk)",
+        "notes": "Placeholder: desk-side strip."
+      },
+      {
+        "id": "unit-strip-stand",
+        "modelId": "gear-generic-power-strip-8",
+        "nickname": "Power strip 8× (stand)",
+        "notes": "Placeholder: strip behind the Jaspers stand."
+      },
+      {
+        "id": "unit-pdu",
+        "modelId": "gear-generic-rack-pdu-8",
+        "nickname": "Rack power distributor 1U 8×",
+        "notes": "Placeholder: rack power distributor."
       }
     ],
     "rooms": [],
@@ -236,7 +254,7 @@
       },
       {
         "id": "stand-unit-rack",
-        "modelId": "stand-generic-rack-8u",
+        "modelId": "stand-generic-rack-12u",
         "nickname": "Rack"
       },
       {
@@ -754,7 +772,7 @@
           "power.ac"
         ],
         "endA": "IEC-C13",
-        "endB": "IEC-C13",
+        "endB": "Mains-plug",
         "id": "cable-iec",
         "kind": "cable",
         "lengthsMm": [
@@ -764,6 +782,22 @@
           3000
         ],
         "name": "IEC C13 mains cable"
+      },
+      {
+        "carries": [
+          "power.ac"
+        ],
+        "endA": "Mains-plug",
+        "endB": "Mains-plug",
+        "id": "cable-mains-extension",
+        "kind": "cable",
+        "lengthsMm": [
+          1500,
+          3000,
+          5000
+        ],
+        "name": "Mains extension cable",
+        "notes": "Plug to socket."
       }
     ],
     "gearModels": [
@@ -20153,6 +20187,474 @@
           "psu",
           "wall-wart"
         ]
+      },
+      {
+        "aliases": [],
+        "category": "power-strip",
+        "connectors": [
+          {
+            "direction": "in",
+            "domain": "power.ac",
+            "face": "back",
+            "id": "ac",
+            "jack": "mains-plug",
+            "label": "Mains plug",
+            "pos": {
+              "x": 0,
+              "y": 0
+            }
+          },
+          {
+            "channel": {
+              "index": 1,
+              "role": "numbered"
+            },
+            "direction": "out",
+            "domain": "power.ac",
+            "face": "back",
+            "id": "outlet-1",
+            "jack": "mains-socket",
+            "label": "Outlet 1",
+            "pos": {
+              "x": 0,
+              "y": 0
+            },
+            "psu": {
+              "currentMaMax": 16000,
+              "voltage": 230
+            }
+          },
+          {
+            "channel": {
+              "index": 2,
+              "role": "numbered"
+            },
+            "direction": "out",
+            "domain": "power.ac",
+            "face": "back",
+            "id": "outlet-2",
+            "jack": "mains-socket",
+            "label": "Outlet 2",
+            "pos": {
+              "x": 0,
+              "y": 0
+            },
+            "psu": {
+              "currentMaMax": 16000,
+              "voltage": 230
+            }
+          },
+          {
+            "channel": {
+              "index": 3,
+              "role": "numbered"
+            },
+            "direction": "out",
+            "domain": "power.ac",
+            "face": "back",
+            "id": "outlet-3",
+            "jack": "mains-socket",
+            "label": "Outlet 3",
+            "pos": {
+              "x": 0,
+              "y": 0
+            },
+            "psu": {
+              "currentMaMax": 16000,
+              "voltage": 230
+            }
+          },
+          {
+            "channel": {
+              "index": 4,
+              "role": "numbered"
+            },
+            "direction": "out",
+            "domain": "power.ac",
+            "face": "back",
+            "id": "outlet-4",
+            "jack": "mains-socket",
+            "label": "Outlet 4",
+            "pos": {
+              "x": 0,
+              "y": 0
+            },
+            "psu": {
+              "currentMaMax": 16000,
+              "voltage": 230
+            }
+          },
+          {
+            "channel": {
+              "index": 5,
+              "role": "numbered"
+            },
+            "direction": "out",
+            "domain": "power.ac",
+            "face": "back",
+            "id": "outlet-5",
+            "jack": "mains-socket",
+            "label": "Outlet 5",
+            "pos": {
+              "x": 0,
+              "y": 0
+            },
+            "psu": {
+              "currentMaMax": 16000,
+              "voltage": 230
+            }
+          },
+          {
+            "channel": {
+              "index": 6,
+              "role": "numbered"
+            },
+            "direction": "out",
+            "domain": "power.ac",
+            "face": "back",
+            "id": "outlet-6",
+            "jack": "mains-socket",
+            "label": "Outlet 6",
+            "pos": {
+              "x": 0,
+              "y": 0
+            },
+            "psu": {
+              "currentMaMax": 16000,
+              "voltage": 230
+            }
+          },
+          {
+            "channel": {
+              "index": 7,
+              "role": "numbered"
+            },
+            "direction": "out",
+            "domain": "power.ac",
+            "face": "back",
+            "id": "outlet-7",
+            "jack": "mains-socket",
+            "label": "Outlet 7",
+            "pos": {
+              "x": 0,
+              "y": 0
+            },
+            "psu": {
+              "currentMaMax": 16000,
+              "voltage": 230
+            }
+          },
+          {
+            "channel": {
+              "index": 8,
+              "role": "numbered"
+            },
+            "direction": "out",
+            "domain": "power.ac",
+            "face": "back",
+            "id": "outlet-8",
+            "jack": "mains-socket",
+            "label": "Outlet 8",
+            "pos": {
+              "x": 0,
+              "y": 0
+            },
+            "psu": {
+              "currentMaMax": 16000,
+              "voltage": 230
+            }
+          }
+        ],
+        "dimensions": {
+          "d": null,
+          "h": null,
+          "heightIncludesKnobsFeet": true,
+          "w": null,
+          "weightKg": null
+        },
+        "ergonomics": {
+          "defaultUsage": "rare",
+          "interaction": "set-and-forget",
+          "needsDisplayVisibility": false
+        },
+        "faces": {},
+        "formFactor": "other",
+        "id": "gear-generic-power-strip-8",
+        "images": {},
+        "internalPaths": [],
+        "manufacturer": "Generic",
+        "mounting": {},
+        "name": "Power strip 8×",
+        "notes": "Placeholder, not from the gear reference: replace with your own strip and its real rating.",
+        "power": {
+          "distribution": {
+            "switched": true,
+            "totalCurrentMaMax": 16000,
+            "voltage": 230
+          },
+          "sources": []
+        },
+        "provenance": {
+          "dimensions.d": {
+            "kind": "unknown"
+          },
+          "dimensions.h": {
+            "kind": "unknown"
+          },
+          "dimensions.w": {
+            "kind": "unknown"
+          },
+          "dimensions.weightKg": {
+            "kind": "unknown"
+          },
+          "power.distribution": {
+            "kind": "estimated",
+            "note": "Typical 230 V / 16 A Schuko strip rating; check the label."
+          }
+        },
+        "sources": [],
+        "tags": [
+          "power",
+          "placeholder"
+        ]
+      },
+      {
+        "aliases": [],
+        "category": "power-strip",
+        "connectors": [
+          {
+            "direction": "in",
+            "domain": "power.ac",
+            "face": "back",
+            "id": "ac",
+            "jack": "mains-plug",
+            "label": "Mains plug",
+            "pos": {
+              "x": 0,
+              "y": 0
+            }
+          },
+          {
+            "channel": {
+              "index": 1,
+              "role": "numbered"
+            },
+            "direction": "out",
+            "domain": "power.ac",
+            "face": "back",
+            "id": "outlet-1",
+            "jack": "mains-socket",
+            "label": "Outlet 1",
+            "pos": {
+              "x": 0,
+              "y": 0
+            },
+            "psu": {
+              "currentMaMax": 16000,
+              "voltage": 230
+            }
+          },
+          {
+            "channel": {
+              "index": 2,
+              "role": "numbered"
+            },
+            "direction": "out",
+            "domain": "power.ac",
+            "face": "back",
+            "id": "outlet-2",
+            "jack": "mains-socket",
+            "label": "Outlet 2",
+            "pos": {
+              "x": 0,
+              "y": 0
+            },
+            "psu": {
+              "currentMaMax": 16000,
+              "voltage": 230
+            }
+          },
+          {
+            "channel": {
+              "index": 3,
+              "role": "numbered"
+            },
+            "direction": "out",
+            "domain": "power.ac",
+            "face": "back",
+            "id": "outlet-3",
+            "jack": "mains-socket",
+            "label": "Outlet 3",
+            "pos": {
+              "x": 0,
+              "y": 0
+            },
+            "psu": {
+              "currentMaMax": 16000,
+              "voltage": 230
+            }
+          },
+          {
+            "channel": {
+              "index": 4,
+              "role": "numbered"
+            },
+            "direction": "out",
+            "domain": "power.ac",
+            "face": "back",
+            "id": "outlet-4",
+            "jack": "mains-socket",
+            "label": "Outlet 4",
+            "pos": {
+              "x": 0,
+              "y": 0
+            },
+            "psu": {
+              "currentMaMax": 16000,
+              "voltage": 230
+            }
+          },
+          {
+            "channel": {
+              "index": 5,
+              "role": "numbered"
+            },
+            "direction": "out",
+            "domain": "power.ac",
+            "face": "back",
+            "id": "outlet-5",
+            "jack": "mains-socket",
+            "label": "Outlet 5",
+            "pos": {
+              "x": 0,
+              "y": 0
+            },
+            "psu": {
+              "currentMaMax": 16000,
+              "voltage": 230
+            }
+          },
+          {
+            "channel": {
+              "index": 6,
+              "role": "numbered"
+            },
+            "direction": "out",
+            "domain": "power.ac",
+            "face": "back",
+            "id": "outlet-6",
+            "jack": "mains-socket",
+            "label": "Outlet 6",
+            "pos": {
+              "x": 0,
+              "y": 0
+            },
+            "psu": {
+              "currentMaMax": 16000,
+              "voltage": 230
+            }
+          },
+          {
+            "channel": {
+              "index": 7,
+              "role": "numbered"
+            },
+            "direction": "out",
+            "domain": "power.ac",
+            "face": "back",
+            "id": "outlet-7",
+            "jack": "mains-socket",
+            "label": "Outlet 7",
+            "pos": {
+              "x": 0,
+              "y": 0
+            },
+            "psu": {
+              "currentMaMax": 16000,
+              "voltage": 230
+            }
+          },
+          {
+            "channel": {
+              "index": 8,
+              "role": "numbered"
+            },
+            "direction": "out",
+            "domain": "power.ac",
+            "face": "back",
+            "id": "outlet-8",
+            "jack": "mains-socket",
+            "label": "Outlet 8",
+            "pos": {
+              "x": 0,
+              "y": 0
+            },
+            "psu": {
+              "currentMaMax": 16000,
+              "voltage": 230
+            }
+          }
+        ],
+        "dimensions": {
+          "d": null,
+          "h": 44.45,
+          "heightIncludesKnobsFeet": false,
+          "rack": {
+            "earsIncluded": true,
+            "u": 1
+          },
+          "w": 482.6,
+          "weightKg": null
+        },
+        "ergonomics": {
+          "defaultUsage": "rare",
+          "interaction": "set-and-forget",
+          "needsDisplayVisibility": false
+        },
+        "faces": {},
+        "formFactor": "rack",
+        "id": "gear-generic-rack-pdu-8",
+        "images": {},
+        "internalPaths": [],
+        "manufacturer": "Generic",
+        "mounting": {
+          "rackEars": true
+        },
+        "name": "Rack power distributor 1U 8×",
+        "notes": "Placeholder, not from the gear reference: replace with your own strip and its real rating.",
+        "power": {
+          "distribution": {
+            "switched": true,
+            "totalCurrentMaMax": 16000,
+            "voltage": 230
+          },
+          "sources": []
+        },
+        "provenance": {
+          "dimensions.d": {
+            "kind": "unknown"
+          },
+          "dimensions.h": {
+            "kind": "estimated",
+            "note": "Template default (Rack power distributor 1U (N outlets))."
+          },
+          "dimensions.w": {
+            "kind": "estimated",
+            "note": "Template default (Rack power distributor 1U (N outlets))."
+          },
+          "dimensions.weightKg": {
+            "kind": "unknown"
+          },
+          "power.distribution": {
+            "kind": "estimated",
+            "note": "Typical 230 V / 16 A Schuko strip rating; check the label."
+          }
+        },
+        "sources": [],
+        "tags": [
+          "power",
+          "placeholder"
+        ]
       }
     ],
     "standModels": [
@@ -20328,15 +20830,15 @@
       {
         "dimensions": {
           "d": 440,
-          "h": 395.6,
+          "h": 573.4000000000001,
           "w": 522.6,
           "weightKg": null
         },
-        "id": "stand-generic-rack-8u",
+        "id": "stand-generic-rack-12u",
         "images": {},
         "manufacturer": "Generic",
-        "name": "Rack 8U",
-        "notes": "Sized for the eight 1U units in the gear reference (7U confirmed + SX 2). Depth is a placeholder; replace with your rack.",
+        "name": "Rack 12U",
+        "notes": "Placeholder for your rack: holds the eight 1U units from the gear reference (7U confirmed + SX 2), a 1U power distributor and 3U spare. Replace size and depth with yours.",
         "provenance": {
           "dimensions.d": {
             "kind": "estimated",
@@ -20358,12 +20860,13 @@
             },
             "id": "bay",
             "kind": "rack-bay",
-            "label": "Rack bay (8U)",
+            "label": "Rack bay (12U)",
             "loadKg": null,
             "rack": {
               "depthMm": 400,
               "innerWidthMm": 450,
-              "u": 8
+              "standard": "19in",
+              "u": 12
             },
             "usable": {
               "d": 400,
@@ -22080,6 +22583,350 @@
           },
           "enabled": true,
           "id": "setup-current-conn-076"
+        },
+        {
+          "a": {
+            "connectorId": "outlet-1",
+            "unitId": "unit-pdu"
+          },
+          "b": {
+            "connectorId": "ac-in",
+            "unitId": "unit-dbx"
+          },
+          "cable": {
+            "adapters": [],
+            "autoLength": true,
+            "modelId": "cable-iec"
+          },
+          "enabled": true,
+          "id": "setup-current-conn-077"
+        },
+        {
+          "a": {
+            "connectorId": "outlet-2",
+            "unitId": "unit-pdu"
+          },
+          "b": {
+            "connectorId": "ac-in",
+            "unitId": "unit-mdx"
+          },
+          "cable": {
+            "adapters": [],
+            "autoLength": true,
+            "modelId": "cable-iec"
+          },
+          "enabled": true,
+          "id": "setup-current-conn-078"
+        },
+        {
+          "a": {
+            "connectorId": "outlet-3",
+            "unitId": "unit-pdu"
+          },
+          "b": {
+            "connectorId": "ac-in",
+            "unitId": "unit-ultrafex"
+          },
+          "cable": {
+            "adapters": [],
+            "autoLength": true,
+            "modelId": "cable-iec"
+          },
+          "enabled": true,
+          "id": "setup-current-conn-079"
+        },
+        {
+          "a": {
+            "connectorId": "outlet-4",
+            "unitId": "unit-pdu"
+          },
+          "b": {
+            "connectorId": "ac-in",
+            "unitId": "unit-keymix"
+          },
+          "cable": {
+            "adapters": [],
+            "autoLength": true,
+            "modelId": "cable-iec"
+          },
+          "enabled": true,
+          "id": "setup-current-conn-080"
+        },
+        {
+          "a": {
+            "connectorId": "outlet-5",
+            "unitId": "unit-pdu"
+          },
+          "b": {
+            "connectorId": "ac-in",
+            "unitId": "unit-ada"
+          },
+          "cable": {
+            "adapters": [],
+            "autoLength": true,
+            "modelId": "cable-iec"
+          },
+          "enabled": true,
+          "id": "setup-current-conn-081"
+        },
+        {
+          "a": {
+            "connectorId": "outlet-6",
+            "unitId": "unit-pdu"
+          },
+          "b": {
+            "connectorId": "ac-in",
+            "unitId": "unit-sx2"
+          },
+          "cable": {
+            "adapters": [],
+            "autoLength": true,
+            "modelId": "cable-iec"
+          },
+          "enabled": true,
+          "id": "setup-current-conn-082"
+        },
+        {
+          "a": {
+            "connectorId": "outlet-7",
+            "unitId": "unit-pdu"
+          },
+          "b": {
+            "connectorId": "ac",
+            "unitId": "unit-psu-mioxl"
+          },
+          "cable": {
+            "adapters": [],
+            "autoLength": false
+          },
+          "enabled": true,
+          "id": "setup-current-conn-083"
+        },
+        {
+          "a": {
+            "connectorId": "outlet-1",
+            "unitId": "unit-strip-desk"
+          },
+          "b": {
+            "connectorId": "ac-in",
+            "unitId": "unit-wz3"
+          },
+          "cable": {
+            "adapters": [],
+            "autoLength": true,
+            "modelId": "cable-iec"
+          },
+          "enabled": true,
+          "id": "setup-current-conn-084"
+        },
+        {
+          "a": {
+            "connectorId": "outlet-2",
+            "unitId": "unit-strip-desk"
+          },
+          "b": {
+            "connectorId": "ac-in",
+            "unitId": "unit-mbrute"
+          },
+          "cable": {
+            "adapters": [],
+            "autoLength": true,
+            "modelId": "cable-iec"
+          },
+          "enabled": true,
+          "id": "setup-current-conn-085"
+        },
+        {
+          "a": {
+            "connectorId": "outlet-3",
+            "unitId": "unit-strip-desk"
+          },
+          "b": {
+            "connectorId": "ac",
+            "unitId": "unit-psu-nightsky"
+          },
+          "cable": {
+            "adapters": [],
+            "autoLength": false
+          },
+          "enabled": true,
+          "id": "setup-current-conn-086"
+        },
+        {
+          "a": {
+            "connectorId": "outlet-4",
+            "unitId": "unit-strip-desk"
+          },
+          "b": {
+            "connectorId": "ac",
+            "unitId": "unit-psu-h90"
+          },
+          "cable": {
+            "adapters": [],
+            "autoLength": false
+          },
+          "enabled": true,
+          "id": "setup-current-conn-087"
+        },
+        {
+          "a": {
+            "connectorId": "outlet-5",
+            "unitId": "unit-strip-desk"
+          },
+          "b": {
+            "connectorId": "ac",
+            "unitId": "unit-psu-drum3p"
+          },
+          "cable": {
+            "adapters": [],
+            "autoLength": false
+          },
+          "enabled": true,
+          "id": "setup-current-conn-088"
+        },
+        {
+          "a": {
+            "connectorId": "outlet-6",
+            "unitId": "unit-strip-desk"
+          },
+          "b": {
+            "connectorId": "ac",
+            "unitId": "unit-psu-2xm"
+          },
+          "cable": {
+            "adapters": [],
+            "autoLength": false
+          },
+          "enabled": true,
+          "id": "setup-current-conn-089"
+        },
+        {
+          "a": {
+            "connectorId": "outlet-7",
+            "unitId": "unit-strip-desk"
+          },
+          "b": {
+            "connectorId": "ac",
+            "unitId": "unit-psu-neutron"
+          },
+          "cable": {
+            "adapters": [],
+            "autoLength": false
+          },
+          "enabled": true,
+          "id": "setup-current-conn-090"
+        },
+        {
+          "a": {
+            "connectorId": "outlet-8",
+            "unitId": "unit-strip-desk"
+          },
+          "b": {
+            "connectorId": "ac",
+            "unitId": "unit-psu-pro800"
+          },
+          "cable": {
+            "adapters": [],
+            "autoLength": false
+          },
+          "enabled": true,
+          "id": "setup-current-conn-091"
+        },
+        {
+          "a": {
+            "connectorId": "outlet-1",
+            "unitId": "unit-strip-stand"
+          },
+          "b": {
+            "connectorId": "ac",
+            "unitId": "unit-psu-heat"
+          },
+          "cable": {
+            "adapters": [],
+            "autoLength": false
+          },
+          "enabled": true,
+          "id": "setup-current-conn-092"
+        },
+        {
+          "a": {
+            "connectorId": "outlet-2",
+            "unitId": "unit-strip-stand"
+          },
+          "b": {
+            "connectorId": "ac",
+            "unitId": "unit-psu-a4"
+          },
+          "cable": {
+            "adapters": [],
+            "autoLength": false
+          },
+          "enabled": true,
+          "id": "setup-current-conn-093"
+        },
+        {
+          "a": {
+            "connectorId": "outlet-3",
+            "unitId": "unit-strip-stand"
+          },
+          "b": {
+            "connectorId": "ac",
+            "unitId": "unit-psu-dt2"
+          },
+          "cable": {
+            "adapters": [],
+            "autoLength": false
+          },
+          "enabled": true,
+          "id": "setup-current-conn-094"
+        },
+        {
+          "a": {
+            "connectorId": "outlet-4",
+            "unitId": "unit-strip-stand"
+          },
+          "b": {
+            "connectorId": "ac",
+            "unitId": "unit-psu-ot"
+          },
+          "cable": {
+            "adapters": [],
+            "autoLength": false
+          },
+          "enabled": true,
+          "id": "setup-current-conn-095"
+        },
+        {
+          "a": {
+            "connectorId": "outlet-5",
+            "unitId": "unit-strip-stand"
+          },
+          "b": {
+            "connectorId": "ac",
+            "unitId": "unit-psu-rd8"
+          },
+          "cable": {
+            "adapters": [],
+            "autoLength": false
+          },
+          "enabled": true,
+          "id": "setup-current-conn-096"
+        },
+        {
+          "a": {
+            "connectorId": "outlet-6",
+            "unitId": "unit-strip-stand"
+          },
+          "b": {
+            "connectorId": "ac",
+            "unitId": "unit-psu-nifty"
+          },
+          "cable": {
+            "adapters": [],
+            "autoLength": false
+          },
+          "enabled": true,
+          "id": "setup-current-conn-097"
         }
       ],
       "createdAt": "2026-10-04T00:00:00.000Z",
@@ -22419,6 +23266,44 @@
         {
           "locked": false,
           "mount": {
+            "standUnitId": "stand-unit-rack",
+            "surfaceId": "bay",
+            "type": "rack",
+            "uStart": 12
+          },
+          "rotationDeg": 0,
+          "unitId": "unit-pdu",
+          "zIndex": 0
+        },
+        {
+          "locked": false,
+          "mount": {
+            "pos": {
+              "x": -2400,
+              "y": 1200
+            },
+            "type": "floor"
+          },
+          "rotationDeg": 0,
+          "unitId": "unit-strip-desk",
+          "zIndex": 0
+        },
+        {
+          "locked": false,
+          "mount": {
+            "pos": {
+              "x": -200,
+              "y": 1100
+            },
+            "type": "floor"
+          },
+          "rotationDeg": 0,
+          "unitId": "unit-strip-stand",
+          "zIndex": 0
+        },
+        {
+          "locked": false,
+          "mount": {
             "standUnitId": "stand-unit-eurorack",
             "surfaceId": "row-1",
             "type": "surface",
@@ -22640,6 +23525,11 @@
           "powerAssignments": [],
           "usage": "primary"
         },
+        "unit-pdu": {
+          "activeAlternates": {},
+          "powerAssignments": [],
+          "usage": "rare"
+        },
         "unit-pro800": {
           "activeAlternates": {},
           "clockSource": {
@@ -22771,6 +23661,16 @@
           },
           "powerAssignments": [],
           "usage": "secondary"
+        },
+        "unit-strip-desk": {
+          "activeAlternates": {},
+          "powerAssignments": [],
+          "usage": "rare"
+        },
+        "unit-strip-stand": {
+          "activeAlternates": {},
+          "powerAssignments": [],
+          "usage": "rare"
         },
         "unit-sx2": {
           "activeAlternates": {},
@@ -24289,6 +25189,350 @@
           },
           "enabled": true,
           "id": "setup-planned-standing-conn-076"
+        },
+        {
+          "a": {
+            "connectorId": "outlet-1",
+            "unitId": "unit-pdu"
+          },
+          "b": {
+            "connectorId": "ac-in",
+            "unitId": "unit-dbx"
+          },
+          "cable": {
+            "adapters": [],
+            "autoLength": true,
+            "modelId": "cable-iec"
+          },
+          "enabled": true,
+          "id": "setup-planned-standing-conn-077"
+        },
+        {
+          "a": {
+            "connectorId": "outlet-2",
+            "unitId": "unit-pdu"
+          },
+          "b": {
+            "connectorId": "ac-in",
+            "unitId": "unit-mdx"
+          },
+          "cable": {
+            "adapters": [],
+            "autoLength": true,
+            "modelId": "cable-iec"
+          },
+          "enabled": true,
+          "id": "setup-planned-standing-conn-078"
+        },
+        {
+          "a": {
+            "connectorId": "outlet-3",
+            "unitId": "unit-pdu"
+          },
+          "b": {
+            "connectorId": "ac-in",
+            "unitId": "unit-ultrafex"
+          },
+          "cable": {
+            "adapters": [],
+            "autoLength": true,
+            "modelId": "cable-iec"
+          },
+          "enabled": true,
+          "id": "setup-planned-standing-conn-079"
+        },
+        {
+          "a": {
+            "connectorId": "outlet-4",
+            "unitId": "unit-pdu"
+          },
+          "b": {
+            "connectorId": "ac-in",
+            "unitId": "unit-keymix"
+          },
+          "cable": {
+            "adapters": [],
+            "autoLength": true,
+            "modelId": "cable-iec"
+          },
+          "enabled": true,
+          "id": "setup-planned-standing-conn-080"
+        },
+        {
+          "a": {
+            "connectorId": "outlet-5",
+            "unitId": "unit-pdu"
+          },
+          "b": {
+            "connectorId": "ac-in",
+            "unitId": "unit-ada"
+          },
+          "cable": {
+            "adapters": [],
+            "autoLength": true,
+            "modelId": "cable-iec"
+          },
+          "enabled": true,
+          "id": "setup-planned-standing-conn-081"
+        },
+        {
+          "a": {
+            "connectorId": "outlet-6",
+            "unitId": "unit-pdu"
+          },
+          "b": {
+            "connectorId": "ac-in",
+            "unitId": "unit-sx2"
+          },
+          "cable": {
+            "adapters": [],
+            "autoLength": true,
+            "modelId": "cable-iec"
+          },
+          "enabled": true,
+          "id": "setup-planned-standing-conn-082"
+        },
+        {
+          "a": {
+            "connectorId": "outlet-7",
+            "unitId": "unit-pdu"
+          },
+          "b": {
+            "connectorId": "ac",
+            "unitId": "unit-psu-mioxl"
+          },
+          "cable": {
+            "adapters": [],
+            "autoLength": false
+          },
+          "enabled": true,
+          "id": "setup-planned-standing-conn-083"
+        },
+        {
+          "a": {
+            "connectorId": "outlet-1",
+            "unitId": "unit-strip-desk"
+          },
+          "b": {
+            "connectorId": "ac-in",
+            "unitId": "unit-wz3"
+          },
+          "cable": {
+            "adapters": [],
+            "autoLength": true,
+            "modelId": "cable-iec"
+          },
+          "enabled": true,
+          "id": "setup-planned-standing-conn-084"
+        },
+        {
+          "a": {
+            "connectorId": "outlet-2",
+            "unitId": "unit-strip-desk"
+          },
+          "b": {
+            "connectorId": "ac-in",
+            "unitId": "unit-mbrute"
+          },
+          "cable": {
+            "adapters": [],
+            "autoLength": true,
+            "modelId": "cable-iec"
+          },
+          "enabled": true,
+          "id": "setup-planned-standing-conn-085"
+        },
+        {
+          "a": {
+            "connectorId": "outlet-3",
+            "unitId": "unit-strip-desk"
+          },
+          "b": {
+            "connectorId": "ac",
+            "unitId": "unit-psu-nightsky"
+          },
+          "cable": {
+            "adapters": [],
+            "autoLength": false
+          },
+          "enabled": true,
+          "id": "setup-planned-standing-conn-086"
+        },
+        {
+          "a": {
+            "connectorId": "outlet-4",
+            "unitId": "unit-strip-desk"
+          },
+          "b": {
+            "connectorId": "ac",
+            "unitId": "unit-psu-h90"
+          },
+          "cable": {
+            "adapters": [],
+            "autoLength": false
+          },
+          "enabled": true,
+          "id": "setup-planned-standing-conn-087"
+        },
+        {
+          "a": {
+            "connectorId": "outlet-5",
+            "unitId": "unit-strip-desk"
+          },
+          "b": {
+            "connectorId": "ac",
+            "unitId": "unit-psu-drum3p"
+          },
+          "cable": {
+            "adapters": [],
+            "autoLength": false
+          },
+          "enabled": true,
+          "id": "setup-planned-standing-conn-088"
+        },
+        {
+          "a": {
+            "connectorId": "outlet-6",
+            "unitId": "unit-strip-desk"
+          },
+          "b": {
+            "connectorId": "ac",
+            "unitId": "unit-psu-2xm"
+          },
+          "cable": {
+            "adapters": [],
+            "autoLength": false
+          },
+          "enabled": true,
+          "id": "setup-planned-standing-conn-089"
+        },
+        {
+          "a": {
+            "connectorId": "outlet-7",
+            "unitId": "unit-strip-desk"
+          },
+          "b": {
+            "connectorId": "ac",
+            "unitId": "unit-psu-neutron"
+          },
+          "cable": {
+            "adapters": [],
+            "autoLength": false
+          },
+          "enabled": true,
+          "id": "setup-planned-standing-conn-090"
+        },
+        {
+          "a": {
+            "connectorId": "outlet-8",
+            "unitId": "unit-strip-desk"
+          },
+          "b": {
+            "connectorId": "ac",
+            "unitId": "unit-psu-pro800"
+          },
+          "cable": {
+            "adapters": [],
+            "autoLength": false
+          },
+          "enabled": true,
+          "id": "setup-planned-standing-conn-091"
+        },
+        {
+          "a": {
+            "connectorId": "outlet-1",
+            "unitId": "unit-strip-stand"
+          },
+          "b": {
+            "connectorId": "ac",
+            "unitId": "unit-psu-heat"
+          },
+          "cable": {
+            "adapters": [],
+            "autoLength": false
+          },
+          "enabled": true,
+          "id": "setup-planned-standing-conn-092"
+        },
+        {
+          "a": {
+            "connectorId": "outlet-2",
+            "unitId": "unit-strip-stand"
+          },
+          "b": {
+            "connectorId": "ac",
+            "unitId": "unit-psu-a4"
+          },
+          "cable": {
+            "adapters": [],
+            "autoLength": false
+          },
+          "enabled": true,
+          "id": "setup-planned-standing-conn-093"
+        },
+        {
+          "a": {
+            "connectorId": "outlet-3",
+            "unitId": "unit-strip-stand"
+          },
+          "b": {
+            "connectorId": "ac",
+            "unitId": "unit-psu-dt2"
+          },
+          "cable": {
+            "adapters": [],
+            "autoLength": false
+          },
+          "enabled": true,
+          "id": "setup-planned-standing-conn-094"
+        },
+        {
+          "a": {
+            "connectorId": "outlet-4",
+            "unitId": "unit-strip-stand"
+          },
+          "b": {
+            "connectorId": "ac",
+            "unitId": "unit-psu-ot"
+          },
+          "cable": {
+            "adapters": [],
+            "autoLength": false
+          },
+          "enabled": true,
+          "id": "setup-planned-standing-conn-095"
+        },
+        {
+          "a": {
+            "connectorId": "outlet-5",
+            "unitId": "unit-strip-stand"
+          },
+          "b": {
+            "connectorId": "ac",
+            "unitId": "unit-psu-rd8"
+          },
+          "cable": {
+            "adapters": [],
+            "autoLength": false
+          },
+          "enabled": true,
+          "id": "setup-planned-standing-conn-096"
+        },
+        {
+          "a": {
+            "connectorId": "outlet-6",
+            "unitId": "unit-strip-stand"
+          },
+          "b": {
+            "connectorId": "ac",
+            "unitId": "unit-psu-nifty"
+          },
+          "cable": {
+            "adapters": [],
+            "autoLength": false
+          },
+          "enabled": true,
+          "id": "setup-planned-standing-conn-097"
         }
       ],
       "createdAt": "2026-10-04T00:00:00.000Z",
@@ -24629,6 +25873,44 @@
         {
           "locked": false,
           "mount": {
+            "standUnitId": "stand-unit-rack",
+            "surfaceId": "bay",
+            "type": "rack",
+            "uStart": 12
+          },
+          "rotationDeg": 0,
+          "unitId": "unit-pdu",
+          "zIndex": 0
+        },
+        {
+          "locked": false,
+          "mount": {
+            "pos": {
+              "x": -2400,
+              "y": 1200
+            },
+            "type": "floor"
+          },
+          "rotationDeg": 0,
+          "unitId": "unit-strip-desk",
+          "zIndex": 0
+        },
+        {
+          "locked": false,
+          "mount": {
+            "pos": {
+              "x": -200,
+              "y": 1100
+            },
+            "type": "floor"
+          },
+          "rotationDeg": 0,
+          "unitId": "unit-strip-stand",
+          "zIndex": 0
+        },
+        {
+          "locked": false,
+          "mount": {
             "standUnitId": "stand-unit-eurorack",
             "surfaceId": "row-1",
             "type": "surface",
@@ -24850,6 +26132,11 @@
           "powerAssignments": [],
           "usage": "primary"
         },
+        "unit-pdu": {
+          "activeAlternates": {},
+          "powerAssignments": [],
+          "usage": "rare"
+        },
         "unit-pro800": {
           "activeAlternates": {},
           "clockSource": {
@@ -24981,6 +26268,16 @@
           },
           "powerAssignments": [],
           "usage": "secondary"
+        },
+        "unit-strip-desk": {
+          "activeAlternates": {},
+          "powerAssignments": [],
+          "usage": "rare"
+        },
+        "unit-strip-stand": {
+          "activeAlternates": {},
+          "powerAssignments": [],
+          "usage": "rare"
         },
         "unit-sx2": {
           "activeAlternates": {},

@@ -1,0 +1,238 @@
+{
+  "aliases": [],
+  "category": "power-strip",
+  "connectors": [
+    {
+      "direction": "in",
+      "domain": "power.ac",
+      "face": "back",
+      "id": "ac",
+      "jack": "mains-plug",
+      "label": "Mains plug",
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "channel": {
+        "index": 1,
+        "role": "numbered"
+      },
+      "direction": "out",
+      "domain": "power.ac",
+      "face": "back",
+      "id": "outlet-1",
+      "jack": "mains-socket",
+      "label": "Outlet 1",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "psu": {
+        "currentMaMax": 16000,
+        "voltage": 230
+      }
+    },
+    {
+      "channel": {
+        "index": 2,
+        "role": "numbered"
+      },
+      "direction": "out",
+      "domain": "power.ac",
+      "face": "back",
+      "id": "outlet-2",
+      "jack": "mains-socket",
+      "label": "Outlet 2",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "psu": {
+        "currentMaMax": 16000,
+        "voltage": 230
+      }
+    },
+    {
+      "channel": {
+        "index": 3,
+        "role": "numbered"
+      },
+      "direction": "out",
+      "domain": "power.ac",
+      "face": "back",
+      "id": "outlet-3",
+      "jack": "mains-socket",
+      "label": "Outlet 3",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "psu": {
+        "currentMaMax": 16000,
+        "voltage": 230
+      }
+    },
+    {
+      "channel": {
+        "index": 4,
+        "role": "numbered"
+      },
+      "direction": "out",
+      "domain": "power.ac",
+      "face": "back",
+      "id": "outlet-4",
+      "jack": "mains-socket",
+      "label": "Outlet 4",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "psu": {
+        "currentMaMax": 16000,
+        "voltage": 230
+      }
+    },
+    {
+      "channel": {
+        "index": 5,
+        "role": "numbered"
+      },
+      "direction": "out",
+      "domain": "power.ac",
+      "face": "back",
+      "id": "outlet-5",
+      "jack": "mains-socket",
+      "label": "Outlet 5",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "psu": {
+        "currentMaMax": 16000,
+        "voltage": 230
+      }
+    },
+    {
+      "channel": {
+        "index": 6,
+        "role": "numbered"
+      },
+      "direction": "out",
+      "domain": "power.ac",
+      "face": "back",
+      "id": "outlet-6",
+      "jack": "mains-socket",
+      "label": "Outlet 6",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "psu": {
+        "currentMaMax": 16000,
+        "voltage": 230
+      }
+    },
+    {
+      "channel": {
+        "index": 7,
+        "role": "numbered"
+      },
+      "direction": "out",
+      "domain": "power.ac",
+      "face": "back",
+      "id": "outlet-7",
+      "jack": "mains-socket",
+      "label": "Outlet 7",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "psu": {
+        "currentMaMax": 16000,
+        "voltage": 230
+      }
+    },
+    {
+      "channel": {
+        "index": 8,
+        "role": "numbered"
+      },
+      "direction": "out",
+      "domain": "power.ac",
+      "face": "back",
+      "id": "outlet-8",
+      "jack": "mains-socket",
+      "label": "Outlet 8",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "psu": {
+        "currentMaMax": 16000,
+        "voltage": 230
+      }
+    }
+  ],
+  "dimensions": {
+    "d": null,
+    "h": 44.45,
+    "heightIncludesKnobsFeet": false,
+    "rack": {
+      "earsIncluded": true,
+      "u": 1
+    },
+    "w": 482.6,
+    "weightKg": null
+  },
+  "ergonomics": {
+    "defaultUsage": "rare",
+    "interaction": "set-and-forget",
+    "needsDisplayVisibility": false
+  },
+  "faces": {},
+  "formFactor": "rack",
+  "id": "gear-generic-rack-pdu-8",
+  "images": {},
+  "internalPaths": [],
+  "manufacturer": "Generic",
+  "mounting": {
+    "rackEars": true
+  },
+  "name": "Rack power distributor 1U 8×",
+  "notes": "Placeholder, not from the gear reference: replace with your own strip and its real rating.",
+  "power": {
+    "distribution": {
+      "switched": true,
+      "totalCurrentMaMax": 16000,
+      "voltage": 230
+    },
+    "sources": []
+  },
+  "provenance": {
+    "dimensions.d": {
+      "kind": "unknown"
+    },
+    "dimensions.h": {
+      "kind": "estimated",
+      "note": "Template default (Rack power distributor 1U (N outlets))."
+    },
+    "dimensions.w": {
+      "kind": "estimated",
+      "note": "Template default (Rack power distributor 1U (N outlets))."
+    },
+    "dimensions.weightKg": {
+      "kind": "unknown"
+    },
+    "power.distribution": {
+      "kind": "estimated",
+      "note": "Typical 230 V / 16 A Schuko strip rating; check the label."
+    }
+  },
+  "sources": [],
+  "tags": [
+    "power",
+    "placeholder"
+  ]
+}

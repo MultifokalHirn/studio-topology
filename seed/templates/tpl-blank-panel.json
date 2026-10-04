@@ -1,0 +1,43 @@
+{
+  "gear": {
+    "category": "rack-accessory",
+    "dimensions": {
+      "d": 5,
+      "h": 44.45,
+      "heightIncludesKnobsFeet": false,
+      "rack": {
+        "earsIncluded": true,
+        "u": 1
+      },
+      "w": 482.6,
+      "weightKg": null
+    },
+    "ergonomics": {
+      "defaultUsage": "rare",
+      "interaction": "set-and-forget",
+      "needsDisplayVisibility": false
+    },
+    "formFactor": "rack",
+    "mounting": {
+      "rackEars": true
+    },
+    "power": {
+      "sources": []
+    },
+    "tags": [
+      "rack"
+    ]
+  },
+  "group": "Rack",
+  "id": "tpl-blank-panel",
+  "name": "Blank panel (N U)",
+  "params": [
+    {
+      "default": 1,
+      "key": "u",
+      "label": "Rack units",
+      "unit": "U"
+    }
+  ],
+  "target": "gear"
+}

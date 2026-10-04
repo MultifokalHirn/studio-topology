@@ -1,8 +1,9 @@
 // Inventory tab (spec §5.1/5.2): owned gear and stand units, grouped by category.
-import { IconCopy, IconTrash } from '@tabler/icons-react';
+import { IconCopy, IconPlus, IconTrash } from '@tabler/icons-react';
 import clsx from 'clsx';
 import { useMemo, useState } from 'react';
-import { ConfirmModal, TextInput } from '@/components/ui';
+import { Button, ConfirmModal, TextInput } from '@/components/ui';
+import { CableUnitDialog } from './CableDialogs';
 import { deleteGearUnit, deleteStandUnit, duplicateGearUnit, gearUnitUsage, modelLabel } from '@/domain/libraryOps';
 import type { GearModel, GearUnit } from '@/domain/types';
 import { t } from '@/i18n';
@@ -14,6 +15,11 @@ export function InventoryPanel() {
   const selection = useUi((s) => s.selection);
   const [query, setQuery] = useState('');
   const [pendingDelete, setPendingDelete] = useState<GearUnit | null>(null);
+  const [cableDialog, setCableDialog] = useState<string | null>(null);
+  const cableModels = useMemo(
+    () => new Map(project.library.cableModels.map((m) => [m.id, m])),
+    [project.library.cableModels],
+  );
   const models = useMemo(() => new Map(project.library.gearModels.map((m) => [m.id, m])), [project.library.gearModels]);
   const standModels = useMemo(
     () => new Map(project.library.standModels.map((m) => [m.id, m])),
@@ -121,7 +127,59 @@ export function InventoryPanel() {
             </li>
           ))}
         </ul>
+        <h3 className="flex items-center px-2 pt-3 text-xs font-semibold text-neutral-500 uppercase">
+          <span className="flex-1">
+            {t('Cables')} ({project.inventory.cables.length})
+          </span>
+          <Button disabled={readOnly} onClick={() => setCableDialog('new')} title={t('Add owned cables')}>
+            <IconPlus size={12} />
+          </Button>
+        </h3>
+        <ul aria-label={t('Owned cables')}>
+          {project.inventory.cables.map((c) => {
+            const m = cableModels.get(c.modelId);
+            return (
+              <li
+                key={c.id}
+                className="group flex items-center gap-1 px-2 py-0.5 text-xs hover:bg-neutral-100 dark:hover:bg-neutral-800"
+              >
+                <span
+                  className="h-2.5 w-2.5 shrink-0 rounded-full border border-neutral-400"
+                  style={{ background: c.color ?? m?.color ?? 'transparent' }}
+                />
+                <button className="min-w-0 flex-1 truncate text-left" onClick={() => setCableDialog(c.id)}>
+                  {c.label ? <strong className="mr-1">{c.label}</strong> : null}
+                  {m?.name ?? c.modelId}
+                  <span className="text-neutral-500">{` · ${c.lengthMm / 1000} m${c.inStock ? '' : ` · ${t('not in stock')}`}`}</span>
+                </button>
+                <button
+                  aria-label={t('Delete cable {name}', { name: c.label ?? m?.name ?? c.id })}
+                  disabled={readOnly}
+                  className="rounded p-0.5 opacity-0 group-hover:opacity-100 focus:opacity-100 hover:bg-neutral-200 dark:hover:bg-neutral-700"
+                  onClick={() =>
+                    change(
+                      (p) => {
+                        p.inventory.cables = p.inventory.cables.filter((x) => x.id !== c.id);
+                        for (const s of p.setups)
+                          for (const conn of s.connections) if (conn.cable.unitId === c.id) delete conn.cable.unitId;
+                      },
+                      { label: 'Delete cable' },
+                    )
+                  }
+                >
+                  <IconTrash size={14} />
+                </button>
+              </li>
+            );
+          })}
+        </ul>
       </div>
+      {cableDialog && (
+        <CableUnitDialog
+          unit={cableDialog === 'new' ? undefined : project.inventory.cables.find((c) => c.id === cableDialog)}
+          onClose={() => setCableDialog(null)}
+        />
+      )}
       {pendingDelete && (
         <ConfirmModal
           title={t('Delete {name}?', { name: pendingDelete.nickname })}

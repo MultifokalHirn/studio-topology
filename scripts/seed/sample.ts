@@ -61,6 +61,10 @@ const UNITS: [string, string, string?][] = [
   ['psu-drum3p', 'gear-clavia-nord-drum-3p-psu'],
   ['psu-mioxl', 'gear-iconnectivity-mioxl-psu'],
   ['psu-nifty', 'gear-cre8audio-niftycase-psu'],
+  // Placeholder mains distribution (not in the gear reference).
+  ['strip-desk', 'gear-generic-power-strip-8', 'Placeholder: desk-side strip.'],
+  ['strip-stand', 'gear-generic-power-strip-8', 'Placeholder: strip behind the Jaspers stand.'],
+  ['pdu', 'gear-generic-rack-pdu-8', 'Placeholder: rack power distributor.'],
 ];
 const PSU_FOR: Record<string, string> = {
   heat: 'psu-heat', a4: 'psu-a4', dt2: 'psu-dt2', ot: 'psu-ot', h90: 'psu-h90', nightsky: 'psu-nightsky', rd8: 'psu-rd8',
@@ -68,6 +72,13 @@ const PSU_FOR: Record<string, string> = {
 }; // prettier-ignore
 
 const u = (key: string) => `unit-${key}`;
+
+/** Which unit plugs into which outlet (in order). */
+const MAINS: [string, string[]][] = [
+  ['pdu', ['dbx', 'mdx', 'ultrafex', 'keymix', 'ada', 'sx2', 'psu-mioxl']],
+  ['strip-desk', ['wz3', 'mbrute', 'psu-nightsky', 'psu-h90', 'psu-drum3p', 'psu-2xm', 'psu-neutron', 'psu-pro800']],
+  ['strip-stand', ['psu-heat', 'psu-a4', 'psu-dt2', 'psu-ot', 'psu-rd8', 'psu-nifty']],
+];
 const S = { jaspers: 'stand-unit-jaspers', rack: 'stand-unit-rack', desk: 'stand-unit-desk', euro: 'stand-unit-eurorack' };
 
 // ---------- connections ----------
@@ -139,6 +150,13 @@ const WIRING: Spec[] = [
   ['ipad', 'usb-c', 'ssl12', 'usb', audio('cable-usb-c-c', { usb: { hostUnitId: u('ipad') } })],
   // Power: every included wall adapter into its unit.
   ...Object.entries(PSU_FOR).map(([unit, psu]): Spec => [psu, 'dc-out', unit, 'dc-in', { cable: { adapters: [], autoLength: false } }]),
+  // Mains: IEC devices via IEC cables, wall adapters plugged in directly (placeholder strips and PDU).
+  ...MAINS.flatMap(([strip, loads]) =>
+    loads.map((load, k): Spec => {
+      const isPsu = load.startsWith('psu-');
+      return [strip, `outlet-${k + 1}`, load, isPsu ? 'ac' : 'ac-in', isPsu ? { cable: { adapters: [], autoLength: false } } : audio('cable-iec')];
+    }),
+  ),
 ];
 
 function connections(prefix: string): Connection[] {
@@ -160,7 +178,9 @@ const place = (key: string, mount: Placement['mount'], zIndex = 0): Placement =>
 const rack = (key: string, uStart: number) => place(key, { type: 'rack', standUnitId: S.rack, surfaceId: 'bay', uStart });
 
 const RACK_AND_STAND: Placement[] = [
-  rack('dbx', 1), rack('mdx', 2), rack('ultrafex', 3), rack('keymix', 4), rack('ada', 5), rack('px3000', 6), rack('mioxl', 7), rack('sx2', 8),
+  rack('dbx', 1), rack('mdx', 2), rack('ultrafex', 3), rack('keymix', 4), rack('ada', 5), rack('px3000', 6), rack('mioxl', 7), rack('sx2', 8), rack('pdu', 12),
+  place('strip-desk', { type: 'floor', pos: { x: -2400, y: 1200 } }),
+  place('strip-stand', { type: 'floor', pos: { x: -200, y: 1100 } }),
   place('neutron', onSurface(S.euro, 'row-1', 8)),
   place('pro800', onSurface(S.euro, 'row-2', 8)),
   place('2xm', onSurface(S.euro, 'row-3', 8)),
@@ -249,12 +269,16 @@ export function sampleProject(gearModels: GearModel[], standModels: StandModel[]
   const gearUnits: GearUnit[] = UNITS.map(([key, modelId, notes]) => {
     const m = models.get(modelId);
     if (!m) throw new Error(`sample: unknown model ${modelId}`);
-    const nickname = key.startsWith('psu-') ? `${m.name} (${key.slice(4)})` : [m.name, m.variant].filter(Boolean).join(' ');
+    const nickname = key.startsWith('psu-')
+      ? `${m.name} (${key.slice(4)})`
+      : key.startsWith('strip-')
+        ? `${m.name} (${key.slice(6)})`
+        : [m.name, m.variant].filter(Boolean).join(' ');
     return { id: u(key), modelId, nickname, ...(notes ? { notes } : {}) };
   });
   const standUnits: StandUnit[] = [
     { id: S.jaspers, modelId: 'stand-jaspers-3d-145b', nickname: 'Jaspers 3D-145B' },
-    { id: S.rack, modelId: 'stand-generic-rack-8u', nickname: 'Rack' },
+    { id: S.rack, modelId: 'stand-generic-rack-12u', nickname: 'Rack' },
     { id: S.desk, modelId: 'stand-generic-desk', nickname: 'Desk' },
     { id: S.euro, modelId: 'stand-eurorack-format-3-row', nickname: 'Eurorack-format stand' },
   ];

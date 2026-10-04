@@ -9,6 +9,9 @@ export const RACK_UNIT_MM = 44.45;
 export const RACK_PANEL_WIDTH_MM = 482.6;
 /** Inner opening between rack rails. */
 export const RACK_INNER_WIDTH_MM = 450;
+/** 10" (half-width) rack: panel width and opening between rails. */
+export const RACK10_PANEL_WIDTH_MM = 254;
+export const RACK10_INNER_WIDTH_MM = 222.25;
 /** 1 Eurorack HP. */
 export const EURORACK_HP_MM = 5.08;
 /** Eurorack 3U panel height. */

@@ -9,15 +9,15 @@ import {
   NumberInput,
   ProvenanceBadge,
   Select,
+  SuggestInput,
   TextInput,
 } from '@/components/ui';
 import { provenanceFor } from '@/domain/integrity';
-import { applyMeasurement, modelLabel } from '@/domain/libraryOps';
+import { applyMeasurement, categorySuggestions, isPowerSupply, modelLabel } from '@/domain/libraryOps';
 import {
   ClockFormat,
   ClockSpec as ClockSchema,
   FormFactor,
-  GearCategory,
   Interaction,
   MainsRegion,
   MidiSpec as MidiSchema,
@@ -25,7 +25,7 @@ import {
   Usage,
 } from '@/domain/schemas';
 import type { GearModel, PowerSource } from '@/domain/types';
-import { EURORACK_HP_MM, RACK_PANEL_WIDTH_MM, RACK_UNIT_MM } from '@/domain/units';
+import { EURORACK_HP_MM, RACK10_PANEL_WIDTH_MM, RACK_PANEL_WIDTH_MM, RACK_UNIT_MM } from '@/domain/units';
 import { t } from '@/i18n';
 import { useProject } from '@/store';
 import type { EditorApi } from './GearEditor';
@@ -46,6 +46,8 @@ function Badge({ api, path, isNull }: { api: EditorApi; path: string; isNull?: b
 
 export function IdentitySection({ api }: { api: EditorApi }) {
   const { draft: m, update } = api;
+  const project = useProject((s) => s.project);
+  const categories = useMemo(() => categorySuggestions(project), [project]);
   return (
     <section>
       <H>{t('Identity')}</H>
@@ -72,13 +74,14 @@ export function IdentitySection({ api }: { api: EditorApi }) {
             <TextInput id={id} value={csv(m.aliases)} onChange={(v) => update((d) => void (d.aliases = fromCsv(v)))} />
           )}
         </Field>
-        <Field label={t('Category')}>
+        <Field label={t('Category (free text)')}>
           {(id) => (
-            <Select
+            <SuggestInput
               id={id}
               value={m.category}
-              options={GearCategory.options}
+              suggestions={categories}
               onChange={(v) => update((d) => void (d.category = v))}
+              placeholder={t('e.g. monitor-speaker, my nearfields')}
             />
           )}
         </Field>
@@ -250,10 +253,32 @@ export function DimensionsSection({ api }: { api: EditorApi }) {
                     else {
                       d.dimensions.rack = { ...(d.dimensions.rack ?? { earsIncluded: true }), u: v };
                       d.dimensions.h = v * RACK_UNIT_MM;
-                      d.dimensions.w = RACK_PANEL_WIDTH_MM;
+                      d.dimensions.w =
+                        d.dimensions.rack.standard === '10in' ? RACK10_PANEL_WIDTH_MM : RACK_PANEL_WIDTH_MM;
                     }
                   },
                   v === null ? [] : ['dimensions.h', 'dimensions.w'],
+                )
+              }
+            />
+          )}
+        </Field>
+        <Field label={t('Rack standard')}>
+          {(id) => (
+            <Select
+              id={id}
+              value={m.dimensions.rack ? (m.dimensions.rack.standard ?? '19in') : undefined}
+              options={[
+                { value: '19in', label: '19"' },
+                { value: '10in', label: '10" (half-rack)' },
+              ]}
+              onChange={(v) =>
+                update(
+                  (d) => {
+                    d.dimensions.rack = { ...(d.dimensions.rack ?? { u: 1, earsIncluded: true }), standard: v };
+                    d.dimensions.w = v === '10in' ? RACK10_PANEL_WIDTH_MM : RACK_PANEL_WIDTH_MM;
+                  },
+                  ['dimensions.w'],
                 )
               }
             />
@@ -424,7 +449,7 @@ export function PolarityGlyph({ polarity }: { polarity: 'center-positive' | 'cen
 export function PowerSection({ api }: { api: EditorApi }) {
   const { draft: m, update } = api;
   const gearModels = useProject((s) => s.project.library.gearModels);
-  const powerModels = useMemo(() => gearModels.filter((x) => x.category === 'power'), [gearModels]);
+  const powerModels = useMemo(() => gearModels.filter(isPowerSupply), [gearModels]);
   const connectorOptions = m.connectors.map((c) => ({ value: c.id, label: `${c.label} (${c.id})` }));
   return (
     <section>
@@ -469,6 +494,110 @@ export function PowerSection({ api }: { api: EditorApi }) {
             />
           )}
         </Field>
+      </div>
+      <div className="mt-4 rounded border border-neutral-200 p-2 dark:border-neutral-700">
+        <div className="flex items-center gap-2">
+          <h4 className="flex-1 text-xs font-semibold text-neutral-500 uppercase">{t('Power strip / distribution')}</h4>
+          <Checkbox
+            checked={!!m.power.distribution}
+            label={t('This unit distributes mains (strip, PDU)')}
+            onChange={(on) =>
+              update(
+                (d) => {
+                  if (on) d.power.distribution = { voltage: 230, totalCurrentMaMax: null };
+                  else delete d.power.distribution;
+                },
+                on ? ['power.distribution.totalCurrentMaMax'] : [],
+              )
+            }
+          />
+        </div>
+        {m.power.distribution && (
+          <>
+            <div className={`${grid} mt-2`}>
+              <Field label={t('Voltage (V)')}>
+                {(id) => (
+                  <NumberInput
+                    id={id}
+                    nullable
+                    value={m.power.distribution!.voltage}
+                    onChange={(v) =>
+                      update((d) => void (d.power.distribution!.voltage = v), ['power.distribution.voltage'])
+                    }
+                  />
+                )}
+              </Field>
+              <Field
+                label={t('Total rating (mA)')}
+                hint={
+                  <Badge
+                    api={api}
+                    path="power.distribution.totalCurrentMaMax"
+                    isNull={m.power.distribution.totalCurrentMaMax === null}
+                  />
+                }
+              >
+                {(id) => (
+                  <NumberInput
+                    id={id}
+                    nullable
+                    value={m.power.distribution!.totalCurrentMaMax}
+                    onChange={(v) =>
+                      update(
+                        (d) => void (d.power.distribution!.totalCurrentMaMax = v),
+                        ['power.distribution.totalCurrentMaMax'],
+                      )
+                    }
+                  />
+                )}
+              </Field>
+              <div className="flex items-end gap-3">
+                <Checkbox
+                  checked={!!m.power.distribution.switched}
+                  onChange={(v) => update((d) => void (d.power.distribution!.switched = v))}
+                  label={t('Switched')}
+                />
+                <Checkbox
+                  checked={!!m.power.distribution.surgeProtected}
+                  onChange={(v) => update((d) => void (d.power.distribution!.surgeProtected = v))}
+                  label={t('Surge protection')}
+                />
+              </div>
+            </div>
+            <p className="mt-2 text-xs text-neutral-500">
+              {t(
+                '{n} outlets. Add more from the connector group or a "Mains socket" connector (domain power.ac, direction out, jack mains-socket).',
+                {
+                  n: m.connectors.filter((c) => c.domain === 'power.ac' && c.direction === 'out').length,
+                },
+              )}
+            </p>
+            <Button
+              className="mt-1"
+              onClick={() =>
+                update((d) => {
+                  const n = d.connectors.filter((c) => c.domain === 'power.ac' && c.direction === 'out').length + 1;
+                  d.connectors.push({
+                    id: `outlet-${n}`,
+                    label: `Outlet ${n}`,
+                    face: 'top',
+                    pos: { x: 0, y: 0 },
+                    domain: 'power.ac',
+                    direction: 'out',
+                    jack: 'mains-socket',
+                    channel: { role: 'numbered', index: n },
+                    psu: {
+                      voltage: d.power.distribution?.voltage ?? null,
+                      currentMaMax: d.power.distribution?.totalCurrentMaMax ?? null,
+                    },
+                  });
+                })
+              }
+            >
+              {t('Add outlet')}
+            </Button>
+          </>
+        )}
       </div>
       <h4 className="mt-4 mb-1 text-xs font-semibold text-neutral-500 uppercase">{t('Sources')}</h4>
       {m.power.sources.length === 0 && (

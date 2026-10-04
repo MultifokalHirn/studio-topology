@@ -35,11 +35,18 @@ export const AssetRef = z.object({ id: Id });
 
 // ---------- gear ----------
 
-export const GearCategory = z.enum([
+/**
+ * Category is a free-text label chosen by the user (ADR 0002). Nothing in the app branches on it; behaviour comes
+ * from connectors, form factor and specs. These are only suggestions offered in the UI.
+ */
+export const SUGGESTED_GEAR_CATEGORIES = [
   'synth', 'drum-machine', 'sampler', 'sequencer', 'controller', 'effect', 'dynamics', 'mixer',
-  'interface', 'converter', 'midi-hub', 'patchbay', 'eurorack-case', 'power', 'computer', 'tablet', 'monitor-speaker',
-  'headphones', 'microphone', 'accessory', 'other',
-]); // prettier-ignore
+  'interface', 'converter', 'midi-hub', 'patchbay', 'eurorack-case', 'power', 'power-strip', 'computer', 'tablet',
+  'monitor-speaker', 'subwoofer', 'monitor-controller', 'headphone-amp', 'headphones', 'microphone', 'rack-accessory',
+  'accessory', 'other',
+] as const; // prettier-ignore
+export const GearCategory = z.string().trim().min(1);
+export const RackStandard = z.enum(['19in', '10in']);
 export const FormFactor = z.enum([
   'desktop',
   'keyboard',
@@ -65,7 +72,7 @@ export const Direction = z.enum(['in', 'out', 'thru', 'bidir']);
 export const FixedJackType = z.enum([
   'jack-6.35-TS', 'jack-6.35-TRS', 'jack-3.5-TS', 'jack-3.5-TRS', 'xlr-f', 'xlr-m', 'combo-xlr-trs', 'din5-f',
   'rca-f', 'toslink-f', 'bnc-f', 'usb-a-f', 'usb-b-f', 'usb-c-f', 'usb-micro-b-f', 'usb-mini-b-f', 'rj45',
-  'iec-c14', 'speakon',
+  'iec-c14', 'speakon', 'mains-socket',
   // Extensions (docs/decisions.md #15): pole count not documented, wireless ports, captive mains plugs, unknown.
   'jack-6.35', 'jack-3.5', 'wireless', 'mains-plug', 'captive-cable', 'unknown',
 ]); // prettier-ignore
@@ -74,7 +81,7 @@ export const JackType = z.union([FixedJackType, DcBarrelJackType]);
 
 export const PlugType = z.enum([
   'TS-6.35', 'TRS-6.35', 'TS-3.5', 'TRS-3.5', 'XLR-M', 'XLR-F', 'DIN5-M', 'RCA-M', 'TOSLINK', 'BNC',
-  'USB-A', 'USB-B', 'USB-C', 'USB-micro-B', 'USB-mini-B', 'RJ45', 'DC-barrel', 'IEC-C13', 'Y-insert',
+  'USB-A', 'USB-B', 'USB-C', 'USB-micro-B', 'USB-mini-B', 'RJ45', 'DC-barrel', 'IEC-C13', 'Mains-plug', 'Y-insert',
 ]); // prettier-ignore
 
 export const Polarity = z.enum(['center-positive', 'center-negative']);
@@ -216,6 +223,15 @@ export const PowerSpec = z.object({
   mainsRegion: MainsRegion.optional(),
   /** Eurorack bus capacity for cases (mA per rail). */
   busRails: z.object({ plus12Ma: nnum, minus12Ma: nnum, plus5Ma: nnum }).optional(),
+  /** Power strips and PDUs: shared rating across all outlets (PWR-006). */
+  distribution: z
+    .object({
+      voltage: nnum,
+      totalCurrentMaMax: nnum,
+      switched: z.boolean().optional(),
+      surgeProtected: z.boolean().optional(),
+    })
+    .optional(),
 });
 
 export const MidiSpec = z.object({
@@ -260,7 +276,15 @@ export const GearModel = z.object({
     d: nnum,
     h: nnum,
     weightKg: nnum,
-    rack: z.object({ u: z.number(), earsIncluded: z.boolean(), depthBehindEarsMm: z.number().optional() }).optional(),
+    rack: z
+      .object({
+        u: z.number(),
+        earsIncluded: z.boolean(),
+        depthBehindEarsMm: z.number().optional(),
+        /** Panel standard; absent means 19". */
+        standard: RackStandard.optional(),
+      })
+      .optional(),
     eurorack: z.object({ hp: z.number(), depthMm: z.number().optional() }).optional(),
     keyboard: z
       .object({ keys: z.number().int(), keyType: z.enum(['slim', 'mini', 'full', 'semi-weighted', 'weighted']) })
@@ -300,7 +324,7 @@ export const GearModel = z.object({
 // ---------- stands ----------
 
 export const StandType = z.enum([
-  'tiered-keyboard-stand', 'desk', 'rack', 'eurorack-case', 'shelf', 'pedalboard', 'floor', 'custom',
+  'tiered-keyboard-stand', 'desk', 'rack', 'rack-case', 'eurorack-case', 'shelf', 'pedalboard', 'floor', 'custom',
 ]); // prettier-ignore
 const Range = z.object({ min: z.number(), max: z.number(), step: z.number() });
 export const SurfaceDef = z.object({
@@ -320,7 +344,15 @@ export const SurfaceDef = z.object({
     .optional(),
   loadKg: nnum,
   lipFrontMm: z.number().optional(),
-  rack: z.object({ u: z.number().int(), innerWidthMm: z.literal(450), depthMm: z.number() }).optional(),
+  rack: z
+    .object({
+      u: z.number().int(),
+      innerWidthMm: z.number(),
+      depthMm: z.number(),
+      standard: RackStandard.optional(),
+      rearRails: z.boolean().optional(),
+    })
+    .optional(),
 });
 export const StandModel = z.object({
   id: Id,
@@ -361,6 +393,10 @@ export const CableModel = z.object({
   lengthsMm: z.array(z.number()),
   maxLengthMm: z.number().optional(),
   swap: z.enum(['none', 'tip-ring-for-L-R', 'trs-a-to-b']).optional(),
+  manufacturer: z.string().optional(),
+  /** Default jacket colour (#rrggbb) for cables of this type. */
+  color: z.string().optional(),
+  tags: z.array(z.string()).optional(),
   notes: z.string().optional(),
   provenance: ProvenanceMap.optional(),
 });
@@ -386,7 +422,7 @@ export const Template = z.object({
   /** Connectors repeated `params[repeat]` times; `{i}` in `id`/`label` is replaced by 1…n (decisions #16). */
   connectorGroups: z.array(z.object({ repeat: z.string().optional(), connectors: z.array(Connector) })).optional(),
   /** Stand templates: parametric generator in `domain/stands.ts`, fed with `params`. */
-  generator: z.enum(['tiered-a-frame', 'rack', 'desk', 'eurorack-stand']).optional(),
+  generator: z.enum(['tiered-a-frame', 'rack', 'rack-case', 'desk', 'eurorack-stand']).optional(),
 });
 
 // ---------- inventory ----------
@@ -408,6 +444,11 @@ export const CableUnit = z.object({
   lengthMm: z.number(),
   label: z.string().optional(),
   inStock: z.boolean(),
+  /** Jacket or tag colour (#rrggbb). */
+  color: z.string().optional(),
+  /** Labels on each end, e.g. "A07 DT2" / "A07 HEAT". */
+  endLabels: z.object({ a: z.string().optional(), b: z.string().optional() }).optional(),
+  notes: z.string().optional(),
 });
 export const Room = z.object({
   id: Id,
@@ -451,6 +492,8 @@ export const StandState = z.object({
     z.string(),
     z.object({ z: z.number().optional(), tiltDeg: z.number().optional(), y: z.number().optional() }),
   ),
+  /** The stand sits on another stand's surface (rack case on a desk); `pos` is then ignored. */
+  onSurface: z.object({ standUnitId: Id, surfaceId: Id, x: z.number(), y: z.number() }).optional(),
 });
 
 export const Mount = z.discriminatedUnion('type', [
@@ -481,6 +524,8 @@ export const Connection = z.object({
     lengthMm: z.number().optional(),
     adapters: z.array(z.string()),
     autoLength: z.boolean(),
+    /** Owned cable (`inventory.cables`) assigned to this connection. */
+    unitId: z.string().optional(),
   }),
   mapping: z.array(z.object({ fromChannel: z.string(), toChannel: z.string() })).optional(),
   midi: z

@@ -1,0 +1,170 @@
+{
+  "connectorGroups": [
+    {
+      "connectors": [
+        {
+          "channel": {
+            "role": "stereo"
+          },
+          "direction": "out",
+          "domain": "audio.headphone",
+          "face": "back",
+          "id": "phones-{i}",
+          "jack": "jack-6.35-TRS",
+          "label": "Headphones {i}",
+          "pos": {
+            "x": 0,
+            "y": 0
+          },
+          "signal": {
+            "balance": "n/a",
+            "level": "headphone"
+          }
+        }
+      ],
+      "repeat": "phones"
+    }
+  ],
+  "description": "Rack form factor by default; switch to desktop in the editor for a desktop amp.",
+  "gear": {
+    "category": "headphone-amp",
+    "connectors": [
+      {
+        "channel": {
+          "group": "in",
+          "role": "L"
+        },
+        "direction": "in",
+        "domain": "audio.analog",
+        "face": "back",
+        "id": "in-l",
+        "jack": "jack-6.35-TRS",
+        "label": "In L",
+        "pos": {
+          "x": 0,
+          "y": 0
+        },
+        "signal": {
+          "balance": "balanced",
+          "level": "line"
+        }
+      },
+      {
+        "channel": {
+          "group": "in",
+          "role": "R"
+        },
+        "direction": "in",
+        "domain": "audio.analog",
+        "face": "back",
+        "id": "in-r",
+        "jack": "jack-6.35-TRS",
+        "label": "In R",
+        "pos": {
+          "x": 0,
+          "y": 0
+        },
+        "signal": {
+          "balance": "balanced",
+          "level": "line"
+        }
+      },
+      {
+        "channel": {
+          "group": "thru",
+          "role": "L"
+        },
+        "direction": "out",
+        "domain": "audio.analog",
+        "face": "back",
+        "id": "thru-l",
+        "jack": "jack-6.35-TRS",
+        "label": "Thru L",
+        "pos": {
+          "x": 0,
+          "y": 0
+        },
+        "signal": {
+          "balance": "balanced",
+          "level": "line"
+        }
+      },
+      {
+        "channel": {
+          "group": "thru",
+          "role": "R"
+        },
+        "direction": "out",
+        "domain": "audio.analog",
+        "face": "back",
+        "id": "thru-r",
+        "jack": "jack-6.35-TRS",
+        "label": "Thru R",
+        "pos": {
+          "x": 0,
+          "y": 0
+        },
+        "signal": {
+          "balance": "balanced",
+          "level": "line"
+        }
+      },
+      {
+        "direction": "in",
+        "domain": "power.ac",
+        "face": "back",
+        "id": "ac-in",
+        "jack": "iec-c14",
+        "label": "Mains (IEC)",
+        "pos": {
+          "x": 0,
+          "y": 0
+        }
+      }
+    ],
+    "dimensions": {
+      "d": null,
+      "h": 44.45,
+      "heightIncludesKnobsFeet": false,
+      "rack": {
+        "earsIncluded": true,
+        "u": 1
+      },
+      "w": 482.6,
+      "weightKg": null
+    },
+    "ergonomics": {
+      "defaultUsage": "secondary",
+      "interaction": "knobs-buttons",
+      "needsDisplayVisibility": false
+    },
+    "formFactor": "rack",
+    "power": {
+      "mainsRegion": "unknown",
+      "sources": [
+        {
+          "included": true,
+          "inputConnectorId": "ac-in",
+          "kind": "internal-mains",
+          "plug": {
+            "type": "iec-c14"
+          }
+        }
+      ]
+    },
+    "tags": [
+      "monitoring"
+    ]
+  },
+  "group": "Monitoring",
+  "id": "tpl-headphone-amp",
+  "name": "Headphone amplifier (N outputs)",
+  "params": [
+    {
+      "default": 4,
+      "key": "phones",
+      "label": "Headphone outputs"
+    }
+  ],
+  "target": "gear"
+}

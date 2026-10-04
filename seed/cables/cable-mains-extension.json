@@ -1,0 +1,16 @@
+{
+  "carries": [
+    "power.ac"
+  ],
+  "endA": "Mains-plug",
+  "endB": "Mains-plug",
+  "id": "cable-mains-extension",
+  "kind": "cable",
+  "lengthsMm": [
+    1500,
+    3000,
+    5000
+  ],
+  "name": "Mains extension cable",
+  "notes": "Plug to socket."
+}

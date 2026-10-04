@@ -1,7 +1,7 @@
 // "New gear" (spec §5.2, §6 add flow): pick a template, set its parameters, then open the gear editor.
 import clsx from 'clsx';
 import { useMemo, useState } from 'react';
-import { Button, Checkbox, Field, Modal, NumberInput, TextInput } from '@/components/ui';
+import { Button, Field, Modal, NumberInput, TextInput } from '@/components/ui';
 import { newId } from '@/domain/ids';
 import { addGearUnit } from '@/domain/libraryOps';
 import { defaultParams, instantiateGearTemplate } from '@/domain/templates';
@@ -21,7 +21,7 @@ export function NewGearDialog({ onClose }: { onClose: () => void }) {
   const [params, setParams] = useState<Record<string, number>>({});
   const [manufacturer, setManufacturer] = useState('');
   const [name, setName] = useState('');
-  const [addUnit, setAddUnit] = useState(true);
+  const [unitCount, setUnitCount] = useState(1);
 
   const pick = (tpl: Template) => {
     setSelected(tpl);
@@ -38,7 +38,7 @@ export function NewGearDialog({ onClose }: { onClose: () => void }) {
         model.manufacturer = manufacturer.trim();
         model.name = name.trim() || selected.name;
         p.library.gearModels.push(model);
-        if (addUnit) addGearUnit(p, id);
+        for (let k = 0; k < unitCount; k++) addGearUnit(p, id);
       },
       { label: 'New gear' },
     );
@@ -111,7 +111,11 @@ export function NewGearDialog({ onClose }: { onClose: () => void }) {
             </Field>
           ))}
           {selected?.description && <p className="text-xs text-neutral-500">{selected.description}</p>}
-          <Checkbox checked={addUnit} onChange={setAddUnit} label={t('Add a unit to my inventory')} />
+          <Field label={t('Units to add to my inventory (e.g. 2 for an L/R speaker pair)')}>
+            {(id) => (
+              <NumberInput id={id} value={unitCount} onChange={(v) => setUnitCount(Math.max(0, Math.round(v ?? 0)))} />
+            )}
+          </Field>
           <p className="text-xs text-neutral-500">
             {t(
               'Dimensions start unknown. Every step after this is optional; unknown values are flagged, never guessed.',

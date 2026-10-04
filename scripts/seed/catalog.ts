@@ -42,9 +42,9 @@ export const jaspers: StandModel = {
   },
 }; // prettier-ignore
 
-export const rack8u: StandModel = {
-  ...rackStand({ id: 'stand-generic-rack-8u', name: 'Rack 8U', u: 8, depthMm: 400 }),
-  notes: 'Sized for the eight 1U units in the gear reference (7U confirmed + SX 2). Depth is a placeholder; replace with your rack.',
+export const rack12u: StandModel = {
+  ...rackStand({ id: 'stand-generic-rack-12u', name: 'Rack 12U', u: 12, depthMm: 400 }),
+  notes: 'Placeholder for your rack: holds the eight 1U units from the gear reference (7U confirmed + SX 2), a 1U power distributor and 3U spare. Replace size and depth with yours.',
   provenance: { 'surfaces.0.rack.depthMm': p('estimated', 'Placeholder depth.'), 'dimensions.d': p('estimated', 'Placeholder depth.') },
 };
 
@@ -59,7 +59,7 @@ export const eurorackFormatStand: StandModel = {
   notes: 'Separate stand for the Neutron, Pro-800 and 2-XM (each ~424 × 136 mm). Geometry is a placeholder; measure.',
 };
 
-export const standModels = [jaspers, rack8u, studioDesk, eurorackFormatStand];
+export const standModels = [jaspers, rack12u, studioDesk, eurorackFormatStand];
 
 // ---------- cables (§8.2) ----------
 
@@ -101,7 +101,8 @@ export const cableModels: CableModel[] = [
   cable('cable-ethernet', 'Ethernet (RJ45)', 'RJ45', 'RJ45', ['ethernet'], [500, 1000, 2000, 3000, 5000, 10000]),
   cable('cable-bnc', 'BNC word clock (75 Ω)', 'BNC', 'BNC', ['clock.word'], [500, 1000, 2000]),
   cable('cable-dc-extension', 'DC barrel extension 5.5 × 2.1/2.5', 'DC-barrel', 'DC-barrel', ['power.dc'], [500, 1000, 2000]),
-  cable('cable-iec', 'IEC C13 mains cable', 'IEC-C13', 'IEC-C13', ['power.ac'], [1000, 1500, 2000, 3000]),
+  cable('cable-iec', 'IEC C13 mains cable', 'IEC-C13', 'Mains-plug', ['power.ac'], [1000, 1500, 2000, 3000]),
+  cable('cable-mains-extension', 'Mains extension cable', 'Mains-plug', 'Mains-plug', ['power.ac'], [1500, 3000, 5000], { notes: 'Plug to socket.' }),
 ]; // prettier-ignore
 
 // ---------- templates (§5.2) ----------
@@ -133,6 +134,23 @@ const conn = {
 };
 
 const tpl = (t: Template): Template => t;
+
+const outletGroup = {
+  repeat: 'outlets',
+  connectors: [c('outlet-{i}', 'Outlet {i}', 'power.ac', 'out', 'mains-socket', { channel: { role: 'numbered' as const }, psu: { voltage: 230, currentMaMax: 16000 } })],
+};
+function powerStripGear(formFactor: 'other' | 'rack'): NonNullable<Template['gear']> {
+  return {
+    category: 'power-strip',
+    formFactor,
+    tags: ['power'],
+    dimensions: formFactor === 'rack' ? rack1U(null) : dims(null, null, null),
+    ...(formFactor === 'rack' ? { mounting: { rackEars: true } } : {}),
+    connectors: [c('ac', 'Mains plug', 'power.ac', 'in', 'mains-plug')],
+    power: { sources: [], distribution: { voltage: 230, totalCurrentMaMax: 16000, switched: true } },
+    ergonomics: ergo('set-and-forget', 'rare'),
+  };
+}
 const gearTpl = (id: string, name: string, group: string, gear: NonNullable<Template['gear']>, extra: Partial<Template> = {}): Template =>
   tpl({ id: `tpl-${id}`, name, group, target: 'gear', gear, ...extra }); // prettier-ignore
 const connTpl = (id: string, name: string, connectors: Connector[]): Template =>
@@ -195,10 +213,8 @@ export const templates: Template[] = [
   }),
   // Power
   gearTpl('wall-wart', 'Wall-wart DC supply', 'Power', { category: 'power', formFactor: 'other', dimensions: dims(null, null, null), connectors: [c('ac', 'Mains plug', 'power.ac', 'in', 'mains-plug'), c('dc-out', 'DC Out', 'power.dc', 'out', 'captive-cable', { psu: { voltage: 12, currentMaMax: 1000, plug: { type: 'barrel', odMm: 5.5, idMm: 2.5, polarity: 'center-positive' }, polarity: 'center-positive' } })], power: { sources: [] }, ergonomics: ergo('set-and-forget', 'rare') }),
-  gearTpl('power-strip', 'Power strip (N outlets)', 'Power', { category: 'power', formFactor: 'other', dimensions: dims(null, null, null), connectors: [c('ac', 'Mains plug', 'power.ac', 'in', 'mains-plug')], power: { sources: [] }, ergonomics: ergo('set-and-forget', 'rare') }, {
-    params: [{ key: 'outlets', label: 'Outlets', default: 6 }],
-    connectorGroups: [{ repeat: 'outlets', connectors: [c('outlet-{i}', 'Outlet {i}', 'power.ac', 'out', 'unknown', { channel: { role: 'numbered' }, psu: { voltage: 230, currentMaMax: null } })] }],
-  }),
+  gearTpl('power-strip', 'Power strip (N outlets)', 'Power', powerStripGear('other'), { params: [{ key: 'outlets', label: 'Outlets', default: 6 }], connectorGroups: [outletGroup], description: 'Set the voltage and the total current rating (e.g. 16 A) in Power → distribution (JSON) or per outlet.' }),
+  gearTpl('rack-pdu', 'Rack power distributor 1U (N outlets)', 'Power', powerStripGear('rack'), { params: [{ key: 'outlets', label: 'Outlets', default: 8 }, { key: 'u', label: 'Rack units', default: 1, unit: 'U' }], connectorGroups: [outletGroup] }),
   gearTpl('usb-hub', 'USB hub (N ports)', 'Power', { category: 'accessory', formFactor: 'other', dimensions: dims(null, null, null), connectors: [usbDevice('upstream', 'usb-c-f', ['data'], { version: '3.0' }), c('dc-in', 'DC In (powered hubs)', 'power.dc', 'in', 'unknown')], power: { sources: [{ kind: 'optional-dc', inputConnectorId: 'dc-in', drawMa: null, included: false }] }, ergonomics: ergo('set-and-forget', 'rare') }, {
     params: [{ key: 'ports', label: 'Ports', default: 4 }],
     connectorGroups: [{ repeat: 'ports', connectors: [c('port-{i}', 'Port {i}', 'usb.data', 'bidir', 'usb-a-f', { usb: { role: 'host', version: '3.0', carries: ['midi', 'audio', 'data', 'power'], suppliesBusPowerMa: 900 }, channel: { role: 'numbered' } })] }],
@@ -207,13 +223,33 @@ export const templates: Template[] = [
   // Computers
   gearTpl('tablet', 'Tablet (USB-C)', 'Computers', { category: 'tablet', formFactor: 'tablet', dimensions: dims(null, null, null), connectors: [c('usb-c', 'USB-C', 'usb.data', 'bidir', 'usb-c-f', { usb: { role: 'host', version: 'unknown', carries: ['midi', 'audio', 'data', 'power'], suppliesBusPowerMa: null } })], power: { sources: [{ kind: 'battery', drawMa: null, included: true }] }, ergonomics: ergo('touch', 'primary', true) }),
   gearTpl('laptop', 'Laptop', 'Computers', { category: 'computer', formFactor: 'desktop', dimensions: dims(null, null, null), connectors: [c('usb-c-1', 'USB-C 1', 'usb.data', 'bidir', 'usb-c-f', { usb: { role: 'host', version: 'unknown', carries: ['midi', 'audio', 'data', 'power'], suppliesBusPowerMa: 1500 } }), c('usb-c-2', 'USB-C 2', 'usb.data', 'bidir', 'usb-c-f', { usb: { role: 'host', version: 'unknown', carries: ['midi', 'audio', 'data', 'power'], suppliesBusPowerMa: 1500 } }), phones('phones', 'Headphones', 'jack-3.5-TRS')], power: { sources: [{ kind: 'battery', drawMa: null, included: true }] }, ergonomics: ergo('touch', 'primary', true) }),
-  gearTpl('monitor-speakers', 'Monitor speakers (pair)', 'Computers', { category: 'monitor-speaker', formFactor: 'speaker', dimensions: dims(null, null, null), connectors: [...pair('in', 'In', 'in', 'combo-xlr-trs', 'balanced', '+4dBu'), iecC], power: iec, ergonomics: ergo('set-and-forget', 'rare') }, { description: 'One model for the pair: In L feeds the left speaker, In R the right.' }),
-  gearTpl('headphones', 'Headphones', 'Computers', { category: 'headphones', formFactor: 'handheld', dimensions: dims(null, null, null), connectors: [c('plug', 'Plug (¼" TRS)', 'audio.headphone', 'in', 'captive-cable', { channel: { role: 'stereo' } })], power: { sources: [] }, ergonomics: ergo('set-and-forget') }),
+  gearTpl('monitor-speakers', 'Monitor speakers (pair)', 'Monitoring', { category: 'monitor-speaker', formFactor: 'speaker', dimensions: dims(null, null, null), connectors: [...pair('in', 'In', 'in', 'combo-xlr-trs', 'balanced', '+4dBu'), iecC], power: iec, ergonomics: ergo('set-and-forget', 'rare') }, { description: 'One model for the pair: In L feeds the left speaker, In R the right.' }),
+  gearTpl('headphones', 'Headphones', 'Monitoring', { category: 'headphones', formFactor: 'handheld', dimensions: dims(null, null, null), connectors: [c('plug', 'Plug (¼" TRS)', 'audio.headphone', 'in', 'captive-cable', { channel: { role: 'stereo' } })], power: { sources: [] }, ergonomics: ergo('set-and-forget') }),
+  gearTpl('monitor-speaker', 'Monitor speaker (active, single)', 'Monitoring', { category: 'monitor-speaker', formFactor: 'speaker', tags: ['monitoring'], dimensions: dims(null, null, null), connectors: [mono('in', 'Input', 'in', 'combo-xlr-trs', 'balanced', '+4dBu'), iecC], power: iec, ergonomics: ergo('set-and-forget', 'rare') }, { description: 'Add two units (left and right) for a stereo pair; name them in the inventory.' }),
+  gearTpl('subwoofer', 'Subwoofer (with satellite outs)', 'Monitoring', { category: 'subwoofer', formFactor: 'speaker', tags: ['monitoring'], dimensions: dims(null, null, null), connectors: [...pair('in', 'In', 'in', 'combo-xlr-trs', 'balanced', '+4dBu'), ...pair('out', 'Out (high-passed)', 'out', 'jack-6.35-TRS', 'balanced', '+4dBu'), iecC], internalPaths: [{ id: 'crossover', from: ['in-l', 'in-r'], to: ['out-l', 'out-r'], mode: 'process', channelMap: [{ from: 'in-l', to: 'out-l' }, { from: 'in-r', to: 'out-r' }], condition: 'High-pass to satellites' }], power: iec, ergonomics: ergo('set-and-forget', 'rare') }),
+  gearTpl('monitor-controller', 'Monitor controller', 'Monitoring', { category: 'monitor-controller', formFactor: 'desktop', tags: ['monitoring'], dimensions: dims(null, null, null), connectors: [...pair('in-a', 'Input A', 'in', 'jack-6.35-TRS', 'balanced', 'line'), ...pair('in-b', 'Input B', 'in', 'jack-6.35-TRS', 'balanced', 'line'), c('in-aux', 'Aux In', 'audio.analog', 'in', 'jack-3.5-TRS', { channel: { role: 'stereo' }, signal: { balance: 'n/a', level: 'line' } }), dcInC], power: { sources: [{ kind: 'external-dc', inputConnectorId: 'dc-in', drawMa: null, included: true }] }, ergonomics: ergo('knobs-buttons', 'primary') }, {
+    params: [{ key: 'speakerSets', label: 'Speaker outputs (stereo sets)', default: 2 }, { key: 'phones', label: 'Headphone outputs', default: 1 }],
+    description: 'Add internal paths (Internal routing) for source and speaker selection once outputs exist.',
+    connectorGroups: [
+      { repeat: 'speakerSets', connectors: pair('out-{i}', 'Speaker {i}', 'out', 'jack-6.35-TRS', 'balanced', 'line') },
+      { repeat: 'phones', connectors: [phones('phones-{i}', 'Headphones {i}', 'jack-6.35-TRS')] },
+    ],
+  }),
+  gearTpl('headphone-amp', 'Headphone amplifier (N outputs)', 'Monitoring', { category: 'headphone-amp', formFactor: 'rack', tags: ['monitoring'], dimensions: { ...rack1U(null) }, connectors: [...pair('in', 'In', 'in', 'jack-6.35-TRS', 'balanced', 'line'), ...pair('thru', 'Thru', 'out', 'jack-6.35-TRS', 'balanced', 'line'), iecC], power: iec, ergonomics: ergo('knobs-buttons') }, {
+    params: [{ key: 'phones', label: 'Headphone outputs', default: 4 }],
+    connectorGroups: [{ repeat: 'phones', connectors: [phones('phones-{i}', 'Headphones {i}', 'jack-6.35-TRS')] }],
+    description: 'Rack form factor by default; switch to desktop in the editor for a desktop amp.',
+  }),
+  // Custom and rack accessories
+  gearTpl('blank', 'Blank (custom)', 'Custom', { category: 'other', formFactor: 'desktop', dimensions: dims(null, null, null), power: { sources: [] }, ergonomics: ergo('knobs-buttons') }, { description: 'No connectors. Pick any category (free text) and add connectors from groups or one by one.' }),
+  gearTpl('rack-shelf', 'Rack shelf (N U)', 'Rack', { category: 'rack-accessory', formFactor: 'rack', tags: ['rack'], dimensions: rack1U(null), mounting: { rackEars: true }, power: { sources: [] }, ergonomics: ergo('set-and-forget', 'rare') }, { params: [{ key: 'u', label: 'Rack units', default: 1, unit: 'U' }], description: 'Desktop gear stacks on the shelf (stacked placement).' }),
+  gearTpl('blank-panel', 'Blank panel (N U)', 'Rack', { category: 'rack-accessory', formFactor: 'rack', tags: ['rack'], dimensions: { ...rack1U(5), weightKg: null }, mounting: { rackEars: true }, power: { sources: [] }, ergonomics: ergo('set-and-forget', 'rare') }, { params: [{ key: 'u', label: 'Rack units', default: 1, unit: 'U' }] }),
   // Stands
   tpl({ id: 'tpl-stand-a-frame', name: 'Tiered A-frame keyboard stand', group: 'Stands', target: 'stand', generator: 'tiered-a-frame', params: [{ key: 'tiers', label: 'Tiers', default: 3 }, { key: 'innerSpanMm', label: 'Inner span', default: 1450, unit: 'mm' }, { key: 'holderLengthMm', label: 'Holder length', default: 400, unit: 'mm' }, { key: 'heightMm', label: 'Max height', default: 1400, unit: 'mm' }, { key: 'poleDiameterMm', label: 'Pole diameter', default: 40, unit: 'mm' }] }),
   tpl({ id: 'tpl-stand-x', name: 'X-stand', group: 'Stands', target: 'stand', stand: { type: 'custom', dimensions: { w: 1000, d: 450, h: null }, surfaces: [{ id: 'top', label: 'Arms', kind: 'tier', usable: { w: 1000, d: 450 }, anchor: { x: 0, y: 0, z: 800 }, adjustable: { z: { min: 600, max: 1000, step: 25 } }, loadKg: null }] } }),
   tpl({ id: 'tpl-stand-desk', name: 'Desk', group: 'Stands', target: 'stand', generator: 'desk', params: [{ key: 'w', label: 'Width', default: 1600, unit: 'mm' }, { key: 'd', label: 'Depth', default: 800, unit: 'mm' }, { key: 'h', label: 'Height', default: 740, unit: 'mm' }] }),
-  tpl({ id: 'tpl-stand-rack', name: '19" rack', group: 'Stands', target: 'stand', generator: 'rack', params: [{ key: 'u', label: 'Units', default: 12, unit: 'U' }, { key: 'depthMm', label: 'Depth', default: 400, unit: 'mm' }] }),
+  tpl({ id: 'tpl-stand-rack', name: 'Rack (floor-standing)', group: 'Stands', target: 'stand', generator: 'rack', params: [{ key: 'u', label: 'Units', default: 12, unit: 'U' }, { key: 'depthMm', label: 'Depth', default: 400, unit: 'mm' }, { key: 'inches', label: 'Width standard (19 or 10)', default: 19, unit: '"' }] }),
+  tpl({ id: 'tpl-stand-rack-case', name: 'Rack case', group: 'Stands', target: 'stand', generator: 'rack-case', params: [{ key: 'u', label: 'Units', default: 4, unit: 'U' }, { key: 'depthMm', label: 'Usable depth', default: 350, unit: 'mm' }, { key: 'inches', label: 'Width standard (19 or 10)', default: 19, unit: '"' }, { key: 'rearRails', label: 'Rear rails (1 = yes)', default: 0 }], description: 'Portable case; can sit on a desk or another stand.' }),
   tpl({ id: 'tpl-stand-eurorack', name: 'Eurorack stand', group: 'Stands', target: 'stand', generator: 'eurorack-stand', params: [{ key: 'rows', label: 'Rows', default: 3 }, { key: 'rowDepthMm', label: 'Row depth', default: 140, unit: 'mm' }, { key: 'widthMm', label: 'Width', default: 440, unit: 'mm' }] }),
   tpl({ id: 'tpl-stand-shelf', name: 'Shelf', group: 'Stands', target: 'stand', stand: { type: 'shelf', dimensions: { w: 800, d: 300, h: null }, surfaces: [{ id: 'shelf', label: 'Shelf', kind: 'shelf', usable: { w: 800, d: 300 }, anchor: { x: 0, y: 0, z: 1000 }, adjustable: {}, loadKg: null }] } }),
   tpl({ id: 'tpl-stand-pedalboard', name: 'Pedalboard', group: 'Stands', target: 'stand', stand: { type: 'pedalboard', dimensions: { w: 600, d: 320, h: 60 }, surfaces: [{ id: 'board', label: 'Board', kind: 'desktop', usable: { w: 600, d: 320 }, anchor: { x: 0, y: 0, z: 60 }, adjustable: {}, loadKg: null }] } }),

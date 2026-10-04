@@ -1,15 +1,15 @@
 {
   "dimensions": {
     "d": 440,
-    "h": 395.6,
+    "h": 573.4000000000001,
     "w": 522.6,
     "weightKg": null
   },
-  "id": "stand-generic-rack-8u",
+  "id": "stand-generic-rack-12u",
   "images": {},
   "manufacturer": "Generic",
-  "name": "Rack 8U",
-  "notes": "Sized for the eight 1U units in the gear reference (7U confirmed + SX 2). Depth is a placeholder; replace with your rack.",
+  "name": "Rack 12U",
+  "notes": "Placeholder for your rack: holds the eight 1U units from the gear reference (7U confirmed + SX 2), a 1U power distributor and 3U spare. Replace size and depth with yours.",
   "provenance": {
     "dimensions.d": {
       "kind": "estimated",
@@ -31,12 +31,13 @@
       },
       "id": "bay",
       "kind": "rack-bay",
-      "label": "Rack bay (8U)",
+      "label": "Rack bay (12U)",
       "loadKg": null,
       "rack": {
         "depthMm": 400,
         "innerWidthMm": 450,
-        "u": 8
+        "standard": "19in",
+        "u": 12
       },
       "usable": {
         "d": 400,

@@ -1,0 +1,26 @@
+{
+  "description": "No connectors. Pick any category (free text) and add connectors from groups or one by one.",
+  "gear": {
+    "category": "other",
+    "dimensions": {
+      "d": null,
+      "h": null,
+      "heightIncludesKnobsFeet": true,
+      "w": null,
+      "weightKg": null
+    },
+    "ergonomics": {
+      "defaultUsage": "secondary",
+      "interaction": "knobs-buttons",
+      "needsDisplayVisibility": false
+    },
+    "formFactor": "desktop",
+    "power": {
+      "sources": []
+    }
+  },
+  "group": "Custom",
+  "id": "tpl-blank",
+  "name": "Blank (custom)",
+  "target": "gear"
+}

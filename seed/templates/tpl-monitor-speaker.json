@@ -1,39 +1,18 @@
 {
-  "description": "One model for the pair: In L feeds the left speaker, In R the right.",
+  "description": "Add two units (left and right) for a stereo pair; name them in the inventory.",
   "gear": {
     "category": "monitor-speaker",
     "connectors": [
       {
         "channel": {
-          "group": "in",
-          "role": "L"
+          "role": "mono"
         },
         "direction": "in",
         "domain": "audio.analog",
         "face": "back",
-        "id": "in-l",
+        "id": "in",
         "jack": "combo-xlr-trs",
-        "label": "In L",
-        "pos": {
-          "x": 0,
-          "y": 0
-        },
-        "signal": {
-          "balance": "balanced",
-          "level": "+4dBu"
-        }
-      },
-      {
-        "channel": {
-          "group": "in",
-          "role": "R"
-        },
-        "direction": "in",
-        "domain": "audio.analog",
-        "face": "back",
-        "id": "in-r",
-        "jack": "combo-xlr-trs",
-        "label": "In R",
+        "label": "Input",
         "pos": {
           "x": 0,
           "y": 0
@@ -81,10 +60,13 @@
           }
         }
       ]
-    }
+    },
+    "tags": [
+      "monitoring"
+    ]
   },
   "group": "Monitoring",
-  "id": "tpl-monitor-speakers",
-  "name": "Monitor speakers (pair)",
+  "id": "tpl-monitor-speaker",
+  "name": "Monitor speaker (active, single)",
   "target": "gear"
 }

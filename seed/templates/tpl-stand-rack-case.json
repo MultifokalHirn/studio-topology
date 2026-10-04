@@ -1,0 +1,33 @@
+{
+  "description": "Portable case; can sit on a desk or another stand.",
+  "generator": "rack-case",
+  "group": "Stands",
+  "id": "tpl-stand-rack-case",
+  "name": "Rack case",
+  "params": [
+    {
+      "default": 4,
+      "key": "u",
+      "label": "Units",
+      "unit": "U"
+    },
+    {
+      "default": 350,
+      "key": "depthMm",
+      "label": "Usable depth",
+      "unit": "mm"
+    },
+    {
+      "default": 19,
+      "key": "inches",
+      "label": "Width standard (19 or 10)",
+      "unit": "\""
+    },
+    {
+      "default": 0,
+      "key": "rearRails",
+      "label": "Rear rails (1 = yes)"
+    }
+  ],
+  "target": "stand"
+}

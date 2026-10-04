@@ -16,6 +16,7 @@ import { isDirty } from './store/projectStore';
 import type { CanvasTab, SidebarTab } from './store/uiStore';
 import { GearEditorHost } from './features/gear-editor/GearEditor';
 import { Inspector } from './features/inspector/Inspector';
+import { ConnectionsTable } from './features/tables/ConnectionsTable';
 import { InventoryPanel } from './features/library/InventoryPanel';
 import { LibraryPanel } from './features/library/LibraryPanel';
 import { UnverifiedList } from './features/library/UnverifiedList';
@@ -69,6 +70,8 @@ export function App() {
   const canRedo = useProject((s) => s.history.future.length > 0);
   const lastAutosaveAt = useProject((s) => s.lastAutosaveAt);
   const lengthUnit = useProject((s) => s.project.settings.units.length);
+  const setups = useProject((s) => s.project.setups);
+  const activeSetupId = useProject((s) => s.project.activeSetupId);
   const [pending, setPending] = useState<PendingLoad | null>(null);
   const [recovery, dismissRecovery, snapshotsChecked] = useRecoverySnapshot();
 
@@ -158,6 +161,27 @@ export function App() {
             </ToolButton>
           </div>
           <div className="flex-1" />
+          {setups.length > 0 && (
+            <label className="mr-2 flex items-center gap-1 text-xs text-neutral-500">
+              {t('Setup')}
+              <select
+                aria-label={t('Active setup')}
+                className="rounded border border-neutral-300 bg-white px-1 py-0.5 text-sm text-neutral-900 dark:border-neutral-600 dark:bg-neutral-800 dark:text-neutral-100"
+                value={activeSetupId ?? ''}
+                onChange={(e) =>
+                  projectStore
+                    .getState()
+                    .change((p) => void (p.activeSetupId = e.target.value), { label: 'Switch setup' })
+                }
+              >
+                {setups.map((s) => (
+                  <option key={s.id} value={s.id}>
+                    {s.name}
+                  </option>
+                ))}
+              </select>
+            </label>
+          )}
           <ToolButton label={t('Toggle theme')} onClick={() => uiStore.getState().setDarkMode(!dark)}>
             {dark ? <IconSun size={18} /> : <IconMoon size={18} />}
           </ToolButton>
@@ -233,8 +257,18 @@ export function App() {
                 </button>
               ))}
             </nav>
-            <div className="flex flex-1 items-center justify-center text-sm text-neutral-500">
-              {t('{view} view', { view: t(CANVAS_TABS.find(([id]) => id === canvasTab)?.[1] ?? '') })}
+            <div className="min-h-0 flex-1">
+              <ErrorBoundary label={t('Canvas')}>
+                {canvasTab === 'tables' ? (
+                  <ConnectionsTable />
+                ) : (
+                  <div className="flex h-full items-center justify-center text-sm text-neutral-500">
+                    {t('{view} view arrives in a later milestone', {
+                      view: t(CANVAS_TABS.find(([id]) => id === canvasTab)?.[1] ?? ''),
+                    })}
+                  </div>
+                )}
+              </ErrorBoundary>
             </div>
           </main>
           <aside

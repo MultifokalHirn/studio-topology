@@ -2,7 +2,7 @@
   "generator": "rack",
   "group": "Stands",
   "id": "tpl-stand-rack",
-  "name": "19\" rack",
+  "name": "Rack (floor-standing)",
   "params": [
     {
       "default": 12,
@@ -15,6 +15,12 @@
       "key": "depthMm",
       "label": "Depth",
       "unit": "mm"
+    },
+    {
+      "default": 19,
+      "key": "inches",
+      "label": "Width standard (19 or 10)",
+      "unit": "\""
     }
   ],
   "target": "stand"

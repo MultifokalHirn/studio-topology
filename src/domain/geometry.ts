@@ -175,19 +175,45 @@ export interface SurfaceFrame {
  * Surface frame from the stand state (spec §7.2). Surface z/tilt/y come from the setup's `surfaceStates`,
  * falling back to the model's anchor and zero tilt.
  */
-export function surfaceFrame(surface: SurfaceDef, stand: StandState): SurfaceFrame {
+export function surfaceFrame(
+  surface: SurfaceDef,
+  stand: StandState,
+  base: Vec3 = { ...stand.pos, z: 0 },
+): SurfaceFrame {
   const st = stand.surfaceStates[surface.id] ?? {};
   return {
     origin: {
-      x: stand.pos.x + surface.anchor.x,
-      y: stand.pos.y + surface.anchor.y + (st.y ?? 0),
-      z: st.z ?? surface.anchor.z,
+      x: base.x + surface.anchor.x,
+      y: base.y + surface.anchor.y + (st.y ?? 0),
+      z: base.z + (st.z ?? surface.anchor.z),
     },
     tiltDeg: st.tiltDeg ?? 0,
     standRotationDeg: stand.rotationDeg,
-    standPos: stand.pos,
+    standPos: { x: base.x, y: base.y },
     usable: surface.usable,
   };
+}
+
+/**
+ * World position of a stand's origin. A stand with `onSurface` sits on another stand's surface (a rack case on a
+ * desk); its origin is that surface point, so its surface heights add to the parent's. Cycles resolve to the floor.
+ */
+export function standBase(
+  standUnitId: string,
+  stands: StandState[],
+  surfaceOf: (standUnitId: string, surfaceId: string) => SurfaceDef | undefined,
+  seen: Set<string> = new Set(),
+): Vec3 {
+  const st = stands.find((s) => s.standUnitId === standUnitId);
+  if (!st) return { x: 0, y: 0, z: 0 };
+  const on = st.onSurface;
+  if (!on || seen.has(standUnitId)) return { ...st.pos, z: 0 };
+  seen.add(standUnitId);
+  const parent = stands.find((s) => s.standUnitId === on.standUnitId);
+  const surface = surfaceOf(on.standUnitId, on.surfaceId);
+  if (!parent || !surface) return { ...st.pos, z: 0 };
+  const frame = surfaceFrame(surface, parent, standBase(on.standUnitId, stands, surfaceOf, seen));
+  return surfaceToWorld(frame, { x: on.x, y: on.y, z: 0 });
 }
 
 /** Surface-local point (x along the surface, y along its depth, z above the surface plane) → world. */

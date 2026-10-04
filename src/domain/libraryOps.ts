@@ -1,6 +1,7 @@
 // Library and inventory operations (spec §5.2). Pure functions over a project (or an Immer draft of one).
 import { newId } from './ids';
 import { provenanceFor } from './integrity';
+import { SUGGESTED_GEAR_CATEGORIES } from './schemas';
 import type { CableModel, GearModel, GearUnit, Project, Provenance, StandModel, Template } from './types';
 
 const today = () => new Date().toISOString().slice(0, 10);
@@ -246,4 +247,22 @@ export function describePath(m: GearModel, path: string): string {
     const c = m.connectors[Number(i)];
     return c ? `connectors[${c.label}]` : all;
   });
+}
+
+/** Category suggestions: the built-in list plus every category already used in the project. */
+export function categorySuggestions(p: Project): string[] {
+  return [...new Set([...SUGGESTED_GEAR_CATEGORIES, ...p.library.gearModels.map((m) => m.category)])].sort();
+}
+
+/** A supply is anything with a rated power output (wall-wart, PSU, power strip, PDU), whatever its category. */
+export function isPowerSupply(m: GearModel): boolean {
+  return m.connectors.some((c) => c.domain.startsWith('power.') && c.direction === 'out' && c.psu);
+}
+
+/** Reusable user template from an existing model (spec §5.2 user templates). */
+export function templateFromModel(m: GearModel, id: string, name = modelLabel(m)): Template {
+  const gear = structuredClone(m) as Partial<GearModel>;
+  for (const k of ['id', 'images', 'imageCalibration', 'provenance', 'createdFromTemplateId', 'sources'] as const)
+    delete gear[k];
+  return { id, name, group: 'My templates', target: 'gear', gear };
 }

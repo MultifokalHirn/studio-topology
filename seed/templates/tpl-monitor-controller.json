@@ -1,0 +1,232 @@
+{
+  "connectorGroups": [
+    {
+      "connectors": [
+        {
+          "channel": {
+            "group": "out-{i}",
+            "role": "L"
+          },
+          "direction": "out",
+          "domain": "audio.analog",
+          "face": "back",
+          "id": "out-{i}-l",
+          "jack": "jack-6.35-TRS",
+          "label": "Speaker {i} L",
+          "pos": {
+            "x": 0,
+            "y": 0
+          },
+          "signal": {
+            "balance": "balanced",
+            "level": "line"
+          }
+        },
+        {
+          "channel": {
+            "group": "out-{i}",
+            "role": "R"
+          },
+          "direction": "out",
+          "domain": "audio.analog",
+          "face": "back",
+          "id": "out-{i}-r",
+          "jack": "jack-6.35-TRS",
+          "label": "Speaker {i} R",
+          "pos": {
+            "x": 0,
+            "y": 0
+          },
+          "signal": {
+            "balance": "balanced",
+            "level": "line"
+          }
+        }
+      ],
+      "repeat": "speakerSets"
+    },
+    {
+      "connectors": [
+        {
+          "channel": {
+            "role": "stereo"
+          },
+          "direction": "out",
+          "domain": "audio.headphone",
+          "face": "back",
+          "id": "phones-{i}",
+          "jack": "jack-6.35-TRS",
+          "label": "Headphones {i}",
+          "pos": {
+            "x": 0,
+            "y": 0
+          },
+          "signal": {
+            "balance": "n/a",
+            "level": "headphone"
+          }
+        }
+      ],
+      "repeat": "phones"
+    }
+  ],
+  "description": "Add internal paths (Internal routing) for source and speaker selection once outputs exist.",
+  "gear": {
+    "category": "monitor-controller",
+    "connectors": [
+      {
+        "channel": {
+          "group": "in-a",
+          "role": "L"
+        },
+        "direction": "in",
+        "domain": "audio.analog",
+        "face": "back",
+        "id": "in-a-l",
+        "jack": "jack-6.35-TRS",
+        "label": "Input A L",
+        "pos": {
+          "x": 0,
+          "y": 0
+        },
+        "signal": {
+          "balance": "balanced",
+          "level": "line"
+        }
+      },
+      {
+        "channel": {
+          "group": "in-a",
+          "role": "R"
+        },
+        "direction": "in",
+        "domain": "audio.analog",
+        "face": "back",
+        "id": "in-a-r",
+        "jack": "jack-6.35-TRS",
+        "label": "Input A R",
+        "pos": {
+          "x": 0,
+          "y": 0
+        },
+        "signal": {
+          "balance": "balanced",
+          "level": "line"
+        }
+      },
+      {
+        "channel": {
+          "group": "in-b",
+          "role": "L"
+        },
+        "direction": "in",
+        "domain": "audio.analog",
+        "face": "back",
+        "id": "in-b-l",
+        "jack": "jack-6.35-TRS",
+        "label": "Input B L",
+        "pos": {
+          "x": 0,
+          "y": 0
+        },
+        "signal": {
+          "balance": "balanced",
+          "level": "line"
+        }
+      },
+      {
+        "channel": {
+          "group": "in-b",
+          "role": "R"
+        },
+        "direction": "in",
+        "domain": "audio.analog",
+        "face": "back",
+        "id": "in-b-r",
+        "jack": "jack-6.35-TRS",
+        "label": "Input B R",
+        "pos": {
+          "x": 0,
+          "y": 0
+        },
+        "signal": {
+          "balance": "balanced",
+          "level": "line"
+        }
+      },
+      {
+        "channel": {
+          "role": "stereo"
+        },
+        "direction": "in",
+        "domain": "audio.analog",
+        "face": "back",
+        "id": "in-aux",
+        "jack": "jack-3.5-TRS",
+        "label": "Aux In",
+        "pos": {
+          "x": 0,
+          "y": 0
+        },
+        "signal": {
+          "balance": "n/a",
+          "level": "line"
+        }
+      },
+      {
+        "direction": "in",
+        "domain": "power.dc",
+        "face": "back",
+        "id": "dc-in",
+        "jack": "dc-barrel-5.5x2.5",
+        "label": "DC In",
+        "pos": {
+          "x": 0,
+          "y": 0
+        }
+      }
+    ],
+    "dimensions": {
+      "d": null,
+      "h": null,
+      "heightIncludesKnobsFeet": true,
+      "w": null,
+      "weightKg": null
+    },
+    "ergonomics": {
+      "defaultUsage": "primary",
+      "interaction": "knobs-buttons",
+      "needsDisplayVisibility": false
+    },
+    "formFactor": "desktop",
+    "power": {
+      "sources": [
+        {
+          "drawMa": null,
+          "included": true,
+          "inputConnectorId": "dc-in",
+          "kind": "external-dc"
+        }
+      ]
+    },
+    "tags": [
+      "monitoring"
+    ]
+  },
+  "group": "Monitoring",
+  "id": "tpl-monitor-controller",
+  "name": "Monitor controller",
+  "params": [
+    {
+      "default": 2,
+      "key": "speakerSets",
+      "label": "Speaker outputs (stereo sets)"
+    },
+    {
+      "default": 1,
+      "key": "phones",
+      "label": "Headphone outputs"
+    }
+  ],
+  "target": "gear"
+}

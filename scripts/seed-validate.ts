@@ -54,7 +54,10 @@ if (!sample.ok) {
 
 console.log('\nConnector positions still to place (from panel images):');
 let total = 0;
-for (const g of gear.filter((m) => m.category !== 'power')) {
+// Wall adapters have no panel to photograph.
+const hasPanel = (m: (typeof gear)[number]) =>
+  !m.connectors.every((c) => c.jack === 'captive-cable' || c.jack === 'mains-plug');
+for (const g of gear.filter(hasPanel)) {
   const n = unplacedConnectorCount(g);
   if (n) console.log(`  ${String(n).padStart(3)}  ${g.manufacturer} ${g.name}${g.variant ? ' ' + g.variant : ''}`);
   total += n;

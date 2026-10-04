@@ -311,3 +311,63 @@ export function ConfirmModal(props: {
     </Modal>
   );
 }
+
+/** Free-text input with suggestions (e.g. categories: any value is allowed, known ones are offered). */
+export function SuggestInput(props: {
+  id?: string;
+  value: string;
+  suggestions: readonly string[];
+  onChange: (v: string) => void;
+  placeholder?: string;
+  'aria-label'?: string;
+}) {
+  const listId = useId();
+  return (
+    <>
+      <input
+        id={props.id}
+        aria-label={props['aria-label']}
+        list={listId}
+        className={inputCls}
+        value={props.value}
+        placeholder={props.placeholder}
+        onChange={(e) => props.onChange(e.target.value)}
+      />
+      <datalist id={listId}>
+        {props.suggestions.map((s) => (
+          <option key={s} value={s} />
+        ))}
+      </datalist>
+    </>
+  );
+}
+
+/** Colour swatch + picker; empty means "use the default". */
+export function ColorInput(props: {
+  value: string | undefined;
+  onChange: (v: string | undefined) => void;
+  label: string;
+  /** Inherited colour shown while no own colour is set. */
+  fallback?: string;
+}) {
+  return (
+    <span className="inline-flex items-center gap-1">
+      <input
+        type="color"
+        aria-label={props.label}
+        className="h-6 w-8 cursor-pointer rounded border border-neutral-300 bg-transparent p-0 dark:border-neutral-600"
+        value={props.value ?? props.fallback ?? '#888888'}
+        onChange={(e) => props.onChange(e.target.value)}
+      />
+      {props.value && (
+        <button
+          type="button"
+          className="text-[10px] text-neutral-500 underline"
+          onClick={() => props.onChange(undefined)}
+        >
+          {t('default')}
+        </button>
+      )}
+    </span>
+  );
+}

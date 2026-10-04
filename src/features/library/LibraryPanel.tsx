@@ -2,7 +2,7 @@
 import { IconCopy, IconDownload, IconEdit, IconPlus, IconTrash, IconUpload } from '@tabler/icons-react';
 import clsx from 'clsx';
 import { useMemo, useState } from 'react';
-import { Button, Checkbox, ConfirmModal, inputCls, Modal, Select, TextInput } from '@/components/ui';
+import { Button, Checkbox, ConfirmModal, inputCls, Modal, Select, SuggestInput, TextInput } from '@/components/ui';
 import {
   addGearUnit,
   addStandUnit,
@@ -16,13 +16,15 @@ import {
   markVerified,
   mergeGearModels,
   modelLabel,
+  categorySuggestions,
 } from '@/domain/libraryOps';
-import { FormFactor, GearCategory, LibraryBundle as BundleSchema } from '@/domain/schemas';
+import { FormFactor, LibraryBundle as BundleSchema } from '@/domain/schemas';
 import { toCanonicalJson } from '@/domain/serialize';
 import type { GearModel } from '@/domain/types';
 import { t } from '@/i18n';
 import { projectStore, uiStore, useProject, useUi } from '@/store';
 import { downloadText } from '@/store/fileIO';
+import { CableModelDialog } from './CableDialogs';
 import { NewGearDialog } from './NewGearDialog';
 import { NewStandDialog } from './NewStandDialog';
 
@@ -38,6 +40,7 @@ export function LibraryPanel() {
   const [tag, setTag] = useState<string>(NO_FILTER);
   const [unverifiedOnly, setUnverifiedOnly] = useState(false);
   const [checked, setChecked] = useState<Set<string>>(new Set());
+  const [editCable, setEditCable] = useState<string | null>(null);
   const [dialog, setDialog] = useState<
     null | 'new-gear' | 'new-stand' | 'import' | 'bulk-tag' | 'bulk-category' | 'merge' | 'delete'
   >(null);
@@ -49,6 +52,7 @@ export function LibraryPanel() {
     for (const u of project.inventory.standUnits) m.set(u.modelId, (m.get(u.modelId) ?? 0) + 1);
     return m;
   }, [project.inventory]);
+  const usedCategories = useMemo(() => [...new Set(gearModels.map((m) => m.category))].sort(), [gearModels]);
   const allTags = useMemo(() => [...new Set(gearModels.flatMap((m) => m.tags))].sort(), [gearModels]);
 
   const q = query.trim().toLowerCase();
@@ -84,7 +88,7 @@ export function LibraryPanel() {
             aria-label={t('Category')}
             value={category}
             allowEmpty
-            options={GearCategory.options}
+            options={usedCategories}
             onChange={setCategory}
           />
           <Select
@@ -205,26 +209,74 @@ export function LibraryPanel() {
           ))}
         </ul>
 
-        <h3 className="px-2 pt-3 text-xs font-semibold text-neutral-500 uppercase">
-          {t('Cables and adapters')} ({cableModels.length})
+        <h3 className="flex items-center px-2 pt-3 text-xs font-semibold text-neutral-500 uppercase">
+          <span className="flex-1">
+            {t('Cable types')} ({cableModels.length})
+          </span>
+          <Button disabled={readOnly} onClick={() => setEditCable('new')} title={t('New cable type')}>
+            <IconPlus size={12} />
+          </Button>
         </h3>
-        <ul aria-label={t('Cables and adapters')} className="pb-2">
+        <ul aria-label={t('Cable types')}>
           {cableModels.map((c) => (
-            <li key={c.id} className="truncate px-2 py-0.5 text-xs" title={c.notes}>
-              {c.name}{' '}
-              <span className="text-neutral-500">
-                ·{' '}
-                {c.lengthsMm
-                  .filter(Boolean)
-                  .map((l) => `${l / 1000} m`)
-                  .join(', ') || c.kind}
-              </span>
+            <li
+              key={c.id}
+              className="flex items-center gap-1 px-2 py-0.5 text-xs hover:bg-neutral-100 dark:hover:bg-neutral-800"
+            >
+              <span
+                className="h-2.5 w-2.5 shrink-0 rounded-full border border-neutral-400"
+                style={{ background: c.color ?? 'transparent' }}
+              />
+              <button className="min-w-0 flex-1 truncate text-left" title={c.notes} onClick={() => setEditCable(c.id)}>
+                {c.name}
+                <span className="text-neutral-500">
+                  {' · '}
+                  {c.lengthsMm
+                    .filter(Boolean)
+                    .map((l) => `${l / 1000} m`)
+                    .join(', ') || c.kind}
+                </span>
+              </button>
+            </li>
+          ))}
+        </ul>
+
+        <h3 className="px-2 pt-3 text-xs font-semibold text-neutral-500 uppercase">
+          {t('My templates')} ({project.library.templates.length})
+        </h3>
+        <ul aria-label={t('My templates')} className="pb-2">
+          {project.library.templates.length === 0 && (
+            <li className="px-2 text-xs text-neutral-500">
+              {t('Use "Save as template" in the gear editor to reuse a model.')}
+            </li>
+          )}
+          {project.library.templates.map((tp) => (
+            <li key={tp.id} className="flex items-center gap-1 px-2 py-0.5 text-xs">
+              <span className="min-w-0 flex-1 truncate">{tp.name}</span>
+              <button
+                aria-label={t('Delete template {name}', { name: tp.name })}
+                disabled={readOnly}
+                className="rounded p-0.5 hover:bg-neutral-200 dark:hover:bg-neutral-700"
+                onClick={() =>
+                  change((p) => void (p.library.templates = p.library.templates.filter((x) => x.id !== tp.id)), {
+                    label: 'Delete template',
+                  })
+                }
+              >
+                <IconTrash size={12} />
+              </button>
             </li>
           ))}
         </ul>
       </div>
 
       {dialog === 'new-gear' && <NewGearDialog onClose={() => setDialog(null)} />}
+      {editCable && (
+        <CableModelDialog
+          model={editCable === 'new' ? undefined : cableModels.find((c) => c.id === editCable)}
+          onClose={() => setEditCable(null)}
+        />
+      )}
       {dialog === 'new-stand' && <NewStandDialog onClose={() => setDialog(null)} />}
       {dialog === 'import' && <ImportBundleDialog onClose={() => setDialog(null)} />}
       {dialog === 'bulk-tag' && (
@@ -246,13 +298,13 @@ export function LibraryPanel() {
       {dialog === 'bulk-category' && (
         <PromptDialog
           title={t('Set category of {n} models', { n: checked.size })}
-          label={t('Category')}
-          options={GearCategory.options}
+          label={t('Category (free text)')}
+          suggestions={categorySuggestions(project)}
           onClose={() => setDialog(null)}
           onSubmit={(cat) =>
             change(
               (p) => {
-                for (const m of p.library.gearModels) if (checked.has(m.id)) m.category = cat as GearModel['category'];
+                for (const m of p.library.gearModels) if (checked.has(m.id)) m.category = cat;
               },
               { label: 'Set category' },
             )
@@ -384,11 +436,11 @@ export function UsageSummary({ modelIds }: { modelIds: string[] }) {
 function PromptDialog(props: {
   title: string;
   label: string;
-  options?: readonly string[];
+  suggestions?: readonly string[];
   onSubmit: (v: string) => void;
   onClose: () => void;
 }) {
-  const [value, setValue] = useState(props.options?.[0] ?? '');
+  const [value, setValue] = useState('');
   const submit = () => {
     if (value.trim()) props.onSubmit(value.trim());
     props.onClose();
@@ -408,8 +460,8 @@ function PromptDialog(props: {
     >
       <label className="text-xs text-neutral-500">
         {props.label}
-        {props.options ? (
-          <Select value={value} options={props.options} onChange={setValue} />
+        {props.suggestions ? (
+          <SuggestInput value={value} suggestions={props.suggestions} onChange={setValue} />
         ) : (
           <input
             autoFocus

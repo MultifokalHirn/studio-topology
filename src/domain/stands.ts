@@ -1,5 +1,11 @@
 // Parametric stand generators (spec §5.4). Pure: used by the seed build and the stand editor.
-import { RACK_INNER_WIDTH_MM, RACK_PANEL_WIDTH_MM, RACK_UNIT_MM } from './units';
+import {
+  RACK10_INNER_WIDTH_MM,
+  RACK10_PANEL_WIDTH_MM,
+  RACK_INNER_WIDTH_MM,
+  RACK_PANEL_WIDTH_MM,
+  RACK_UNIT_MM,
+} from './units';
 import type { Provenance, StandModel, SurfaceDef } from './types';
 
 const est = (note: string): Provenance => ({ kind: 'estimated', note });
@@ -66,35 +72,51 @@ export function tieredAFrame(p: TieredAFrameParams): StandModel {
   };
 }
 
-/** 19" rack with one rack bay of `u` units (placements use `uStart`). */
+/**
+ * Rack (floor-standing) or rack case with one bay of `u` units; placements use `uStart`. 19" or 10" standard.
+ * A case can sit on another stand via `StandState.onSurface`.
+ */
 export function rackStand(p: {
   id: string;
   name: string;
   u: number;
   depthMm: number;
   manufacturer?: string;
+  standard?: '19in' | '10in';
+  kind?: 'rack' | 'rack-case';
+  rearRails?: boolean;
 }): StandModel {
+  const ten = p.standard === '10in';
+  const wall = p.kind === 'rack-case' ? 25 : 20;
   const h = p.u * RACK_UNIT_MM;
+  const inner = ten ? RACK10_INNER_WIDTH_MM : RACK_INNER_WIDTH_MM;
+  const panel = ten ? RACK10_PANEL_WIDTH_MM : RACK_PANEL_WIDTH_MM;
   return {
     id: p.id,
     manufacturer: p.manufacturer ?? 'Generic',
     name: p.name,
-    type: 'rack',
-    dimensions: { w: RACK_PANEL_WIDTH_MM + 40, d: p.depthMm + 40, h: h + 40, weightKg: null },
+    type: p.kind ?? 'rack',
+    dimensions: { w: panel + 2 * wall, d: p.depthMm + 2 * wall, h: h + 2 * wall, weightKg: null },
     surfaces: [
       {
         id: 'bay',
-        label: `Rack bay (${p.u}U)`,
+        label: `Rack bay (${p.u}U${ten ? ', 10"' : ''})`,
         kind: 'rack-bay',
-        usable: { w: RACK_INNER_WIDTH_MM, d: p.depthMm },
-        anchor: { x: 20, y: 0, z: 20 },
+        usable: { w: inner, d: p.depthMm },
+        anchor: { x: wall, y: 0, z: wall },
         adjustable: {},
         loadKg: null,
-        rack: { u: p.u, innerWidthMm: RACK_INNER_WIDTH_MM, depthMm: p.depthMm },
+        rack: {
+          u: p.u,
+          innerWidthMm: inner,
+          depthMm: p.depthMm,
+          standard: ten ? '10in' : '19in',
+          ...(p.rearRails ? { rearRails: true } : {}),
+        },
       },
     ],
     images: {},
-    notes: 'EIA-310 rails, 44.45 mm per U.',
+    notes: `EIA-310 rails, 44.45 mm per U${ten ? ', 10" (half-rack) width' : ''}.`,
     sources: [],
     provenance: {},
   };
