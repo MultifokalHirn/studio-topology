@@ -8,13 +8,17 @@ import { formatLength } from '@/domain/units';
 import { t } from '@/i18n';
 import { projectStore, uiStore, useProject, useUi } from '@/store';
 import { MeasureDialog } from '../gear-editor/sections';
+import { ConnectionInspector } from './ConnectionInspector';
 import { PlacementBlock } from './PlacementBlock';
+import { PortInspector } from './PortInspector';
 import { StandInspector } from './StandInspector';
 
 export function Inspector() {
   const sel = useUi((s) => s.selection);
   const project = useProject((s) => s.project);
   if (!sel) return <p className="p-3 text-xs text-neutral-500">{t('Select something to inspect it.')}</p>;
+  if (sel.kind === 'connection') return <ConnectionInspector id={sel.id} />;
+  if (sel.kind === 'port') return <PortInspector id={sel.id} />;
 
   if (sel.kind === 'gear-unit' || sel.kind === 'gear-model') {
     const unit = sel.kind === 'gear-unit' ? project.inventory.gearUnits.find((u) => u.id === sel.id) : undefined;

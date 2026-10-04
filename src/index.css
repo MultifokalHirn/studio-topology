@@ -10,3 +10,37 @@ body,
 #root {
   height: 100%;
 }
+
+/* Signal flow animation (spec §5.10): stroke-dashoffset only, compositor friendly. */
+@keyframes cable-flow {
+  to {
+    stroke-dashoffset: -24;
+  }
+}
+.flow-audio,
+.flow-midi,
+.flow-data,
+.flow-power {
+  animation: cable-flow calc(0.9s / var(--flow-speed, 1)) linear infinite;
+}
+.flow-audio {
+  stroke-dasharray: 10 14;
+}
+.flow-midi {
+  stroke-dasharray: 3 21;
+}
+.flow-data {
+  stroke-dasharray: 6 6;
+}
+.flow-power {
+  stroke-dasharray: 2 22;
+  animation-duration: calc(3s / var(--flow-speed, 1));
+}
+@media (prefers-reduced-motion: reduce) {
+  .flow-audio,
+  .flow-midi,
+  .flow-data,
+  .flow-power {
+    animation: none;
+  }
+}

@@ -3,7 +3,8 @@ import { createStore } from 'zustand/vanilla';
 
 export type SidebarTab = 'inventory' | 'library' | 'setups' | 'issues';
 export type CanvasTab = 'layout' | 'patch' | 'face' | 'tables';
-export type SelectionKind = 'gear-unit' | 'gear-model' | 'stand-unit' | 'stand-model' | 'cable-model';
+export type SelectionKind =
+  'gear-unit' | 'gear-model' | 'stand-unit' | 'stand-model' | 'cable-model' | 'connection' | 'port';
 export interface Selection {
   kind: SelectionKind;
   id: string;

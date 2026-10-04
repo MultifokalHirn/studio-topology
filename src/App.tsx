@@ -16,9 +16,11 @@ import { isDirty } from './store/projectStore';
 import type { CanvasTab, SidebarTab } from './store/uiStore';
 import { GearEditorHost } from './features/gear-editor/GearEditor';
 import { Inspector } from './features/inspector/Inspector';
-import { ConnectionsTable } from './features/tables/ConnectionsTable';
+import { TablesView } from './features/tables/TablesView';
 import { FaceView } from './features/face/FaceView';
 import { LayoutView } from './features/layout/LayoutView';
+import { PatchView } from './features/patch/PatchView';
+import { SetupsPanel } from './features/setups/SetupsPanel';
 import { InventoryPanel } from './features/library/InventoryPanel';
 import { LibraryPanel } from './features/library/LibraryPanel';
 import { UnverifiedList } from './features/library/UnverifiedList';
@@ -238,9 +240,7 @@ export function App() {
               <ErrorBoundary label={t('Sidebar')}>
                 {sidebarTab === 'inventory' && <InventoryPanel />}
                 {sidebarTab === 'library' && <LibraryPanel />}
-                {sidebarTab === 'setups' && (
-                  <p className="p-3 text-xs text-neutral-500">{t('Setup management arrives in M8.')}</p>
-                )}
+                {sidebarTab === 'setups' && <SetupsPanel />}
                 {sidebarTab === 'issues' && <UnverifiedList />}
               </ErrorBoundary>
             </div>
@@ -262,11 +262,13 @@ export function App() {
             <div className="min-h-0 flex-1">
               <ErrorBoundary label={t('Canvas')}>
                 {canvasTab === 'tables' ? (
-                  <ConnectionsTable />
+                  <TablesView />
                 ) : canvasTab === 'face' ? (
                   <FaceView />
                 ) : canvasTab === 'layout' ? (
                   <LayoutView />
+                ) : canvasTab === 'patch' ? (
+                  <PatchView />
                 ) : (
                   <div className="flex h-full items-center justify-center text-sm text-neutral-500">
                     {t('{view} view arrives in a later milestone', {
