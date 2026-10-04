@@ -28,6 +28,7 @@ test('the sample studio from the gear reference loads on first launch', async ({
   const inspector = page.getByRole('complementary', { name: 'Inspector' });
   await expect(inspector).toContainText('external-dc 18 V');
   await page.getByRole('tab', { name: 'Issues' }).click();
+  await page.getByRole('tab', { name: 'Unverified fields' }).click();
   await expect(page.getByText(/Unverified fields \(\d+\)/)).toBeVisible();
 });
 

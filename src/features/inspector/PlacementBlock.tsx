@@ -6,6 +6,7 @@ import { analyzeLayout } from '@/engine/layout';
 import { unitSize } from '@/engine/placement';
 import { t } from '@/i18n';
 import { projectStore, useProject } from '@/store';
+import { IssueList } from '../issues/IssuesPanel';
 
 export function PlacementBlock({ unitId }: { unitId: string }) {
   const project = useProject((s) => s.project);
@@ -17,7 +18,6 @@ export function PlacementBlock({ unitId }: { unitId: string }) {
   const r = report.layout.units.get(unitId);
   const unit = project.inventory.gearUnits.find((u) => u.id === unitId);
   const model = project.library.gearModels.find((m) => m.id === unit?.modelId);
-  const issues = report.issues.filter((i) => i.entityIds.includes(unitId));
   const edit = (label: string, recipe: (s: (typeof project.setups)[number]) => void) =>
     projectStore.getState().change(
       (p) => {
@@ -121,24 +121,9 @@ export function PlacementBlock({ unitId }: { unitId: string }) {
           }
         />
       )}
-      {issues.length > 0 && (
-        <ul className="mt-1 space-y-0.5">
-          {issues.map((i, k) => (
-            <li
-              key={k}
-              className={
-                i.severity === 'error'
-                  ? 'text-red-700 dark:text-red-400'
-                  : i.severity === 'warning'
-                    ? 'text-amber-700 dark:text-amber-400'
-                    : 'text-neutral-500'
-              }
-            >
-              {i.ruleId} {i.message}
-            </li>
-          ))}
-        </ul>
-      )}
+      <div className="mt-1">
+        <IssueList entityId={unitId} />
+      </div>
     </section>
   );
 }

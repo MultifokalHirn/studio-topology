@@ -7,6 +7,7 @@ import { compatibility, effectiveConnector, requiredLength, suggestCable } from 
 import { resolveLayout } from '@/engine/placement';
 import { t } from '@/i18n';
 import { projectStore, uiStore, useProject } from '@/store';
+import { IssueList } from '../issues/IssuesPanel';
 
 export function ConnectionInspector({ id }: { id: string }) {
   const project = useProject((s) => s.project);
@@ -78,6 +79,7 @@ export function ConnectionInspector({ id }: { id: string }) {
         )}
       </div>
 
+      <IssueList entityId={id} />
       <section className="space-y-1 text-xs">
         <h3 className="font-semibold text-neutral-500 uppercase">{t('Cable')}</h3>
         <p className="text-neutral-500">

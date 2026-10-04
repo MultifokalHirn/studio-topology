@@ -26,6 +26,7 @@ import { cableStyle, type CableStyle } from '@/render/cableStyle';
 import { glyphRadius } from '@/render/glyphSize';
 import { useViewport, Viewport } from '@/render/Viewport';
 import { projectStore, uiStore, useProject, useUi } from '@/store';
+import { useValidation } from '../issues/useValidation';
 import { dragTypes } from '../layout/dragTypes';
 
 const MAX_ANIMATED = 300;
@@ -68,6 +69,17 @@ export function PatchView() {
     [graph, setup],
   );
   const units = useMemo(() => (setup ? resolveLayout(project, setup).units : new Map()), [project, setup]);
+  const { issues } = useValidation();
+  const issueByConnection = useMemo(() => {
+    const rank = { error: 3, warning: 2, info: 1 } as const;
+    const m = new Map<string, 'error' | 'warning' | 'info'>();
+    for (const i of issues)
+      for (const id of i.entityIds) {
+        const cur = m.get(id);
+        if (!cur || rank[i.severity] > rank[cur]) m.set(id, i.severity);
+      }
+    return m;
+  }, [issues]);
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
@@ -113,8 +125,8 @@ export function PatchView() {
     to: { unitId: string; connector: Connector },
     shift: boolean,
   ) => {
-    const compat = compatibility(from.connector, to.connector);
-    if (compat.blocked || readOnly) return;
+    // Invalid combinations are stored and flagged by the rules (spec §4.10); only read-only mode refuses.
+    if (readOnly) return;
     const pairs: [typeof from, typeof to][] = [[from, to]];
     if (shift) {
       const fm = nodeOf.get(from.unitId)?.model;
@@ -203,6 +215,7 @@ export function PatchView() {
           readOnly={readOnly}
           onCreate={create}
           onMenu={setMenu}
+          issueByConnection={issueByConnection}
         />
         {legend && legendEntries.length > 0 && (
           <aside
@@ -282,6 +295,7 @@ interface CanvasProps {
     shift: boolean,
   ): void;
   onMenu(m: { id: string; x: number; y: number }): void;
+  issueByConnection: Map<string, 'error' | 'warning' | 'info'>;
 }
 
 function PatchCanvas(props: CanvasProps) {
@@ -398,6 +412,7 @@ function PatchCanvas(props: CanvasProps) {
             animated={animated}
             midiColors={props.project.settings.palette.midiChannels}
             onMenu={props.onMenu}
+            issue={props.issueByConnection.get(e.connection.id)}
           />
         );
       })}
@@ -588,6 +603,7 @@ function EdgeShape(props: {
   animated: boolean;
   midiColors: string[];
   onMenu(m: { id: string; x: number; y: number }): void;
+  issue?: 'error' | 'warning' | 'info';
 }) {
   const { a, b, style, edge } = props;
   const c = edge.connection;
@@ -699,7 +715,17 @@ function EdgeShape(props: {
             .join(' · ')}
         </text>
       )}
-      {edge.invalid && <circle cx={midX} cy={midY} r={4} fill="#b91c1c" pointerEvents="none" />}
+      {props.issue && (
+        <circle
+          cx={midX}
+          cy={midY}
+          r={4.5}
+          fill={props.issue === 'error' ? '#B91C1C' : props.issue === 'warning' ? '#B45309' : '#1D4ED8'}
+          stroke="white"
+          vectorEffect="non-scaling-stroke"
+          data-issue={props.issue}
+        />
+      )}
     </g>
   );
 }

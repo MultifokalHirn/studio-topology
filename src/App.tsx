@@ -23,7 +23,7 @@ import { PatchView } from './features/patch/PatchView';
 import { SetupsPanel } from './features/setups/SetupsPanel';
 import { InventoryPanel } from './features/library/InventoryPanel';
 import { LibraryPanel } from './features/library/LibraryPanel';
-import { UnverifiedList } from './features/library/UnverifiedList';
+import { IssuesPanel, ValidationBadge } from './features/issues/IssuesPanel';
 import {
   applyLoadedText,
   loadSample,
@@ -165,6 +165,7 @@ export function App() {
             </ToolButton>
           </div>
           <div className="flex-1" />
+          <ValidationBadge />
           {setups.length > 0 && (
             <label className="mr-2 flex items-center gap-1 text-xs text-neutral-500">
               {t('Setup')}
@@ -241,7 +242,7 @@ export function App() {
                 {sidebarTab === 'inventory' && <InventoryPanel />}
                 {sidebarTab === 'library' && <LibraryPanel />}
                 {sidebarTab === 'setups' && <SetupsPanel />}
-                {sidebarTab === 'issues' && <UnverifiedList />}
+                {sidebarTab === 'issues' && <IssuesPanel />}
               </ErrorBoundary>
             </div>
           </aside>

@@ -76,9 +76,13 @@ test('scenario 3: stereo pair with Shift-drag, MIDI with channel and Thru; badge
   await expect(inspector).toContainText('Octatrack MKII · MIDI Out → Analog Four MKII · MIDI In');
   await expect(inspector).toContainText('MIDI DIN 5');
 
-  // Blocked: output to output never creates a cable.
+  // Output to output is stored but flagged (spec §4.10): the cable gets an error dot and DIR-001.
   await connect(page, port('Digitone II', 'Main R'), port('Octatrack MKII', 'Main L'));
-  await expect(canvas.locator('[data-connection-id]')).toHaveCount(4);
+  await expect(canvas.locator('[data-connection-id]')).toHaveCount(5);
+  await expect(canvas.locator('[data-issue="error"]')).toHaveCount(1);
+  await page.getByRole('tab', { name: 'Issues' }).click();
+  await expect(page.locator('[data-rule="DIR-001"]')).toContainText('Output to output');
+  await page.getByRole('tab', { name: 'Inventory' }).click();
 
   // Right-click → disable greys the cable; legend filter dims a family.
   await canvas.locator('[data-domain="audio-L"]').dispatchEvent('contextmenu', { button: 2 });
