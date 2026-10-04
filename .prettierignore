@@ -1,0 +1,8 @@
+dist
+schema
+node_modules
+docs
+seed
+package-lock.json
+playwright-report
+test-results
