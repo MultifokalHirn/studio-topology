@@ -5,6 +5,7 @@ import { provenanceFor } from '@/domain/integrity';
 import { effectiveConnector } from '@/engine/connections';
 import { t } from '@/i18n';
 import { uiStore, useProject } from '@/store';
+import { TraceBlock } from './TraceBlock';
 
 export function PortInspector({ id }: { id: string }) {
   const project = useProject((s) => s.project);
@@ -92,6 +93,7 @@ export function PortInspector({ id }: { id: string }) {
         {row(t('Alternates'), c.alternates?.map((a) => a.label).join(', '))}
         {row(t('Notes'), c.notes)}
       </dl>
+      <TraceBlock nodeKey={id} />
       <section>
         <h3 className="mb-1 text-xs font-semibold text-neutral-500 uppercase">
           {t('Connections')} ({conns.length})

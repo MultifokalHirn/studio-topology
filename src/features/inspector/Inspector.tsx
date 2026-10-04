@@ -9,6 +9,7 @@ import { t } from '@/i18n';
 import { projectStore, uiStore, useProject, useUi } from '@/store';
 import { MeasureDialog } from '../gear-editor/sections';
 import { ConnectionInspector } from './ConnectionInspector';
+import { ClockBlock } from './ClockBlock';
 import { PlacementBlock } from './PlacementBlock';
 import { PortInspector } from './PortInspector';
 import { StandInspector } from './StandInspector';
@@ -151,6 +152,7 @@ function GearInspector({ model: m, unitId }: { model: GearModel; unitId?: string
         </ul>
       </div>
       {unit && <PlacementBlock unitId={unit.id} />}
+      {unit && <ClockBlock unitId={unit.id} />}
       {usage && (
         <p className="text-xs text-neutral-500">
           {t('Used in {n} placements and {c} connections.', {

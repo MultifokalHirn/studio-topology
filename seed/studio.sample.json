@@ -23435,7 +23435,7 @@
         "unit-ep40": {
           "activeAlternates": {},
           "clockSource": {
-            "connectorId": "midi-in"
+            "connectorId": "sync-in"
           },
           "powerAssignments": [],
           "usage": "secondary"
@@ -23504,7 +23504,7 @@
         "unit-nifty": {
           "activeAlternates": {},
           "clockSource": {
-            "connectorId": "midi-in"
+            "connectorId": "usb"
           },
           "powerAssignments": [],
           "usage": "secondary"
@@ -23656,9 +23656,6 @@
         },
         "unit-ssl12": {
           "activeAlternates": {},
-          "clockSource": {
-            "connectorId": "midi-in"
-          },
           "powerAssignments": [],
           "usage": "secondary"
         },
@@ -26042,7 +26039,7 @@
         "unit-ep40": {
           "activeAlternates": {},
           "clockSource": {
-            "connectorId": "midi-in"
+            "connectorId": "sync-in"
           },
           "powerAssignments": [],
           "usage": "secondary"
@@ -26111,7 +26108,7 @@
         "unit-nifty": {
           "activeAlternates": {},
           "clockSource": {
-            "connectorId": "midi-in"
+            "connectorId": "usb"
           },
           "powerAssignments": [],
           "usage": "secondary"
@@ -26263,9 +26260,6 @@
         },
         "unit-ssl12": {
           "activeAlternates": {},
-          "clockSource": {
-            "connectorId": "midi-in"
-          },
           "powerAssignments": [],
           "usage": "secondary"
         },

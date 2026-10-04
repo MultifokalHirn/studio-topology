@@ -23,12 +23,15 @@ export function effectiveConnector(c: Connector, cfg?: UnitConfig): Connector {
   const altId = cfg?.activeAlternates[c.id];
   const alt = altId ? c.alternates?.find((a) => a.id === altId) : undefined;
   if (!alt) return c;
-  return {
+  const next: Connector = {
     ...c,
     label: `${c.label} (${alt.label})`,
     domain: alt.domain ?? c.domain,
     direction: alt.direction ?? c.direction,
   };
+  // A port switched to DIN sync carries that sync format (Pyramid Out B).
+  if (alt.id === 'dinsync24' || alt.id === 'dinsync48') next.clock = { ...c.clock, format: alt.id };
+  return next;
 }
 
 // ---------- direction ----------

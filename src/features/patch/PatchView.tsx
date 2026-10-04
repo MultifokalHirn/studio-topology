@@ -20,6 +20,9 @@ import {
   type PatchPort,
 } from '@/engine/patch';
 import { elkPositions } from '@/engine/elkLayout';
+import { buildSignalGraph, nodeKey } from '@/engine/graph';
+import { breadcrumb, traceFrom } from '@/engine/trace';
+import { clockMasters, clockTree } from '@/engine/trees';
 import { resolveLayout } from '@/engine/placement';
 import { t } from '@/i18n';
 import { cableStyle, type CableStyle } from '@/render/cableStyle';
@@ -70,6 +73,55 @@ export function PatchView() {
   );
   const units = useMemo(() => (setup ? resolveLayout(project, setup).units : new Map()), [project, setup]);
   const { issues } = useValidation();
+  const sig = useMemo(() => (setup ? buildSignalGraph(project, setup) : null), [project, setup]);
+  const traceState = useUi((s) => s.trace);
+  const follow = useUi((s) => s.follow);
+  const highlight = useMemo(() => {
+    if (!sig) return null;
+    const nick = (id: string) =>
+      projectStore.getState().project.inventory.gearUnits.find((u) => u.id === id)?.nickname ?? id;
+    if (follow) {
+      const conns = new Set<string>();
+      const unitIds = new Set<string>();
+      for (let i = 0; i <= Math.min(follow.step, follow.path.length - 1); i++) {
+        unitIds.add(follow.path[i]!.split('/')[0]!);
+        if (i > 0)
+          for (const e of sig.out(follow.path[i - 1]!))
+            if (e.to === follow.path[i] && e.connection) conns.add(e.connection.id);
+      }
+      const crumb = follow.path
+        .slice(0, follow.step + 1)
+        .map((k) => `${nick(k.split('/')[0]!)} · ${sig.connectorOf(k)?.label}`)
+        .join(' → ');
+      return { connections: conns, units: unitIds, crumb };
+    }
+    if (!traceState) return null;
+    const down = traceFrom(sig, traceState.start, 'down');
+    const up = traceFrom(sig, traceState.start, 'up');
+    const conns = new Set([...down.edges, ...up.edges].flatMap((e) => (e.connection ? [e.connection.id] : [])));
+    const unitIds = new Set([...down.nodes, ...up.nodes].map((k) => k.split('/')[0]!));
+    const dest = down.terminals.filter((x) => x.kind === 'destination').length;
+    const sources = up.terminals.length;
+    return {
+      connections: conns,
+      units: unitIds,
+      crumb: `${breadcrumb(sig, down, nick)}  ·  ↑ ${sources} source${sources === 1 ? '' : 's'}  ↓ ${dest} destination${dest === 1 ? '' : 's'}`,
+    };
+  }, [sig, traceState, follow]);
+  const clockHops = useMemo(() => {
+    const m = new Map<string, number>();
+    if (!sig || !setup) return m;
+    for (const master of clockMasters(project, setup))
+      for (const l of clockTree(sig, setup, master).links) if (!m.has(l.connection.id)) m.set(l.connection.id, l.hops);
+    return m;
+  }, [sig, project, setup]);
+
+  // Follow-signal playback: advance one hop every 600 ms.
+  useEffect(() => {
+    if (!follow || follow.step >= follow.path.length - 1) return;
+    const id = setTimeout(() => uiStore.getState().setFollow({ ...follow, step: follow.step + 1 }), 600);
+    return () => clearTimeout(id);
+  }, [follow]);
   const issueByConnection = useMemo(() => {
     const rank = { error: 3, warning: 2, info: 1 } as const;
     const m = new Map<string, 'error' | 'warning' | 'info'>();
@@ -154,6 +206,23 @@ export function PatchView() {
       <div className="flex flex-wrap items-center gap-3 border-b border-neutral-200 px-2 py-1 text-xs dark:border-neutral-700">
         <Checkbox checked={allPorts} onChange={setAllPorts} label={t('All ports')} />
         <Checkbox checked={animate} onChange={setAnimate} label={t('Animate flow')} />
+        <label className="flex items-center gap-1">
+          {t('BPM')}
+          <input
+            type="number"
+            min={30}
+            max={300}
+            aria-label={t('Clock BPM')}
+            className="w-16 rounded border border-neutral-300 px-1 dark:border-neutral-600 dark:bg-neutral-800"
+            value={project.settings.animation.bpm}
+            onChange={(e) => {
+              const v = Math.min(300, Math.max(30, Number(e.target.value) || 120));
+              projectStore
+                .getState()
+                .change((p) => void (p.settings.animation.bpm = v), { label: 'BPM', coalesceKey: 'bpm' });
+            }}
+          />
+        </label>
         <Checkbox checked={legend} onChange={setLegend} label={t('Legend (L)')} />
         <label className="flex items-center gap-1">
           {t('Labels')}
@@ -216,6 +285,9 @@ export function PatchView() {
           onCreate={create}
           onMenu={setMenu}
           issueByConnection={issueByConnection}
+          highlight={highlight}
+          clockHops={clockHops}
+          bpm={project.settings.animation.bpm}
         />
         {legend && legendEntries.length > 0 && (
           <aside
@@ -262,6 +334,26 @@ export function PatchView() {
           </aside>
         )}
         {menu && <EdgeMenu setup={setup} menu={menu} onClose={() => setMenu(null)} />}
+        {highlight && (
+          <div
+            role="status"
+            aria-label={t('Signal trace')}
+            className="absolute right-2 bottom-2 left-2 flex items-center gap-2 rounded border border-blue-200 bg-blue-50/95 px-2 py-1 text-xs text-blue-950 dark:border-blue-900 dark:bg-blue-950/95 dark:text-blue-100"
+          >
+            <span className="min-w-0 flex-1 truncate" title={highlight.crumb}>
+              {highlight.crumb}
+            </span>
+            <button
+              className="underline"
+              onClick={() => {
+                uiStore.getState().setTrace(null);
+                uiStore.getState().setFollow(null);
+              }}
+            >
+              {t('Clear')}
+            </button>
+          </div>
+        )}
       </div>
       {midiPrompt && <MidiDialog setup={setup} ids={midiPrompt} onClose={() => setMidiPrompt(null)} />}
       {bulk && (
@@ -296,6 +388,9 @@ interface CanvasProps {
   ): void;
   onMenu(m: { id: string; x: number; y: number }): void;
   issueByConnection: Map<string, 'error' | 'warning' | 'info'>;
+  highlight: { connections: Set<string>; units: Set<string> } | null;
+  clockHops: Map<string, number>;
+  bpm: number;
 }
 
 function PatchCanvas(props: CanvasProps) {
@@ -340,7 +435,11 @@ function PatchCanvas(props: CanvasProps) {
       content={box}
       className="bg-neutral-50 dark:bg-neutral-950"
       onPointerMoveWorld={(p) => p && drag && setDrag({ ...drag, to: p })}
-      onBackgroundClickWorld={() => uiStore.getState().select(null)}
+      onBackgroundClickWorld={() => {
+        uiStore.getState().select(null);
+        uiStore.getState().setTrace(null);
+        uiStore.getState().setFollow(null);
+      }}
       onKeyDown={(e) => {
         if ((e.key === 'Delete' || e.key === 'Backspace') && selection?.kind === 'connection' && !props.readOnly) {
           editSetup(
@@ -413,6 +512,9 @@ function PatchCanvas(props: CanvasProps) {
             midiColors={props.project.settings.palette.midiChannels}
             onMenu={props.onMenu}
             issue={props.issueByConnection.get(e.connection.id)}
+            traced={props.highlight ? props.highlight.connections.has(e.connection.id) : null}
+            clockHop={props.clockHops.get(e.connection.id)}
+            bpm={props.bpm}
           />
         );
       })}
@@ -424,14 +526,16 @@ function PatchCanvas(props: CanvasProps) {
           setupId={setup.id}
           readOnly={props.readOnly}
           selected={selection?.kind === 'gear-unit' && selection.id === n.unitId}
+          dimmed={!!props.highlight && !props.highlight.units.has(n.unitId)}
           drag={drag}
           hover={hover}
           setHover={setHover}
           onStartConnect={(port, from) => setDrag({ unitId: n.unitId, connector: port.connector, from, to: from })}
           onDropOnPort={(port, shift) => {
-            if (drag && drag.unitId === n.unitId && drag.connector.id === port.connector.id)
+            if (drag && drag.unitId === n.unitId && drag.connector.id === port.connector.id) {
               uiStore.getState().select({ kind: 'port', id: `${n.unitId}/${port.connector.id}` });
-            else if (drag)
+              uiStore.getState().setTrace({ start: nodeKey(n.unitId, port.connector.id), pinned: true });
+            } else if (drag)
               props.onCreate(
                 { unitId: drag.unitId, connector: drag.connector },
                 { unitId: n.unitId, connector: port.connector },
@@ -464,6 +568,7 @@ function NodeShape(props: {
   setupId: string;
   readOnly: boolean;
   selected: boolean;
+  dimmed: boolean;
   drag: ConnectDrag | null;
   hover: { unitId: string; connectorId: string } | null;
   setHover(h: { unitId: string; connectorId: string } | null): void;
@@ -474,7 +579,7 @@ function NodeShape(props: {
   const vp = useViewport();
   const move = useRef<{ dx: number; dy: number } | null>(null);
   return (
-    <g data-unit-id={node.unitId} transform={`translate(${origin.x} ${origin.y})`}>
+    <g data-unit-id={node.unitId} transform={`translate(${origin.x} ${origin.y})`} opacity={props.dimmed ? 0.35 : 1}>
       <rect
         width={node.width}
         height={node.height}
@@ -549,8 +654,17 @@ function NodeShape(props: {
             transform={`translate(${p.x} ${p.y})`}
             opacity={state === 'blocked' ? 0.3 : 1}
             style={{ cursor: props.readOnly ? 'default' : 'crosshair' }}
-            onPointerEnter={() => props.setHover({ unitId: node.unitId, connectorId: port.connector.id })}
-            onPointerLeave={() => props.setHover(null)}
+            onPointerEnter={() => {
+              props.setHover({ unitId: node.unitId, connectorId: port.connector.id });
+              const ui = uiStore.getState();
+              if (!props.drag && !ui.trace?.pinned && !ui.follow)
+                ui.setTrace({ start: nodeKey(node.unitId, port.connector.id), pinned: false });
+            }}
+            onPointerLeave={() => {
+              props.setHover(null);
+              const ui = uiStore.getState();
+              if (!ui.trace?.pinned) ui.setTrace(null);
+            }}
             onPointerDown={(e) => {
               e.stopPropagation();
               if (props.readOnly || e.button !== 0) return;
@@ -604,6 +718,10 @@ function EdgeShape(props: {
   midiColors: string[];
   onMenu(m: { id: string; x: number; y: number }): void;
   issue?: 'error' | 'warning' | 'info';
+  /** null = no trace active; true/false = on or off the traced path. */
+  traced: boolean | null;
+  clockHop?: number;
+  bpm: number;
 }) {
   const { a, b, style, edge } = props;
   const c = edge.connection;
@@ -614,7 +732,7 @@ function EdgeShape(props: {
     ? `M ${a.x} ${a.y} H ${laneX} V ${b.y} H ${b.x}`
     : `M ${a.x} ${a.y} H ${laneX} V ${(a.y + b.y) / 2} H ${b.x - 30} V ${b.y} H ${b.x}`;
   const id = `edge-${c.id}`;
-  const opacity = !c.enabled ? 0.3 : props.dimmed ? 0.12 : 1;
+  const opacity = !c.enabled ? 0.3 : props.dimmed || props.traced === false ? 0.12 : 1;
   const midX = (laneX + (forward ? laneX : b.x - 30)) / 2;
   const midY = (a.y + b.y) / 2;
   const badge = (x: number, y: number, anchor: 'start' | 'end') =>
@@ -648,6 +766,15 @@ function EdgeShape(props: {
         e.stopPropagation();
         uiStore.getState().select({ kind: 'connection', id: c.id });
       }}
+      onPointerEnter={() => {
+        const ui = uiStore.getState();
+        if (!ui.trace?.pinned && !ui.follow)
+          ui.setTrace({ start: nodeKey(edge.from.unitId, edge.from.connectorId), pinned: false });
+      }}
+      onPointerLeave={() => {
+        const ui = uiStore.getState();
+        if (!ui.trace?.pinned) ui.setTrace(null);
+      }}
       onContextMenu={(e) => {
         e.preventDefault();
         uiStore.getState().select({ kind: 'connection', id: c.id });
@@ -662,7 +789,7 @@ function EdgeShape(props: {
         d={d}
         fill="none"
         stroke={edge.invalid ? '#b91c1c' : props.color}
-        strokeWidth={style.width + (props.selected ? 1.5 : 0)}
+        strokeWidth={style.width + (props.selected ? 1.5 : 0) + (props.traced ? 1.5 : 0)}
         strokeDasharray={style.dash}
         markerEnd="url(#arrow)"
         markerStart={edge.bidir ? 'url(#arrow)' : undefined}
@@ -672,10 +799,16 @@ function EdgeShape(props: {
         <path
           d={d}
           fill="none"
-          stroke="white"
-          strokeOpacity={0.85}
-          strokeWidth={Math.max(1, style.width - 0.5)}
+          // MIDI packets take the channel colour; clock pulses tick at the global BPM, delayed 40 ms per hop.
+          stroke={style.key === 'midi' && style.badgeColor ? style.badgeColor : 'white'}
+          strokeOpacity={0.9}
+          strokeWidth={Math.max(1, style.width - 0.5) + (style.key === 'midi' ? 1 : 0)}
           className={style.anim}
+          style={
+            style.key === 'clock' || (style.key === 'midi' && props.clockHop !== undefined)
+              ? { animationDuration: `${60 / props.bpm}s`, animationDelay: `${(props.clockHop ?? 0) * 40}ms` }
+              : undefined
+          }
           vectorEffect="non-scaling-stroke"
           pointerEvents="none"
           data-animated="true"

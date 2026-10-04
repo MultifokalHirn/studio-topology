@@ -4,9 +4,10 @@ import { useState } from 'react';
 import { t } from '@/i18n';
 import { BomTable } from './BomTable';
 import { ConnectionsTable } from './ConnectionsTable';
+import { TreesView } from './TreesView';
 
 export function TablesView() {
-  const [tab, setTab] = useState<'connections' | 'bom'>('connections');
+  const [tab, setTab] = useState<'connections' | 'bom' | 'clock' | 'usb' | 'power'>('connections');
   return (
     <div className="flex h-full flex-col">
       <div
@@ -18,6 +19,9 @@ export function TablesView() {
           [
             ['connections', 'Connections'],
             ['bom', 'Cable BOM'],
+            ['clock', 'MIDI/clock tree'],
+            ['usb', 'USB tree'],
+            ['power', 'Power tree'],
           ] as const
         ).map(([id, label]) => (
           <button
@@ -34,7 +38,9 @@ export function TablesView() {
           </button>
         ))}
       </div>
-      <div className="min-h-0 flex-1">{tab === 'connections' ? <ConnectionsTable /> : <BomTable />}</div>
+      <div className="min-h-0 flex-1">
+        {tab === 'connections' ? <ConnectionsTable /> : tab === 'bom' ? <BomTable /> : <TreesView kind={tab} />}
+      </div>
     </div>
   );
 }

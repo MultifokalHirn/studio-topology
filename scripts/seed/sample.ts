@@ -245,10 +245,13 @@ function unitConfigs(models: Map<string, GearModel>): Record<string, UnitConfig>
   for (const [key, modelId] of UNITS) {
     const m = models.get(modelId)!;
     const cfg = defaultUnitConfig(m.ergonomics.defaultUsage);
-    if (m.clock?.canBeSlave && m.connectors.some((c) => c.id === 'midi-in')) cfg.clockSource = { connectorId: 'midi-in' };
+    if (m.clock?.canBeSlave && m.clock.formats.includes('midi') && m.connectors.some((c) => c.id === 'midi-in'))
+      cfg.clockSource = { connectorId: 'midi-in' };
     out[u(key)] = cfg;
   }
   out[u('pyramid')] = { ...out[u('pyramid')]!, clockMaster: true, clockSource: 'internal' };
+  out[u('ep40')] = { ...out[u('ep40')]!, clockSource: { connectorId: 'sync-in' } };
+  out[u('nifty')] = { ...out[u('nifty')]!, clockSource: { connectorId: 'usb' } }; // MIDI arrives over USB from the mioXL
   out[u('keystep')] = { ...out[u('keystep')]!, notes: 'Clock from MIDI In (via Octatrack Thru); Sync Out set to 2 PPQ for the Riddim.' };
   out[u('px3000')] = { ...out[u('px3000')]!, pathPresets: Object.fromEntries(Array.from({ length: 24 }, (_, k) => [`ch${k + 1}`, 'half-normal'])) };
   return out;

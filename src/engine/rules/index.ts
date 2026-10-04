@@ -1,6 +1,7 @@
 // Rule registry and runner (spec §5.12, Appendix F).
 import type { Project, Setup } from '@/domain/types';
 import type { Issue } from '../issues';
+import { clockRules, continuityIssues } from './clock';
 import { connectivityRules } from './connectivity';
 import { buildContext, type Rule, type RuleDep, type SetupContext } from './context';
 import { midiUsbPowerRules } from './midiUsbPower';
@@ -9,7 +10,13 @@ import { placementDataRules } from './placementData';
 export type { Rule, RuleDep, SetupContext };
 export { buildContext };
 
-export const rules: Rule[] = [...connectivityRules, ...midiUsbPowerRules, ...placementDataRules];
+// SIG-006 also follows L/R through internal paths (M7).
+const sig006 = connectivityRules.find((r) => r.id === 'SIG-006')!;
+const baseSig006 = sig006.run;
+sig006.run = (ctx) => [...baseSig006(ctx), ...continuityIssues(ctx)];
+sig006.dependsOn = [...new Set([...sig006.dependsOn, 'unitConfigs' as const, 'library' as const])];
+
+export const rules: Rule[] = [...connectivityRules, ...midiUsbPowerRules, ...clockRules, ...placementDataRules];
 export const ruleById = new Map(rules.map((r) => [r.id, r]));
 
 export interface RuleRun {

@@ -17,6 +17,12 @@ export interface UiState {
   /** Gear model open in the full-screen editor. */
   editingGearModelId: string | null;
   darkMode: boolean;
+  /** Signal trace shown in the patch (spec §5.10): a port node key, hovered or pinned. */
+  trace: { start: string; pinned: boolean } | null;
+  /** Follow-signal playback: the path being stepped through and the current hop. */
+  follow: { path: string[]; step: number } | null;
+  setTrace(t: { start: string; pinned: boolean } | null): void;
+  setFollow(f: { path: string[]; step: number } | null): void;
   setSidebarTab(tab: SidebarTab): void;
   setCanvasTab(tab: CanvasTab): void;
   select(sel: Selection | null): void;
@@ -31,6 +37,10 @@ export function createUiStore(initialDark = false) {
     selection: null,
     editingGearModelId: null,
     darkMode: initialDark,
+    trace: null,
+    follow: null,
+    setTrace: (trace) => set({ trace }),
+    setFollow: (follow) => set({ follow }),
     setSidebarTab: (sidebarTab) => set({ sidebarTab }),
     setCanvasTab: (canvasTab) => set({ canvasTab }),
     select: (selection) => set({ selection }),

@@ -387,6 +387,82 @@ const CASES: Record<string, Case> = {
     fail: (s) => s.connections.push(wire(['psu-h90', 'dc-out'], ['keystep', 'dc-in'])),
     pass: (s) => s.connections.push(wire(['mioxl', 'usb-host-1'], ['keystep', 'usb'])),
   },
+  'CLK-001': {
+    fail: (s) => {
+      s.unitConfigs['unit-pyramid'] = {
+        activeAlternates: {},
+        powerAssignments: [],
+        usage: 'primary',
+        clockMaster: true,
+      };
+      s.unitConfigs['unit-a4'] = { activeAlternates: {}, powerAssignments: [], usage: 'primary', clockMaster: true };
+      s.connections.push(wire(['pyramid', 'midi-out-a'], ['a4', 'midi-in']));
+    },
+    pass: (s) => {
+      s.unitConfigs['unit-pyramid'] = {
+        activeAlternates: {},
+        powerAssignments: [],
+        usage: 'primary',
+        clockMaster: true,
+      };
+      s.connections.push(wire(['pyramid', 'midi-out-a'], ['a4', 'midi-in']));
+    },
+  },
+  'CLK-002': {
+    fail: (s) =>
+      s.connections.push(wire(['ot', 'midi-out'], ['dt2', 'midi-in']), wire(['dt2', 'midi-out'], ['ot', 'midi-in'])),
+    pass: (s) => s.connections.push(wire(['ot', 'midi-out'], ['dt2', 'midi-in'])),
+  },
+  'CLK-003': {
+    fail: (s) => {
+      s.placements.push(onDesk('dt2', 0));
+      s.unitConfigs['unit-dt2'] = {
+        activeAlternates: {},
+        powerAssignments: [],
+        usage: 'primary',
+        clockSource: { connectorId: 'midi-in' },
+      };
+    },
+    pass: (s) => {
+      s.unitConfigs['unit-pyramid'] = {
+        activeAlternates: {},
+        powerAssignments: [],
+        usage: 'primary',
+        clockMaster: true,
+      };
+      s.unitConfigs['unit-dt2'] = {
+        activeAlternates: {},
+        powerAssignments: [],
+        usage: 'primary',
+        clockSource: { connectorId: 'midi-in' },
+      };
+      s.connections.push(wire(['pyramid', 'midi-out-a'], ['dt2', 'midi-in']));
+    },
+  },
+  'CLK-004': {
+    fail: (s) => {
+      s.unitConfigs['unit-pyramid'] = {
+        activeAlternates: { 'midi-out-b': 'dinsync24' },
+        powerAssignments: [],
+        usage: 'primary',
+        clockMaster: true,
+      };
+      s.connections.push(wire(['pyramid', 'midi-out-b'], ['ep40', 'sync-in']));
+    },
+    pass: (s) => s.connections.push(wire(['keystep', 'sync-out'], ['ep40', 'sync-in'])),
+  },
+  'CLK-005': {
+    fail: (s) => s.connections.push(wire(['ipad', 'usb-c'], ['keystep', 'usb'])),
+    pass: (s) => {
+      s.unitConfigs['unit-pyramid'] = {
+        activeAlternates: {},
+        powerAssignments: [],
+        usage: 'primary',
+        clockMaster: true,
+      };
+      s.connections.push(wire(['pyramid', 'midi-out-a'], ['keystep', 'midi-in']));
+    },
+  },
   'PLC-001': {
     fail: (s) => s.placements.push(onDesk('dt2', 0), onDesk('heat', 100)),
     pass: (s) => s.placements.push(onDesk('dt2', 0), onDesk('heat', 300)),

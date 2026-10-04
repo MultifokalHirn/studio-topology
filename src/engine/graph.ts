@@ -90,9 +90,12 @@ export function buildSignalGraph(project: Project, setup: Setup): SignalGraph {
     if (!m) continue;
     for (const path of m.internalPaths) {
       if (!pathActive(path, m, setup.unitConfigs[unitId])) continue;
-      const pairs = path.channelMap?.length
-        ? path.channelMap.map((x) => [x.from, x.to] as const)
-        : path.from.flatMap((f) => path.to.map((t) => [f, t] as const));
+      // A channel map pins the inputs it lists; inputs it does not mention feed every output of the path.
+      const mapped = new Set((path.channelMap ?? []).map((x) => baseId(x.from)));
+      const pairs = [
+        ...(path.channelMap ?? []).map((x) => [x.from, x.to] as const),
+        ...path.from.filter((f) => !mapped.has(baseId(f))).flatMap((f) => path.to.map((t) => [f, t] as const)),
+      ];
       for (const [f, t] of pairs) {
         const fk = nodeKey(unitId, baseId(f));
         const tk = nodeKey(unitId, baseId(t));
