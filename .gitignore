@@ -27,3 +27,5 @@ dist-ssr
 test-results/
 playwright-report/
 .vitest/
+.tmp/
+.shots/

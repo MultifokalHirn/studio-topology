@@ -8,6 +8,7 @@ import { formatLength } from '@/domain/units';
 import { t } from '@/i18n';
 import { projectStore, uiStore, useProject, useUi } from '@/store';
 import { MeasureDialog } from '../gear-editor/sections';
+import { PlacementBlock } from './PlacementBlock';
 import { StandInspector } from './StandInspector';
 
 export function Inspector() {
@@ -145,6 +146,7 @@ function GearInspector({ model: m, unitId }: { model: GearModel; unitId?: string
           })}
         </ul>
       </div>
+      {unit && <PlacementBlock unitId={unit.id} />}
       {usage && (
         <p className="text-xs text-neutral-500">
           {t('Used in {n} placements and {c} connections.', {

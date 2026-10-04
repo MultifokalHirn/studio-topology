@@ -3,6 +3,7 @@ import { IconCopy, IconPlus, IconTrash } from '@tabler/icons-react';
 import clsx from 'clsx';
 import { useMemo, useState } from 'react';
 import { Button, ConfirmModal, TextInput } from '@/components/ui';
+import { dragTypes } from '../layout/dragTypes';
 import { CableUnitDialog } from './CableDialogs';
 import { deleteGearUnit, deleteStandUnit, duplicateGearUnit, gearUnitUsage, modelLabel } from '@/domain/libraryOps';
 import type { GearModel, GearUnit } from '@/domain/types';
@@ -63,6 +64,11 @@ export function InventoryPanel() {
                 {items.map(({ unit, model }) => (
                   <li
                     key={unit.id}
+                    draggable={!readOnly}
+                    onDragStart={(e) => {
+                      e.dataTransfer.setData(dragTypes.gear, unit.id);
+                      e.dataTransfer.effectAllowed = 'copyMove';
+                    }}
                     className={clsx(
                       'group flex items-center gap-1 px-2 py-0.5 hover:bg-neutral-100 dark:hover:bg-neutral-800',
                       selection?.kind === 'gear-unit' && selection.id === unit.id && 'bg-blue-50 dark:bg-blue-950',
@@ -107,6 +113,8 @@ export function InventoryPanel() {
           {project.inventory.standUnits.map((s) => (
             <li
               key={s.id}
+              draggable={!readOnly}
+              onDragStart={(e) => e.dataTransfer.setData(dragTypes.stand, s.id)}
               className="flex items-center gap-1 px-2 py-0.5 hover:bg-neutral-100 dark:hover:bg-neutral-800"
             >
               <button

@@ -23018,7 +23018,7 @@
             "standUnitId": "stand-unit-jaspers",
             "surfaceId": "tier-top",
             "type": "surface",
-            "x": 920,
+            "x": 900,
             "y": 20
           },
           "rotationDeg": 0,
@@ -23031,7 +23031,7 @@
             "standUnitId": "stand-unit-jaspers",
             "surfaceId": "tier-top",
             "type": "surface",
-            "x": 1150,
+            "x": 1170,
             "y": 20
           },
           "rotationDeg": 0,
@@ -23109,8 +23109,8 @@
             "standUnitId": "stand-unit-desk",
             "surfaceId": "top",
             "type": "surface",
-            "x": 700,
-            "y": 320
+            "x": 540,
+            "y": 560
           },
           "rotationDeg": 0,
           "unitId": "unit-keystep",
@@ -25537,7 +25537,7 @@
       ],
       "createdAt": "2026-10-04T00:00:00.000Z",
       "derivedFromId": "setup-current",
-      "description": "Standing plan: planes ≈ 800 / 1000 / 1190 mm (tray = plane − unit height).",
+      "description": "Standing plan: planes ≈ 800 / 1000 / 1190 mm (tray = plane − unit height, on the 5 mm adjustment steps of the stand).",
       "id": "setup-planned-standing",
       "name": "Planned (standing)",
       "placements": [
@@ -25713,11 +25713,11 @@
         {
           "locked": false,
           "mount": {
-            "standUnitId": "stand-unit-desk",
-            "surfaceId": "top",
-            "type": "surface",
-            "x": 1050,
-            "y": 540
+            "pos": {
+              "x": -2500,
+              "y": 1800
+            },
+            "type": "floor"
           },
           "rotationDeg": 0,
           "unitId": "unit-drum3p",
@@ -25729,7 +25729,7 @@
             "standUnitId": "stand-unit-desk",
             "surfaceId": "top",
             "type": "surface",
-            "x": 1400,
+            "x": 1450,
             "y": 560
           },
           "rotationDeg": 0,
@@ -25767,8 +25767,8 @@
             "standUnitId": "stand-unit-desk",
             "surfaceId": "top",
             "type": "surface",
-            "x": 1350,
-            "y": 700
+            "x": 1000,
+            "y": 600
           },
           "rotationDeg": 0,
           "unitId": "unit-nifty",
@@ -25959,13 +25959,13 @@
           "standUnitId": "stand-unit-jaspers",
           "surfaceStates": {
             "tier-bottom": {
-              "z": 723
+              "z": 725
             },
             "tier-middle": {
-              "z": 918
+              "z": 920
             },
             "tier-top": {
-              "z": 1127
+              "z": 1125
             }
           }
         },

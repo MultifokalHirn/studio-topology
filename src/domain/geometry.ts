@@ -237,3 +237,75 @@ export function controlPlaneZ(trayZ: number, s: Pick<Size3, 'd' | 'h'>, tiltDeg:
   const t = degToRad(tiltDeg);
   return trayZ + s.h * Math.cos(t) + (s.d / 2) * Math.sin(t);
 }
+
+// ---------- polygons (occlusion, overlap areas) ----------
+
+/** Signed area (positive for counter-clockwise in a y-up frame). */
+export function polygonArea(poly: Point[]): number {
+  let a = 0;
+  for (let i = 0; i < poly.length; i++) {
+    const p = poly[i]!;
+    const q = poly[(i + 1) % poly.length]!;
+    a += p.x * q.y - q.x * p.y;
+  }
+  return a / 2;
+}
+
+/** Convex hull (Andrew's monotone chain), counter-clockwise, without collinear points. */
+export function convexHull(points: Point[]): Point[] {
+  const pts = [...points].sort((a, b) => a.x - b.x || a.y - b.y);
+  if (pts.length < 3) return pts;
+  const cross = (o: Point, a: Point, b: Point) => (a.x - o.x) * (b.y - o.y) - (a.y - o.y) * (b.x - o.x);
+  const lower: Point[] = [];
+  for (const p of pts) {
+    while (lower.length >= 2 && cross(lower[lower.length - 2]!, lower[lower.length - 1]!, p) <= 0) lower.pop();
+    lower.push(p);
+  }
+  const upper: Point[] = [];
+  for (const p of [...pts].reverse()) {
+    while (upper.length >= 2 && cross(upper[upper.length - 2]!, upper[upper.length - 1]!, p) <= 0) upper.pop();
+    upper.push(p);
+  }
+  return [...lower.slice(0, -1), ...upper.slice(0, -1)];
+}
+
+/** Sutherland–Hodgman: clip `subject` by a convex `clip` polygon (both counter-clockwise). */
+export function clipPolygon(subject: Point[], clip: Point[]): Point[] {
+  let out = subject;
+  for (let i = 0; i < clip.length && out.length; i++) {
+    const a = clip[i]!;
+    const b = clip[(i + 1) % clip.length]!;
+    const inside = (p: Point) => (b.x - a.x) * (p.y - a.y) - (b.y - a.y) * (p.x - a.x) >= -1e-9;
+    const intersect = (p: Point, q: Point): Point => {
+      const d1 = (b.x - a.x) * (p.y - a.y) - (b.y - a.y) * (p.x - a.x);
+      const d2 = (b.x - a.x) * (q.y - a.y) - (b.y - a.y) * (q.x - a.x);
+      const t = d1 / (d1 - d2);
+      return { x: p.x + (q.x - p.x) * t, y: p.y + (q.y - p.y) * t };
+    };
+    const input = out;
+    out = [];
+    for (let j = 0; j < input.length; j++) {
+      const p = input[j]!;
+      const q = input[(j + 1) % input.length]!;
+      if (inside(q)) {
+        if (!inside(p)) out.push(intersect(p, q));
+        out.push(q);
+      } else if (inside(p)) out.push(intersect(p, q));
+    }
+  }
+  return out;
+}
+
+/** Offset a surface frame to a point on it (used to stack a unit on another unit's top face). */
+export function offsetFrame(frame: SurfaceFrame, p: Vec3, usable: { w: number; d: number }): SurfaceFrame {
+  const t = degToRad(frame.tiltDeg);
+  return {
+    ...frame,
+    origin: {
+      x: frame.origin.x + p.x,
+      y: frame.origin.y + p.y * Math.cos(t) - p.z * Math.sin(t),
+      z: frame.origin.z + p.y * Math.sin(t) + p.z * Math.cos(t),
+    },
+    usable,
+  };
+}

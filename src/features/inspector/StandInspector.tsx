@@ -8,6 +8,8 @@ import { firstFreeU, rackFit, rackHeightU, type RackItem } from '@/domain/rack';
 import type { GearModel, StandModel, SurfaceDef } from '@/domain/types';
 import { t } from '@/i18n';
 import { projectStore, useProject } from '@/store';
+import { StandEditor } from '../stand-editor/StandEditor';
+import { StandSetupControls } from './StandSetupControls';
 
 export function StandInspector({ model, standUnitId }: { model: StandModel; standUnitId?: string }) {
   const project = useProject((s) => s.project);
@@ -15,6 +17,7 @@ export function StandInspector({ model, standUnitId }: { model: StandModel; stan
   const setup = project.setups.find((s) => s.id === project.activeSetupId);
   const unit = standUnitId ? project.inventory.standUnits.find((u) => u.id === standUnitId) : undefined;
   const state = setup?.stands.find((s) => s.standUnitId === standUnitId);
+  const [editing, setEditing] = useState(false);
 
   const change = (label: string, recipe: Parameters<ReturnType<typeof projectStore.getState>['change']>[0]) =>
     projectStore.getState().change(recipe, { label });
@@ -56,6 +59,9 @@ export function StandInspector({ model, standUnitId }: { model: StandModel; stan
         ))}
       </ul>
       {model.notes && <p className="text-xs text-neutral-500">{model.notes}</p>}
+      <Button onClick={() => setEditing(true)}>{t('Edit stand model…')}</Button>
+      {editing && <StandEditor modelId={model.id} onClose={() => setEditing(false)} />}
+      {unit && setup && <StandSetupControls model={model} standUnitId={unit.id} />}
 
       {unit && setup && (
         <>
