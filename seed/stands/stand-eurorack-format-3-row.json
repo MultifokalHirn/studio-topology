@@ -1,0 +1,97 @@
+{
+  "dimensions": {
+    "d": 420,
+    "h": 370,
+    "w": 470,
+    "weightKg": null
+  },
+  "id": "stand-eurorack-format-3-row",
+  "images": {},
+  "manufacturer": "Generic",
+  "name": "Eurorack-format stand (3 rows)",
+  "notes": "Separate stand for the Neutron, Pro-800 and 2-XM (each ~424 × 136 mm). Geometry is a placeholder; measure.",
+  "provenance": {
+    "surfaces.0.anchor": {
+      "kind": "estimated",
+      "note": "Generator default; measure the real stand."
+    },
+    "surfaces.1.anchor": {
+      "kind": "estimated",
+      "note": "Generator default; measure the real stand."
+    },
+    "surfaces.2.anchor": {
+      "kind": "estimated",
+      "note": "Generator default; measure the real stand."
+    }
+  },
+  "sources": [],
+  "surfaces": [
+    {
+      "adjustable": {
+        "tiltDeg": {
+          "max": 45,
+          "min": 0,
+          "step": 1
+        }
+      },
+      "anchor": {
+        "x": 0,
+        "y": 0,
+        "z": 40
+      },
+      "id": "row-1",
+      "kind": "shelf",
+      "label": "Row 1",
+      "loadKg": null,
+      "usable": {
+        "d": 140,
+        "w": 440
+      }
+    },
+    {
+      "adjustable": {
+        "tiltDeg": {
+          "max": 45,
+          "min": 0,
+          "step": 1
+        }
+      },
+      "anchor": {
+        "x": 0,
+        "y": 140,
+        "z": 150
+      },
+      "id": "row-2",
+      "kind": "shelf",
+      "label": "Row 2",
+      "loadKg": null,
+      "usable": {
+        "d": 140,
+        "w": 440
+      }
+    },
+    {
+      "adjustable": {
+        "tiltDeg": {
+          "max": 45,
+          "min": 0,
+          "step": 1
+        }
+      },
+      "anchor": {
+        "x": 0,
+        "y": 280,
+        "z": 260
+      },
+      "id": "row-3",
+      "kind": "shelf",
+      "label": "Row 3",
+      "loadKg": null,
+      "usable": {
+        "d": 140,
+        "w": 440
+      }
+    }
+  ],
+  "type": "custom"
+}

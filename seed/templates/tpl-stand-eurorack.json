@@ -1,0 +1,26 @@
+{
+  "generator": "eurorack-stand",
+  "group": "Stands",
+  "id": "tpl-stand-eurorack",
+  "name": "Eurorack stand",
+  "params": [
+    {
+      "default": 3,
+      "key": "rows",
+      "label": "Rows"
+    },
+    {
+      "default": 140,
+      "key": "rowDepthMm",
+      "label": "Row depth",
+      "unit": "mm"
+    },
+    {
+      "default": 440,
+      "key": "widthMm",
+      "label": "Width",
+      "unit": "mm"
+    }
+  ],
+  "target": "stand"
+}

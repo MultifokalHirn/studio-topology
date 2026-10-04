@@ -29,12 +29,14 @@ export function useAutosave(): void {
 }
 
 /** The newest autosave snapshot, offered for crash recovery on start-up. */
-export function useRecoverySnapshot(): [Snapshot | null, () => void] {
+export function useRecoverySnapshot(): [Snapshot | null, () => void, boolean] {
   const [snapshot, setSnapshot] = useState<Snapshot | null>(null);
+  const [checked, setChecked] = useState(false);
   useEffect(() => {
     readSnapshots()
       .then((list) => setSnapshot(list[0] ?? null))
-      .catch(() => setSnapshot(null));
+      .catch(() => setSnapshot(null))
+      .finally(() => setChecked(true));
   }, []);
-  return [snapshot, () => setSnapshot(null)];
+  return [snapshot, () => setSnapshot(null), checked];
 }

@@ -1,0 +1,102 @@
+{
+  "aliases": [],
+  "category": "power",
+  "connectors": [
+    {
+      "direction": "in",
+      "domain": "power.ac",
+      "face": "back",
+      "id": "ac",
+      "jack": "mains-plug",
+      "label": "Mains plug",
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "direction": "out",
+      "domain": "power.dc",
+      "face": "back",
+      "id": "dc-out",
+      "jack": "captive-cable",
+      "label": "DC Out",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "psu": {
+        "currentMaMax": 2000,
+        "plug": {
+          "idMm": 2.5,
+          "odMm": 5.5,
+          "polarity": "center-positive",
+          "type": "barrel"
+        },
+        "polarity": "center-positive",
+        "voltage": 12
+      }
+    }
+  ],
+  "dimensions": {
+    "d": null,
+    "h": null,
+    "heightIncludesKnobsFeet": true,
+    "w": null,
+    "weightKg": null
+  },
+  "ergonomics": {
+    "defaultUsage": "rare",
+    "interaction": "set-and-forget",
+    "needsDisplayVisibility": false
+  },
+  "faces": {},
+  "formFactor": "other",
+  "id": "gear-elektron-psu-3c",
+  "images": {},
+  "internalPaths": [],
+  "manufacturer": "Elektron",
+  "mounting": {},
+  "name": "PSU-3c",
+  "notes": "Included with Elektron Analog Heat, Analog Four, Digitone II, Octatrack.",
+  "power": {
+    "mainsRegion": "unknown",
+    "sources": []
+  },
+  "provenance": {
+    "connectors.*.face": {
+      "kind": "estimated",
+      "note": "Not applicable to a wall adapter."
+    },
+    "connectors.*.pos": {
+      "kind": "unknown",
+      "note": "Placeholder (0,0); place on a panel image."
+    },
+    "dimensions.d": {
+      "kind": "unknown",
+      "note": "Not located in the gear reference."
+    },
+    "dimensions.h": {
+      "kind": "unknown",
+      "note": "Not located in the gear reference."
+    },
+    "dimensions.w": {
+      "kind": "unknown",
+      "note": "Not located in the gear reference."
+    },
+    "dimensions.weightKg": {
+      "kind": "unknown",
+      "note": "Not located in the gear reference."
+    }
+  },
+  "sources": [
+    {
+      "label": "Home Studio Gear Reference v2 (docs/studio-gear-reference.md)",
+      "retrieved": "2026-10-04"
+    }
+  ],
+  "tags": [
+    "psu",
+    "wall-wart"
+  ]
+}

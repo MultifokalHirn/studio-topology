@@ -1,0 +1,17 @@
+{
+  "balanced": true,
+  "carries": [
+    "audio.analog"
+  ],
+  "endA": "XLR-F",
+  "endB": "TRS-6.35",
+  "id": "cable-xlrf-trs",
+  "kind": "cable",
+  "lengthsMm": [
+    1000,
+    2000,
+    3000,
+    5000
+  ],
+  "name": "XLR F – ¼\" TRS"
+}

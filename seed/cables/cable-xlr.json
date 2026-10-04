@@ -1,0 +1,19 @@
+{
+  "balanced": true,
+  "carries": [
+    "audio.analog"
+  ],
+  "endA": "XLR-M",
+  "endB": "XLR-F",
+  "id": "cable-xlr",
+  "kind": "cable",
+  "lengthsMm": [
+    500,
+    1000,
+    2000,
+    3000,
+    5000,
+    10000
+  ],
+  "name": "XLR M – XLR F"
+}

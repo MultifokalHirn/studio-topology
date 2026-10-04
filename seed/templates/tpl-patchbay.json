@@ -1,0 +1,111 @@
+{
+  "connectorGroups": [
+    {
+      "connectors": [
+        {
+          "channel": {
+            "group": "ch{i}",
+            "role": "numbered"
+          },
+          "direction": "bidir",
+          "domain": "audio.analog",
+          "face": "front",
+          "id": "front-top-{i}",
+          "jack": "jack-6.35-TRS",
+          "label": "front top {i}",
+          "pos": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "channel": {
+            "group": "ch{i}",
+            "role": "numbered"
+          },
+          "direction": "bidir",
+          "domain": "audio.analog",
+          "face": "front",
+          "id": "front-bottom-{i}",
+          "jack": "jack-6.35-TRS",
+          "label": "front bottom {i}",
+          "pos": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "channel": {
+            "group": "ch{i}",
+            "role": "numbered"
+          },
+          "direction": "bidir",
+          "domain": "audio.analog",
+          "face": "back",
+          "id": "rear-top-{i}",
+          "jack": "jack-6.35-TRS",
+          "label": "rear top {i}",
+          "pos": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "channel": {
+            "group": "ch{i}",
+            "role": "numbered"
+          },
+          "direction": "bidir",
+          "domain": "audio.analog",
+          "face": "back",
+          "id": "rear-bottom-{i}",
+          "jack": "jack-6.35-TRS",
+          "label": "rear bottom {i}",
+          "pos": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      ],
+      "repeat": "channels"
+    }
+  ],
+  "description": "Normalling modes per channel: add internal paths with group ch{i} and presets normal / half-normal.",
+  "gear": {
+    "category": "patchbay",
+    "dimensions": {
+      "d": null,
+      "h": 44.45,
+      "heightIncludesKnobsFeet": false,
+      "rack": {
+        "earsIncluded": true,
+        "u": 1
+      },
+      "w": 482.6,
+      "weightKg": null
+    },
+    "ergonomics": {
+      "defaultUsage": "secondary",
+      "interaction": "set-and-forget",
+      "needsDisplayVisibility": false
+    },
+    "formFactor": "rack",
+    "mounting": {
+      "rackEars": true
+    },
+    "power": {
+      "sources": []
+    }
+  },
+  "group": "Audio infrastructure",
+  "id": "tpl-patchbay",
+  "name": "Patchbay 1U (48-point)",
+  "params": [
+    {
+      "default": 24,
+      "key": "channels",
+      "label": "Channels (2 points each)"
+    }
+  ],
+  "target": "gear"
+}

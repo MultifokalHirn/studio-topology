@@ -1,0 +1,303 @@
+{
+  "aliases": [],
+  "category": "synth",
+  "clock": {
+    "canBeMaster": false,
+    "canBeSlave": true,
+    "formats": [
+      "midi"
+    ],
+    "notes": "MIDI clock for arp/sequencer. 3.5 mm sync in format not located."
+  },
+  "connectors": [
+    {
+      "channel": {
+        "role": "mono"
+      },
+      "direction": "out",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "out",
+      "jack": "jack-6.35-TS",
+      "label": "Output",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "unbalanced",
+        "level": "line",
+        "maxDbu": 5
+      }
+    },
+    {
+      "channel": {
+        "role": "mono"
+      },
+      "direction": "out",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "out-audio",
+      "jack": "jack-3.5-TS",
+      "label": "Audio Out (⅛\")",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "unbalanced",
+        "level": "line",
+        "maxDbu": 20
+      }
+    },
+    {
+      "channel": {
+        "role": "stereo"
+      },
+      "direction": "out",
+      "domain": "audio.headphone",
+      "face": "back",
+      "id": "phones",
+      "jack": "jack-3.5-TRS",
+      "label": "Headphones",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "n/a",
+        "level": "headphone"
+      }
+    },
+    {
+      "clock": {
+        "canSlave": true,
+        "format": "pulse",
+        "note": "Format not located."
+      },
+      "direction": "in",
+      "domain": "clock.pulse",
+      "face": "back",
+      "id": "sync-in",
+      "jack": "jack-3.5",
+      "label": "Sync In",
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "direction": "in",
+      "domain": "cv",
+      "face": "back",
+      "id": "cv-filter",
+      "jack": "jack-3.5",
+      "label": "Filter CV In",
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "direction": "in",
+      "domain": "footswitch",
+      "face": "back",
+      "id": "footswitch",
+      "jack": "jack-6.35",
+      "label": "Footswitch",
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "direction": "in",
+      "domain": "midi.din",
+      "face": "back",
+      "id": "midi-in",
+      "jack": "din5-f",
+      "label": "MIDI In",
+      "midi": {
+        "carries": [
+          "notes",
+          "cc",
+          "pc",
+          "sysex",
+          "clock",
+          "transport"
+        ]
+      },
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "alternates": [
+        {
+          "direction": "thru",
+          "id": "thru",
+          "label": "Thru",
+          "note": "Sources differ on labelling of the second DIN."
+        }
+      ],
+      "direction": "out",
+      "domain": "midi.din",
+      "face": "back",
+      "id": "midi-out-thru",
+      "jack": "din5-f",
+      "label": "MIDI Out/Thru",
+      "midi": {
+        "carries": [
+          "notes",
+          "cc",
+          "pc",
+          "sysex",
+          "clock",
+          "transport"
+        ],
+        "thruMode": "switchable-with-out"
+      },
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "direction": "bidir",
+      "domain": "usb.data",
+      "face": "back",
+      "id": "usb",
+      "jack": "usb-b-f",
+      "label": "USB",
+      "notes": "Class-compliant.",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "usb": {
+        "busPowered": false,
+        "carries": [
+          "midi"
+        ],
+        "role": "device",
+        "version": "unknown"
+      }
+    },
+    {
+      "direction": "in",
+      "domain": "power.dc",
+      "face": "back",
+      "id": "dc-in",
+      "jack": "unknown",
+      "label": "DC In",
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    }
+  ],
+  "dimensions": {
+    "d": 136,
+    "eurorack": {
+      "hp": 80
+    },
+    "h": 97,
+    "heightIncludesKnobsFeet": true,
+    "w": 424,
+    "weightKg": 1.65
+  },
+  "ergonomics": {
+    "defaultUsage": "secondary",
+    "interaction": "knobs-buttons",
+    "needsDisplayVisibility": false
+  },
+  "faces": {},
+  "formFactor": "desktop",
+  "id": "gear-behringer-pro-800",
+  "images": {},
+  "internalPaths": [],
+  "manufacturer": "Behringer",
+  "midi": {
+    "clockIn": true
+  },
+  "mounting": {},
+  "name": "Pro-800",
+  "notes": "80 HP Eurorack width. Mounted on the separate stand.",
+  "power": {
+    "mainsRegion": "unknown",
+    "maxW": 14.4,
+    "sources": [
+      {
+        "drawMa": 1200,
+        "included": true,
+        "inputConnectorId": "dc-in",
+        "kind": "external-dc",
+        "nominalV": 12,
+        "plug": {
+          "idMm": null,
+          "odMm": null,
+          "polarity": null,
+          "type": "barrel"
+        },
+        "suppliedModelId": "gear-behringer-pro-800-psu"
+      }
+    ]
+  },
+  "provenance": {
+    "connectors.*.face": {
+      "kind": "estimated",
+      "note": "Rear panel assumed unless the reference states the panel."
+    },
+    "connectors.*.pos": {
+      "kind": "unknown",
+      "note": "Placeholder (0,0); place on a panel image."
+    },
+    "connectors.9.jack": {
+      "kind": "unknown",
+      "note": "Jack type not located in the gear reference."
+    },
+    "dimensions.d": {
+      "kind": "datasheet",
+      "note": "Gear reference v2"
+    },
+    "dimensions.h": {
+      "kind": "datasheet",
+      "note": "Gear reference v2"
+    },
+    "dimensions.w": {
+      "kind": "datasheet",
+      "note": "Gear reference v2"
+    },
+    "dimensions.weightKg": {
+      "kind": "datasheet",
+      "note": "Gear reference v2"
+    },
+    "power.sources.0.drawMa": {
+      "kind": "datasheet",
+      "note": "12 V 1.2 A rating (adapter rating, used as upper bound)."
+    },
+    "power.sources.0.plug.idMm": {
+      "kind": "unknown",
+      "note": "Not located in the gear reference."
+    },
+    "power.sources.0.plug.odMm": {
+      "kind": "unknown",
+      "note": "Not located in the gear reference."
+    },
+    "power.sources.0.plug.polarity": {
+      "kind": "unknown",
+      "note": "Not located in the gear reference."
+    }
+  },
+  "sources": [
+    {
+      "label": "Home Studio Gear Reference v2 (docs/studio-gear-reference.md)",
+      "retrieved": "2026-10-04"
+    }
+  ],
+  "tags": [
+    "behringer",
+    "eurorack-width"
+  ]
+}

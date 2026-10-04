@@ -1,0 +1,166 @@
+{
+  "aliases": [],
+  "category": "tablet",
+  "clock": {
+    "canBeMaster": true,
+    "canBeSlave": true,
+    "formats": [
+      "midi"
+    ],
+    "notes": "Via apps."
+  },
+  "connectors": [
+    {
+      "direction": "bidir",
+      "domain": "usb.data",
+      "face": "right",
+      "id": "usb-c",
+      "jack": "usb-c-f",
+      "label": "USB-C (Thunderbolt / USB 4)",
+      "notes": "Single port: needs a powered hub for several devices. Bus power for the SSL 12 not verified.",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "usb": {
+        "audio": {
+          "compliance": "class-compliant",
+          "inChannels": null,
+          "outChannels": null
+        },
+        "carries": [
+          "midi",
+          "audio",
+          "data",
+          "power"
+        ],
+        "role": "host",
+        "suppliesBusPowerMa": null,
+        "version": "4"
+      }
+    },
+    {
+      "direction": "bidir",
+      "domain": "midi.ble",
+      "face": "back",
+      "id": "ble-midi",
+      "jack": "wireless",
+      "label": "Bluetooth LE MIDI",
+      "midi": {
+        "carries": [
+          "notes",
+          "cc",
+          "pc",
+          "sysex",
+          "clock",
+          "transport"
+        ]
+      },
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    }
+  ],
+  "dimensions": {
+    "d": 177.5,
+    "h": 5.3,
+    "heightIncludesKnobsFeet": true,
+    "w": 249.7,
+    "weightKg": 0.444
+  },
+  "ergonomics": {
+    "defaultUsage": "primary",
+    "interaction": "touch",
+    "needsDisplayVisibility": true
+  },
+  "faces": {},
+  "formFactor": "tablet",
+  "id": "gear-apple-ipad-pro-m4-11",
+  "images": {},
+  "internalPaths": [],
+  "manufacturer": "Apple",
+  "midi": {
+    "notes": "MIDI over USB and Bluetooth LE via apps."
+  },
+  "mounting": {},
+  "name": "iPad Pro M4",
+  "notes": "No headphone jack; analog audio needs a USB-C adapter or interface. Which size is owned is not confirmed.",
+  "power": {
+    "mainsRegion": "unknown",
+    "sources": [
+      {
+        "drawMa": null,
+        "included": true,
+        "kind": "battery"
+      },
+      {
+        "drawMa": null,
+        "included": false,
+        "inputConnectorId": "usb-c",
+        "kind": "usb-bus",
+        "nominalV": 5,
+        "plug": {
+          "type": "usb"
+        }
+      }
+    ]
+  },
+  "provenance": {
+    "connectors.*.face": {
+      "kind": "estimated",
+      "note": "Rear panel assumed unless the reference states the panel."
+    },
+    "connectors.*.pos": {
+      "kind": "unknown",
+      "note": "Placeholder (0,0); place on a panel image."
+    },
+    "connectors.0.usb.audio.inChannels": {
+      "kind": "unknown",
+      "note": "Not located in the gear reference."
+    },
+    "connectors.0.usb.audio.outChannels": {
+      "kind": "unknown",
+      "note": "Not located in the gear reference."
+    },
+    "connectors.0.usb.suppliesBusPowerMa": {
+      "kind": "unknown",
+      "note": "iPad USB-C output budget unverified (spec Appendix I.5)."
+    },
+    "dimensions.d": {
+      "kind": "estimated",
+      "note": "Gear reference v2"
+    },
+    "dimensions.h": {
+      "kind": "estimated",
+      "note": "Gear reference v2"
+    },
+    "dimensions.w": {
+      "kind": "estimated",
+      "note": "Apple figures recalled from memory, not re-verified."
+    },
+    "dimensions.weightKg": {
+      "kind": "estimated",
+      "note": "Gear reference v2"
+    },
+    "power.sources.0.drawMa": {
+      "kind": "unknown",
+      "note": "Not located in the gear reference."
+    },
+    "power.sources.1.drawMa": {
+      "kind": "unknown",
+      "note": "Not located in the gear reference."
+    }
+  },
+  "sources": [
+    {
+      "label": "Home Studio Gear Reference v2 (docs/studio-gear-reference.md)",
+      "retrieved": "2026-10-04"
+    }
+  ],
+  "tags": [
+    "apple",
+    "usb-host"
+  ],
+  "variant": "11-inch"
+}

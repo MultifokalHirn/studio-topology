@@ -1,0 +1,42 @@
+{
+  "gear": {
+    "category": "headphones",
+    "connectors": [
+      {
+        "channel": {
+          "role": "stereo"
+        },
+        "direction": "in",
+        "domain": "audio.headphone",
+        "face": "back",
+        "id": "plug",
+        "jack": "captive-cable",
+        "label": "Plug (¼\" TRS)",
+        "pos": {
+          "x": 0,
+          "y": 0
+        }
+      }
+    ],
+    "dimensions": {
+      "d": null,
+      "h": null,
+      "heightIncludesKnobsFeet": true,
+      "w": null,
+      "weightKg": null
+    },
+    "ergonomics": {
+      "defaultUsage": "secondary",
+      "interaction": "set-and-forget",
+      "needsDisplayVisibility": false
+    },
+    "formFactor": "handheld",
+    "power": {
+      "sources": []
+    }
+  },
+  "group": "Computers",
+  "id": "tpl-headphones",
+  "name": "Headphones",
+  "target": "gear"
+}

@@ -1,0 +1,15 @@
+{
+  "carries": [
+    "clock.word"
+  ],
+  "endA": "BNC",
+  "endB": "BNC",
+  "id": "cable-bnc",
+  "kind": "cable",
+  "lengthsMm": [
+    500,
+    1000,
+    2000
+  ],
+  "name": "BNC word clock (75 Ω)"
+}

@@ -1,0 +1,140 @@
+{
+  "connectorGroups": [
+    {
+      "connectors": [
+        {
+          "channel": {
+            "role": "numbered"
+          },
+          "direction": "in",
+          "domain": "audio.analog",
+          "face": "back",
+          "id": "in-{i}",
+          "jack": "combo-xlr-trs",
+          "label": "Input {i}",
+          "pos": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "channel": {
+            "role": "numbered"
+          },
+          "direction": "out",
+          "domain": "audio.analog",
+          "face": "back",
+          "id": "out-{i}",
+          "jack": "xlr-m",
+          "label": "Line Out {i}",
+          "pos": {
+            "x": 0,
+            "y": 0
+          },
+          "signal": {
+            "balance": "balanced",
+            "level": "+4dBu"
+          }
+        }
+      ],
+      "repeat": "channels"
+    }
+  ],
+  "gear": {
+    "category": "converter",
+    "connectors": [
+      {
+        "direction": "in",
+        "domain": "audio.adat",
+        "face": "back",
+        "id": "adat-in",
+        "jack": "toslink-f",
+        "label": "ADAT In",
+        "pos": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "direction": "out",
+        "domain": "audio.adat",
+        "face": "back",
+        "id": "adat-out",
+        "jack": "toslink-f",
+        "label": "ADAT Out",
+        "pos": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "direction": "in",
+        "domain": "clock.word",
+        "face": "back",
+        "id": "wordclock-in",
+        "jack": "bnc-f",
+        "label": "Word Clock In",
+        "pos": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "direction": "in",
+        "domain": "power.ac",
+        "face": "back",
+        "id": "ac-in",
+        "jack": "iec-c14",
+        "label": "Mains (IEC)",
+        "pos": {
+          "x": 0,
+          "y": 0
+        }
+      }
+    ],
+    "dimensions": {
+      "d": null,
+      "h": 44.45,
+      "heightIncludesKnobsFeet": false,
+      "rack": {
+        "earsIncluded": true,
+        "u": 1
+      },
+      "w": 482.6,
+      "weightKg": null
+    },
+    "ergonomics": {
+      "defaultUsage": "rare",
+      "interaction": "set-and-forget",
+      "needsDisplayVisibility": false
+    },
+    "formFactor": "rack",
+    "mounting": {
+      "rackEars": true
+    },
+    "power": {
+      "mainsRegion": "unknown",
+      "sources": [
+        {
+          "included": true,
+          "inputConnectorId": "ac-in",
+          "kind": "internal-mains",
+          "plug": {
+            "type": "iec-c14"
+          }
+        }
+      ]
+    }
+  },
+  "group": "Audio infrastructure",
+  "id": "tpl-adat-converter",
+  "name": "ADAT converter 1U",
+  "params": [
+    {
+      "default": 8,
+      "key": "channels",
+      "label": "Channels"
+    }
+  ],
+  "target": "gear"
+}

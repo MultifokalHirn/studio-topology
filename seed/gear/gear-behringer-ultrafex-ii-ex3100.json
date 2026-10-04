@@ -1,0 +1,308 @@
+{
+  "aliases": [
+    "EX3100"
+  ],
+  "category": "effect",
+  "connectors": [
+    {
+      "channel": {
+        "index": 1,
+        "role": "numbered"
+      },
+      "direction": "in",
+      "domain": "audio.analog",
+      "exclusiveWith": [
+        "in-1-trs"
+      ],
+      "face": "back",
+      "id": "in-1-xlr",
+      "jack": "xlr-f",
+      "label": "In 1 (XLR)",
+      "notes": "XLR and TRS inputs are wired in parallel; use one.",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "+4dBu"
+      }
+    },
+    {
+      "channel": {
+        "index": 1,
+        "role": "numbered"
+      },
+      "direction": "in",
+      "domain": "audio.analog",
+      "exclusiveWith": [
+        "in-1-xlr"
+      ],
+      "face": "back",
+      "id": "in-1-trs",
+      "jack": "jack-6.35-TRS",
+      "label": "In 1 (TRS)",
+      "notes": "XLR and TRS inputs are wired in parallel; use one.",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "+4dBu"
+      }
+    },
+    {
+      "channel": {
+        "index": 2,
+        "role": "numbered"
+      },
+      "direction": "in",
+      "domain": "audio.analog",
+      "exclusiveWith": [
+        "in-2-trs"
+      ],
+      "face": "back",
+      "id": "in-2-xlr",
+      "jack": "xlr-f",
+      "label": "In 2 (XLR)",
+      "notes": "XLR and TRS inputs are wired in parallel; use one.",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "+4dBu"
+      }
+    },
+    {
+      "channel": {
+        "index": 2,
+        "role": "numbered"
+      },
+      "direction": "in",
+      "domain": "audio.analog",
+      "exclusiveWith": [
+        "in-2-xlr"
+      ],
+      "face": "back",
+      "id": "in-2-trs",
+      "jack": "jack-6.35-TRS",
+      "label": "In 2 (TRS)",
+      "notes": "XLR and TRS inputs are wired in parallel; use one.",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "+4dBu"
+      }
+    },
+    {
+      "channel": {
+        "index": 1,
+        "role": "numbered"
+      },
+      "direction": "out",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "out-1-xlr",
+      "jack": "xlr-m",
+      "label": "Out 1 (XLR)",
+      "notes": "XLR and TRS outputs are wired in parallel.",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "+4dBu"
+      }
+    },
+    {
+      "channel": {
+        "index": 1,
+        "role": "numbered"
+      },
+      "direction": "out",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "out-1-trs",
+      "jack": "jack-6.35-TRS",
+      "label": "Out 1 (TRS)",
+      "notes": "XLR and TRS outputs are wired in parallel.",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "+4dBu"
+      }
+    },
+    {
+      "channel": {
+        "index": 2,
+        "role": "numbered"
+      },
+      "direction": "out",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "out-2-xlr",
+      "jack": "xlr-m",
+      "label": "Out 2 (XLR)",
+      "notes": "XLR and TRS outputs are wired in parallel.",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "+4dBu"
+      }
+    },
+    {
+      "channel": {
+        "index": 2,
+        "role": "numbered"
+      },
+      "direction": "out",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "out-2-trs",
+      "jack": "jack-6.35-TRS",
+      "label": "Out 2 (TRS)",
+      "notes": "XLR and TRS outputs are wired in parallel.",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "+4dBu"
+      }
+    },
+    {
+      "direction": "in",
+      "domain": "power.ac",
+      "face": "back",
+      "id": "ac-in",
+      "jack": "unknown",
+      "label": "Mains",
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    }
+  ],
+  "dimensions": {
+    "d": null,
+    "h": 44.45,
+    "heightIncludesKnobsFeet": false,
+    "rack": {
+      "earsIncluded": true,
+      "u": 1
+    },
+    "w": 482.6,
+    "weightKg": null
+  },
+  "ergonomics": {
+    "defaultUsage": "rare",
+    "interaction": "set-and-forget",
+    "needsDisplayVisibility": false
+  },
+  "faces": {},
+  "formFactor": "rack",
+  "id": "gear-behringer-ultrafex-ii-ex3100",
+  "images": {},
+  "internalPaths": [
+    {
+      "from": [
+        "in-1-xlr",
+        "in-1-trs"
+      ],
+      "id": "ch1",
+      "mode": "process",
+      "to": [
+        "out-1-xlr",
+        "out-1-trs"
+      ]
+    },
+    {
+      "from": [
+        "in-2-xlr",
+        "in-2-trs"
+      ],
+      "id": "ch2",
+      "mode": "process",
+      "to": [
+        "out-2-xlr",
+        "out-2-trs"
+      ]
+    }
+  ],
+  "manufacturer": "Behringer",
+  "mounting": {
+    "rackEars": true
+  },
+  "name": "Ultrafex II",
+  "notes": "",
+  "power": {
+    "mainsRegion": "unknown",
+    "sources": [
+      {
+        "included": true,
+        "inputConnectorId": "ac-in",
+        "kind": "internal-mains"
+      }
+    ],
+    "typicalW": null
+  },
+  "provenance": {
+    "connectors.*.face": {
+      "kind": "estimated",
+      "note": "Rear panel assumed unless the reference states the panel."
+    },
+    "connectors.*.pos": {
+      "kind": "unknown",
+      "note": "Placeholder (0,0); place on a panel image."
+    },
+    "connectors.8.jack": {
+      "kind": "unknown",
+      "note": "Jack type not located in the gear reference."
+    },
+    "dimensions.d": {
+      "kind": "unknown",
+      "note": "Not located in the gear reference."
+    },
+    "dimensions.h": {
+      "kind": "retailer",
+      "note": "1U per retailers; verify."
+    },
+    "dimensions.w": {
+      "kind": "datasheet",
+      "note": "19\" rack panel."
+    },
+    "dimensions.weightKg": {
+      "kind": "unknown",
+      "note": "Not located in the gear reference."
+    },
+    "power.typicalW": {
+      "kind": "unknown",
+      "note": "Not located in the gear reference."
+    }
+  },
+  "sources": [
+    {
+      "label": "Home Studio Gear Reference v2 (docs/studio-gear-reference.md)",
+      "retrieved": "2026-10-04"
+    }
+  ],
+  "tags": [
+    "rack",
+    "enhancer"
+  ],
+  "variant": "EX3100"
+}

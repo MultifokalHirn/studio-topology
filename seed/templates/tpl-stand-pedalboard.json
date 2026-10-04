@@ -1,0 +1,32 @@
+{
+  "group": "Stands",
+  "id": "tpl-stand-pedalboard",
+  "name": "Pedalboard",
+  "stand": {
+    "dimensions": {
+      "d": 320,
+      "h": 60,
+      "w": 600
+    },
+    "surfaces": [
+      {
+        "adjustable": {},
+        "anchor": {
+          "x": 0,
+          "y": 0,
+          "z": 60
+        },
+        "id": "board",
+        "kind": "desktop",
+        "label": "Board",
+        "loadKg": null,
+        "usable": {
+          "d": 320,
+          "w": 600
+        }
+      }
+    ],
+    "type": "pedalboard"
+  },
+  "target": "stand"
+}

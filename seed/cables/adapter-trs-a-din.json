@@ -1,0 +1,14 @@
+{
+  "carries": [
+    "midi.trs-a"
+  ],
+  "endA": "TRS-3.5",
+  "endB": "DIN5-M",
+  "id": "adapter-trs-a-din",
+  "kind": "adapter",
+  "lengthsMm": [
+    0
+  ],
+  "name": "3.5 mm TRS-A – MIDI DIN adapter",
+  "notes": "endA: plug presented to the gear; endB: plug type the adapter accepts."
+}

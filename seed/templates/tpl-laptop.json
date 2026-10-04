@@ -1,0 +1,98 @@
+{
+  "gear": {
+    "category": "computer",
+    "connectors": [
+      {
+        "direction": "bidir",
+        "domain": "usb.data",
+        "face": "back",
+        "id": "usb-c-1",
+        "jack": "usb-c-f",
+        "label": "USB-C 1",
+        "pos": {
+          "x": 0,
+          "y": 0
+        },
+        "usb": {
+          "carries": [
+            "midi",
+            "audio",
+            "data",
+            "power"
+          ],
+          "role": "host",
+          "suppliesBusPowerMa": 1500,
+          "version": "unknown"
+        }
+      },
+      {
+        "direction": "bidir",
+        "domain": "usb.data",
+        "face": "back",
+        "id": "usb-c-2",
+        "jack": "usb-c-f",
+        "label": "USB-C 2",
+        "pos": {
+          "x": 0,
+          "y": 0
+        },
+        "usb": {
+          "carries": [
+            "midi",
+            "audio",
+            "data",
+            "power"
+          ],
+          "role": "host",
+          "suppliesBusPowerMa": 1500,
+          "version": "unknown"
+        }
+      },
+      {
+        "channel": {
+          "role": "stereo"
+        },
+        "direction": "out",
+        "domain": "audio.headphone",
+        "face": "back",
+        "id": "phones",
+        "jack": "jack-3.5-TRS",
+        "label": "Headphones",
+        "pos": {
+          "x": 0,
+          "y": 0
+        },
+        "signal": {
+          "balance": "n/a",
+          "level": "headphone"
+        }
+      }
+    ],
+    "dimensions": {
+      "d": null,
+      "h": null,
+      "heightIncludesKnobsFeet": true,
+      "w": null,
+      "weightKg": null
+    },
+    "ergonomics": {
+      "defaultUsage": "primary",
+      "interaction": "touch",
+      "needsDisplayVisibility": true
+    },
+    "formFactor": "desktop",
+    "power": {
+      "sources": [
+        {
+          "drawMa": null,
+          "included": true,
+          "kind": "battery"
+        }
+      ]
+    }
+  },
+  "group": "Computers",
+  "id": "tpl-laptop",
+  "name": "Laptop",
+  "target": "gear"
+}

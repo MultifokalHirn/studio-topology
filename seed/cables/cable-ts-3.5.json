@@ -1,0 +1,21 @@
+{
+  "balanced": false,
+  "carries": [
+    "cv",
+    "gate",
+    "clock.pulse",
+    "audio.analog"
+  ],
+  "endA": "TS-3.5",
+  "endB": "TS-3.5",
+  "id": "cable-ts-3.5",
+  "kind": "cable",
+  "lengthsMm": [
+    150,
+    300,
+    450,
+    600,
+    900
+  ],
+  "name": "3.5 mm TS patch"
+}

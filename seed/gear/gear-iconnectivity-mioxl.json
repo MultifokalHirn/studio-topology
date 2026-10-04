@@ -1,0 +1,1028 @@
+{
+  "aliases": [],
+  "category": "midi-hub",
+  "connectors": [
+    {
+      "channel": {
+        "index": 1,
+        "role": "numbered"
+      },
+      "direction": "in",
+      "domain": "midi.din",
+      "face": "back",
+      "id": "din-in-1",
+      "jack": "din5-f",
+      "label": "DIN In 1",
+      "midi": {
+        "carries": [
+          "notes",
+          "cc",
+          "pc",
+          "sysex",
+          "clock",
+          "transport"
+        ]
+      },
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "channel": {
+        "index": 2,
+        "role": "numbered"
+      },
+      "direction": "in",
+      "domain": "midi.din",
+      "face": "back",
+      "id": "din-in-2",
+      "jack": "din5-f",
+      "label": "DIN In 2",
+      "midi": {
+        "carries": [
+          "notes",
+          "cc",
+          "pc",
+          "sysex",
+          "clock",
+          "transport"
+        ]
+      },
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "channel": {
+        "index": 3,
+        "role": "numbered"
+      },
+      "direction": "in",
+      "domain": "midi.din",
+      "face": "back",
+      "id": "din-in-3",
+      "jack": "din5-f",
+      "label": "DIN In 3",
+      "midi": {
+        "carries": [
+          "notes",
+          "cc",
+          "pc",
+          "sysex",
+          "clock",
+          "transport"
+        ]
+      },
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "channel": {
+        "index": 4,
+        "role": "numbered"
+      },
+      "direction": "in",
+      "domain": "midi.din",
+      "face": "back",
+      "id": "din-in-4",
+      "jack": "din5-f",
+      "label": "DIN In 4",
+      "midi": {
+        "carries": [
+          "notes",
+          "cc",
+          "pc",
+          "sysex",
+          "clock",
+          "transport"
+        ]
+      },
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "channel": {
+        "index": 5,
+        "role": "numbered"
+      },
+      "direction": "in",
+      "domain": "midi.din",
+      "face": "back",
+      "id": "din-in-5",
+      "jack": "din5-f",
+      "label": "DIN In 5",
+      "midi": {
+        "carries": [
+          "notes",
+          "cc",
+          "pc",
+          "sysex",
+          "clock",
+          "transport"
+        ]
+      },
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "channel": {
+        "index": 6,
+        "role": "numbered"
+      },
+      "direction": "in",
+      "domain": "midi.din",
+      "face": "back",
+      "id": "din-in-6",
+      "jack": "din5-f",
+      "label": "DIN In 6",
+      "midi": {
+        "carries": [
+          "notes",
+          "cc",
+          "pc",
+          "sysex",
+          "clock",
+          "transport"
+        ]
+      },
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "channel": {
+        "index": 7,
+        "role": "numbered"
+      },
+      "direction": "in",
+      "domain": "midi.din",
+      "face": "back",
+      "id": "din-in-7",
+      "jack": "din5-f",
+      "label": "DIN In 7",
+      "midi": {
+        "carries": [
+          "notes",
+          "cc",
+          "pc",
+          "sysex",
+          "clock",
+          "transport"
+        ]
+      },
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "channel": {
+        "index": 8,
+        "role": "numbered"
+      },
+      "direction": "in",
+      "domain": "midi.din",
+      "face": "back",
+      "id": "din-in-8",
+      "jack": "din5-f",
+      "label": "DIN In 8",
+      "midi": {
+        "carries": [
+          "notes",
+          "cc",
+          "pc",
+          "sysex",
+          "clock",
+          "transport"
+        ]
+      },
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "channel": {
+        "index": 1,
+        "role": "numbered"
+      },
+      "direction": "out",
+      "domain": "midi.din",
+      "face": "back",
+      "id": "din-out-1",
+      "jack": "din5-f",
+      "label": "DIN Out 1",
+      "midi": {
+        "carries": [
+          "notes",
+          "cc",
+          "pc",
+          "sysex",
+          "clock",
+          "transport"
+        ]
+      },
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "channel": {
+        "index": 2,
+        "role": "numbered"
+      },
+      "direction": "out",
+      "domain": "midi.din",
+      "face": "back",
+      "id": "din-out-2",
+      "jack": "din5-f",
+      "label": "DIN Out 2",
+      "midi": {
+        "carries": [
+          "notes",
+          "cc",
+          "pc",
+          "sysex",
+          "clock",
+          "transport"
+        ]
+      },
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "channel": {
+        "index": 3,
+        "role": "numbered"
+      },
+      "direction": "out",
+      "domain": "midi.din",
+      "face": "back",
+      "id": "din-out-3",
+      "jack": "din5-f",
+      "label": "DIN Out 3",
+      "midi": {
+        "carries": [
+          "notes",
+          "cc",
+          "pc",
+          "sysex",
+          "clock",
+          "transport"
+        ]
+      },
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "channel": {
+        "index": 4,
+        "role": "numbered"
+      },
+      "direction": "out",
+      "domain": "midi.din",
+      "face": "back",
+      "id": "din-out-4",
+      "jack": "din5-f",
+      "label": "DIN Out 4",
+      "midi": {
+        "carries": [
+          "notes",
+          "cc",
+          "pc",
+          "sysex",
+          "clock",
+          "transport"
+        ]
+      },
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "channel": {
+        "index": 5,
+        "role": "numbered"
+      },
+      "direction": "out",
+      "domain": "midi.din",
+      "face": "back",
+      "id": "din-out-5",
+      "jack": "din5-f",
+      "label": "DIN Out 5",
+      "midi": {
+        "carries": [
+          "notes",
+          "cc",
+          "pc",
+          "sysex",
+          "clock",
+          "transport"
+        ]
+      },
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "channel": {
+        "index": 6,
+        "role": "numbered"
+      },
+      "direction": "out",
+      "domain": "midi.din",
+      "face": "back",
+      "id": "din-out-6",
+      "jack": "din5-f",
+      "label": "DIN Out 6",
+      "midi": {
+        "carries": [
+          "notes",
+          "cc",
+          "pc",
+          "sysex",
+          "clock",
+          "transport"
+        ]
+      },
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "channel": {
+        "index": 7,
+        "role": "numbered"
+      },
+      "direction": "out",
+      "domain": "midi.din",
+      "face": "back",
+      "id": "din-out-7",
+      "jack": "din5-f",
+      "label": "DIN Out 7",
+      "midi": {
+        "carries": [
+          "notes",
+          "cc",
+          "pc",
+          "sysex",
+          "clock",
+          "transport"
+        ]
+      },
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "channel": {
+        "index": 8,
+        "role": "numbered"
+      },
+      "direction": "out",
+      "domain": "midi.din",
+      "face": "back",
+      "id": "din-out-8",
+      "jack": "din5-f",
+      "label": "DIN Out 8",
+      "midi": {
+        "carries": [
+          "notes",
+          "cc",
+          "pc",
+          "sysex",
+          "clock",
+          "transport"
+        ]
+      },
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "channel": {
+        "index": 9,
+        "role": "numbered"
+      },
+      "direction": "out",
+      "domain": "midi.din",
+      "face": "back",
+      "id": "din-out-9",
+      "jack": "din5-f",
+      "label": "DIN Out 9",
+      "midi": {
+        "carries": [
+          "notes",
+          "cc",
+          "pc",
+          "sysex",
+          "clock",
+          "transport"
+        ]
+      },
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "channel": {
+        "index": 10,
+        "role": "numbered"
+      },
+      "direction": "out",
+      "domain": "midi.din",
+      "face": "back",
+      "id": "din-out-10",
+      "jack": "din5-f",
+      "label": "DIN Out 10",
+      "midi": {
+        "carries": [
+          "notes",
+          "cc",
+          "pc",
+          "sysex",
+          "clock",
+          "transport"
+        ]
+      },
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "channel": {
+        "index": 11,
+        "role": "numbered"
+      },
+      "direction": "out",
+      "domain": "midi.din",
+      "face": "back",
+      "id": "din-out-11",
+      "jack": "din5-f",
+      "label": "DIN Out 11",
+      "midi": {
+        "carries": [
+          "notes",
+          "cc",
+          "pc",
+          "sysex",
+          "clock",
+          "transport"
+        ]
+      },
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "channel": {
+        "index": 12,
+        "role": "numbered"
+      },
+      "direction": "out",
+      "domain": "midi.din",
+      "face": "back",
+      "id": "din-out-12",
+      "jack": "din5-f",
+      "label": "DIN Out 12",
+      "midi": {
+        "carries": [
+          "notes",
+          "cc",
+          "pc",
+          "sysex",
+          "clock",
+          "transport"
+        ]
+      },
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "channel": {
+        "index": 1,
+        "role": "numbered"
+      },
+      "direction": "bidir",
+      "domain": "usb.data",
+      "face": "back",
+      "id": "usb-host-1",
+      "jack": "usb-a-f",
+      "label": "USB Host 1",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "usb": {
+        "carries": [
+          "midi",
+          "power"
+        ],
+        "role": "host",
+        "suppliesBusPowerMa": null,
+        "version": "unknown"
+      }
+    },
+    {
+      "channel": {
+        "index": 2,
+        "role": "numbered"
+      },
+      "direction": "bidir",
+      "domain": "usb.data",
+      "face": "back",
+      "id": "usb-host-2",
+      "jack": "usb-a-f",
+      "label": "USB Host 2",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "usb": {
+        "carries": [
+          "midi",
+          "power"
+        ],
+        "role": "host",
+        "suppliesBusPowerMa": null,
+        "version": "unknown"
+      }
+    },
+    {
+      "channel": {
+        "index": 3,
+        "role": "numbered"
+      },
+      "direction": "bidir",
+      "domain": "usb.data",
+      "face": "back",
+      "id": "usb-host-3",
+      "jack": "usb-a-f",
+      "label": "USB Host 3",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "usb": {
+        "carries": [
+          "midi",
+          "power"
+        ],
+        "role": "host",
+        "suppliesBusPowerMa": null,
+        "version": "unknown"
+      }
+    },
+    {
+      "channel": {
+        "index": 4,
+        "role": "numbered"
+      },
+      "direction": "bidir",
+      "domain": "usb.data",
+      "face": "back",
+      "id": "usb-host-4",
+      "jack": "usb-a-f",
+      "label": "USB Host 4",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "usb": {
+        "carries": [
+          "midi",
+          "power"
+        ],
+        "role": "host",
+        "suppliesBusPowerMa": null,
+        "version": "unknown"
+      }
+    },
+    {
+      "channel": {
+        "index": 5,
+        "role": "numbered"
+      },
+      "direction": "bidir",
+      "domain": "usb.data",
+      "face": "back",
+      "id": "usb-host-5",
+      "jack": "usb-a-f",
+      "label": "USB Host 5",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "usb": {
+        "carries": [
+          "midi",
+          "power"
+        ],
+        "role": "host",
+        "suppliesBusPowerMa": null,
+        "version": "unknown"
+      }
+    },
+    {
+      "channel": {
+        "index": 6,
+        "role": "numbered"
+      },
+      "direction": "bidir",
+      "domain": "usb.data",
+      "face": "back",
+      "id": "usb-host-6",
+      "jack": "usb-a-f",
+      "label": "USB Host 6",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "usb": {
+        "carries": [
+          "midi",
+          "power"
+        ],
+        "role": "host",
+        "suppliesBusPowerMa": null,
+        "version": "unknown"
+      }
+    },
+    {
+      "channel": {
+        "index": 7,
+        "role": "numbered"
+      },
+      "direction": "bidir",
+      "domain": "usb.data",
+      "face": "back",
+      "id": "usb-host-7",
+      "jack": "usb-a-f",
+      "label": "USB Host 7",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "usb": {
+        "carries": [
+          "midi",
+          "power"
+        ],
+        "role": "host",
+        "suppliesBusPowerMa": null,
+        "version": "unknown"
+      }
+    },
+    {
+      "channel": {
+        "index": 8,
+        "role": "numbered"
+      },
+      "direction": "bidir",
+      "domain": "usb.data",
+      "face": "back",
+      "id": "usb-host-8",
+      "jack": "usb-a-f",
+      "label": "USB Host 8",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "usb": {
+        "carries": [
+          "midi",
+          "power"
+        ],
+        "role": "host",
+        "suppliesBusPowerMa": null,
+        "version": "unknown"
+      }
+    },
+    {
+      "channel": {
+        "index": 9,
+        "role": "numbered"
+      },
+      "direction": "bidir",
+      "domain": "usb.data",
+      "face": "back",
+      "id": "usb-host-9",
+      "jack": "usb-a-f",
+      "label": "USB Host 9",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "usb": {
+        "carries": [
+          "midi",
+          "power"
+        ],
+        "role": "host",
+        "suppliesBusPowerMa": null,
+        "version": "unknown"
+      }
+    },
+    {
+      "channel": {
+        "index": 10,
+        "role": "numbered"
+      },
+      "direction": "bidir",
+      "domain": "usb.data",
+      "face": "back",
+      "id": "usb-host-10",
+      "jack": "usb-a-f",
+      "label": "USB Host 10",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "usb": {
+        "carries": [
+          "midi",
+          "power"
+        ],
+        "role": "host",
+        "suppliesBusPowerMa": null,
+        "version": "unknown"
+      }
+    },
+    {
+      "direction": "bidir",
+      "domain": "usb.data",
+      "face": "back",
+      "id": "usb-computer",
+      "jack": "unknown",
+      "label": "USB (computer)",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "usb": {
+        "busPowered": false,
+        "carries": [
+          "midi"
+        ],
+        "role": "device",
+        "version": "unknown"
+      }
+    },
+    {
+      "direction": "bidir",
+      "domain": "ethernet",
+      "face": "back",
+      "id": "ethernet",
+      "jack": "rj45",
+      "label": "Ethernet (RTP-MIDI)",
+      "notes": "22 virtual RTP-MIDI ports.",
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "direction": "in",
+      "domain": "power.dc",
+      "face": "back",
+      "id": "dc-in",
+      "jack": "unknown",
+      "label": "DC In",
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    }
+  ],
+  "dimensions": {
+    "d": 145,
+    "h": 44.45,
+    "heightIncludesKnobsFeet": false,
+    "rack": {
+      "earsIncluded": true,
+      "u": 1
+    },
+    "w": 482.6,
+    "weightKg": 1.9
+  },
+  "ergonomics": {
+    "defaultUsage": "rare",
+    "interaction": "set-and-forget",
+    "needsDisplayVisibility": false
+  },
+  "faces": {},
+  "formFactor": "rack",
+  "id": "gear-iconnectivity-mioxl",
+  "images": {},
+  "internalPaths": [
+    {
+      "condition": "Routing, filtering and merging configured in software",
+      "from": [
+        "din-in-1",
+        "din-in-2",
+        "din-in-3",
+        "din-in-4",
+        "din-in-5",
+        "din-in-6",
+        "din-in-7",
+        "din-in-8",
+        "usb-host-1",
+        "usb-host-2",
+        "usb-host-3",
+        "usb-host-4",
+        "usb-host-5",
+        "usb-host-6",
+        "usb-host-7",
+        "usb-host-8",
+        "usb-host-9",
+        "usb-host-10",
+        "usb-computer",
+        "ethernet"
+      ],
+      "id": "route-all",
+      "mode": "split",
+      "presetId": "default",
+      "to": [
+        "din-out-1",
+        "din-out-2",
+        "din-out-3",
+        "din-out-4",
+        "din-out-5",
+        "din-out-6",
+        "din-out-7",
+        "din-out-8",
+        "din-out-9",
+        "din-out-10",
+        "din-out-11",
+        "din-out-12",
+        "usb-host-1",
+        "usb-host-2",
+        "usb-host-3",
+        "usb-host-4",
+        "usb-host-5",
+        "usb-host-6",
+        "usb-host-7",
+        "usb-host-8",
+        "usb-host-9",
+        "usb-host-10",
+        "usb-computer",
+        "ethernet"
+      ]
+    }
+  ],
+  "manufacturer": "iConnectivity",
+  "midi": {
+    "clockIn": true,
+    "clockOut": true,
+    "notes": "Routes, filters and merges; no Thru, fan-out by routing."
+  },
+  "mounting": {
+    "rackEars": true
+  },
+  "name": "mioXL",
+  "notes": "Depth ~145 mm (sources range 120–170). 36 W (3 A) external supply with interchangeable blades; plug size not located.",
+  "power": {
+    "mainsRegion": "unknown",
+    "maxW": 36,
+    "sources": [
+      {
+        "drawMa": null,
+        "included": true,
+        "inputConnectorId": "dc-in",
+        "kind": "external-dc",
+        "nominalV": 12,
+        "plug": {
+          "idMm": null,
+          "odMm": null,
+          "polarity": null,
+          "type": "barrel"
+        },
+        "suppliedModelId": "gear-iconnectivity-mioxl-psu"
+      }
+    ]
+  },
+  "provenance": {
+    "connectors.*.face": {
+      "kind": "estimated",
+      "note": "Rear panel assumed unless the reference states the panel."
+    },
+    "connectors.*.pos": {
+      "kind": "unknown",
+      "note": "Placeholder (0,0); place on a panel image."
+    },
+    "connectors.20.usb.suppliesBusPowerMa": {
+      "kind": "unknown",
+      "note": "Not located in the gear reference."
+    },
+    "connectors.21.usb.suppliesBusPowerMa": {
+      "kind": "unknown",
+      "note": "Not located in the gear reference."
+    },
+    "connectors.22.usb.suppliesBusPowerMa": {
+      "kind": "unknown",
+      "note": "Not located in the gear reference."
+    },
+    "connectors.23.usb.suppliesBusPowerMa": {
+      "kind": "unknown",
+      "note": "Not located in the gear reference."
+    },
+    "connectors.24.usb.suppliesBusPowerMa": {
+      "kind": "unknown",
+      "note": "Not located in the gear reference."
+    },
+    "connectors.25.usb.suppliesBusPowerMa": {
+      "kind": "unknown",
+      "note": "Not located in the gear reference."
+    },
+    "connectors.26.usb.suppliesBusPowerMa": {
+      "kind": "unknown",
+      "note": "Not located in the gear reference."
+    },
+    "connectors.27.usb.suppliesBusPowerMa": {
+      "kind": "unknown",
+      "note": "Not located in the gear reference."
+    },
+    "connectors.28.usb.suppliesBusPowerMa": {
+      "kind": "unknown",
+      "note": "Not located in the gear reference."
+    },
+    "connectors.29.usb.suppliesBusPowerMa": {
+      "kind": "unknown",
+      "note": "Not located in the gear reference."
+    },
+    "connectors.30.jack": {
+      "kind": "unknown",
+      "note": "Jack type not located in the gear reference."
+    },
+    "connectors.32.jack": {
+      "kind": "unknown",
+      "note": "Jack type not located in the gear reference."
+    },
+    "dimensions.d": {
+      "kind": "estimated",
+      "note": "Sources range 120–170 mm."
+    },
+    "dimensions.h": {
+      "kind": "datasheet",
+      "note": "1U."
+    },
+    "dimensions.w": {
+      "kind": "datasheet",
+      "note": "19\" rack panel."
+    },
+    "dimensions.weightKg": {
+      "kind": "estimated",
+      "note": "~1.9 kg."
+    },
+    "power.sources.0.drawMa": {
+      "kind": "unknown",
+      "note": "Supply rated 36 W (3 A); unit draw not located."
+    },
+    "power.sources.0.plug.idMm": {
+      "kind": "unknown",
+      "note": "Not located in the gear reference."
+    },
+    "power.sources.0.plug.odMm": {
+      "kind": "unknown",
+      "note": "Not located in the gear reference."
+    },
+    "power.sources.0.plug.polarity": {
+      "kind": "unknown",
+      "note": "Not located in the gear reference."
+    }
+  },
+  "sources": [
+    {
+      "label": "Home Studio Gear Reference v2 (docs/studio-gear-reference.md)",
+      "retrieved": "2026-10-04"
+    }
+  ],
+  "tags": [
+    "rack",
+    "midi"
+  ]
+}

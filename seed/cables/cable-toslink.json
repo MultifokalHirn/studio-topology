@@ -1,0 +1,19 @@
+{
+  "carries": [
+    "audio.adat",
+    "audio.spdif"
+  ],
+  "endA": "TOSLINK",
+  "endB": "TOSLINK",
+  "id": "cable-toslink",
+  "kind": "cable",
+  "lengthsMm": [
+    500,
+    1000,
+    2000,
+    3000,
+    5000,
+    10000
+  ],
+  "name": "TOSLINK optical"
+}

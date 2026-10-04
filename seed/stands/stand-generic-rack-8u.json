@@ -1,0 +1,48 @@
+{
+  "dimensions": {
+    "d": 440,
+    "h": 395.6,
+    "w": 522.6,
+    "weightKg": null
+  },
+  "id": "stand-generic-rack-8u",
+  "images": {},
+  "manufacturer": "Generic",
+  "name": "Rack 8U",
+  "notes": "Sized for the eight 1U units in the gear reference (7U confirmed + SX 2). Depth is a placeholder; replace with your rack.",
+  "provenance": {
+    "dimensions.d": {
+      "kind": "estimated",
+      "note": "Placeholder depth."
+    },
+    "surfaces.0.rack.depthMm": {
+      "kind": "estimated",
+      "note": "Placeholder depth."
+    }
+  },
+  "sources": [],
+  "surfaces": [
+    {
+      "adjustable": {},
+      "anchor": {
+        "x": 20,
+        "y": 0,
+        "z": 20
+      },
+      "id": "bay",
+      "kind": "rack-bay",
+      "label": "Rack bay (8U)",
+      "loadKg": null,
+      "rack": {
+        "depthMm": 400,
+        "innerWidthMm": 450,
+        "u": 8
+      },
+      "usable": {
+        "d": 400,
+        "w": 450
+      }
+    }
+  ],
+  "type": "rack"
+}

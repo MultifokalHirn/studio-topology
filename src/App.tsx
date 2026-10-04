@@ -6,13 +6,27 @@ import {
   IconFile,
   IconFolderOpen,
   IconMoon,
+  IconSparkles,
   IconSun,
 } from '@tabler/icons-react';
+import { ErrorBoundary } from './components/ErrorBoundary';
 import { t } from './i18n';
 import { projectStore, uiStore, useProject, useUi } from './store';
 import { isDirty } from './store/projectStore';
 import type { CanvasTab, SidebarTab } from './store/uiStore';
-import { applyLoadedText, newProject, openProject, type PendingLoad, saveProject } from './features/project/actions';
+import { GearEditorHost } from './features/gear-editor/GearEditor';
+import { Inspector } from './features/inspector/Inspector';
+import { InventoryPanel } from './features/library/InventoryPanel';
+import { LibraryPanel } from './features/library/LibraryPanel';
+import { UnverifiedList } from './features/library/UnverifiedList';
+import {
+  applyLoadedText,
+  loadSample,
+  newProject,
+  openProject,
+  type PendingLoad,
+  saveProject,
+} from './features/project/actions';
 import { LoadErrorDialog } from './features/project/LoadErrorDialog';
 import { useAutosave, useRecoverySnapshot } from './features/project/useAutosave';
 
@@ -56,9 +70,16 @@ export function App() {
   const lastAutosaveAt = useProject((s) => s.lastAutosaveAt);
   const lengthUnit = useProject((s) => s.project.settings.units.length);
   const [pending, setPending] = useState<PendingLoad | null>(null);
-  const [recovery, dismissRecovery] = useRecoverySnapshot();
+  const [recovery, dismissRecovery, snapshotsChecked] = useRecoverySnapshot();
 
   useAutosave();
+
+  // First launch (nothing autosaved): start with the sample studio built from the gear reference.
+  useEffect(() => {
+    if (snapshotsChecked && !recovery && projectStore.getState().revision === 0 && !projectStore.getState().fileName)
+      void loadSample().then((p) => p && setPending(p));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [snapshotsChecked]);
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
@@ -107,6 +128,12 @@ export function App() {
           <div className="ml-4 flex items-center gap-0.5">
             <ToolButton label={t('New project')} onClick={() => confirmDiscard() && newProject()}>
               <IconFile size={18} />
+            </ToolButton>
+            <ToolButton
+              label={t('Load sample studio')}
+              onClick={() => confirmDiscard() && void loadSample().then((p) => p && setPending(p))}
+            >
+              <IconSparkles size={18} />
             </ToolButton>
             <ToolButton label={t('Open…')} onClick={() => confirmDiscard() && void openProject().then(setPending)}>
               <IconFolderOpen size={18} />
@@ -164,7 +191,10 @@ export function App() {
         )}
 
         <div className="flex min-h-0 flex-1">
-          <aside className="w-64 border-r border-neutral-200 dark:border-neutral-700" aria-label={t('Sidebar')}>
+          <aside
+            className="flex w-72 flex-col border-r border-neutral-200 dark:border-neutral-700"
+            aria-label={t('Sidebar')}
+          >
             <nav className="flex border-b border-neutral-200 text-xs dark:border-neutral-700" role="tablist">
               {SIDEBAR_TABS.map(([id, label]) => (
                 <button
@@ -178,6 +208,16 @@ export function App() {
                 </button>
               ))}
             </nav>
+            <div className="min-h-0 flex-1">
+              <ErrorBoundary label={t('Sidebar')}>
+                {sidebarTab === 'inventory' && <InventoryPanel />}
+                {sidebarTab === 'library' && <LibraryPanel />}
+                {sidebarTab === 'setups' && (
+                  <p className="p-3 text-xs text-neutral-500">{t('Setup management arrives in M8.')}</p>
+                )}
+                {sidebarTab === 'issues' && <UnverifiedList />}
+              </ErrorBoundary>
+            </div>
           </aside>
           <main className="flex min-w-0 flex-1 flex-col">
             <nav className="flex gap-1 border-b border-neutral-200 px-2 text-xs dark:border-neutral-700" role="tablist">
@@ -197,7 +237,14 @@ export function App() {
               {t('{view} view', { view: t(CANVAS_TABS.find(([id]) => id === canvasTab)?.[1] ?? '') })}
             </div>
           </main>
-          <aside className="w-72 border-l border-neutral-200 dark:border-neutral-700" aria-label={t('Inspector')} />
+          <aside
+            className="w-80 overflow-auto border-l border-neutral-200 dark:border-neutral-700"
+            aria-label={t('Inspector')}
+          >
+            <ErrorBoundary label={t('Inspector')}>
+              <Inspector />
+            </ErrorBoundary>
+          </aside>
         </div>
 
         <footer className="flex gap-4 border-t border-neutral-200 px-3 py-1 text-xs text-neutral-500 dark:border-neutral-700">
@@ -208,6 +255,9 @@ export function App() {
           )}
         </footer>
       </div>
+      <ErrorBoundary label={t('Gear editor')}>
+        <GearEditorHost />
+      </ErrorBoundary>
       {pending && <LoadErrorDialog pending={pending} onClose={() => setPending(null)} />}
     </div>
   );

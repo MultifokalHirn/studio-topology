@@ -1,0 +1,48 @@
+{
+  "connectors": [
+    {
+      "channel": {
+        "group": "out",
+        "role": "L"
+      },
+      "direction": "out",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "out-l",
+      "jack": "jack-6.35-TS",
+      "label": "Out L",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "unbalanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "group": "out",
+        "role": "R"
+      },
+      "direction": "out",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "out-r",
+      "jack": "jack-6.35-TS",
+      "label": "Out R",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "unbalanced",
+        "level": "line"
+      }
+    }
+  ],
+  "group": "Connector groups",
+  "id": "tpl-conn-stereo-ts-out",
+  "name": "Stereo ¼\" TS out pair",
+  "target": "connectors"
+}

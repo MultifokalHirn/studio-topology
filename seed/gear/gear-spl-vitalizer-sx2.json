@@ -1,0 +1,207 @@
+{
+  "aliases": [],
+  "category": "effect",
+  "connectors": [
+    {
+      "channel": {
+        "group": "in",
+        "role": "L"
+      },
+      "direction": "in",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "in-l",
+      "jack": "xlr-f",
+      "label": "In L",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "+4dBu"
+      }
+    },
+    {
+      "channel": {
+        "group": "in",
+        "role": "R"
+      },
+      "direction": "in",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "in-r",
+      "jack": "xlr-f",
+      "label": "In R",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "+4dBu"
+      }
+    },
+    {
+      "channel": {
+        "group": "out",
+        "role": "L"
+      },
+      "direction": "out",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "out-l",
+      "jack": "xlr-m",
+      "label": "Out L",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "+4dBu"
+      }
+    },
+    {
+      "channel": {
+        "group": "out",
+        "role": "R"
+      },
+      "direction": "out",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "out-r",
+      "jack": "xlr-m",
+      "label": "Out R",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "+4dBu"
+      }
+    },
+    {
+      "direction": "in",
+      "domain": "power.ac",
+      "face": "back",
+      "id": "ac-in",
+      "jack": "iec-c14",
+      "label": "Mains (IEC)",
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    }
+  ],
+  "dimensions": {
+    "d": null,
+    "h": null,
+    "heightIncludesKnobsFeet": false,
+    "w": 482.6,
+    "weightKg": null
+  },
+  "ergonomics": {
+    "defaultUsage": "rare",
+    "interaction": "set-and-forget",
+    "needsDisplayVisibility": false
+  },
+  "faces": {},
+  "formFactor": "rack",
+  "id": "gear-spl-vitalizer-sx2",
+  "images": {},
+  "internalPaths": [
+    {
+      "channelMap": [
+        {
+          "from": "in-l",
+          "to": "out-l"
+        },
+        {
+          "from": "in-r",
+          "to": "out-r"
+        }
+      ],
+      "from": [
+        "in-l",
+        "in-r"
+      ],
+      "id": "fx",
+      "mode": "process",
+      "to": [
+        "out-l",
+        "out-r"
+      ]
+    }
+  ],
+  "manufacturer": "SPL",
+  "mounting": {
+    "rackEars": true
+  },
+  "name": "Vitalizer",
+  "notes": "Early-to-mid-1990s unit. Internal ring transformer; voltage selector unconfirmed: check before plugging in. Possibly 1U like other Vitalizers (not verified).",
+  "power": {
+    "mainsRegion": "unknown",
+    "sources": [
+      {
+        "included": true,
+        "inputConnectorId": "ac-in",
+        "kind": "internal-mains",
+        "plug": {
+          "type": "iec-c14"
+        }
+      }
+    ],
+    "typicalW": null
+  },
+  "provenance": {
+    "connectors.*.face": {
+      "kind": "estimated",
+      "note": "Rear panel assumed unless the reference states the panel."
+    },
+    "connectors.*.pos": {
+      "kind": "unknown",
+      "note": "Placeholder (0,0); place on a panel image."
+    },
+    "connectors.0": {
+      "kind": "user",
+      "note": "XLR confirmed by owner review; ¼\" jacks not confirmed."
+    },
+    "connectors.4.jack": {
+      "kind": "estimated",
+      "note": "IEC likely."
+    },
+    "dimensions.d": {
+      "kind": "unknown",
+      "note": "Not located in the gear reference."
+    },
+    "dimensions.h": {
+      "kind": "unknown",
+      "note": "Rack height not located; likely 1U (unverified)."
+    },
+    "dimensions.w": {
+      "kind": "datasheet",
+      "note": "19\" rack panel."
+    },
+    "dimensions.weightKg": {
+      "kind": "unknown",
+      "note": "Not located in the gear reference."
+    },
+    "power.typicalW": {
+      "kind": "unknown",
+      "note": "Not located in the gear reference."
+    }
+  },
+  "sources": [
+    {
+      "label": "Home Studio Gear Reference v2 (docs/studio-gear-reference.md)",
+      "retrieved": "2026-10-04"
+    }
+  ],
+  "tags": [
+    "rack",
+    "enhancer"
+  ],
+  "variant": "SX 2"
+}

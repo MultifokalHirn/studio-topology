@@ -1,0 +1,353 @@
+{
+  "aliases": [
+    "MDX2100"
+  ],
+  "category": "dynamics",
+  "connectors": [
+    {
+      "channel": {
+        "index": 1,
+        "role": "numbered"
+      },
+      "direction": "in",
+      "domain": "audio.analog",
+      "exclusiveWith": [
+        "in-1-trs"
+      ],
+      "face": "back",
+      "id": "in-1-xlr",
+      "jack": "xlr-f",
+      "label": "In 1 (XLR)",
+      "notes": "XLR and TRS inputs are wired in parallel; use one.",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "+4dBu"
+      }
+    },
+    {
+      "channel": {
+        "index": 1,
+        "role": "numbered"
+      },
+      "direction": "in",
+      "domain": "audio.analog",
+      "exclusiveWith": [
+        "in-1-xlr"
+      ],
+      "face": "back",
+      "id": "in-1-trs",
+      "jack": "jack-6.35-TRS",
+      "label": "In 1 (TRS)",
+      "notes": "XLR and TRS inputs are wired in parallel; use one.",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "+4dBu"
+      }
+    },
+    {
+      "channel": {
+        "index": 2,
+        "role": "numbered"
+      },
+      "direction": "in",
+      "domain": "audio.analog",
+      "exclusiveWith": [
+        "in-2-trs"
+      ],
+      "face": "back",
+      "id": "in-2-xlr",
+      "jack": "xlr-f",
+      "label": "In 2 (XLR)",
+      "notes": "XLR and TRS inputs are wired in parallel; use one.",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "+4dBu"
+      }
+    },
+    {
+      "channel": {
+        "index": 2,
+        "role": "numbered"
+      },
+      "direction": "in",
+      "domain": "audio.analog",
+      "exclusiveWith": [
+        "in-2-xlr"
+      ],
+      "face": "back",
+      "id": "in-2-trs",
+      "jack": "jack-6.35-TRS",
+      "label": "In 2 (TRS)",
+      "notes": "XLR and TRS inputs are wired in parallel; use one.",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "+4dBu"
+      }
+    },
+    {
+      "channel": {
+        "index": 1,
+        "role": "numbered"
+      },
+      "direction": "out",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "out-1-xlr",
+      "jack": "xlr-m",
+      "label": "Out 1 (XLR)",
+      "notes": "XLR and TRS outputs are wired in parallel.",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "+4dBu"
+      }
+    },
+    {
+      "channel": {
+        "index": 1,
+        "role": "numbered"
+      },
+      "direction": "out",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "out-1-trs",
+      "jack": "jack-6.35-TRS",
+      "label": "Out 1 (TRS)",
+      "notes": "XLR and TRS outputs are wired in parallel.",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "+4dBu"
+      }
+    },
+    {
+      "channel": {
+        "index": 2,
+        "role": "numbered"
+      },
+      "direction": "out",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "out-2-xlr",
+      "jack": "xlr-m",
+      "label": "Out 2 (XLR)",
+      "notes": "XLR and TRS outputs are wired in parallel.",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "+4dBu"
+      }
+    },
+    {
+      "channel": {
+        "index": 2,
+        "role": "numbered"
+      },
+      "direction": "out",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "out-2-trs",
+      "jack": "jack-6.35-TRS",
+      "label": "Out 2 (TRS)",
+      "notes": "XLR and TRS outputs are wired in parallel.",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "+4dBu"
+      }
+    },
+    {
+      "channel": {
+        "index": 1,
+        "role": "numbered"
+      },
+      "direction": "in",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "key-1",
+      "jack": "unknown",
+      "label": "Key/Sidechain 1",
+      "notes": "Type and wiring not verified on this model.",
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "channel": {
+        "index": 2,
+        "role": "numbered"
+      },
+      "direction": "in",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "key-2",
+      "jack": "unknown",
+      "label": "Key/Sidechain 2",
+      "notes": "Type and wiring not verified on this model.",
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "direction": "in",
+      "domain": "power.ac",
+      "face": "back",
+      "id": "ac-in",
+      "jack": "iec-c14",
+      "label": "Mains (IEC)",
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    }
+  ],
+  "dimensions": {
+    "d": null,
+    "h": 44.45,
+    "heightIncludesKnobsFeet": false,
+    "rack": {
+      "earsIncluded": true,
+      "u": 1
+    },
+    "w": 482.6,
+    "weightKg": null
+  },
+  "ergonomics": {
+    "defaultUsage": "rare",
+    "interaction": "set-and-forget",
+    "needsDisplayVisibility": false
+  },
+  "faces": {},
+  "formFactor": "rack",
+  "id": "gear-behringer-composer-mdx2100",
+  "images": {},
+  "internalPaths": [
+    {
+      "from": [
+        "in-1-xlr",
+        "in-1-trs"
+      ],
+      "id": "ch1",
+      "mode": "process",
+      "to": [
+        "out-1-xlr",
+        "out-1-trs"
+      ]
+    },
+    {
+      "from": [
+        "in-2-xlr",
+        "in-2-trs"
+      ],
+      "id": "ch2",
+      "mode": "process",
+      "to": [
+        "out-2-xlr",
+        "out-2-trs"
+      ]
+    }
+  ],
+  "manufacturer": "Behringer",
+  "mounting": {
+    "rackEars": true
+  },
+  "name": "Composer",
+  "notes": "Internal transformer. US units are often fixed at 115 V; some are switchable 100/240 V. Check before plugging into 230 V mains.",
+  "power": {
+    "mainsRegion": "unknown",
+    "sources": [
+      {
+        "included": true,
+        "inputConnectorId": "ac-in",
+        "kind": "internal-mains",
+        "plug": {
+          "type": "iec-c14"
+        }
+      }
+    ],
+    "typicalW": null
+  },
+  "provenance": {
+    "connectors.*.face": {
+      "kind": "estimated",
+      "note": "Rear panel assumed unless the reference states the panel."
+    },
+    "connectors.*.pos": {
+      "kind": "unknown",
+      "note": "Placeholder (0,0); place on a panel image."
+    },
+    "connectors.8.jack": {
+      "kind": "unknown",
+      "note": "Jack type not located in the gear reference."
+    },
+    "connectors.9.jack": {
+      "kind": "unknown",
+      "note": "Jack type not located in the gear reference."
+    },
+    "dimensions.d": {
+      "kind": "unknown",
+      "note": "Not located in the gear reference."
+    },
+    "dimensions.h": {
+      "kind": "datasheet",
+      "note": "1U."
+    },
+    "dimensions.w": {
+      "kind": "datasheet",
+      "note": "19\" rack panel."
+    },
+    "dimensions.weightKg": {
+      "kind": "unknown",
+      "note": "Not located in the gear reference."
+    },
+    "power.mainsRegion": {
+      "kind": "unknown",
+      "note": "Possibly 115 V-only (US unit); verify."
+    },
+    "power.typicalW": {
+      "kind": "unknown",
+      "note": "Not located in the gear reference."
+    }
+  },
+  "sources": [
+    {
+      "label": "Home Studio Gear Reference v2 (docs/studio-gear-reference.md)",
+      "retrieved": "2026-10-04"
+    }
+  ],
+  "tags": [
+    "rack",
+    "compressor"
+  ],
+  "variant": "MDX2100"
+}

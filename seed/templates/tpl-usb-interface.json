@@ -1,0 +1,146 @@
+{
+  "connectorGroups": [
+    {
+      "connectors": [
+        {
+          "channel": {
+            "role": "numbered"
+          },
+          "direction": "in",
+          "domain": "audio.analog",
+          "face": "back",
+          "id": "in-{i}",
+          "jack": "combo-xlr-trs",
+          "label": "Input {i}",
+          "pos": {
+            "x": 0,
+            "y": 0
+          },
+          "signal": {
+            "balance": "balanced",
+            "level": "mic",
+            "phantom": "switchable"
+          }
+        }
+      ],
+      "repeat": "inputs"
+    },
+    {
+      "connectors": [
+        {
+          "channel": {
+            "role": "numbered"
+          },
+          "direction": "out",
+          "domain": "audio.analog",
+          "face": "back",
+          "id": "out-{i}",
+          "jack": "jack-6.35-TRS",
+          "label": "Output {i}",
+          "pos": {
+            "x": 0,
+            "y": 0
+          },
+          "signal": {
+            "balance": "balanced",
+            "level": "line"
+          }
+        }
+      ],
+      "repeat": "outputs"
+    }
+  ],
+  "gear": {
+    "category": "interface",
+    "connectors": [
+      {
+        "channel": {
+          "role": "stereo"
+        },
+        "direction": "out",
+        "domain": "audio.headphone",
+        "face": "back",
+        "id": "phones",
+        "jack": "jack-6.35-TRS",
+        "label": "Headphones",
+        "pos": {
+          "x": 0,
+          "y": 0
+        },
+        "signal": {
+          "balance": "n/a",
+          "level": "headphone"
+        }
+      },
+      {
+        "direction": "bidir",
+        "domain": "usb.data",
+        "face": "back",
+        "id": "usb",
+        "jack": "usb-c-f",
+        "label": "USB",
+        "pos": {
+          "x": 0,
+          "y": 0
+        },
+        "usb": {
+          "audio": {
+            "compliance": "class-compliant",
+            "inChannels": 2,
+            "outChannels": 2
+          },
+          "busPowered": false,
+          "carries": [
+            "audio",
+            "midi"
+          ],
+          "role": "device",
+          "version": "2.0"
+        }
+      }
+    ],
+    "dimensions": {
+      "d": null,
+      "h": null,
+      "heightIncludesKnobsFeet": true,
+      "w": null,
+      "weightKg": null
+    },
+    "ergonomics": {
+      "defaultUsage": "secondary",
+      "interaction": "knobs-buttons",
+      "needsDisplayVisibility": false
+    },
+    "formFactor": "desktop",
+    "power": {
+      "sources": [
+        {
+          "drawMa": null,
+          "included": true,
+          "inputConnectorId": "usb",
+          "kind": "usb-bus",
+          "nominalV": 5,
+          "plug": {
+            "type": "usb"
+          }
+        }
+      ]
+    }
+  },
+  "group": "Audio infrastructure",
+  "id": "tpl-usb-interface",
+  "name": "USB audio interface (N in / M out)",
+  "params": [
+    {
+      "default": 2,
+      "key": "inputs",
+      "label": "Inputs"
+    },
+    {
+      "default": 2,
+      "key": "outputs",
+      "label": "Outputs"
+    }
+  ],
+  "target": "gear"
+}

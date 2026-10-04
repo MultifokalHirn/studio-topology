@@ -1,0 +1,247 @@
+{
+  "aliases": [],
+  "category": "sampler",
+  "clock": {
+    "canBeMaster": true,
+    "canBeSlave": true,
+    "formats": [
+      "midi",
+      "po-sync"
+    ],
+    "notes": "Clock via TRS-A MIDI and USB; analog sync is Pocket-Operator style."
+  },
+  "connectors": [
+    {
+      "channel": {
+        "role": "stereo"
+      },
+      "direction": "out",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "out-line",
+      "jack": "jack-3.5-TRS",
+      "label": "Line Out",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "n/a",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "role": "stereo"
+      },
+      "direction": "in",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "in-line",
+      "jack": "jack-3.5-TRS",
+      "label": "Line In",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "n/a",
+        "level": "line"
+      }
+    },
+    {
+      "clock": {
+        "canMaster": true,
+        "format": "po-sync",
+        "note": "Pocket-Operator style (dual 8th note). A MIDI cable will not work."
+      },
+      "direction": "out",
+      "domain": "clock.pulse",
+      "face": "back",
+      "id": "sync-out",
+      "jack": "jack-3.5",
+      "label": "Sync Out",
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "clock": {
+        "canSlave": true,
+        "format": "po-sync",
+        "note": "Pocket-Operator style (dual 8th note)."
+      },
+      "direction": "in",
+      "domain": "clock.pulse",
+      "face": "back",
+      "id": "sync-in",
+      "jack": "jack-3.5",
+      "label": "Sync In",
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "direction": "in",
+      "domain": "midi.trs-a",
+      "face": "back",
+      "id": "midi-in",
+      "jack": "jack-3.5-TRS",
+      "label": "MIDI In (TRS-A)",
+      "midi": {
+        "carries": [
+          "notes",
+          "cc",
+          "clock",
+          "transport"
+        ],
+        "trsType": "A"
+      },
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "direction": "out",
+      "domain": "midi.trs-a",
+      "face": "back",
+      "id": "midi-out",
+      "jack": "jack-3.5-TRS",
+      "label": "MIDI Out (TRS-A)",
+      "midi": {
+        "carries": [
+          "notes",
+          "cc",
+          "clock",
+          "transport"
+        ],
+        "trsType": "A"
+      },
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "direction": "bidir",
+      "domain": "usb.data",
+      "face": "back",
+      "id": "usb",
+      "jack": "usb-c-f",
+      "label": "USB",
+      "notes": "MIDI, sample transfer and power.",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "usb": {
+        "busPowered": true,
+        "carries": [
+          "midi",
+          "data",
+          "power"
+        ],
+        "drawsBusPowerMa": null,
+        "role": "device",
+        "version": "unknown"
+      }
+    }
+  ],
+  "dimensions": {
+    "d": null,
+    "h": null,
+    "heightIncludesKnobsFeet": true,
+    "w": null,
+    "weightKg": null
+  },
+  "ergonomics": {
+    "defaultUsage": "secondary",
+    "interaction": "pads",
+    "needsDisplayVisibility": true
+  },
+  "faces": {},
+  "formFactor": "handheld",
+  "id": "gear-te-ep-40-riddim",
+  "images": {},
+  "internalPaths": [],
+  "manufacturer": "Teenage Engineering",
+  "midi": {
+    "clockIn": true,
+    "clockOut": true
+  },
+  "mounting": {},
+  "name": "EP-40 Riddim",
+  "notes": "No DIN: TRS-A adapters needed. Built-in speaker and mic.",
+  "power": {
+    "mainsRegion": "unknown",
+    "sources": [
+      {
+        "drawMa": null,
+        "included": false,
+        "inputConnectorId": "usb",
+        "kind": "usb-bus",
+        "nominalV": 5,
+        "plug": {
+          "type": "usb"
+        }
+      },
+      {
+        "drawMa": null,
+        "included": false,
+        "kind": "battery",
+        "maxVoltageNote": "4 × AAA"
+      }
+    ]
+  },
+  "provenance": {
+    "connectors.*.face": {
+      "kind": "estimated",
+      "note": "Rear panel assumed unless the reference states the panel."
+    },
+    "connectors.*.pos": {
+      "kind": "unknown",
+      "note": "Placeholder (0,0); place on a panel image."
+    },
+    "connectors.6.usb.drawsBusPowerMa": {
+      "kind": "unknown",
+      "note": "Not located in the gear reference."
+    },
+    "dimensions.d": {
+      "kind": "unknown",
+      "note": "Not located in the gear reference."
+    },
+    "dimensions.h": {
+      "kind": "unknown",
+      "note": "Not located in the gear reference."
+    },
+    "dimensions.w": {
+      "kind": "unknown",
+      "note": "Not located in the gear reference."
+    },
+    "dimensions.weightKg": {
+      "kind": "unknown",
+      "note": "Not located in the gear reference."
+    },
+    "power.sources.0.drawMa": {
+      "kind": "unknown",
+      "note": "Not located in the gear reference."
+    },
+    "power.sources.1.drawMa": {
+      "kind": "unknown",
+      "note": "Not located in the gear reference."
+    }
+  },
+  "sources": [
+    {
+      "label": "Home Studio Gear Reference v2 (docs/studio-gear-reference.md)",
+      "retrieved": "2026-10-04"
+    }
+  ],
+  "tags": [
+    "teenage-engineering",
+    "ep-series"
+  ]
+}

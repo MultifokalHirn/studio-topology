@@ -1,0 +1,88 @@
+{
+  "connectors": [
+    {
+      "channel": {
+        "group": "in",
+        "role": "L"
+      },
+      "direction": "in",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "in-l",
+      "jack": "jack-6.35-TRS",
+      "label": "In L",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "group": "in",
+        "role": "R"
+      },
+      "direction": "in",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "in-r",
+      "jack": "jack-6.35-TRS",
+      "label": "In R",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "group": "out",
+        "role": "L"
+      },
+      "direction": "out",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "out-l",
+      "jack": "jack-6.35-TRS",
+      "label": "Out L",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "group": "out",
+        "role": "R"
+      },
+      "direction": "out",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "out-r",
+      "jack": "jack-6.35-TRS",
+      "label": "Out R",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "line"
+      }
+    }
+  ],
+  "group": "Connector groups",
+  "id": "tpl-conn-balanced-trs-io",
+  "name": "Balanced ¼\" TRS stereo in/out",
+  "target": "connectors"
+}

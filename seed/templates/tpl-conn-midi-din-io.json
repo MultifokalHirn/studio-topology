@@ -1,0 +1,52 @@
+{
+  "connectors": [
+    {
+      "direction": "in",
+      "domain": "midi.din",
+      "face": "back",
+      "id": "midi-in",
+      "jack": "din5-f",
+      "label": "MIDI In",
+      "midi": {
+        "carries": [
+          "notes",
+          "cc",
+          "pc",
+          "sysex",
+          "clock",
+          "transport"
+        ]
+      },
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "direction": "out",
+      "domain": "midi.din",
+      "face": "back",
+      "id": "midi-out",
+      "jack": "din5-f",
+      "label": "MIDI Out",
+      "midi": {
+        "carries": [
+          "notes",
+          "cc",
+          "pc",
+          "sysex",
+          "clock",
+          "transport"
+        ]
+      },
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    }
+  ],
+  "group": "Connector groups",
+  "id": "tpl-conn-midi-din-io",
+  "name": "MIDI DIN In/Out",
+  "target": "connectors"
+}

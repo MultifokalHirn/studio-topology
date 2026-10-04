@@ -1,0 +1,44 @@
+{
+  "dimensions": {
+    "d": 800,
+    "h": 740,
+    "w": 1600,
+    "weightKg": null
+  },
+  "id": "stand-generic-desk",
+  "images": {},
+  "manufacturer": "Generic",
+  "name": "Desk",
+  "notes": "Generic desk; replace the dimensions with yours.",
+  "provenance": {
+    "dimensions.d": {
+      "kind": "estimated"
+    },
+    "dimensions.h": {
+      "kind": "estimated"
+    },
+    "dimensions.w": {
+      "kind": "estimated"
+    }
+  },
+  "sources": [],
+  "surfaces": [
+    {
+      "adjustable": {},
+      "anchor": {
+        "x": 0,
+        "y": 0,
+        "z": 740
+      },
+      "id": "top",
+      "kind": "desktop",
+      "label": "Desktop",
+      "loadKg": null,
+      "usable": {
+        "d": 800,
+        "w": 1600
+      }
+    }
+  ],
+  "type": "desk"
+}

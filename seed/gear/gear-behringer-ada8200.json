@@ -1,0 +1,639 @@
+{
+  "aliases": [
+    "ADA8200"
+  ],
+  "audio": {
+    "bitDepths": [
+      24
+    ],
+    "sampleRatesHz": [
+      44100,
+      48000
+    ]
+  },
+  "category": "converter",
+  "clock": {
+    "canBeMaster": true,
+    "canBeSlave": true,
+    "formats": [
+      "adat",
+      "word"
+    ],
+    "notes": "Sync from internal (44.1/48 kHz), ADAT input or word clock input."
+  },
+  "connectors": [
+    {
+      "alternates": [
+        {
+          "id": "line",
+          "label": "Line"
+        }
+      ],
+      "channel": {
+        "index": 1,
+        "role": "numbered"
+      },
+      "direction": "in",
+      "domain": "audio.analog",
+      "face": "front",
+      "id": "in-1",
+      "jack": "combo-xlr-trs",
+      "label": "Input 1",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "mic",
+        "phantom": "switchable"
+      }
+    },
+    {
+      "alternates": [
+        {
+          "id": "line",
+          "label": "Line"
+        }
+      ],
+      "channel": {
+        "index": 2,
+        "role": "numbered"
+      },
+      "direction": "in",
+      "domain": "audio.analog",
+      "face": "front",
+      "id": "in-2",
+      "jack": "combo-xlr-trs",
+      "label": "Input 2",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "mic",
+        "phantom": "switchable"
+      }
+    },
+    {
+      "alternates": [
+        {
+          "id": "line",
+          "label": "Line"
+        }
+      ],
+      "channel": {
+        "index": 3,
+        "role": "numbered"
+      },
+      "direction": "in",
+      "domain": "audio.analog",
+      "face": "front",
+      "id": "in-3",
+      "jack": "combo-xlr-trs",
+      "label": "Input 3",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "mic",
+        "phantom": "switchable"
+      }
+    },
+    {
+      "alternates": [
+        {
+          "id": "line",
+          "label": "Line"
+        }
+      ],
+      "channel": {
+        "index": 4,
+        "role": "numbered"
+      },
+      "direction": "in",
+      "domain": "audio.analog",
+      "face": "front",
+      "id": "in-4",
+      "jack": "combo-xlr-trs",
+      "label": "Input 4",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "mic",
+        "phantom": "switchable"
+      }
+    },
+    {
+      "alternates": [
+        {
+          "id": "line",
+          "label": "Line"
+        }
+      ],
+      "channel": {
+        "index": 5,
+        "role": "numbered"
+      },
+      "direction": "in",
+      "domain": "audio.analog",
+      "face": "front",
+      "id": "in-5",
+      "jack": "combo-xlr-trs",
+      "label": "Input 5",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "mic",
+        "phantom": "switchable"
+      }
+    },
+    {
+      "alternates": [
+        {
+          "id": "line",
+          "label": "Line"
+        }
+      ],
+      "channel": {
+        "index": 6,
+        "role": "numbered"
+      },
+      "direction": "in",
+      "domain": "audio.analog",
+      "face": "front",
+      "id": "in-6",
+      "jack": "combo-xlr-trs",
+      "label": "Input 6",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "mic",
+        "phantom": "switchable"
+      }
+    },
+    {
+      "alternates": [
+        {
+          "id": "line",
+          "label": "Line"
+        }
+      ],
+      "channel": {
+        "index": 7,
+        "role": "numbered"
+      },
+      "direction": "in",
+      "domain": "audio.analog",
+      "face": "front",
+      "id": "in-7",
+      "jack": "combo-xlr-trs",
+      "label": "Input 7",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "mic",
+        "phantom": "switchable"
+      }
+    },
+    {
+      "alternates": [
+        {
+          "id": "line",
+          "label": "Line"
+        }
+      ],
+      "channel": {
+        "index": 8,
+        "role": "numbered"
+      },
+      "direction": "in",
+      "domain": "audio.analog",
+      "face": "front",
+      "id": "in-8",
+      "jack": "combo-xlr-trs",
+      "label": "Input 8",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "mic",
+        "phantom": "switchable"
+      }
+    },
+    {
+      "channel": {
+        "index": 1,
+        "role": "numbered"
+      },
+      "direction": "out",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "out-1",
+      "jack": "xlr-m",
+      "label": "Line Out 1",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "+4dBu"
+      }
+    },
+    {
+      "channel": {
+        "index": 2,
+        "role": "numbered"
+      },
+      "direction": "out",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "out-2",
+      "jack": "xlr-m",
+      "label": "Line Out 2",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "+4dBu"
+      }
+    },
+    {
+      "channel": {
+        "index": 3,
+        "role": "numbered"
+      },
+      "direction": "out",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "out-3",
+      "jack": "xlr-m",
+      "label": "Line Out 3",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "+4dBu"
+      }
+    },
+    {
+      "channel": {
+        "index": 4,
+        "role": "numbered"
+      },
+      "direction": "out",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "out-4",
+      "jack": "xlr-m",
+      "label": "Line Out 4",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "+4dBu"
+      }
+    },
+    {
+      "channel": {
+        "index": 5,
+        "role": "numbered"
+      },
+      "direction": "out",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "out-5",
+      "jack": "xlr-m",
+      "label": "Line Out 5",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "+4dBu"
+      }
+    },
+    {
+      "channel": {
+        "index": 6,
+        "role": "numbered"
+      },
+      "direction": "out",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "out-6",
+      "jack": "xlr-m",
+      "label": "Line Out 6",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "+4dBu"
+      }
+    },
+    {
+      "channel": {
+        "index": 7,
+        "role": "numbered"
+      },
+      "direction": "out",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "out-7",
+      "jack": "xlr-m",
+      "label": "Line Out 7",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "+4dBu"
+      }
+    },
+    {
+      "channel": {
+        "index": 8,
+        "role": "numbered"
+      },
+      "direction": "out",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "out-8",
+      "jack": "xlr-m",
+      "label": "Line Out 8",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "+4dBu"
+      }
+    },
+    {
+      "direction": "out",
+      "domain": "audio.adat",
+      "face": "back",
+      "id": "adat-out",
+      "jack": "toslink-f",
+      "label": "ADAT Out",
+      "notes": "8 ch, 24-bit, 44.1/48 kHz.",
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "direction": "in",
+      "domain": "audio.adat",
+      "face": "back",
+      "id": "adat-in",
+      "jack": "toslink-f",
+      "label": "ADAT In",
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "clock": {
+        "canSlave": true,
+        "format": "word"
+      },
+      "direction": "in",
+      "domain": "clock.word",
+      "face": "back",
+      "id": "wordclock-in",
+      "jack": "bnc-f",
+      "label": "Word Clock In",
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "direction": "in",
+      "domain": "power.ac",
+      "face": "back",
+      "id": "ac-in",
+      "jack": "iec-c14",
+      "label": "Mains (IEC)",
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    }
+  ],
+  "dimensions": {
+    "d": null,
+    "h": 44.45,
+    "heightIncludesKnobsFeet": false,
+    "rack": {
+      "earsIncluded": true,
+      "u": 1
+    },
+    "w": 482.6,
+    "weightKg": null
+  },
+  "ergonomics": {
+    "defaultUsage": "rare",
+    "interaction": "set-and-forget",
+    "needsDisplayVisibility": false
+  },
+  "faces": {},
+  "formFactor": "rack",
+  "id": "gear-behringer-ada8200",
+  "images": {},
+  "internalPaths": [
+    {
+      "channelMap": [
+        {
+          "from": "in-1",
+          "to": "adat-out:1"
+        },
+        {
+          "from": "in-2",
+          "to": "adat-out:2"
+        },
+        {
+          "from": "in-3",
+          "to": "adat-out:3"
+        },
+        {
+          "from": "in-4",
+          "to": "adat-out:4"
+        },
+        {
+          "from": "in-5",
+          "to": "adat-out:5"
+        },
+        {
+          "from": "in-6",
+          "to": "adat-out:6"
+        },
+        {
+          "from": "in-7",
+          "to": "adat-out:7"
+        },
+        {
+          "from": "in-8",
+          "to": "adat-out:8"
+        }
+      ],
+      "from": [
+        "in-1",
+        "in-2",
+        "in-3",
+        "in-4",
+        "in-5",
+        "in-6",
+        "in-7",
+        "in-8"
+      ],
+      "id": "ad",
+      "mode": "process",
+      "to": [
+        "adat-out"
+      ]
+    },
+    {
+      "channelMap": [
+        {
+          "from": "adat-in:1",
+          "to": "out-1"
+        },
+        {
+          "from": "adat-in:2",
+          "to": "out-2"
+        },
+        {
+          "from": "adat-in:3",
+          "to": "out-3"
+        },
+        {
+          "from": "adat-in:4",
+          "to": "out-4"
+        },
+        {
+          "from": "adat-in:5",
+          "to": "out-5"
+        },
+        {
+          "from": "adat-in:6",
+          "to": "out-6"
+        },
+        {
+          "from": "adat-in:7",
+          "to": "out-7"
+        },
+        {
+          "from": "adat-in:8",
+          "to": "out-8"
+        }
+      ],
+      "from": [
+        "adat-in"
+      ],
+      "id": "da",
+      "mode": "process",
+      "to": [
+        "out-1",
+        "out-2",
+        "out-3",
+        "out-4",
+        "out-5",
+        "out-6",
+        "out-7",
+        "out-8"
+      ]
+    }
+  ],
+  "manufacturer": "Behringer",
+  "mounting": {
+    "rackEars": true
+  },
+  "name": "Ultragain Digital ADA8200",
+  "notes": "Feeding the SSL 12 (ADAT in only), its line outputs stay unused.",
+  "power": {
+    "mainsRegion": "unknown",
+    "sources": [
+      {
+        "included": true,
+        "inputConnectorId": "ac-in",
+        "kind": "internal-mains",
+        "plug": {
+          "type": "iec-c14"
+        }
+      }
+    ],
+    "typicalW": null
+  },
+  "provenance": {
+    "connectors.*.face": {
+      "kind": "estimated",
+      "note": "Rear panel assumed unless the reference states the panel."
+    },
+    "connectors.*.pos": {
+      "kind": "unknown",
+      "note": "Placeholder (0,0); place on a panel image."
+    },
+    "dimensions.d": {
+      "kind": "unknown",
+      "note": "Not located in the gear reference."
+    },
+    "dimensions.h": {
+      "kind": "datasheet",
+      "note": "1U."
+    },
+    "dimensions.w": {
+      "kind": "datasheet",
+      "note": "19\" rack panel."
+    },
+    "dimensions.weightKg": {
+      "kind": "unknown",
+      "note": "Not located in the gear reference."
+    },
+    "power.typicalW": {
+      "kind": "unknown",
+      "note": "Not located in the gear reference."
+    }
+  },
+  "sources": [
+    {
+      "label": "Home Studio Gear Reference v2 (docs/studio-gear-reference.md)",
+      "retrieved": "2026-10-04"
+    }
+  ],
+  "tags": [
+    "rack",
+    "adat"
+  ]
+}

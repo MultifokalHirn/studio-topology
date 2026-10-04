@@ -1,0 +1,825 @@
+{
+  "aliases": [],
+  "category": "synth",
+  "clock": {
+    "canBeMaster": false,
+    "canBeSlave": false,
+    "formats": [],
+    "notes": "No clock jacks."
+  },
+  "connectors": [
+    {
+      "channel": {
+        "group": "out-main",
+        "role": "L"
+      },
+      "direction": "out",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "out-main-l",
+      "jack": "jack-6.35",
+      "label": "Out L",
+      "notes": "TS vs. TRS differs by source.",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "unbalanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "group": "out-main",
+        "role": "R"
+      },
+      "direction": "out",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "out-main-r",
+      "jack": "jack-6.35",
+      "label": "Out R",
+      "notes": "TS vs. TRS differs by source.",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "unbalanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "role": "stereo"
+      },
+      "direction": "out",
+      "domain": "audio.analog",
+      "face": "top",
+      "id": "out-top",
+      "jack": "jack-3.5-TRS",
+      "label": "Stereo Out (top)",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "n/a",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "index": 1,
+        "role": "numbered"
+      },
+      "direction": "in",
+      "domain": "audio.analog",
+      "face": "top",
+      "id": "in-ext-1",
+      "jack": "jack-3.5",
+      "label": "Ext audio in 1",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "unbalanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "index": 2,
+        "role": "numbered"
+      },
+      "direction": "in",
+      "domain": "audio.analog",
+      "face": "top",
+      "id": "in-ext-2",
+      "jack": "jack-3.5",
+      "label": "Ext audio in 2",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "unbalanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "index": 1,
+        "role": "numbered"
+      },
+      "direction": "in",
+      "domain": "cv",
+      "face": "top",
+      "id": "patch-in-1",
+      "jack": "jack-3.5",
+      "label": "Patch in 1",
+      "notes": "Patch point (CV, gate or audio). Individual labels not in the reference; rename from the panel.",
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "channel": {
+        "index": 2,
+        "role": "numbered"
+      },
+      "direction": "in",
+      "domain": "cv",
+      "face": "top",
+      "id": "patch-in-2",
+      "jack": "jack-3.5",
+      "label": "Patch in 2",
+      "notes": "Patch point (CV, gate or audio). Individual labels not in the reference; rename from the panel.",
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "channel": {
+        "index": 3,
+        "role": "numbered"
+      },
+      "direction": "in",
+      "domain": "cv",
+      "face": "top",
+      "id": "patch-in-3",
+      "jack": "jack-3.5",
+      "label": "Patch in 3",
+      "notes": "Patch point (CV, gate or audio). Individual labels not in the reference; rename from the panel.",
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "channel": {
+        "index": 4,
+        "role": "numbered"
+      },
+      "direction": "in",
+      "domain": "cv",
+      "face": "top",
+      "id": "patch-in-4",
+      "jack": "jack-3.5",
+      "label": "Patch in 4",
+      "notes": "Patch point (CV, gate or audio). Individual labels not in the reference; rename from the panel.",
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "channel": {
+        "index": 5,
+        "role": "numbered"
+      },
+      "direction": "in",
+      "domain": "cv",
+      "face": "top",
+      "id": "patch-in-5",
+      "jack": "jack-3.5",
+      "label": "Patch in 5",
+      "notes": "Patch point (CV, gate or audio). Individual labels not in the reference; rename from the panel.",
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "channel": {
+        "index": 6,
+        "role": "numbered"
+      },
+      "direction": "in",
+      "domain": "cv",
+      "face": "top",
+      "id": "patch-in-6",
+      "jack": "jack-3.5",
+      "label": "Patch in 6",
+      "notes": "Patch point (CV, gate or audio). Individual labels not in the reference; rename from the panel.",
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "channel": {
+        "index": 7,
+        "role": "numbered"
+      },
+      "direction": "in",
+      "domain": "cv",
+      "face": "top",
+      "id": "patch-in-7",
+      "jack": "jack-3.5",
+      "label": "Patch in 7",
+      "notes": "Patch point (CV, gate or audio). Individual labels not in the reference; rename from the panel.",
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "channel": {
+        "index": 8,
+        "role": "numbered"
+      },
+      "direction": "in",
+      "domain": "cv",
+      "face": "top",
+      "id": "patch-in-8",
+      "jack": "jack-3.5",
+      "label": "Patch in 8",
+      "notes": "Patch point (CV, gate or audio). Individual labels not in the reference; rename from the panel.",
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "channel": {
+        "index": 9,
+        "role": "numbered"
+      },
+      "direction": "in",
+      "domain": "cv",
+      "face": "top",
+      "id": "patch-in-9",
+      "jack": "jack-3.5",
+      "label": "Patch in 9",
+      "notes": "Patch point (CV, gate or audio). Individual labels not in the reference; rename from the panel.",
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "channel": {
+        "index": 10,
+        "role": "numbered"
+      },
+      "direction": "in",
+      "domain": "cv",
+      "face": "top",
+      "id": "patch-in-10",
+      "jack": "jack-3.5",
+      "label": "Patch in 10",
+      "notes": "Patch point (CV, gate or audio). Individual labels not in the reference; rename from the panel.",
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "channel": {
+        "index": 11,
+        "role": "numbered"
+      },
+      "direction": "in",
+      "domain": "cv",
+      "face": "top",
+      "id": "patch-in-11",
+      "jack": "jack-3.5",
+      "label": "Patch in 11",
+      "notes": "Patch point (CV, gate or audio). Individual labels not in the reference; rename from the panel.",
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "channel": {
+        "index": 12,
+        "role": "numbered"
+      },
+      "direction": "in",
+      "domain": "cv",
+      "face": "top",
+      "id": "patch-in-12",
+      "jack": "jack-3.5",
+      "label": "Patch in 12",
+      "notes": "Patch point (CV, gate or audio). Individual labels not in the reference; rename from the panel.",
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "channel": {
+        "index": 13,
+        "role": "numbered"
+      },
+      "direction": "in",
+      "domain": "cv",
+      "face": "top",
+      "id": "patch-in-13",
+      "jack": "jack-3.5",
+      "label": "Patch in 13",
+      "notes": "Patch point (CV, gate or audio). Individual labels not in the reference; rename from the panel.",
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "channel": {
+        "index": 14,
+        "role": "numbered"
+      },
+      "direction": "in",
+      "domain": "cv",
+      "face": "top",
+      "id": "patch-in-14",
+      "jack": "jack-3.5",
+      "label": "Patch in 14",
+      "notes": "Patch point (CV, gate or audio). Individual labels not in the reference; rename from the panel.",
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "channel": {
+        "index": 1,
+        "role": "numbered"
+      },
+      "direction": "out",
+      "domain": "cv",
+      "face": "top",
+      "id": "patch-out-1",
+      "jack": "jack-3.5",
+      "label": "Patch out 1",
+      "notes": "Patch point (CV, gate or audio). Individual labels not in the reference; rename from the panel.",
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "channel": {
+        "index": 2,
+        "role": "numbered"
+      },
+      "direction": "out",
+      "domain": "cv",
+      "face": "top",
+      "id": "patch-out-2",
+      "jack": "jack-3.5",
+      "label": "Patch out 2",
+      "notes": "Patch point (CV, gate or audio). Individual labels not in the reference; rename from the panel.",
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "channel": {
+        "index": 3,
+        "role": "numbered"
+      },
+      "direction": "out",
+      "domain": "cv",
+      "face": "top",
+      "id": "patch-out-3",
+      "jack": "jack-3.5",
+      "label": "Patch out 3",
+      "notes": "Patch point (CV, gate or audio). Individual labels not in the reference; rename from the panel.",
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "channel": {
+        "index": 4,
+        "role": "numbered"
+      },
+      "direction": "out",
+      "domain": "cv",
+      "face": "top",
+      "id": "patch-out-4",
+      "jack": "jack-3.5",
+      "label": "Patch out 4",
+      "notes": "Patch point (CV, gate or audio). Individual labels not in the reference; rename from the panel.",
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "channel": {
+        "index": 5,
+        "role": "numbered"
+      },
+      "direction": "out",
+      "domain": "cv",
+      "face": "top",
+      "id": "patch-out-5",
+      "jack": "jack-3.5",
+      "label": "Patch out 5",
+      "notes": "Patch point (CV, gate or audio). Individual labels not in the reference; rename from the panel.",
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "channel": {
+        "index": 6,
+        "role": "numbered"
+      },
+      "direction": "out",
+      "domain": "cv",
+      "face": "top",
+      "id": "patch-out-6",
+      "jack": "jack-3.5",
+      "label": "Patch out 6",
+      "notes": "Patch point (CV, gate or audio). Individual labels not in the reference; rename from the panel.",
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "channel": {
+        "index": 7,
+        "role": "numbered"
+      },
+      "direction": "out",
+      "domain": "cv",
+      "face": "top",
+      "id": "patch-out-7",
+      "jack": "jack-3.5",
+      "label": "Patch out 7",
+      "notes": "Patch point (CV, gate or audio). Individual labels not in the reference; rename from the panel.",
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "channel": {
+        "index": 8,
+        "role": "numbered"
+      },
+      "direction": "out",
+      "domain": "cv",
+      "face": "top",
+      "id": "patch-out-8",
+      "jack": "jack-3.5",
+      "label": "Patch out 8",
+      "notes": "Patch point (CV, gate or audio). Individual labels not in the reference; rename from the panel.",
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "channel": {
+        "index": 9,
+        "role": "numbered"
+      },
+      "direction": "out",
+      "domain": "cv",
+      "face": "top",
+      "id": "patch-out-9",
+      "jack": "jack-3.5",
+      "label": "Patch out 9",
+      "notes": "Patch point (CV, gate or audio). Individual labels not in the reference; rename from the panel.",
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "channel": {
+        "index": 10,
+        "role": "numbered"
+      },
+      "direction": "out",
+      "domain": "cv",
+      "face": "top",
+      "id": "patch-out-10",
+      "jack": "jack-3.5",
+      "label": "Patch out 10",
+      "notes": "Patch point (CV, gate or audio). Individual labels not in the reference; rename from the panel.",
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "channel": {
+        "index": 11,
+        "role": "numbered"
+      },
+      "direction": "out",
+      "domain": "cv",
+      "face": "top",
+      "id": "patch-out-11",
+      "jack": "jack-3.5",
+      "label": "Patch out 11",
+      "notes": "Patch point (CV, gate or audio). Individual labels not in the reference; rename from the panel.",
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "channel": {
+        "index": 12,
+        "role": "numbered"
+      },
+      "direction": "out",
+      "domain": "cv",
+      "face": "top",
+      "id": "patch-out-12",
+      "jack": "jack-3.5",
+      "label": "Patch out 12",
+      "notes": "Patch point (CV, gate or audio). Individual labels not in the reference; rename from the panel.",
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "channel": {
+        "index": 13,
+        "role": "numbered"
+      },
+      "direction": "out",
+      "domain": "cv",
+      "face": "top",
+      "id": "patch-out-13",
+      "jack": "jack-3.5",
+      "label": "Patch out 13",
+      "notes": "Patch point (CV, gate or audio). Individual labels not in the reference; rename from the panel.",
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "channel": {
+        "index": 14,
+        "role": "numbered"
+      },
+      "direction": "out",
+      "domain": "cv",
+      "face": "top",
+      "id": "patch-out-14",
+      "jack": "jack-3.5",
+      "label": "Patch out 14",
+      "notes": "Patch point (CV, gate or audio). Individual labels not in the reference; rename from the panel.",
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "channel": {
+        "index": 15,
+        "role": "numbered"
+      },
+      "direction": "out",
+      "domain": "cv",
+      "face": "top",
+      "id": "patch-out-15",
+      "jack": "jack-3.5",
+      "label": "Patch out 15",
+      "notes": "Patch point (CV, gate or audio). Individual labels not in the reference; rename from the panel.",
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "channel": {
+        "index": 16,
+        "role": "numbered"
+      },
+      "direction": "out",
+      "domain": "cv",
+      "face": "top",
+      "id": "patch-out-16",
+      "jack": "jack-3.5",
+      "label": "Patch out 16",
+      "notes": "Patch point (CV, gate or audio). Individual labels not in the reference; rename from the panel.",
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "direction": "in",
+      "domain": "midi.din",
+      "face": "back",
+      "id": "midi-in",
+      "jack": "din5-f",
+      "label": "MIDI In",
+      "midi": {
+        "carries": [
+          "notes",
+          "cc",
+          "pc",
+          "sysex",
+          "clock",
+          "transport"
+        ]
+      },
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "direction": "thru",
+      "domain": "midi.din",
+      "face": "back",
+      "id": "midi-thru",
+      "jack": "din5-f",
+      "label": "MIDI Thru",
+      "midi": {
+        "carries": [
+          "notes",
+          "cc",
+          "pc",
+          "sysex",
+          "clock",
+          "transport"
+        ],
+        "thruMode": "hard"
+      },
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "direction": "bidir",
+      "domain": "usb.data",
+      "face": "back",
+      "id": "usb",
+      "jack": "usb-b-f",
+      "label": "USB",
+      "notes": "USB audio disputed: Sweetwater lists audio + MIDI, Thomann lists no digital output.",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "usb": {
+        "audio": {
+          "compliance": "unknown",
+          "inChannels": null,
+          "outChannels": null
+        },
+        "busPowered": false,
+        "carries": [
+          "midi",
+          "audio"
+        ],
+        "role": "device",
+        "version": "unknown"
+      }
+    },
+    {
+      "direction": "in",
+      "domain": "power.dc",
+      "face": "back",
+      "id": "dc-in",
+      "jack": "unknown",
+      "label": "DC In",
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    }
+  ],
+  "dimensions": {
+    "d": 135.6,
+    "eurorack": {
+      "hp": 80
+    },
+    "h": 94,
+    "heightIncludesKnobsFeet": true,
+    "w": 424.4,
+    "weightKg": null
+  },
+  "ergonomics": {
+    "defaultUsage": "secondary",
+    "interaction": "knobs-buttons",
+    "needsDisplayVisibility": false
+  },
+  "faces": {},
+  "formFactor": "desktop",
+  "id": "gear-behringer-2-xm",
+  "images": {},
+  "internalPaths": [
+    {
+      "channelMap": [
+        {
+          "from": "in-ext-1",
+          "to": "out-main-l"
+        },
+        {
+          "from": "in-ext-2",
+          "to": "out-main-r"
+        }
+      ],
+      "from": [
+        "in-ext-1",
+        "in-ext-2"
+      ],
+      "id": "ext-in",
+      "mode": "process",
+      "to": [
+        "out-main-l",
+        "out-main-r"
+      ]
+    }
+  ],
+  "manufacturer": "Behringer",
+  "midi": {
+    "clockIn": true
+  },
+  "mounting": {},
+  "name": "2-XM",
+  "notes": "80 HP Eurorack width. Mounted on the separate stand. Patch field: 32 × 3.5 mm (16 in / 16 out).",
+  "power": {
+    "mainsRegion": "unknown",
+    "sources": [
+      {
+        "drawMa": null,
+        "included": true,
+        "inputConnectorId": "dc-in",
+        "kind": "external-dc",
+        "suppliedModelId": "gear-behringer-2-xm-psu"
+      }
+    ]
+  },
+  "provenance": {
+    "connectors.*.face": {
+      "kind": "estimated",
+      "note": "Rear panel assumed unless the reference states the panel."
+    },
+    "connectors.*.pos": {
+      "kind": "unknown",
+      "note": "Placeholder (0,0); place on a panel image."
+    },
+    "connectors.0.jack": {
+      "kind": "unknown",
+      "note": "TS vs. TRS differs by source (⚠)."
+    },
+    "connectors.1.jack": {
+      "kind": "unknown",
+      "note": "TS vs. TRS differs by source (⚠)."
+    },
+    "connectors.37.usb.audio": {
+      "kind": "unknown",
+      "note": "Disputed between retailers (spec Appendix I.6)."
+    },
+    "connectors.38.jack": {
+      "kind": "unknown",
+      "note": "Jack type not located in the gear reference."
+    },
+    "dimensions.d": {
+      "kind": "datasheet",
+      "note": "Gear reference v2"
+    },
+    "dimensions.h": {
+      "kind": "datasheet",
+      "note": "Gear reference v2"
+    },
+    "dimensions.w": {
+      "kind": "datasheet",
+      "note": "Gear reference v2"
+    },
+    "dimensions.weightKg": {
+      "kind": "unknown",
+      "note": "Not located in the gear reference."
+    },
+    "power.sources.0.drawMa": {
+      "kind": "unknown",
+      "note": "Not located in the gear reference."
+    }
+  },
+  "sources": [
+    {
+      "label": "Home Studio Gear Reference v2 (docs/studio-gear-reference.md)",
+      "retrieved": "2026-10-04"
+    }
+  ],
+  "tags": [
+    "behringer",
+    "eurorack-width"
+  ]
+}

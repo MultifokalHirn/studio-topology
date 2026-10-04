@@ -1,0 +1,389 @@
+{
+  "aliases": [],
+  "category": "effect",
+  "clock": {
+    "canBeMaster": true,
+    "canBeSlave": true,
+    "formats": [
+      "midi",
+      "dinsync24"
+    ],
+    "notes": "LFO syncs to MIDI clock."
+  },
+  "connectors": [
+    {
+      "channel": {
+        "group": "out-main",
+        "role": "L"
+      },
+      "direction": "out",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "out-main-l",
+      "jack": "jack-6.35-TRS",
+      "label": "Main Out L",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "imp-balanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "group": "out-main",
+        "role": "R"
+      },
+      "direction": "out",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "out-main-r",
+      "jack": "jack-6.35-TRS",
+      "label": "Main Out R",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "imp-balanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "role": "stereo"
+      },
+      "direction": "out",
+      "domain": "audio.headphone",
+      "face": "back",
+      "id": "phones",
+      "jack": "jack-6.35-TRS",
+      "label": "Headphones",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "n/a",
+        "level": "headphone"
+      }
+    },
+    {
+      "channel": {
+        "group": "in",
+        "role": "L"
+      },
+      "direction": "in",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "in-l",
+      "jack": "jack-6.35-TRS",
+      "label": "In L",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "group": "in",
+        "role": "R"
+      },
+      "direction": "in",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "in-r",
+      "jack": "jack-6.35-TRS",
+      "label": "In R",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "line"
+      }
+    },
+    {
+      "alternates": [
+        {
+          "domain": "cv",
+          "id": "cv",
+          "label": "CV in"
+        }
+      ],
+      "channel": {
+        "index": 1,
+        "role": "numbered"
+      },
+      "direction": "in",
+      "domain": "expression",
+      "face": "back",
+      "id": "cv-exp-1",
+      "jack": "jack-6.35-TRS",
+      "label": "CV/Exp 1",
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "alternates": [
+        {
+          "domain": "cv",
+          "id": "cv",
+          "label": "CV in"
+        }
+      ],
+      "channel": {
+        "index": 2,
+        "role": "numbered"
+      },
+      "direction": "in",
+      "domain": "expression",
+      "face": "back",
+      "id": "cv-exp-2",
+      "jack": "jack-6.35-TRS",
+      "label": "CV/Exp 2",
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "direction": "in",
+      "domain": "midi.din",
+      "face": "back",
+      "id": "midi-in",
+      "jack": "din5-f",
+      "label": "MIDI In",
+      "midi": {
+        "carries": [
+          "notes",
+          "cc",
+          "pc",
+          "sysex",
+          "clock",
+          "transport"
+        ]
+      },
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "clock": {
+        "canMaster": true,
+        "format": "dinsync24",
+        "note": "DIN sync on Out"
+      },
+      "direction": "out",
+      "domain": "midi.din",
+      "face": "back",
+      "id": "midi-out",
+      "jack": "din5-f",
+      "label": "MIDI Out",
+      "midi": {
+        "carries": [
+          "notes",
+          "cc",
+          "pc",
+          "sysex",
+          "clock",
+          "transport"
+        ]
+      },
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "clock": {
+        "format": "dinsync24",
+        "note": "DIN sync on Thru"
+      },
+      "direction": "thru",
+      "domain": "midi.din",
+      "face": "back",
+      "id": "midi-thru",
+      "jack": "din5-f",
+      "label": "MIDI Thru",
+      "midi": {
+        "carries": [
+          "notes",
+          "cc",
+          "pc",
+          "sysex",
+          "clock",
+          "transport"
+        ],
+        "thruMode": "hard"
+      },
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "direction": "bidir",
+      "domain": "usb.data",
+      "face": "back",
+      "id": "usb",
+      "jack": "unknown",
+      "label": "USB",
+      "notes": "Isolated USB 2.0; Overbridge supported.",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "usb": {
+        "audio": {
+          "compliance": "class-compliant",
+          "inChannels": 2,
+          "outChannels": 2
+        },
+        "busPowered": false,
+        "carries": [
+          "midi",
+          "audio",
+          "firmware"
+        ],
+        "role": "device",
+        "version": "2.0"
+      }
+    },
+    {
+      "direction": "in",
+      "domain": "power.dc",
+      "face": "back",
+      "id": "dc-in",
+      "jack": "dc-barrel-5.5x2.5",
+      "label": "DC In",
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    }
+  ],
+  "dimensions": {
+    "d": 184,
+    "h": 63,
+    "heightIncludesKnobsFeet": true,
+    "w": 215,
+    "weightKg": 1.5
+  },
+  "ergonomics": {
+    "defaultUsage": "secondary",
+    "interaction": "knobs-buttons",
+    "needsDisplayVisibility": true
+  },
+  "faces": {},
+  "formFactor": "desktop",
+  "id": "gear-elektron-analog-heat-mkii",
+  "images": {},
+  "internalPaths": [
+    {
+      "channelMap": [
+        {
+          "from": "in-l",
+          "to": "out-main-l"
+        },
+        {
+          "from": "in-r",
+          "to": "out-main-r"
+        }
+      ],
+      "from": [
+        "in-l",
+        "in-r"
+      ],
+      "id": "heat",
+      "mode": "process",
+      "to": [
+        "out-main-l",
+        "out-main-r"
+      ]
+    }
+  ],
+  "manufacturer": "Elektron",
+  "midi": {
+    "clockIn": true,
+    "clockOut": true
+  },
+  "mounting": {},
+  "name": "Analog Heat",
+  "notes": "Max operating temperature 36 °C. Ships with PSU-3b or PSU-3c.",
+  "power": {
+    "mainsRegion": "unknown",
+    "sources": [
+      {
+        "drawMa": 1000,
+        "included": true,
+        "inputConnectorId": "dc-in",
+        "kind": "external-dc",
+        "nominalV": 12,
+        "plug": {
+          "idMm": 2.5,
+          "odMm": 5.5,
+          "polarity": "center-positive",
+          "type": "barrel"
+        },
+        "suppliedModelId": "gear-elektron-psu-3c"
+      }
+    ],
+    "typicalW": 12
+  },
+  "provenance": {
+    "connectors.*.face": {
+      "kind": "estimated",
+      "note": "Rear panel assumed unless the reference states the panel."
+    },
+    "connectors.*.pos": {
+      "kind": "unknown",
+      "note": "Placeholder (0,0); place on a panel image."
+    },
+    "connectors.10.jack": {
+      "kind": "unknown",
+      "note": "USB receptacle type not stated in the reference."
+    },
+    "dimensions.d": {
+      "kind": "datasheet",
+      "note": "Gear reference v2"
+    },
+    "dimensions.h": {
+      "kind": "datasheet",
+      "note": "Gear reference v2"
+    },
+    "dimensions.w": {
+      "kind": "datasheet",
+      "note": "Gear reference v2"
+    },
+    "dimensions.weightKg": {
+      "kind": "datasheet",
+      "note": "Gear reference v2"
+    },
+    "power.sources.0.drawMa": {
+      "kind": "estimated",
+      "note": "Derived: 12 W typical / 12 V."
+    }
+  },
+  "sources": [
+    {
+      "label": "Home Studio Gear Reference v2 (docs/studio-gear-reference.md)",
+      "retrieved": "2026-10-04"
+    }
+  ],
+  "tags": [
+    "elektron",
+    "overbridge"
+  ],
+  "variant": "MKII"
+}

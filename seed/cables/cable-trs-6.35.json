@@ -1,0 +1,23 @@
+{
+  "balanced": true,
+  "carries": [
+    "audio.analog",
+    "audio.headphone",
+    "expression"
+  ],
+  "endA": "TRS-6.35",
+  "endB": "TRS-6.35",
+  "id": "cable-trs-6.35",
+  "kind": "cable",
+  "lengthsMm": [
+    300,
+    500,
+    1000,
+    1500,
+    2000,
+    3000,
+    5000,
+    6000
+  ],
+  "name": "¼\" TRS – ¼\" TRS (balanced)"
+}

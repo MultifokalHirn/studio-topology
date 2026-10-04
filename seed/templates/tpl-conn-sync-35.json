@@ -1,0 +1,40 @@
+{
+  "connectors": [
+    {
+      "clock": {
+        "canSlave": true,
+        "format": "pulse"
+      },
+      "direction": "in",
+      "domain": "clock.pulse",
+      "face": "back",
+      "id": "sync-in",
+      "jack": "jack-3.5",
+      "label": "Sync In",
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "clock": {
+        "canMaster": true,
+        "format": "pulse"
+      },
+      "direction": "out",
+      "domain": "clock.pulse",
+      "face": "back",
+      "id": "sync-out",
+      "jack": "jack-3.5",
+      "label": "Sync Out",
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    }
+  ],
+  "group": "Connector groups",
+  "id": "tpl-conn-sync-35",
+  "name": "3.5 mm sync in/out",
+  "target": "connectors"
+}

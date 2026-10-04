@@ -1,0 +1,473 @@
+{
+  "aliases": [
+    "KeyMix 6"
+  ],
+  "category": "mixer",
+  "connectors": [
+    {
+      "channel": {
+        "index": 1,
+        "role": "numbered"
+      },
+      "direction": "in",
+      "domain": "audio.analog",
+      "face": "front",
+      "id": "ch1-mic",
+      "jack": "xlr-f",
+      "label": "CH 1 Mic",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "mic",
+        "phantom": "switchable"
+      }
+    },
+    {
+      "channel": {
+        "index": 2,
+        "role": "numbered"
+      },
+      "direction": "in",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "ch2",
+      "jack": "jack-6.35-TRS",
+      "label": "CH 2 Mono/Mic",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "index": 3,
+        "role": "numbered"
+      },
+      "direction": "in",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "ch3",
+      "jack": "jack-6.35-TS",
+      "label": "CH 3 Mono",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "unbalanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "group": "ch4",
+        "role": "L"
+      },
+      "direction": "in",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "ch4-l",
+      "jack": "jack-6.35-TS",
+      "label": "CH 4 L",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "unbalanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "group": "ch4",
+        "role": "R"
+      },
+      "direction": "in",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "ch4-r",
+      "jack": "jack-6.35-TS",
+      "label": "CH 4 R",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "unbalanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "group": "ch5",
+        "role": "L"
+      },
+      "direction": "in",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "ch5-l",
+      "jack": "jack-6.35-TS",
+      "label": "CH 5 L",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "unbalanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "group": "ch5",
+        "role": "R"
+      },
+      "direction": "in",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "ch5-r",
+      "jack": "jack-6.35-TS",
+      "label": "CH 5 R",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "unbalanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "group": "ch6",
+        "role": "L"
+      },
+      "direction": "in",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "ch6-l",
+      "jack": "jack-6.35-TS",
+      "label": "CH 6 L",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "unbalanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "group": "ch6",
+        "role": "R"
+      },
+      "direction": "in",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "ch6-r",
+      "jack": "jack-6.35-TS",
+      "label": "CH 6 R",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "unbalanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "group": "out-master",
+        "role": "L"
+      },
+      "direction": "out",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "out-master-l",
+      "jack": "jack-6.35-TRS",
+      "label": "Master Out L",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "group": "out-master",
+        "role": "R"
+      },
+      "direction": "out",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "out-master-r",
+      "jack": "jack-6.35-TRS",
+      "label": "Master Out R",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "group": "out-monitor",
+        "role": "L"
+      },
+      "direction": "out",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "out-monitor-l",
+      "jack": "jack-6.35",
+      "label": "Monitor/Phones L",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "unbalanced",
+        "level": "line"
+      }
+    },
+    {
+      "alternates": [
+        {
+          "domain": "audio.headphone",
+          "id": "phones",
+          "label": "Headphones",
+          "note": "Headphones go in the right jack."
+        }
+      ],
+      "channel": {
+        "group": "out-monitor",
+        "role": "R"
+      },
+      "direction": "out",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "out-monitor-r",
+      "jack": "jack-6.35",
+      "label": "Monitor/Phones R",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "unbalanced",
+        "level": "line"
+      }
+    },
+    {
+      "direction": "bidir",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "insert-mic",
+      "insert": {},
+      "jack": "jack-6.35-TRS",
+      "label": "Mic Insert",
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "channel": {
+        "group": "main",
+        "role": "L"
+      },
+      "direction": "bidir",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "insert-main-l",
+      "insert": {},
+      "jack": "jack-6.35-TRS",
+      "label": "Main Insert L",
+      "notes": "Intended for processors such as a Vitalizer.",
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "channel": {
+        "group": "main",
+        "role": "R"
+      },
+      "direction": "bidir",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "insert-main-r",
+      "insert": {},
+      "jack": "jack-6.35-TRS",
+      "label": "Main Insert R",
+      "notes": "Intended for processors such as a Vitalizer.",
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "direction": "in",
+      "domain": "power.ac",
+      "face": "back",
+      "id": "ac-in",
+      "jack": "iec-c14",
+      "label": "Mains (IEC)",
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    }
+  ],
+  "dimensions": {
+    "d": null,
+    "h": 44.45,
+    "heightIncludesKnobsFeet": false,
+    "rack": {
+      "earsIncluded": true,
+      "u": 1
+    },
+    "w": 482.6,
+    "weightKg": null
+  },
+  "ergonomics": {
+    "defaultUsage": "secondary",
+    "interaction": "knobs-buttons",
+    "needsDisplayVisibility": false
+  },
+  "faces": {},
+  "formFactor": "rack",
+  "id": "gear-spl-grapevine-keymix-6",
+  "images": {},
+  "internalPaths": [
+    {
+      "from": [
+        "ch1-mic",
+        "ch2",
+        "ch3",
+        "ch4-l",
+        "ch4-r",
+        "ch5-l",
+        "ch5-r",
+        "ch6-l",
+        "ch6-r"
+      ],
+      "id": "mix",
+      "mode": "sum",
+      "to": [
+        "out-master-l",
+        "out-master-r",
+        "out-monitor-l",
+        "out-monitor-r"
+      ]
+    },
+    {
+      "from": [
+        "ch1-mic"
+      ],
+      "id": "mic-insert",
+      "mode": "insert-normal",
+      "to": [
+        "insert-mic"
+      ]
+    },
+    {
+      "channelMap": [
+        {
+          "from": "out-master-l",
+          "to": "insert-main-l"
+        },
+        {
+          "from": "out-master-r",
+          "to": "insert-main-r"
+        }
+      ],
+      "from": [
+        "out-master-l",
+        "out-master-r"
+      ],
+      "id": "main-insert",
+      "mode": "insert-normal",
+      "to": [
+        "insert-main-l",
+        "insert-main-r"
+      ]
+    }
+  ],
+  "manufacturer": "SPL",
+  "mounting": {
+    "rackEars": true
+  },
+  "name": "Grapevine KeyMix 6",
+  "notes": "Ground-lift switch. Fuse rating conflicts across SPL documents (63 mA vs. 125 mA).",
+  "power": {
+    "mainsRegion": "unknown",
+    "sources": [
+      {
+        "included": true,
+        "inputConnectorId": "ac-in",
+        "kind": "internal-mains",
+        "plug": {
+          "type": "iec-c14"
+        }
+      }
+    ],
+    "typicalW": null
+  },
+  "provenance": {
+    "connectors.*.face": {
+      "kind": "estimated",
+      "note": "Rear panel assumed unless the reference states the panel."
+    },
+    "connectors.*.pos": {
+      "kind": "unknown",
+      "note": "Placeholder (0,0); place on a panel image."
+    },
+    "dimensions.d": {
+      "kind": "unknown",
+      "note": "Not located in the gear reference."
+    },
+    "dimensions.h": {
+      "kind": "datasheet",
+      "note": "1U."
+    },
+    "dimensions.w": {
+      "kind": "datasheet",
+      "note": "19\" rack panel."
+    },
+    "dimensions.weightKg": {
+      "kind": "unknown",
+      "note": "Not located in the gear reference."
+    },
+    "power.typicalW": {
+      "kind": "unknown",
+      "note": "Not located in the gear reference."
+    }
+  },
+  "sources": [
+    {
+      "label": "Home Studio Gear Reference v2 (docs/studio-gear-reference.md)",
+      "retrieved": "2026-10-04"
+    }
+  ],
+  "tags": [
+    "rack",
+    "mixer"
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "carries": [
+    "audio.analog",
+    "audio.headphone"
+  ],
+  "endA": "TRS-3.5",
+  "endB": "TRS-6.35",
+  "id": "adapter-6.35-3.5",
+  "kind": "adapter",
+  "lengthsMm": [
+    0
+  ],
+  "name": "¼\" jack → 3.5 mm plug adapter",
+  "notes": "endA: plug presented to the gear; endB: plug type the adapter accepts."
+}

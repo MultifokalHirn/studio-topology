@@ -1,0 +1,107 @@
+{
+  "connectorGroups": [
+    {
+      "connectors": [
+        {
+          "channel": {
+            "role": "numbered"
+          },
+          "direction": "bidir",
+          "domain": "usb.data",
+          "face": "back",
+          "id": "port-{i}",
+          "jack": "usb-a-f",
+          "label": "Port {i}",
+          "pos": {
+            "x": 0,
+            "y": 0
+          },
+          "usb": {
+            "carries": [
+              "midi",
+              "audio",
+              "data",
+              "power"
+            ],
+            "role": "host",
+            "suppliesBusPowerMa": 900,
+            "version": "3.0"
+          }
+        }
+      ],
+      "repeat": "ports"
+    }
+  ],
+  "description": "Set suppliesBusPowerMa to 0 or remove the DC input for unpowered hubs.",
+  "gear": {
+    "category": "accessory",
+    "connectors": [
+      {
+        "direction": "bidir",
+        "domain": "usb.data",
+        "face": "back",
+        "id": "upstream",
+        "jack": "usb-c-f",
+        "label": "USB",
+        "pos": {
+          "x": 0,
+          "y": 0
+        },
+        "usb": {
+          "busPowered": false,
+          "carries": [
+            "data"
+          ],
+          "role": "device",
+          "version": "3.0"
+        }
+      },
+      {
+        "direction": "in",
+        "domain": "power.dc",
+        "face": "back",
+        "id": "dc-in",
+        "jack": "unknown",
+        "label": "DC In (powered hubs)",
+        "pos": {
+          "x": 0,
+          "y": 0
+        }
+      }
+    ],
+    "dimensions": {
+      "d": null,
+      "h": null,
+      "heightIncludesKnobsFeet": true,
+      "w": null,
+      "weightKg": null
+    },
+    "ergonomics": {
+      "defaultUsage": "rare",
+      "interaction": "set-and-forget",
+      "needsDisplayVisibility": false
+    },
+    "formFactor": "other",
+    "power": {
+      "sources": [
+        {
+          "drawMa": null,
+          "included": false,
+          "inputConnectorId": "dc-in",
+          "kind": "optional-dc"
+        }
+      ]
+    }
+  },
+  "group": "Power",
+  "id": "tpl-usb-hub",
+  "name": "USB hub (N ports)",
+  "params": [
+    {
+      "default": 4,
+      "key": "ports",
+      "label": "Ports"
+    }
+  ],
+  "target": "gear"
+}

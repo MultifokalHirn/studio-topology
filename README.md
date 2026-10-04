@@ -12,3 +12,7 @@ Local-first web app for modelling a music studio: gear and stands to scale, type
 | `npm run lint` / `typecheck` | ESLint + Prettier check / `tsc`         |
 | `npm run schema:gen`         | Regenerate `schema/project.schema.json` |
 | `npm run seed:validate`      | Validate `/seed` against the schema     |
+
+## Sample studio
+
+`seed/studio.sample.json` holds the full rig from [`docs/studio-gear-reference.md`](docs/studio-gear-reference.md): 29 devices, their included power supplies, a Jaspers 3D-145B, a rack, a desk and a Eurorack-format stand, in two setups ("Current" demo arrangement and "Planned (standing)"). It loads on first launch. Values the reference could not locate are `null` with provenance `unknown` and appear under **Issues → Unverified fields**.

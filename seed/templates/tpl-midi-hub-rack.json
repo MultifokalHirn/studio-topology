@@ -1,0 +1,154 @@
+{
+  "connectorGroups": [
+    {
+      "connectors": [
+        {
+          "channel": {
+            "role": "numbered"
+          },
+          "direction": "in",
+          "domain": "midi.din",
+          "face": "back",
+          "id": "din-in-{i}",
+          "jack": "din5-f",
+          "label": "DIN In {i}",
+          "midi": {
+            "carries": [
+              "notes",
+              "cc",
+              "pc",
+              "sysex",
+              "clock",
+              "transport"
+            ]
+          },
+          "pos": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      ],
+      "repeat": "ins"
+    },
+    {
+      "connectors": [
+        {
+          "channel": {
+            "role": "numbered"
+          },
+          "direction": "out",
+          "domain": "midi.din",
+          "face": "back",
+          "id": "din-out-{i}",
+          "jack": "din5-f",
+          "label": "DIN Out {i}",
+          "midi": {
+            "carries": [
+              "notes",
+              "cc",
+              "pc",
+              "sysex",
+              "clock",
+              "transport"
+            ]
+          },
+          "pos": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      ],
+      "repeat": "outs"
+    }
+  ],
+  "gear": {
+    "category": "midi-hub",
+    "connectors": [
+      {
+        "direction": "bidir",
+        "domain": "usb.data",
+        "face": "back",
+        "id": "usb-computer",
+        "jack": "usb-b-f",
+        "label": "USB",
+        "pos": {
+          "x": 0,
+          "y": 0
+        },
+        "usb": {
+          "busPowered": false,
+          "carries": [
+            "midi"
+          ],
+          "role": "device",
+          "version": "unknown"
+        }
+      },
+      {
+        "direction": "in",
+        "domain": "power.dc",
+        "face": "back",
+        "id": "dc-in",
+        "jack": "dc-barrel-5.5x2.5",
+        "label": "DC In",
+        "pos": {
+          "x": 0,
+          "y": 0
+        }
+      }
+    ],
+    "dimensions": {
+      "d": null,
+      "h": 44.45,
+      "heightIncludesKnobsFeet": false,
+      "rack": {
+        "earsIncluded": true,
+        "u": 1
+      },
+      "w": 482.6,
+      "weightKg": null
+    },
+    "ergonomics": {
+      "defaultUsage": "rare",
+      "interaction": "set-and-forget",
+      "needsDisplayVisibility": false
+    },
+    "formFactor": "rack",
+    "mounting": {
+      "rackEars": true
+    },
+    "power": {
+      "sources": [
+        {
+          "drawMa": null,
+          "included": true,
+          "inputConnectorId": "dc-in",
+          "kind": "external-dc",
+          "nominalV": 12,
+          "plug": {
+            "idMm": 2.5,
+            "odMm": 5.5,
+            "polarity": "center-positive",
+            "type": "barrel"
+          }
+        }
+      ]
+    }
+  },
+  "group": "MIDI/CV",
+  "id": "tpl-midi-hub-rack",
+  "name": "MIDI hub rack 1U",
+  "params": [
+    {
+      "default": 8,
+      "key": "ins",
+      "label": "DIN ins"
+    },
+    {
+      "default": 8,
+      "key": "outs",
+      "label": "DIN outs"
+    }
+  ],
+  "target": "gear"
+}

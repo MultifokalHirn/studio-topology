@@ -1,0 +1,770 @@
+{
+  "aliases": [],
+  "category": "synth",
+  "clock": {
+    "canBeMaster": true,
+    "canBeSlave": true,
+    "formats": [
+      "midi",
+      "pulse-24ppqn",
+      "pulse-48ppqn"
+    ],
+    "notes": "Sync in/out: Gate, Clock, 24 ppqn, 48 ppqn."
+  },
+  "connectors": [
+    {
+      "channel": {
+        "group": "out",
+        "role": "L"
+      },
+      "direction": "out",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "out-l",
+      "jack": "jack-6.35",
+      "label": "Out L",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "unbalanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "group": "out",
+        "role": "R"
+      },
+      "direction": "out",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "out-r",
+      "jack": "jack-6.35",
+      "label": "Out R",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "unbalanced",
+        "level": "line"
+      }
+    },
+    {
+      "alternates": [
+        {
+          "id": "inst",
+          "label": "Instrument level"
+        }
+      ],
+      "channel": {
+        "role": "mono"
+      },
+      "direction": "in",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "in-ext",
+      "jack": "jack-6.35",
+      "label": "Audio In",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "unbalanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "index": 1,
+        "role": "numbered"
+      },
+      "direction": "out",
+      "domain": "cv",
+      "face": "back",
+      "id": "cv-out-1",
+      "jack": "jack-3.5",
+      "label": "CV out 1",
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "channel": {
+        "index": 2,
+        "role": "numbered"
+      },
+      "direction": "out",
+      "domain": "cv",
+      "face": "back",
+      "id": "cv-out-2",
+      "jack": "jack-3.5",
+      "label": "CV out 2",
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "channel": {
+        "index": 3,
+        "role": "numbered"
+      },
+      "direction": "out",
+      "domain": "cv",
+      "face": "back",
+      "id": "cv-out-3",
+      "jack": "jack-3.5",
+      "label": "CV out 3",
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "channel": {
+        "index": 4,
+        "role": "numbered"
+      },
+      "direction": "out",
+      "domain": "cv",
+      "face": "back",
+      "id": "cv-out-4",
+      "jack": "jack-3.5",
+      "label": "CV out 4",
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "channel": {
+        "index": 5,
+        "role": "numbered"
+      },
+      "direction": "out",
+      "domain": "cv",
+      "face": "back",
+      "id": "cv-out-5",
+      "jack": "jack-3.5",
+      "label": "CV out 5",
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "channel": {
+        "index": 6,
+        "role": "numbered"
+      },
+      "direction": "out",
+      "domain": "cv",
+      "face": "back",
+      "id": "cv-out-6",
+      "jack": "jack-3.5",
+      "label": "CV out 6",
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "channel": {
+        "index": 7,
+        "role": "numbered"
+      },
+      "direction": "out",
+      "domain": "cv",
+      "face": "back",
+      "id": "cv-out-7",
+      "jack": "jack-3.5",
+      "label": "CV out 7",
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "channel": {
+        "index": 8,
+        "role": "numbered"
+      },
+      "direction": "out",
+      "domain": "cv",
+      "face": "back",
+      "id": "cv-out-8",
+      "jack": "jack-3.5",
+      "label": "CV out 8",
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "channel": {
+        "index": 9,
+        "role": "numbered"
+      },
+      "direction": "out",
+      "domain": "cv",
+      "face": "back",
+      "id": "cv-out-9",
+      "jack": "jack-3.5",
+      "label": "CV out 9",
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "channel": {
+        "index": 10,
+        "role": "numbered"
+      },
+      "direction": "out",
+      "domain": "cv",
+      "face": "back",
+      "id": "cv-out-10",
+      "jack": "jack-3.5",
+      "label": "CV out 10",
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "channel": {
+        "index": 11,
+        "role": "numbered"
+      },
+      "direction": "out",
+      "domain": "cv",
+      "face": "back",
+      "id": "cv-out-11",
+      "jack": "jack-3.5",
+      "label": "CV out 11",
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "channel": {
+        "index": 12,
+        "role": "numbered"
+      },
+      "direction": "out",
+      "domain": "cv",
+      "face": "back",
+      "id": "cv-out-12",
+      "jack": "jack-3.5",
+      "label": "CV out 12",
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "direction": "out",
+      "domain": "gate",
+      "face": "back",
+      "id": "gate-out",
+      "jack": "jack-3.5",
+      "label": "Gate Out",
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "clock": {
+        "canMaster": true,
+        "format": "pulse",
+        "note": "Gate, Clock, 24 ppqn, 48 ppqn"
+      },
+      "direction": "out",
+      "domain": "clock.pulse",
+      "face": "back",
+      "id": "sync-out",
+      "jack": "jack-3.5",
+      "label": "Sync Out",
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "channel": {
+        "index": 1,
+        "role": "numbered"
+      },
+      "direction": "in",
+      "domain": "cv",
+      "face": "back",
+      "id": "cv-in-1",
+      "jack": "jack-3.5",
+      "label": "CV in 1",
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "channel": {
+        "index": 2,
+        "role": "numbered"
+      },
+      "direction": "in",
+      "domain": "cv",
+      "face": "back",
+      "id": "cv-in-2",
+      "jack": "jack-3.5",
+      "label": "CV in 2",
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "channel": {
+        "index": 3,
+        "role": "numbered"
+      },
+      "direction": "in",
+      "domain": "cv",
+      "face": "back",
+      "id": "cv-in-3",
+      "jack": "jack-3.5",
+      "label": "CV in 3",
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "channel": {
+        "index": 4,
+        "role": "numbered"
+      },
+      "direction": "in",
+      "domain": "cv",
+      "face": "back",
+      "id": "cv-in-4",
+      "jack": "jack-3.5",
+      "label": "CV in 4",
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "channel": {
+        "index": 5,
+        "role": "numbered"
+      },
+      "direction": "in",
+      "domain": "cv",
+      "face": "back",
+      "id": "cv-in-5",
+      "jack": "jack-3.5",
+      "label": "CV in 5",
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "channel": {
+        "index": 6,
+        "role": "numbered"
+      },
+      "direction": "in",
+      "domain": "cv",
+      "face": "back",
+      "id": "cv-in-6",
+      "jack": "jack-3.5",
+      "label": "CV in 6",
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "channel": {
+        "index": 7,
+        "role": "numbered"
+      },
+      "direction": "in",
+      "domain": "cv",
+      "face": "back",
+      "id": "cv-in-7",
+      "jack": "jack-3.5",
+      "label": "CV in 7",
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "channel": {
+        "index": 8,
+        "role": "numbered"
+      },
+      "direction": "in",
+      "domain": "cv",
+      "face": "back",
+      "id": "cv-in-8",
+      "jack": "jack-3.5",
+      "label": "CV in 8",
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "channel": {
+        "index": 9,
+        "role": "numbered"
+      },
+      "direction": "in",
+      "domain": "cv",
+      "face": "back",
+      "id": "cv-in-9",
+      "jack": "jack-3.5",
+      "label": "CV in 9",
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "channel": {
+        "index": 10,
+        "role": "numbered"
+      },
+      "direction": "in",
+      "domain": "cv",
+      "face": "back",
+      "id": "cv-in-10",
+      "jack": "jack-3.5",
+      "label": "CV in 10",
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "channel": {
+        "index": 11,
+        "role": "numbered"
+      },
+      "direction": "in",
+      "domain": "cv",
+      "face": "back",
+      "id": "cv-in-11",
+      "jack": "jack-3.5",
+      "label": "CV in 11",
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "channel": {
+        "index": 12,
+        "role": "numbered"
+      },
+      "direction": "in",
+      "domain": "cv",
+      "face": "back",
+      "id": "cv-in-12",
+      "jack": "jack-3.5",
+      "label": "CV in 12",
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "direction": "in",
+      "domain": "gate",
+      "face": "back",
+      "id": "gate-in",
+      "jack": "jack-3.5",
+      "label": "Gate In",
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "clock": {
+        "canSlave": true,
+        "format": "pulse",
+        "note": "Gate, Clock, 24 ppqn, 48 ppqn"
+      },
+      "direction": "in",
+      "domain": "clock.pulse",
+      "face": "back",
+      "id": "sync-in",
+      "jack": "jack-3.5",
+      "label": "Sync In",
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "channel": {
+        "index": 1,
+        "role": "numbered"
+      },
+      "direction": "in",
+      "domain": "expression",
+      "face": "back",
+      "id": "exp-1",
+      "jack": "jack-6.35-TRS",
+      "label": "Expression 1",
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "channel": {
+        "index": 2,
+        "role": "numbered"
+      },
+      "direction": "in",
+      "domain": "expression",
+      "face": "back",
+      "id": "exp-2",
+      "jack": "jack-6.35-TRS",
+      "label": "Expression 2",
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "direction": "in",
+      "domain": "footswitch",
+      "face": "back",
+      "id": "sustain",
+      "jack": "jack-6.35",
+      "label": "Sustain Pedal",
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "direction": "in",
+      "domain": "midi.din",
+      "face": "back",
+      "id": "midi-in",
+      "jack": "din5-f",
+      "label": "MIDI In",
+      "midi": {
+        "carries": [
+          "notes",
+          "cc",
+          "pc",
+          "sysex",
+          "clock",
+          "transport"
+        ]
+      },
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "direction": "out",
+      "domain": "midi.din",
+      "face": "back",
+      "id": "midi-out",
+      "jack": "din5-f",
+      "label": "MIDI Out",
+      "midi": {
+        "carries": [
+          "notes",
+          "cc",
+          "pc",
+          "sysex",
+          "clock",
+          "transport"
+        ]
+      },
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "direction": "thru",
+      "domain": "midi.din",
+      "face": "back",
+      "id": "midi-thru",
+      "jack": "din5-f",
+      "label": "MIDI Thru",
+      "midi": {
+        "carries": [
+          "notes",
+          "cc",
+          "pc",
+          "sysex",
+          "clock",
+          "transport"
+        ],
+        "thruMode": "hard"
+      },
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "direction": "bidir",
+      "domain": "usb.data",
+      "face": "back",
+      "id": "usb",
+      "jack": "usb-b-f",
+      "label": "USB",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "usb": {
+        "busPowered": false,
+        "carries": [
+          "midi"
+        ],
+        "role": "device",
+        "version": "unknown"
+      }
+    },
+    {
+      "direction": "in",
+      "domain": "power.ac",
+      "face": "back",
+      "id": "ac-in",
+      "jack": "iec-c14",
+      "label": "Mains (IEC)",
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    }
+  ],
+  "dimensions": {
+    "d": 432,
+    "h": 107,
+    "heightIncludesKnobsFeet": true,
+    "keyboard": {
+      "keyType": "full",
+      "keys": 49
+    },
+    "w": 860,
+    "weightKg": 23
+  },
+  "ergonomics": {
+    "defaultUsage": "primary",
+    "interaction": "keys",
+    "needsDisplayVisibility": false
+  },
+  "faces": {},
+  "formFactor": "keyboard",
+  "id": "gear-arturia-matrixbrute",
+  "images": {},
+  "internalPaths": [
+    {
+      "from": [
+        "in-ext"
+      ],
+      "id": "ext-in",
+      "mode": "process",
+      "to": [
+        "out-l",
+        "out-r"
+      ]
+    }
+  ],
+  "manufacturer": "Arturia",
+  "midi": {
+    "clockIn": true,
+    "clockOut": true
+  },
+  "mounting": {},
+  "name": "MatrixBrute",
+  "notes": "49-key. 12 CV in / 12 CV out.",
+  "power": {
+    "mainsRegion": "auto-100-240",
+    "maxW": 45,
+    "sources": [
+      {
+        "included": true,
+        "inputConnectorId": "ac-in",
+        "kind": "internal-mains",
+        "plug": {
+          "type": "iec-c14"
+        }
+      }
+    ]
+  },
+  "provenance": {
+    "connectors.*.face": {
+      "kind": "estimated",
+      "note": "Rear panel assumed unless the reference states the panel."
+    },
+    "connectors.*.pos": {
+      "kind": "unknown",
+      "note": "Placeholder (0,0); place on a panel image."
+    },
+    "connectors.0.jack": {
+      "kind": "unknown",
+      "note": "¼\" line; TS/TRS not stated."
+    },
+    "connectors.1.jack": {
+      "kind": "unknown",
+      "note": "¼\" line; TS/TRS not stated."
+    },
+    "dimensions.d": {
+      "kind": "datasheet",
+      "note": "Gear reference v2"
+    },
+    "dimensions.h": {
+      "kind": "datasheet",
+      "note": "Gear reference v2"
+    },
+    "dimensions.keyboard.keyType": {
+      "kind": "unknown",
+      "note": "Key action not in the reference."
+    },
+    "dimensions.w": {
+      "kind": "datasheet",
+      "note": "Gear reference v2"
+    },
+    "dimensions.weightKg": {
+      "kind": "retailer",
+      "note": "Thomann; may be packed weight (⚠)."
+    }
+  },
+  "sources": [
+    {
+      "label": "Home Studio Gear Reference v2 (docs/studio-gear-reference.md)",
+      "retrieved": "2026-10-04"
+    }
+  ],
+  "tags": [
+    "arturia",
+    "keys",
+    "cv"
+  ]
+}

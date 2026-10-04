@@ -12,6 +12,7 @@ jobs:
       - run: npm run typecheck
       - run: npm test
       - run: npm run schema:check
+      - run: npm run seed:check
       - run: npm run seed:validate
       - run: npx playwright install --with-deps chromium
       - run: npm run test:e2e

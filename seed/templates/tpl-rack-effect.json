@@ -1,0 +1,136 @@
+{
+  "gear": {
+    "category": "effect",
+    "connectors": [
+      {
+        "channel": {
+          "group": "in",
+          "role": "L"
+        },
+        "direction": "in",
+        "domain": "audio.analog",
+        "face": "back",
+        "id": "in-l",
+        "jack": "jack-6.35-TRS",
+        "label": "In L",
+        "pos": {
+          "x": 0,
+          "y": 0
+        },
+        "signal": {
+          "balance": "balanced",
+          "level": "+4dBu"
+        }
+      },
+      {
+        "channel": {
+          "group": "in",
+          "role": "R"
+        },
+        "direction": "in",
+        "domain": "audio.analog",
+        "face": "back",
+        "id": "in-r",
+        "jack": "jack-6.35-TRS",
+        "label": "In R",
+        "pos": {
+          "x": 0,
+          "y": 0
+        },
+        "signal": {
+          "balance": "balanced",
+          "level": "+4dBu"
+        }
+      },
+      {
+        "channel": {
+          "group": "out",
+          "role": "L"
+        },
+        "direction": "out",
+        "domain": "audio.analog",
+        "face": "back",
+        "id": "out-l",
+        "jack": "jack-6.35-TRS",
+        "label": "Out L",
+        "pos": {
+          "x": 0,
+          "y": 0
+        },
+        "signal": {
+          "balance": "balanced",
+          "level": "+4dBu"
+        }
+      },
+      {
+        "channel": {
+          "group": "out",
+          "role": "R"
+        },
+        "direction": "out",
+        "domain": "audio.analog",
+        "face": "back",
+        "id": "out-r",
+        "jack": "jack-6.35-TRS",
+        "label": "Out R",
+        "pos": {
+          "x": 0,
+          "y": 0
+        },
+        "signal": {
+          "balance": "balanced",
+          "level": "+4dBu"
+        }
+      },
+      {
+        "direction": "in",
+        "domain": "power.ac",
+        "face": "back",
+        "id": "ac-in",
+        "jack": "iec-c14",
+        "label": "Mains (IEC)",
+        "pos": {
+          "x": 0,
+          "y": 0
+        }
+      }
+    ],
+    "dimensions": {
+      "d": null,
+      "h": 44.45,
+      "heightIncludesKnobsFeet": false,
+      "rack": {
+        "earsIncluded": true,
+        "u": 1
+      },
+      "w": 482.6,
+      "weightKg": null
+    },
+    "ergonomics": {
+      "defaultUsage": "rare",
+      "interaction": "set-and-forget",
+      "needsDisplayVisibility": false
+    },
+    "formFactor": "rack",
+    "mounting": {
+      "rackEars": true
+    },
+    "power": {
+      "mainsRegion": "unknown",
+      "sources": [
+        {
+          "included": true,
+          "inputConnectorId": "ac-in",
+          "kind": "internal-mains",
+          "plug": {
+            "type": "iec-c14"
+          }
+        }
+      ]
+    }
+  },
+  "group": "Effects",
+  "id": "tpl-rack-effect",
+  "name": "Rack effect 1U",
+  "target": "gear"
+}

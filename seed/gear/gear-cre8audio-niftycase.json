@@ -1,0 +1,341 @@
+{
+  "aliases": [],
+  "category": "eurorack-case",
+  "clock": {
+    "canBeMaster": false,
+    "canBeSlave": true,
+    "formats": [
+      "midi"
+    ],
+    "notes": "Converts MIDI clock to 1/8-note triggers on Clock Out."
+  },
+  "connectors": [
+    {
+      "channel": {
+        "role": "mono"
+      },
+      "direction": "out",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "out-master",
+      "jack": "jack-6.35",
+      "label": "Master Out (mono)",
+      "notes": "Sums the two 3.5 mm audio inputs.",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "unbalanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "index": 1,
+        "role": "numbered"
+      },
+      "direction": "in",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "in-1",
+      "jack": "jack-3.5",
+      "label": "Audio In 1",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "unbalanced",
+        "level": "eurorack-audio"
+      }
+    },
+    {
+      "channel": {
+        "index": 2,
+        "role": "numbered"
+      },
+      "direction": "in",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "in-2",
+      "jack": "jack-3.5",
+      "label": "Audio In 2",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "unbalanced",
+        "level": "eurorack-audio"
+      }
+    },
+    {
+      "cv": {
+        "standard": "1V/oct"
+      },
+      "direction": "out",
+      "domain": "cv",
+      "face": "back",
+      "id": "cv-1",
+      "jack": "jack-3.5",
+      "label": "CV 1 Out",
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "direction": "out",
+      "domain": "gate",
+      "face": "back",
+      "id": "gate-1",
+      "jack": "jack-3.5",
+      "label": "Gate 1 Out",
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "cv": {
+        "standard": "1V/oct"
+      },
+      "direction": "out",
+      "domain": "cv",
+      "face": "back",
+      "id": "cv-2",
+      "jack": "jack-3.5",
+      "label": "CV 2 Out",
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "direction": "out",
+      "domain": "gate",
+      "face": "back",
+      "id": "gate-2",
+      "jack": "jack-3.5",
+      "label": "Gate 2 Out",
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "direction": "out",
+      "domain": "cv",
+      "face": "back",
+      "id": "mod-out",
+      "jack": "jack-3.5",
+      "label": "Mod Out",
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "clock": {
+        "canMaster": false,
+        "format": "pulse",
+        "note": "MIDI clock converted to 1/8-note triggers."
+      },
+      "direction": "out",
+      "domain": "clock.pulse",
+      "face": "back",
+      "id": "clock-out",
+      "jack": "jack-3.5",
+      "label": "Clock Out",
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "direction": "in",
+      "domain": "midi.din",
+      "face": "back",
+      "id": "midi-in",
+      "jack": "din5-f",
+      "label": "MIDI In",
+      "midi": {
+        "carries": [
+          "notes",
+          "cc",
+          "pc",
+          "sysex",
+          "clock",
+          "transport"
+        ]
+      },
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "direction": "thru",
+      "domain": "midi.din",
+      "face": "back",
+      "id": "midi-thru",
+      "jack": "din5-f",
+      "label": "MIDI Thru",
+      "midi": {
+        "carries": [
+          "notes",
+          "cc",
+          "pc",
+          "sysex",
+          "clock",
+          "transport"
+        ],
+        "thruMode": "hard"
+      },
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "direction": "bidir",
+      "domain": "usb.data",
+      "face": "back",
+      "id": "usb",
+      "jack": "usb-b-f",
+      "label": "USB",
+      "notes": "MIDI input only.",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "usb": {
+        "busPowered": false,
+        "carries": [
+          "midi"
+        ],
+        "role": "device",
+        "version": "unknown"
+      }
+    },
+    {
+      "direction": "in",
+      "domain": "power.dc",
+      "face": "back",
+      "id": "dc-in",
+      "jack": "unknown",
+      "label": "DC In",
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    }
+  ],
+  "dimensions": {
+    "d": null,
+    "eurorack": {
+      "depthMm": 55,
+      "hp": 84
+    },
+    "h": null,
+    "heightIncludesKnobsFeet": true,
+    "w": null,
+    "weightKg": null
+  },
+  "ergonomics": {
+    "defaultUsage": "secondary",
+    "interaction": "set-and-forget",
+    "needsDisplayVisibility": false
+  },
+  "faces": {},
+  "formFactor": "eurorack",
+  "id": "gear-cre8audio-niftycase",
+  "images": {},
+  "internalPaths": [
+    {
+      "from": [
+        "in-1",
+        "in-2"
+      ],
+      "id": "audio-sum",
+      "mode": "sum",
+      "to": [
+        "out-master"
+      ]
+    }
+  ],
+  "manufacturer": "cre8audio",
+  "midi": {
+    "clockIn": true,
+    "clockOut": false
+  },
+  "mounting": {},
+  "name": "NiftyCASE",
+  "notes": "84 HP usable rail width, 55 mm module depth. Exterior dimensions not located.",
+  "power": {
+    "busRails": {
+      "minus12Ma": 500,
+      "plus12Ma": 1500,
+      "plus5Ma": 500
+    },
+    "mainsRegion": "unknown",
+    "sources": [
+      {
+        "drawMa": null,
+        "included": true,
+        "inputConnectorId": "dc-in",
+        "kind": "external-dc",
+        "suppliedModelId": "gear-cre8audio-niftycase-psu"
+      }
+    ]
+  },
+  "provenance": {
+    "connectors.*.face": {
+      "kind": "estimated",
+      "note": "Rear panel assumed unless the reference states the panel."
+    },
+    "connectors.*.pos": {
+      "kind": "unknown",
+      "note": "Placeholder (0,0); place on a panel image."
+    },
+    "connectors.12.jack": {
+      "kind": "unknown",
+      "note": "Jack type not located in the gear reference."
+    },
+    "dimensions.d": {
+      "kind": "unknown",
+      "note": "Not located in the gear reference."
+    },
+    "dimensions.h": {
+      "kind": "unknown",
+      "note": "Not located in the gear reference."
+    },
+    "dimensions.w": {
+      "kind": "unknown",
+      "note": "Not located in the gear reference."
+    },
+    "dimensions.weightKg": {
+      "kind": "unknown",
+      "note": "Not located in the gear reference."
+    },
+    "power.busRails": {
+      "kind": "datasheet",
+      "note": "+12 V 1.5 A, −12 V 0.5 A, +5 V 0.5 A."
+    },
+    "power.sources.0.drawMa": {
+      "kind": "unknown",
+      "note": "Not located in the gear reference."
+    }
+  },
+  "sources": [
+    {
+      "label": "Home Studio Gear Reference v2 (docs/studio-gear-reference.md)",
+      "retrieved": "2026-10-04"
+    }
+  ],
+  "tags": [
+    "eurorack",
+    "midi-to-cv"
+  ]
+}

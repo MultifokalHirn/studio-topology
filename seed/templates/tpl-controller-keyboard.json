@@ -1,0 +1,103 @@
+{
+  "gear": {
+    "category": "controller",
+    "connectors": [
+      {
+        "direction": "out",
+        "domain": "midi.din",
+        "face": "back",
+        "id": "midi-out",
+        "jack": "din5-f",
+        "label": "MIDI Out",
+        "midi": {
+          "carries": [
+            "notes",
+            "cc",
+            "pc",
+            "sysex",
+            "clock",
+            "transport"
+          ]
+        },
+        "pos": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "direction": "in",
+        "domain": "footswitch",
+        "face": "back",
+        "id": "sustain",
+        "jack": "jack-6.35",
+        "label": "Sustain",
+        "pos": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "direction": "bidir",
+        "domain": "usb.data",
+        "face": "back",
+        "id": "usb",
+        "jack": "usb-b-f",
+        "label": "USB",
+        "pos": {
+          "x": 0,
+          "y": 0
+        },
+        "usb": {
+          "busPowered": false,
+          "carries": [
+            "midi"
+          ],
+          "role": "device",
+          "version": "2.0"
+        }
+      }
+    ],
+    "dimensions": {
+      "d": null,
+      "h": null,
+      "heightIncludesKnobsFeet": true,
+      "keyboard": {
+        "keyType": "full",
+        "keys": 49
+      },
+      "w": null,
+      "weightKg": null
+    },
+    "ergonomics": {
+      "defaultUsage": "primary",
+      "interaction": "keys",
+      "needsDisplayVisibility": false
+    },
+    "formFactor": "keyboard",
+    "power": {
+      "sources": [
+        {
+          "drawMa": null,
+          "included": true,
+          "inputConnectorId": "usb",
+          "kind": "usb-bus",
+          "nominalV": 5,
+          "plug": {
+            "type": "usb"
+          }
+        }
+      ]
+    }
+  },
+  "group": "Desktop gear",
+  "id": "tpl-controller-keyboard",
+  "name": "Controller keyboard (N keys)",
+  "params": [
+    {
+      "default": 49,
+      "key": "keys",
+      "label": "Keys"
+    }
+  ],
+  "target": "gear"
+}

@@ -1,0 +1,25 @@
+{
+  "balanced": false,
+  "carries": [
+    "audio.analog",
+    "cv",
+    "gate",
+    "clock.pulse",
+    "footswitch"
+  ],
+  "endA": "TS-6.35",
+  "endB": "TS-6.35",
+  "id": "cable-ts-6.35",
+  "kind": "cable",
+  "lengthsMm": [
+    300,
+    500,
+    1000,
+    1500,
+    2000,
+    3000,
+    5000,
+    6000
+  ],
+  "name": "¼\" TS – ¼\" TS"
+}

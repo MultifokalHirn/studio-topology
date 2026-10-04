@@ -4,6 +4,7 @@ import { loadProject, type LoadResult, serializeProject } from '@/domain/seriali
 import type { Project } from '@/domain/types';
 import { projectStore } from '@/store';
 import { type FsFileHandle, openProjectFile, saveProjectFile } from '@/store/fileIO';
+import { loadSampleProject } from '../library/catalog';
 
 let currentHandle: FsFileHandle | null = null;
 
@@ -48,4 +49,13 @@ export async function saveProject(saveAs = false): Promise<void> {
   const handle = await saveProjectFile(serializeProject(project), name, saveAs ? null : currentHandle);
   currentHandle = handle;
   s.markSaved(handle?.name ?? name);
+}
+
+/** Load the bundled sample studio (seed/studio.sample.json). Returns a PendingLoad only if it fails validation. */
+export async function loadSample(): Promise<PendingLoad | null> {
+  const result = await loadSampleProject();
+  if (!result.ok) return { fileName: 'studio.sample.json', result };
+  currentHandle = null;
+  projectStore.getState().load(result.project);
+  return null;
 }

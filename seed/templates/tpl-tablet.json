@@ -1,0 +1,56 @@
+{
+  "gear": {
+    "category": "tablet",
+    "connectors": [
+      {
+        "direction": "bidir",
+        "domain": "usb.data",
+        "face": "back",
+        "id": "usb-c",
+        "jack": "usb-c-f",
+        "label": "USB-C",
+        "pos": {
+          "x": 0,
+          "y": 0
+        },
+        "usb": {
+          "carries": [
+            "midi",
+            "audio",
+            "data",
+            "power"
+          ],
+          "role": "host",
+          "suppliesBusPowerMa": null,
+          "version": "unknown"
+        }
+      }
+    ],
+    "dimensions": {
+      "d": null,
+      "h": null,
+      "heightIncludesKnobsFeet": true,
+      "w": null,
+      "weightKg": null
+    },
+    "ergonomics": {
+      "defaultUsage": "primary",
+      "interaction": "touch",
+      "needsDisplayVisibility": true
+    },
+    "formFactor": "tablet",
+    "power": {
+      "sources": [
+        {
+          "drawMa": null,
+          "included": true,
+          "kind": "battery"
+        }
+      ]
+    }
+  },
+  "group": "Computers",
+  "id": "tpl-tablet",
+  "name": "Tablet (USB-C)",
+  "target": "gear"
+}

@@ -1,0 +1,468 @@
+{
+  "aliases": [],
+  "category": "sampler",
+  "clock": {
+    "canBeMaster": true,
+    "canBeSlave": true,
+    "formats": [
+      "midi"
+    ],
+    "notes": "No DIN sync listed."
+  },
+  "connectors": [
+    {
+      "channel": {
+        "group": "out-main",
+        "role": "L"
+      },
+      "direction": "out",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "out-main-l",
+      "jack": "jack-6.35-TRS",
+      "label": "Main L",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "imp-balanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "group": "out-main",
+        "role": "R"
+      },
+      "direction": "out",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "out-main-r",
+      "jack": "jack-6.35-TRS",
+      "label": "Main R",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "imp-balanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "group": "out-cue",
+        "role": "L"
+      },
+      "direction": "out",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "out-cue-l",
+      "jack": "jack-6.35-TRS",
+      "label": "Cue L",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "imp-balanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "group": "out-cue",
+        "role": "R"
+      },
+      "direction": "out",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "out-cue-r",
+      "jack": "jack-6.35-TRS",
+      "label": "Cue R",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "imp-balanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "role": "stereo"
+      },
+      "direction": "out",
+      "domain": "audio.headphone",
+      "face": "back",
+      "id": "phones",
+      "jack": "unknown",
+      "label": "Headphones",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "n/a",
+        "level": "headphone"
+      }
+    },
+    {
+      "channel": {
+        "group": "in-ab",
+        "role": "L"
+      },
+      "direction": "in",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "in-ab-l",
+      "jack": "jack-6.35-TRS",
+      "label": "In A",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "group": "in-ab",
+        "role": "R"
+      },
+      "direction": "in",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "in-ab-r",
+      "jack": "jack-6.35-TRS",
+      "label": "In B",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "group": "in-cd",
+        "role": "L"
+      },
+      "direction": "in",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "in-cd-l",
+      "jack": "jack-6.35-TRS",
+      "label": "In C",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "group": "in-cd",
+        "role": "R"
+      },
+      "direction": "in",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "in-cd-r",
+      "jack": "jack-6.35-TRS",
+      "label": "In D",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "line"
+      }
+    },
+    {
+      "direction": "in",
+      "domain": "midi.din",
+      "face": "back",
+      "id": "midi-in",
+      "jack": "din5-f",
+      "label": "MIDI In",
+      "midi": {
+        "carries": [
+          "notes",
+          "cc",
+          "pc",
+          "sysex",
+          "clock",
+          "transport"
+        ]
+      },
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "direction": "out",
+      "domain": "midi.din",
+      "face": "back",
+      "id": "midi-out",
+      "jack": "din5-f",
+      "label": "MIDI Out",
+      "midi": {
+        "carries": [
+          "notes",
+          "cc",
+          "pc",
+          "sysex",
+          "clock",
+          "transport"
+        ]
+      },
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "direction": "thru",
+      "domain": "midi.din",
+      "face": "back",
+      "id": "midi-thru",
+      "jack": "din5-f",
+      "label": "MIDI Thru",
+      "midi": {
+        "carries": [
+          "notes",
+          "cc",
+          "pc",
+          "sysex",
+          "clock",
+          "transport"
+        ],
+        "thruMode": "hard"
+      },
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "direction": "bidir",
+      "domain": "usb.data",
+      "face": "back",
+      "id": "usb",
+      "jack": "unknown",
+      "label": "USB",
+      "notes": "MIDI and CF-card file transfer.",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "usb": {
+        "busPowered": false,
+        "carries": [
+          "midi",
+          "data",
+          "firmware"
+        ],
+        "role": "device",
+        "version": "2.0"
+      }
+    },
+    {
+      "direction": "in",
+      "domain": "power.dc",
+      "face": "back",
+      "id": "dc-in",
+      "jack": "dc-barrel-5.5x2.5",
+      "label": "DC In",
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    }
+  ],
+  "dimensions": {
+    "d": 185,
+    "h": 63,
+    "heightIncludesKnobsFeet": true,
+    "w": 340,
+    "weightKg": 2.3
+  },
+  "ergonomics": {
+    "defaultUsage": "primary",
+    "interaction": "knobs-buttons",
+    "needsDisplayVisibility": true
+  },
+  "faces": {},
+  "formFactor": "desktop",
+  "id": "gear-elektron-octatrack-mkii",
+  "images": {},
+  "internalPaths": [
+    {
+      "channelMap": [
+        {
+          "from": "in-ab-l",
+          "to": "out-main-l"
+        },
+        {
+          "from": "in-ab-r",
+          "to": "out-main-r"
+        }
+      ],
+      "from": [
+        "in-ab-l",
+        "in-ab-r"
+      ],
+      "id": "in-ab-main",
+      "mode": "process",
+      "to": [
+        "out-main-l",
+        "out-main-r"
+      ]
+    },
+    {
+      "channelMap": [
+        {
+          "from": "in-cd-l",
+          "to": "out-main-l"
+        },
+        {
+          "from": "in-cd-r",
+          "to": "out-main-r"
+        }
+      ],
+      "from": [
+        "in-cd-l",
+        "in-cd-r"
+      ],
+      "id": "in-cd-main",
+      "mode": "process",
+      "to": [
+        "out-main-l",
+        "out-main-r"
+      ]
+    }
+  ],
+  "manufacturer": "Elektron",
+  "midi": {
+    "channelsRx": "per-track",
+    "clockIn": true,
+    "clockOut": true,
+    "tracks": [
+      {
+        "id": "t1",
+        "label": "MIDI track 1"
+      },
+      {
+        "id": "t2",
+        "label": "MIDI track 2"
+      },
+      {
+        "id": "t3",
+        "label": "MIDI track 3"
+      },
+      {
+        "id": "t4",
+        "label": "MIDI track 4"
+      },
+      {
+        "id": "t5",
+        "label": "MIDI track 5"
+      },
+      {
+        "id": "t6",
+        "label": "MIDI track 6"
+      },
+      {
+        "id": "t7",
+        "label": "MIDI track 7"
+      },
+      {
+        "id": "t8",
+        "label": "MIDI track 8"
+      }
+    ]
+  },
+  "mounting": {},
+  "name": "Octatrack",
+  "notes": "CF-card storage. Depth 184–185 mm across sources.",
+  "power": {
+    "mainsRegion": "unknown",
+    "sources": [
+      {
+        "drawMa": 583,
+        "included": true,
+        "inputConnectorId": "dc-in",
+        "kind": "external-dc",
+        "nominalV": 12,
+        "plug": {
+          "idMm": 2.5,
+          "odMm": 5.5,
+          "polarity": "center-positive",
+          "type": "barrel"
+        },
+        "suppliedModelId": "gear-elektron-psu-3c"
+      }
+    ],
+    "typicalW": 7
+  },
+  "provenance": {
+    "connectors.*.face": {
+      "kind": "estimated",
+      "note": "Rear panel assumed unless the reference states the panel."
+    },
+    "connectors.*.pos": {
+      "kind": "unknown",
+      "note": "Placeholder (0,0); place on a panel image."
+    },
+    "connectors.12.jack": {
+      "kind": "unknown",
+      "note": "USB receptacle type not stated in the reference."
+    },
+    "connectors.4.jack": {
+      "kind": "unknown",
+      "note": "Headphone jack size not stated."
+    },
+    "dimensions.d": {
+      "kind": "datasheet",
+      "note": "Sources give 184–185 mm; larger value used."
+    },
+    "dimensions.h": {
+      "kind": "datasheet",
+      "note": "Gear reference v2"
+    },
+    "dimensions.w": {
+      "kind": "datasheet",
+      "note": "Gear reference v2"
+    },
+    "dimensions.weightKg": {
+      "kind": "datasheet",
+      "note": "Gear reference v2"
+    },
+    "power.sources.0.drawMa": {
+      "kind": "estimated",
+      "note": "Derived: 7 W typical / 12 V."
+    }
+  },
+  "sources": [
+    {
+      "label": "Home Studio Gear Reference v2 (docs/studio-gear-reference.md)",
+      "retrieved": "2026-10-04"
+    }
+  ],
+  "tags": [
+    "elektron"
+  ],
+  "variant": "MKII"
+}

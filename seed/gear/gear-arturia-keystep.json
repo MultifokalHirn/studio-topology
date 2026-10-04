@@ -1,0 +1,313 @@
+{
+  "aliases": [],
+  "category": "controller",
+  "clock": {
+    "canBeMaster": true,
+    "canBeSlave": true,
+    "formats": [
+      "midi",
+      "pulse-step",
+      "pulse-2ppqn",
+      "pulse-24ppqn",
+      "pulse-48ppqn",
+      "po-sync"
+    ],
+    "notes": "Clock sources: internal, USB, MIDI or sync in. Works as a clock converter."
+  },
+  "connectors": [
+    {
+      "cv": {
+        "standard": "1V/oct"
+      },
+      "direction": "out",
+      "domain": "cv",
+      "face": "back",
+      "id": "cv-pitch",
+      "jack": "jack-3.5",
+      "label": "Pitch CV",
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "direction": "out",
+      "domain": "gate",
+      "face": "back",
+      "id": "gate",
+      "jack": "jack-3.5",
+      "label": "Gate",
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "cv": {
+        "standard": "mod/velocity/aftertouch (assignable)"
+      },
+      "direction": "out",
+      "domain": "cv",
+      "face": "back",
+      "id": "cv-mod",
+      "jack": "jack-3.5",
+      "label": "Mod CV",
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "clock": {
+        "canMaster": true,
+        "format": "pulse",
+        "note": "1 pulse/step, 2 PPQ (Volca), 24 PPQ DIN, 48 PPQ DIN"
+      },
+      "direction": "out",
+      "domain": "clock.pulse",
+      "face": "back",
+      "id": "sync-out",
+      "jack": "jack-3.5",
+      "label": "Sync Out",
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "clock": {
+        "canSlave": true,
+        "format": "pulse",
+        "note": "1 pulse/step, 2 PPQ (Volca), 24 PPQ DIN, 48 PPQ DIN"
+      },
+      "direction": "in",
+      "domain": "clock.pulse",
+      "face": "back",
+      "id": "sync-in",
+      "jack": "jack-3.5",
+      "label": "Sync In",
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "direction": "in",
+      "domain": "footswitch",
+      "face": "back",
+      "id": "sustain",
+      "jack": "jack-6.35",
+      "label": "Sustain Pedal",
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "direction": "in",
+      "domain": "midi.din",
+      "face": "back",
+      "id": "midi-in",
+      "jack": "din5-f",
+      "label": "MIDI In",
+      "midi": {
+        "carries": [
+          "notes",
+          "cc",
+          "pc",
+          "sysex",
+          "clock",
+          "transport"
+        ]
+      },
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "direction": "out",
+      "domain": "midi.din",
+      "face": "back",
+      "id": "midi-out",
+      "jack": "din5-f",
+      "label": "MIDI Out",
+      "midi": {
+        "carries": [
+          "notes",
+          "cc",
+          "pc",
+          "sysex",
+          "clock",
+          "transport"
+        ]
+      },
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "direction": "bidir",
+      "domain": "usb.data",
+      "face": "back",
+      "id": "usb",
+      "jack": "usb-micro-b-f",
+      "label": "USB",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "usb": {
+        "busPowered": true,
+        "carries": [
+          "midi",
+          "power"
+        ],
+        "drawsBusPowerMa": null,
+        "role": "device",
+        "version": "unknown"
+      }
+    },
+    {
+      "direction": "in",
+      "domain": "power.dc",
+      "face": "back",
+      "id": "dc-in",
+      "jack": "unknown",
+      "label": "DC In (optional 9 V)",
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    }
+  ],
+  "dimensions": {
+    "d": null,
+    "h": null,
+    "heightIncludesKnobsFeet": true,
+    "keyboard": {
+      "keyType": "slim",
+      "keys": 32
+    },
+    "w": null,
+    "weightKg": null
+  },
+  "ergonomics": {
+    "defaultUsage": "primary",
+    "interaction": "keys",
+    "needsDisplayVisibility": false
+  },
+  "faces": {},
+  "formFactor": "keyboard",
+  "id": "gear-arturia-keystep",
+  "images": {},
+  "internalPaths": [],
+  "manufacturer": "Arturia",
+  "midi": {
+    "clockIn": true,
+    "clockOut": true
+  },
+  "mounting": {},
+  "name": "KeyStep",
+  "notes": "32 slim keys. Dimensions not located.",
+  "power": {
+    "mainsRegion": "unknown",
+    "sources": [
+      {
+        "drawMa": null,
+        "included": true,
+        "inputConnectorId": "usb",
+        "kind": "usb-bus",
+        "nominalV": 5,
+        "plug": {
+          "type": "usb"
+        }
+      },
+      {
+        "drawMa": null,
+        "included": false,
+        "inputConnectorId": "dc-in",
+        "kind": "optional-dc",
+        "nominalV": 9,
+        "plug": {
+          "idMm": null,
+          "odMm": null,
+          "polarity": null,
+          "type": "barrel"
+        }
+      }
+    ]
+  },
+  "provenance": {
+    "clock.formats": {
+      "kind": "estimated",
+      "note": "po-sync assumed compatible with the 2 PPQ (Volca) mode; reference: \"the KeyStep can convert clock formats\"."
+    },
+    "connectors.*.face": {
+      "kind": "estimated",
+      "note": "Rear panel assumed unless the reference states the panel."
+    },
+    "connectors.*.pos": {
+      "kind": "unknown",
+      "note": "Placeholder (0,0); place on a panel image."
+    },
+    "connectors.8.usb.drawsBusPowerMa": {
+      "kind": "unknown",
+      "note": "Not located in the gear reference."
+    },
+    "connectors.9.jack": {
+      "kind": "unknown",
+      "note": "Jack type not located in the gear reference."
+    },
+    "dimensions.d": {
+      "kind": "unknown",
+      "note": "Not located in the gear reference."
+    },
+    "dimensions.h": {
+      "kind": "unknown",
+      "note": "Not located in the gear reference."
+    },
+    "dimensions.w": {
+      "kind": "unknown",
+      "note": "Not located in the gear reference."
+    },
+    "dimensions.weightKg": {
+      "kind": "unknown",
+      "note": "Not located in the gear reference."
+    },
+    "power.sources.0.drawMa": {
+      "kind": "unknown",
+      "note": "Not located in the gear reference."
+    },
+    "power.sources.1.drawMa": {
+      "kind": "unknown",
+      "note": "Not located in the gear reference."
+    },
+    "power.sources.1.plug.idMm": {
+      "kind": "unknown",
+      "note": "Not located in the gear reference."
+    },
+    "power.sources.1.plug.odMm": {
+      "kind": "unknown",
+      "note": "Not located in the gear reference."
+    },
+    "power.sources.1.plug.polarity": {
+      "kind": "unknown",
+      "note": "Not located in the gear reference."
+    }
+  },
+  "sources": [
+    {
+      "label": "Home Studio Gear Reference v2 (docs/studio-gear-reference.md)",
+      "retrieved": "2026-10-04"
+    }
+  ],
+  "tags": [
+    "arturia",
+    "sequencer",
+    "cv",
+    "clock-converter"
+  ],
+  "variant": "original 32-key"
+}

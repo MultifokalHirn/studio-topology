@@ -1,0 +1,3201 @@
+{
+  "aliases": [
+    "PX3000"
+  ],
+  "category": "patchbay",
+  "connectors": [
+    {
+      "channel": {
+        "group": "ch1",
+        "index": 1,
+        "role": "numbered"
+      },
+      "direction": "bidir",
+      "domain": "audio.analog",
+      "face": "front",
+      "id": "front-top-1",
+      "jack": "jack-6.35-TRS",
+      "label": "Front top 1",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "group": "ch2",
+        "index": 2,
+        "role": "numbered"
+      },
+      "direction": "bidir",
+      "domain": "audio.analog",
+      "face": "front",
+      "id": "front-top-2",
+      "jack": "jack-6.35-TRS",
+      "label": "Front top 2",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "group": "ch3",
+        "index": 3,
+        "role": "numbered"
+      },
+      "direction": "bidir",
+      "domain": "audio.analog",
+      "face": "front",
+      "id": "front-top-3",
+      "jack": "jack-6.35-TRS",
+      "label": "Front top 3",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "group": "ch4",
+        "index": 4,
+        "role": "numbered"
+      },
+      "direction": "bidir",
+      "domain": "audio.analog",
+      "face": "front",
+      "id": "front-top-4",
+      "jack": "jack-6.35-TRS",
+      "label": "Front top 4",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "group": "ch5",
+        "index": 5,
+        "role": "numbered"
+      },
+      "direction": "bidir",
+      "domain": "audio.analog",
+      "face": "front",
+      "id": "front-top-5",
+      "jack": "jack-6.35-TRS",
+      "label": "Front top 5",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "group": "ch6",
+        "index": 6,
+        "role": "numbered"
+      },
+      "direction": "bidir",
+      "domain": "audio.analog",
+      "face": "front",
+      "id": "front-top-6",
+      "jack": "jack-6.35-TRS",
+      "label": "Front top 6",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "group": "ch7",
+        "index": 7,
+        "role": "numbered"
+      },
+      "direction": "bidir",
+      "domain": "audio.analog",
+      "face": "front",
+      "id": "front-top-7",
+      "jack": "jack-6.35-TRS",
+      "label": "Front top 7",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "group": "ch8",
+        "index": 8,
+        "role": "numbered"
+      },
+      "direction": "bidir",
+      "domain": "audio.analog",
+      "face": "front",
+      "id": "front-top-8",
+      "jack": "jack-6.35-TRS",
+      "label": "Front top 8",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "group": "ch9",
+        "index": 9,
+        "role": "numbered"
+      },
+      "direction": "bidir",
+      "domain": "audio.analog",
+      "face": "front",
+      "id": "front-top-9",
+      "jack": "jack-6.35-TRS",
+      "label": "Front top 9",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "group": "ch10",
+        "index": 10,
+        "role": "numbered"
+      },
+      "direction": "bidir",
+      "domain": "audio.analog",
+      "face": "front",
+      "id": "front-top-10",
+      "jack": "jack-6.35-TRS",
+      "label": "Front top 10",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "group": "ch11",
+        "index": 11,
+        "role": "numbered"
+      },
+      "direction": "bidir",
+      "domain": "audio.analog",
+      "face": "front",
+      "id": "front-top-11",
+      "jack": "jack-6.35-TRS",
+      "label": "Front top 11",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "group": "ch12",
+        "index": 12,
+        "role": "numbered"
+      },
+      "direction": "bidir",
+      "domain": "audio.analog",
+      "face": "front",
+      "id": "front-top-12",
+      "jack": "jack-6.35-TRS",
+      "label": "Front top 12",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "group": "ch13",
+        "index": 13,
+        "role": "numbered"
+      },
+      "direction": "bidir",
+      "domain": "audio.analog",
+      "face": "front",
+      "id": "front-top-13",
+      "jack": "jack-6.35-TRS",
+      "label": "Front top 13",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "group": "ch14",
+        "index": 14,
+        "role": "numbered"
+      },
+      "direction": "bidir",
+      "domain": "audio.analog",
+      "face": "front",
+      "id": "front-top-14",
+      "jack": "jack-6.35-TRS",
+      "label": "Front top 14",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "group": "ch15",
+        "index": 15,
+        "role": "numbered"
+      },
+      "direction": "bidir",
+      "domain": "audio.analog",
+      "face": "front",
+      "id": "front-top-15",
+      "jack": "jack-6.35-TRS",
+      "label": "Front top 15",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "group": "ch16",
+        "index": 16,
+        "role": "numbered"
+      },
+      "direction": "bidir",
+      "domain": "audio.analog",
+      "face": "front",
+      "id": "front-top-16",
+      "jack": "jack-6.35-TRS",
+      "label": "Front top 16",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "group": "ch17",
+        "index": 17,
+        "role": "numbered"
+      },
+      "direction": "bidir",
+      "domain": "audio.analog",
+      "face": "front",
+      "id": "front-top-17",
+      "jack": "jack-6.35-TRS",
+      "label": "Front top 17",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "group": "ch18",
+        "index": 18,
+        "role": "numbered"
+      },
+      "direction": "bidir",
+      "domain": "audio.analog",
+      "face": "front",
+      "id": "front-top-18",
+      "jack": "jack-6.35-TRS",
+      "label": "Front top 18",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "group": "ch19",
+        "index": 19,
+        "role": "numbered"
+      },
+      "direction": "bidir",
+      "domain": "audio.analog",
+      "face": "front",
+      "id": "front-top-19",
+      "jack": "jack-6.35-TRS",
+      "label": "Front top 19",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "group": "ch20",
+        "index": 20,
+        "role": "numbered"
+      },
+      "direction": "bidir",
+      "domain": "audio.analog",
+      "face": "front",
+      "id": "front-top-20",
+      "jack": "jack-6.35-TRS",
+      "label": "Front top 20",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "group": "ch21",
+        "index": 21,
+        "role": "numbered"
+      },
+      "direction": "bidir",
+      "domain": "audio.analog",
+      "face": "front",
+      "id": "front-top-21",
+      "jack": "jack-6.35-TRS",
+      "label": "Front top 21",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "group": "ch22",
+        "index": 22,
+        "role": "numbered"
+      },
+      "direction": "bidir",
+      "domain": "audio.analog",
+      "face": "front",
+      "id": "front-top-22",
+      "jack": "jack-6.35-TRS",
+      "label": "Front top 22",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "group": "ch23",
+        "index": 23,
+        "role": "numbered"
+      },
+      "direction": "bidir",
+      "domain": "audio.analog",
+      "face": "front",
+      "id": "front-top-23",
+      "jack": "jack-6.35-TRS",
+      "label": "Front top 23",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "group": "ch24",
+        "index": 24,
+        "role": "numbered"
+      },
+      "direction": "bidir",
+      "domain": "audio.analog",
+      "face": "front",
+      "id": "front-top-24",
+      "jack": "jack-6.35-TRS",
+      "label": "Front top 24",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "group": "ch1",
+        "index": 1,
+        "role": "numbered"
+      },
+      "direction": "bidir",
+      "domain": "audio.analog",
+      "face": "front",
+      "id": "front-bottom-1",
+      "jack": "jack-6.35-TRS",
+      "label": "Front bottom 1",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "group": "ch2",
+        "index": 2,
+        "role": "numbered"
+      },
+      "direction": "bidir",
+      "domain": "audio.analog",
+      "face": "front",
+      "id": "front-bottom-2",
+      "jack": "jack-6.35-TRS",
+      "label": "Front bottom 2",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "group": "ch3",
+        "index": 3,
+        "role": "numbered"
+      },
+      "direction": "bidir",
+      "domain": "audio.analog",
+      "face": "front",
+      "id": "front-bottom-3",
+      "jack": "jack-6.35-TRS",
+      "label": "Front bottom 3",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "group": "ch4",
+        "index": 4,
+        "role": "numbered"
+      },
+      "direction": "bidir",
+      "domain": "audio.analog",
+      "face": "front",
+      "id": "front-bottom-4",
+      "jack": "jack-6.35-TRS",
+      "label": "Front bottom 4",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "group": "ch5",
+        "index": 5,
+        "role": "numbered"
+      },
+      "direction": "bidir",
+      "domain": "audio.analog",
+      "face": "front",
+      "id": "front-bottom-5",
+      "jack": "jack-6.35-TRS",
+      "label": "Front bottom 5",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "group": "ch6",
+        "index": 6,
+        "role": "numbered"
+      },
+      "direction": "bidir",
+      "domain": "audio.analog",
+      "face": "front",
+      "id": "front-bottom-6",
+      "jack": "jack-6.35-TRS",
+      "label": "Front bottom 6",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "group": "ch7",
+        "index": 7,
+        "role": "numbered"
+      },
+      "direction": "bidir",
+      "domain": "audio.analog",
+      "face": "front",
+      "id": "front-bottom-7",
+      "jack": "jack-6.35-TRS",
+      "label": "Front bottom 7",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "group": "ch8",
+        "index": 8,
+        "role": "numbered"
+      },
+      "direction": "bidir",
+      "domain": "audio.analog",
+      "face": "front",
+      "id": "front-bottom-8",
+      "jack": "jack-6.35-TRS",
+      "label": "Front bottom 8",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "group": "ch9",
+        "index": 9,
+        "role": "numbered"
+      },
+      "direction": "bidir",
+      "domain": "audio.analog",
+      "face": "front",
+      "id": "front-bottom-9",
+      "jack": "jack-6.35-TRS",
+      "label": "Front bottom 9",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "group": "ch10",
+        "index": 10,
+        "role": "numbered"
+      },
+      "direction": "bidir",
+      "domain": "audio.analog",
+      "face": "front",
+      "id": "front-bottom-10",
+      "jack": "jack-6.35-TRS",
+      "label": "Front bottom 10",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "group": "ch11",
+        "index": 11,
+        "role": "numbered"
+      },
+      "direction": "bidir",
+      "domain": "audio.analog",
+      "face": "front",
+      "id": "front-bottom-11",
+      "jack": "jack-6.35-TRS",
+      "label": "Front bottom 11",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "group": "ch12",
+        "index": 12,
+        "role": "numbered"
+      },
+      "direction": "bidir",
+      "domain": "audio.analog",
+      "face": "front",
+      "id": "front-bottom-12",
+      "jack": "jack-6.35-TRS",
+      "label": "Front bottom 12",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "group": "ch13",
+        "index": 13,
+        "role": "numbered"
+      },
+      "direction": "bidir",
+      "domain": "audio.analog",
+      "face": "front",
+      "id": "front-bottom-13",
+      "jack": "jack-6.35-TRS",
+      "label": "Front bottom 13",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "group": "ch14",
+        "index": 14,
+        "role": "numbered"
+      },
+      "direction": "bidir",
+      "domain": "audio.analog",
+      "face": "front",
+      "id": "front-bottom-14",
+      "jack": "jack-6.35-TRS",
+      "label": "Front bottom 14",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "group": "ch15",
+        "index": 15,
+        "role": "numbered"
+      },
+      "direction": "bidir",
+      "domain": "audio.analog",
+      "face": "front",
+      "id": "front-bottom-15",
+      "jack": "jack-6.35-TRS",
+      "label": "Front bottom 15",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "group": "ch16",
+        "index": 16,
+        "role": "numbered"
+      },
+      "direction": "bidir",
+      "domain": "audio.analog",
+      "face": "front",
+      "id": "front-bottom-16",
+      "jack": "jack-6.35-TRS",
+      "label": "Front bottom 16",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "group": "ch17",
+        "index": 17,
+        "role": "numbered"
+      },
+      "direction": "bidir",
+      "domain": "audio.analog",
+      "face": "front",
+      "id": "front-bottom-17",
+      "jack": "jack-6.35-TRS",
+      "label": "Front bottom 17",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "group": "ch18",
+        "index": 18,
+        "role": "numbered"
+      },
+      "direction": "bidir",
+      "domain": "audio.analog",
+      "face": "front",
+      "id": "front-bottom-18",
+      "jack": "jack-6.35-TRS",
+      "label": "Front bottom 18",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "group": "ch19",
+        "index": 19,
+        "role": "numbered"
+      },
+      "direction": "bidir",
+      "domain": "audio.analog",
+      "face": "front",
+      "id": "front-bottom-19",
+      "jack": "jack-6.35-TRS",
+      "label": "Front bottom 19",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "group": "ch20",
+        "index": 20,
+        "role": "numbered"
+      },
+      "direction": "bidir",
+      "domain": "audio.analog",
+      "face": "front",
+      "id": "front-bottom-20",
+      "jack": "jack-6.35-TRS",
+      "label": "Front bottom 20",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "group": "ch21",
+        "index": 21,
+        "role": "numbered"
+      },
+      "direction": "bidir",
+      "domain": "audio.analog",
+      "face": "front",
+      "id": "front-bottom-21",
+      "jack": "jack-6.35-TRS",
+      "label": "Front bottom 21",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "group": "ch22",
+        "index": 22,
+        "role": "numbered"
+      },
+      "direction": "bidir",
+      "domain": "audio.analog",
+      "face": "front",
+      "id": "front-bottom-22",
+      "jack": "jack-6.35-TRS",
+      "label": "Front bottom 22",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "group": "ch23",
+        "index": 23,
+        "role": "numbered"
+      },
+      "direction": "bidir",
+      "domain": "audio.analog",
+      "face": "front",
+      "id": "front-bottom-23",
+      "jack": "jack-6.35-TRS",
+      "label": "Front bottom 23",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "group": "ch24",
+        "index": 24,
+        "role": "numbered"
+      },
+      "direction": "bidir",
+      "domain": "audio.analog",
+      "face": "front",
+      "id": "front-bottom-24",
+      "jack": "jack-6.35-TRS",
+      "label": "Front bottom 24",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "group": "ch1",
+        "index": 1,
+        "role": "numbered"
+      },
+      "direction": "bidir",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "rear-top-1",
+      "jack": "jack-6.35-TRS",
+      "label": "Rear top 1",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "group": "ch2",
+        "index": 2,
+        "role": "numbered"
+      },
+      "direction": "bidir",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "rear-top-2",
+      "jack": "jack-6.35-TRS",
+      "label": "Rear top 2",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "group": "ch3",
+        "index": 3,
+        "role": "numbered"
+      },
+      "direction": "bidir",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "rear-top-3",
+      "jack": "jack-6.35-TRS",
+      "label": "Rear top 3",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "group": "ch4",
+        "index": 4,
+        "role": "numbered"
+      },
+      "direction": "bidir",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "rear-top-4",
+      "jack": "jack-6.35-TRS",
+      "label": "Rear top 4",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "group": "ch5",
+        "index": 5,
+        "role": "numbered"
+      },
+      "direction": "bidir",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "rear-top-5",
+      "jack": "jack-6.35-TRS",
+      "label": "Rear top 5",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "group": "ch6",
+        "index": 6,
+        "role": "numbered"
+      },
+      "direction": "bidir",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "rear-top-6",
+      "jack": "jack-6.35-TRS",
+      "label": "Rear top 6",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "group": "ch7",
+        "index": 7,
+        "role": "numbered"
+      },
+      "direction": "bidir",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "rear-top-7",
+      "jack": "jack-6.35-TRS",
+      "label": "Rear top 7",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "group": "ch8",
+        "index": 8,
+        "role": "numbered"
+      },
+      "direction": "bidir",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "rear-top-8",
+      "jack": "jack-6.35-TRS",
+      "label": "Rear top 8",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "group": "ch9",
+        "index": 9,
+        "role": "numbered"
+      },
+      "direction": "bidir",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "rear-top-9",
+      "jack": "jack-6.35-TRS",
+      "label": "Rear top 9",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "group": "ch10",
+        "index": 10,
+        "role": "numbered"
+      },
+      "direction": "bidir",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "rear-top-10",
+      "jack": "jack-6.35-TRS",
+      "label": "Rear top 10",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "group": "ch11",
+        "index": 11,
+        "role": "numbered"
+      },
+      "direction": "bidir",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "rear-top-11",
+      "jack": "jack-6.35-TRS",
+      "label": "Rear top 11",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "group": "ch12",
+        "index": 12,
+        "role": "numbered"
+      },
+      "direction": "bidir",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "rear-top-12",
+      "jack": "jack-6.35-TRS",
+      "label": "Rear top 12",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "group": "ch13",
+        "index": 13,
+        "role": "numbered"
+      },
+      "direction": "bidir",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "rear-top-13",
+      "jack": "jack-6.35-TRS",
+      "label": "Rear top 13",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "group": "ch14",
+        "index": 14,
+        "role": "numbered"
+      },
+      "direction": "bidir",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "rear-top-14",
+      "jack": "jack-6.35-TRS",
+      "label": "Rear top 14",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "group": "ch15",
+        "index": 15,
+        "role": "numbered"
+      },
+      "direction": "bidir",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "rear-top-15",
+      "jack": "jack-6.35-TRS",
+      "label": "Rear top 15",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "group": "ch16",
+        "index": 16,
+        "role": "numbered"
+      },
+      "direction": "bidir",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "rear-top-16",
+      "jack": "jack-6.35-TRS",
+      "label": "Rear top 16",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "group": "ch17",
+        "index": 17,
+        "role": "numbered"
+      },
+      "direction": "bidir",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "rear-top-17",
+      "jack": "jack-6.35-TRS",
+      "label": "Rear top 17",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "group": "ch18",
+        "index": 18,
+        "role": "numbered"
+      },
+      "direction": "bidir",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "rear-top-18",
+      "jack": "jack-6.35-TRS",
+      "label": "Rear top 18",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "group": "ch19",
+        "index": 19,
+        "role": "numbered"
+      },
+      "direction": "bidir",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "rear-top-19",
+      "jack": "jack-6.35-TRS",
+      "label": "Rear top 19",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "group": "ch20",
+        "index": 20,
+        "role": "numbered"
+      },
+      "direction": "bidir",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "rear-top-20",
+      "jack": "jack-6.35-TRS",
+      "label": "Rear top 20",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "group": "ch21",
+        "index": 21,
+        "role": "numbered"
+      },
+      "direction": "bidir",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "rear-top-21",
+      "jack": "jack-6.35-TRS",
+      "label": "Rear top 21",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "group": "ch22",
+        "index": 22,
+        "role": "numbered"
+      },
+      "direction": "bidir",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "rear-top-22",
+      "jack": "jack-6.35-TRS",
+      "label": "Rear top 22",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "group": "ch23",
+        "index": 23,
+        "role": "numbered"
+      },
+      "direction": "bidir",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "rear-top-23",
+      "jack": "jack-6.35-TRS",
+      "label": "Rear top 23",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "group": "ch24",
+        "index": 24,
+        "role": "numbered"
+      },
+      "direction": "bidir",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "rear-top-24",
+      "jack": "jack-6.35-TRS",
+      "label": "Rear top 24",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "group": "ch1",
+        "index": 1,
+        "role": "numbered"
+      },
+      "direction": "bidir",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "rear-bottom-1",
+      "jack": "jack-6.35-TRS",
+      "label": "Rear bottom 1",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "group": "ch2",
+        "index": 2,
+        "role": "numbered"
+      },
+      "direction": "bidir",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "rear-bottom-2",
+      "jack": "jack-6.35-TRS",
+      "label": "Rear bottom 2",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "group": "ch3",
+        "index": 3,
+        "role": "numbered"
+      },
+      "direction": "bidir",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "rear-bottom-3",
+      "jack": "jack-6.35-TRS",
+      "label": "Rear bottom 3",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "group": "ch4",
+        "index": 4,
+        "role": "numbered"
+      },
+      "direction": "bidir",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "rear-bottom-4",
+      "jack": "jack-6.35-TRS",
+      "label": "Rear bottom 4",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "group": "ch5",
+        "index": 5,
+        "role": "numbered"
+      },
+      "direction": "bidir",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "rear-bottom-5",
+      "jack": "jack-6.35-TRS",
+      "label": "Rear bottom 5",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "group": "ch6",
+        "index": 6,
+        "role": "numbered"
+      },
+      "direction": "bidir",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "rear-bottom-6",
+      "jack": "jack-6.35-TRS",
+      "label": "Rear bottom 6",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "group": "ch7",
+        "index": 7,
+        "role": "numbered"
+      },
+      "direction": "bidir",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "rear-bottom-7",
+      "jack": "jack-6.35-TRS",
+      "label": "Rear bottom 7",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "group": "ch8",
+        "index": 8,
+        "role": "numbered"
+      },
+      "direction": "bidir",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "rear-bottom-8",
+      "jack": "jack-6.35-TRS",
+      "label": "Rear bottom 8",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "group": "ch9",
+        "index": 9,
+        "role": "numbered"
+      },
+      "direction": "bidir",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "rear-bottom-9",
+      "jack": "jack-6.35-TRS",
+      "label": "Rear bottom 9",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "group": "ch10",
+        "index": 10,
+        "role": "numbered"
+      },
+      "direction": "bidir",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "rear-bottom-10",
+      "jack": "jack-6.35-TRS",
+      "label": "Rear bottom 10",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "group": "ch11",
+        "index": 11,
+        "role": "numbered"
+      },
+      "direction": "bidir",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "rear-bottom-11",
+      "jack": "jack-6.35-TRS",
+      "label": "Rear bottom 11",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "group": "ch12",
+        "index": 12,
+        "role": "numbered"
+      },
+      "direction": "bidir",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "rear-bottom-12",
+      "jack": "jack-6.35-TRS",
+      "label": "Rear bottom 12",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "group": "ch13",
+        "index": 13,
+        "role": "numbered"
+      },
+      "direction": "bidir",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "rear-bottom-13",
+      "jack": "jack-6.35-TRS",
+      "label": "Rear bottom 13",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "group": "ch14",
+        "index": 14,
+        "role": "numbered"
+      },
+      "direction": "bidir",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "rear-bottom-14",
+      "jack": "jack-6.35-TRS",
+      "label": "Rear bottom 14",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "group": "ch15",
+        "index": 15,
+        "role": "numbered"
+      },
+      "direction": "bidir",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "rear-bottom-15",
+      "jack": "jack-6.35-TRS",
+      "label": "Rear bottom 15",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "group": "ch16",
+        "index": 16,
+        "role": "numbered"
+      },
+      "direction": "bidir",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "rear-bottom-16",
+      "jack": "jack-6.35-TRS",
+      "label": "Rear bottom 16",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "group": "ch17",
+        "index": 17,
+        "role": "numbered"
+      },
+      "direction": "bidir",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "rear-bottom-17",
+      "jack": "jack-6.35-TRS",
+      "label": "Rear bottom 17",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "group": "ch18",
+        "index": 18,
+        "role": "numbered"
+      },
+      "direction": "bidir",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "rear-bottom-18",
+      "jack": "jack-6.35-TRS",
+      "label": "Rear bottom 18",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "group": "ch19",
+        "index": 19,
+        "role": "numbered"
+      },
+      "direction": "bidir",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "rear-bottom-19",
+      "jack": "jack-6.35-TRS",
+      "label": "Rear bottom 19",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "group": "ch20",
+        "index": 20,
+        "role": "numbered"
+      },
+      "direction": "bidir",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "rear-bottom-20",
+      "jack": "jack-6.35-TRS",
+      "label": "Rear bottom 20",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "group": "ch21",
+        "index": 21,
+        "role": "numbered"
+      },
+      "direction": "bidir",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "rear-bottom-21",
+      "jack": "jack-6.35-TRS",
+      "label": "Rear bottom 21",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "group": "ch22",
+        "index": 22,
+        "role": "numbered"
+      },
+      "direction": "bidir",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "rear-bottom-22",
+      "jack": "jack-6.35-TRS",
+      "label": "Rear bottom 22",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "group": "ch23",
+        "index": 23,
+        "role": "numbered"
+      },
+      "direction": "bidir",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "rear-bottom-23",
+      "jack": "jack-6.35-TRS",
+      "label": "Rear bottom 23",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "group": "ch24",
+        "index": 24,
+        "role": "numbered"
+      },
+      "direction": "bidir",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "rear-bottom-24",
+      "jack": "jack-6.35-TRS",
+      "label": "Rear bottom 24",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "line"
+      }
+    }
+  ],
+  "dimensions": {
+    "d": 93,
+    "h": 44.5,
+    "heightIncludesKnobsFeet": false,
+    "rack": {
+      "earsIncluded": true,
+      "u": 1
+    },
+    "w": 482.6,
+    "weightKg": 1.8
+  },
+  "ergonomics": {
+    "defaultUsage": "secondary",
+    "interaction": "set-and-forget",
+    "needsDisplayVisibility": false
+  },
+  "faces": {},
+  "formFactor": "rack",
+  "id": "gear-behringer-ultrapatch-pro-px3000",
+  "images": {},
+  "internalPaths": [
+    {
+      "from": [
+        "rear-top-1"
+      ],
+      "id": "ch1-top",
+      "mode": "passthrough",
+      "to": [
+        "front-top-1"
+      ]
+    },
+    {
+      "from": [
+        "rear-bottom-1"
+      ],
+      "id": "ch1-bottom",
+      "mode": "passthrough",
+      "to": [
+        "front-bottom-1"
+      ]
+    },
+    {
+      "condition": "Broken by a plug in either front jack",
+      "from": [
+        "rear-top-1"
+      ],
+      "group": "ch1",
+      "id": "ch1-normal",
+      "mode": "insert-normal",
+      "presetId": "normal",
+      "to": [
+        "rear-bottom-1"
+      ]
+    },
+    {
+      "condition": "Broken only by a plug in the front bottom jack",
+      "from": [
+        "rear-top-1"
+      ],
+      "group": "ch1",
+      "id": "ch1-half-normal",
+      "mode": "insert-normal",
+      "presetId": "half-normal",
+      "to": [
+        "rear-bottom-1"
+      ]
+    },
+    {
+      "from": [
+        "rear-top-2"
+      ],
+      "id": "ch2-top",
+      "mode": "passthrough",
+      "to": [
+        "front-top-2"
+      ]
+    },
+    {
+      "from": [
+        "rear-bottom-2"
+      ],
+      "id": "ch2-bottom",
+      "mode": "passthrough",
+      "to": [
+        "front-bottom-2"
+      ]
+    },
+    {
+      "condition": "Broken by a plug in either front jack",
+      "from": [
+        "rear-top-2"
+      ],
+      "group": "ch2",
+      "id": "ch2-normal",
+      "mode": "insert-normal",
+      "presetId": "normal",
+      "to": [
+        "rear-bottom-2"
+      ]
+    },
+    {
+      "condition": "Broken only by a plug in the front bottom jack",
+      "from": [
+        "rear-top-2"
+      ],
+      "group": "ch2",
+      "id": "ch2-half-normal",
+      "mode": "insert-normal",
+      "presetId": "half-normal",
+      "to": [
+        "rear-bottom-2"
+      ]
+    },
+    {
+      "from": [
+        "rear-top-3"
+      ],
+      "id": "ch3-top",
+      "mode": "passthrough",
+      "to": [
+        "front-top-3"
+      ]
+    },
+    {
+      "from": [
+        "rear-bottom-3"
+      ],
+      "id": "ch3-bottom",
+      "mode": "passthrough",
+      "to": [
+        "front-bottom-3"
+      ]
+    },
+    {
+      "condition": "Broken by a plug in either front jack",
+      "from": [
+        "rear-top-3"
+      ],
+      "group": "ch3",
+      "id": "ch3-normal",
+      "mode": "insert-normal",
+      "presetId": "normal",
+      "to": [
+        "rear-bottom-3"
+      ]
+    },
+    {
+      "condition": "Broken only by a plug in the front bottom jack",
+      "from": [
+        "rear-top-3"
+      ],
+      "group": "ch3",
+      "id": "ch3-half-normal",
+      "mode": "insert-normal",
+      "presetId": "half-normal",
+      "to": [
+        "rear-bottom-3"
+      ]
+    },
+    {
+      "from": [
+        "rear-top-4"
+      ],
+      "id": "ch4-top",
+      "mode": "passthrough",
+      "to": [
+        "front-top-4"
+      ]
+    },
+    {
+      "from": [
+        "rear-bottom-4"
+      ],
+      "id": "ch4-bottom",
+      "mode": "passthrough",
+      "to": [
+        "front-bottom-4"
+      ]
+    },
+    {
+      "condition": "Broken by a plug in either front jack",
+      "from": [
+        "rear-top-4"
+      ],
+      "group": "ch4",
+      "id": "ch4-normal",
+      "mode": "insert-normal",
+      "presetId": "normal",
+      "to": [
+        "rear-bottom-4"
+      ]
+    },
+    {
+      "condition": "Broken only by a plug in the front bottom jack",
+      "from": [
+        "rear-top-4"
+      ],
+      "group": "ch4",
+      "id": "ch4-half-normal",
+      "mode": "insert-normal",
+      "presetId": "half-normal",
+      "to": [
+        "rear-bottom-4"
+      ]
+    },
+    {
+      "from": [
+        "rear-top-5"
+      ],
+      "id": "ch5-top",
+      "mode": "passthrough",
+      "to": [
+        "front-top-5"
+      ]
+    },
+    {
+      "from": [
+        "rear-bottom-5"
+      ],
+      "id": "ch5-bottom",
+      "mode": "passthrough",
+      "to": [
+        "front-bottom-5"
+      ]
+    },
+    {
+      "condition": "Broken by a plug in either front jack",
+      "from": [
+        "rear-top-5"
+      ],
+      "group": "ch5",
+      "id": "ch5-normal",
+      "mode": "insert-normal",
+      "presetId": "normal",
+      "to": [
+        "rear-bottom-5"
+      ]
+    },
+    {
+      "condition": "Broken only by a plug in the front bottom jack",
+      "from": [
+        "rear-top-5"
+      ],
+      "group": "ch5",
+      "id": "ch5-half-normal",
+      "mode": "insert-normal",
+      "presetId": "half-normal",
+      "to": [
+        "rear-bottom-5"
+      ]
+    },
+    {
+      "from": [
+        "rear-top-6"
+      ],
+      "id": "ch6-top",
+      "mode": "passthrough",
+      "to": [
+        "front-top-6"
+      ]
+    },
+    {
+      "from": [
+        "rear-bottom-6"
+      ],
+      "id": "ch6-bottom",
+      "mode": "passthrough",
+      "to": [
+        "front-bottom-6"
+      ]
+    },
+    {
+      "condition": "Broken by a plug in either front jack",
+      "from": [
+        "rear-top-6"
+      ],
+      "group": "ch6",
+      "id": "ch6-normal",
+      "mode": "insert-normal",
+      "presetId": "normal",
+      "to": [
+        "rear-bottom-6"
+      ]
+    },
+    {
+      "condition": "Broken only by a plug in the front bottom jack",
+      "from": [
+        "rear-top-6"
+      ],
+      "group": "ch6",
+      "id": "ch6-half-normal",
+      "mode": "insert-normal",
+      "presetId": "half-normal",
+      "to": [
+        "rear-bottom-6"
+      ]
+    },
+    {
+      "from": [
+        "rear-top-7"
+      ],
+      "id": "ch7-top",
+      "mode": "passthrough",
+      "to": [
+        "front-top-7"
+      ]
+    },
+    {
+      "from": [
+        "rear-bottom-7"
+      ],
+      "id": "ch7-bottom",
+      "mode": "passthrough",
+      "to": [
+        "front-bottom-7"
+      ]
+    },
+    {
+      "condition": "Broken by a plug in either front jack",
+      "from": [
+        "rear-top-7"
+      ],
+      "group": "ch7",
+      "id": "ch7-normal",
+      "mode": "insert-normal",
+      "presetId": "normal",
+      "to": [
+        "rear-bottom-7"
+      ]
+    },
+    {
+      "condition": "Broken only by a plug in the front bottom jack",
+      "from": [
+        "rear-top-7"
+      ],
+      "group": "ch7",
+      "id": "ch7-half-normal",
+      "mode": "insert-normal",
+      "presetId": "half-normal",
+      "to": [
+        "rear-bottom-7"
+      ]
+    },
+    {
+      "from": [
+        "rear-top-8"
+      ],
+      "id": "ch8-top",
+      "mode": "passthrough",
+      "to": [
+        "front-top-8"
+      ]
+    },
+    {
+      "from": [
+        "rear-bottom-8"
+      ],
+      "id": "ch8-bottom",
+      "mode": "passthrough",
+      "to": [
+        "front-bottom-8"
+      ]
+    },
+    {
+      "condition": "Broken by a plug in either front jack",
+      "from": [
+        "rear-top-8"
+      ],
+      "group": "ch8",
+      "id": "ch8-normal",
+      "mode": "insert-normal",
+      "presetId": "normal",
+      "to": [
+        "rear-bottom-8"
+      ]
+    },
+    {
+      "condition": "Broken only by a plug in the front bottom jack",
+      "from": [
+        "rear-top-8"
+      ],
+      "group": "ch8",
+      "id": "ch8-half-normal",
+      "mode": "insert-normal",
+      "presetId": "half-normal",
+      "to": [
+        "rear-bottom-8"
+      ]
+    },
+    {
+      "from": [
+        "rear-top-9"
+      ],
+      "id": "ch9-top",
+      "mode": "passthrough",
+      "to": [
+        "front-top-9"
+      ]
+    },
+    {
+      "from": [
+        "rear-bottom-9"
+      ],
+      "id": "ch9-bottom",
+      "mode": "passthrough",
+      "to": [
+        "front-bottom-9"
+      ]
+    },
+    {
+      "condition": "Broken by a plug in either front jack",
+      "from": [
+        "rear-top-9"
+      ],
+      "group": "ch9",
+      "id": "ch9-normal",
+      "mode": "insert-normal",
+      "presetId": "normal",
+      "to": [
+        "rear-bottom-9"
+      ]
+    },
+    {
+      "condition": "Broken only by a plug in the front bottom jack",
+      "from": [
+        "rear-top-9"
+      ],
+      "group": "ch9",
+      "id": "ch9-half-normal",
+      "mode": "insert-normal",
+      "presetId": "half-normal",
+      "to": [
+        "rear-bottom-9"
+      ]
+    },
+    {
+      "from": [
+        "rear-top-10"
+      ],
+      "id": "ch10-top",
+      "mode": "passthrough",
+      "to": [
+        "front-top-10"
+      ]
+    },
+    {
+      "from": [
+        "rear-bottom-10"
+      ],
+      "id": "ch10-bottom",
+      "mode": "passthrough",
+      "to": [
+        "front-bottom-10"
+      ]
+    },
+    {
+      "condition": "Broken by a plug in either front jack",
+      "from": [
+        "rear-top-10"
+      ],
+      "group": "ch10",
+      "id": "ch10-normal",
+      "mode": "insert-normal",
+      "presetId": "normal",
+      "to": [
+        "rear-bottom-10"
+      ]
+    },
+    {
+      "condition": "Broken only by a plug in the front bottom jack",
+      "from": [
+        "rear-top-10"
+      ],
+      "group": "ch10",
+      "id": "ch10-half-normal",
+      "mode": "insert-normal",
+      "presetId": "half-normal",
+      "to": [
+        "rear-bottom-10"
+      ]
+    },
+    {
+      "from": [
+        "rear-top-11"
+      ],
+      "id": "ch11-top",
+      "mode": "passthrough",
+      "to": [
+        "front-top-11"
+      ]
+    },
+    {
+      "from": [
+        "rear-bottom-11"
+      ],
+      "id": "ch11-bottom",
+      "mode": "passthrough",
+      "to": [
+        "front-bottom-11"
+      ]
+    },
+    {
+      "condition": "Broken by a plug in either front jack",
+      "from": [
+        "rear-top-11"
+      ],
+      "group": "ch11",
+      "id": "ch11-normal",
+      "mode": "insert-normal",
+      "presetId": "normal",
+      "to": [
+        "rear-bottom-11"
+      ]
+    },
+    {
+      "condition": "Broken only by a plug in the front bottom jack",
+      "from": [
+        "rear-top-11"
+      ],
+      "group": "ch11",
+      "id": "ch11-half-normal",
+      "mode": "insert-normal",
+      "presetId": "half-normal",
+      "to": [
+        "rear-bottom-11"
+      ]
+    },
+    {
+      "from": [
+        "rear-top-12"
+      ],
+      "id": "ch12-top",
+      "mode": "passthrough",
+      "to": [
+        "front-top-12"
+      ]
+    },
+    {
+      "from": [
+        "rear-bottom-12"
+      ],
+      "id": "ch12-bottom",
+      "mode": "passthrough",
+      "to": [
+        "front-bottom-12"
+      ]
+    },
+    {
+      "condition": "Broken by a plug in either front jack",
+      "from": [
+        "rear-top-12"
+      ],
+      "group": "ch12",
+      "id": "ch12-normal",
+      "mode": "insert-normal",
+      "presetId": "normal",
+      "to": [
+        "rear-bottom-12"
+      ]
+    },
+    {
+      "condition": "Broken only by a plug in the front bottom jack",
+      "from": [
+        "rear-top-12"
+      ],
+      "group": "ch12",
+      "id": "ch12-half-normal",
+      "mode": "insert-normal",
+      "presetId": "half-normal",
+      "to": [
+        "rear-bottom-12"
+      ]
+    },
+    {
+      "from": [
+        "rear-top-13"
+      ],
+      "id": "ch13-top",
+      "mode": "passthrough",
+      "to": [
+        "front-top-13"
+      ]
+    },
+    {
+      "from": [
+        "rear-bottom-13"
+      ],
+      "id": "ch13-bottom",
+      "mode": "passthrough",
+      "to": [
+        "front-bottom-13"
+      ]
+    },
+    {
+      "condition": "Broken by a plug in either front jack",
+      "from": [
+        "rear-top-13"
+      ],
+      "group": "ch13",
+      "id": "ch13-normal",
+      "mode": "insert-normal",
+      "presetId": "normal",
+      "to": [
+        "rear-bottom-13"
+      ]
+    },
+    {
+      "condition": "Broken only by a plug in the front bottom jack",
+      "from": [
+        "rear-top-13"
+      ],
+      "group": "ch13",
+      "id": "ch13-half-normal",
+      "mode": "insert-normal",
+      "presetId": "half-normal",
+      "to": [
+        "rear-bottom-13"
+      ]
+    },
+    {
+      "from": [
+        "rear-top-14"
+      ],
+      "id": "ch14-top",
+      "mode": "passthrough",
+      "to": [
+        "front-top-14"
+      ]
+    },
+    {
+      "from": [
+        "rear-bottom-14"
+      ],
+      "id": "ch14-bottom",
+      "mode": "passthrough",
+      "to": [
+        "front-bottom-14"
+      ]
+    },
+    {
+      "condition": "Broken by a plug in either front jack",
+      "from": [
+        "rear-top-14"
+      ],
+      "group": "ch14",
+      "id": "ch14-normal",
+      "mode": "insert-normal",
+      "presetId": "normal",
+      "to": [
+        "rear-bottom-14"
+      ]
+    },
+    {
+      "condition": "Broken only by a plug in the front bottom jack",
+      "from": [
+        "rear-top-14"
+      ],
+      "group": "ch14",
+      "id": "ch14-half-normal",
+      "mode": "insert-normal",
+      "presetId": "half-normal",
+      "to": [
+        "rear-bottom-14"
+      ]
+    },
+    {
+      "from": [
+        "rear-top-15"
+      ],
+      "id": "ch15-top",
+      "mode": "passthrough",
+      "to": [
+        "front-top-15"
+      ]
+    },
+    {
+      "from": [
+        "rear-bottom-15"
+      ],
+      "id": "ch15-bottom",
+      "mode": "passthrough",
+      "to": [
+        "front-bottom-15"
+      ]
+    },
+    {
+      "condition": "Broken by a plug in either front jack",
+      "from": [
+        "rear-top-15"
+      ],
+      "group": "ch15",
+      "id": "ch15-normal",
+      "mode": "insert-normal",
+      "presetId": "normal",
+      "to": [
+        "rear-bottom-15"
+      ]
+    },
+    {
+      "condition": "Broken only by a plug in the front bottom jack",
+      "from": [
+        "rear-top-15"
+      ],
+      "group": "ch15",
+      "id": "ch15-half-normal",
+      "mode": "insert-normal",
+      "presetId": "half-normal",
+      "to": [
+        "rear-bottom-15"
+      ]
+    },
+    {
+      "from": [
+        "rear-top-16"
+      ],
+      "id": "ch16-top",
+      "mode": "passthrough",
+      "to": [
+        "front-top-16"
+      ]
+    },
+    {
+      "from": [
+        "rear-bottom-16"
+      ],
+      "id": "ch16-bottom",
+      "mode": "passthrough",
+      "to": [
+        "front-bottom-16"
+      ]
+    },
+    {
+      "condition": "Broken by a plug in either front jack",
+      "from": [
+        "rear-top-16"
+      ],
+      "group": "ch16",
+      "id": "ch16-normal",
+      "mode": "insert-normal",
+      "presetId": "normal",
+      "to": [
+        "rear-bottom-16"
+      ]
+    },
+    {
+      "condition": "Broken only by a plug in the front bottom jack",
+      "from": [
+        "rear-top-16"
+      ],
+      "group": "ch16",
+      "id": "ch16-half-normal",
+      "mode": "insert-normal",
+      "presetId": "half-normal",
+      "to": [
+        "rear-bottom-16"
+      ]
+    },
+    {
+      "from": [
+        "rear-top-17"
+      ],
+      "id": "ch17-top",
+      "mode": "passthrough",
+      "to": [
+        "front-top-17"
+      ]
+    },
+    {
+      "from": [
+        "rear-bottom-17"
+      ],
+      "id": "ch17-bottom",
+      "mode": "passthrough",
+      "to": [
+        "front-bottom-17"
+      ]
+    },
+    {
+      "condition": "Broken by a plug in either front jack",
+      "from": [
+        "rear-top-17"
+      ],
+      "group": "ch17",
+      "id": "ch17-normal",
+      "mode": "insert-normal",
+      "presetId": "normal",
+      "to": [
+        "rear-bottom-17"
+      ]
+    },
+    {
+      "condition": "Broken only by a plug in the front bottom jack",
+      "from": [
+        "rear-top-17"
+      ],
+      "group": "ch17",
+      "id": "ch17-half-normal",
+      "mode": "insert-normal",
+      "presetId": "half-normal",
+      "to": [
+        "rear-bottom-17"
+      ]
+    },
+    {
+      "from": [
+        "rear-top-18"
+      ],
+      "id": "ch18-top",
+      "mode": "passthrough",
+      "to": [
+        "front-top-18"
+      ]
+    },
+    {
+      "from": [
+        "rear-bottom-18"
+      ],
+      "id": "ch18-bottom",
+      "mode": "passthrough",
+      "to": [
+        "front-bottom-18"
+      ]
+    },
+    {
+      "condition": "Broken by a plug in either front jack",
+      "from": [
+        "rear-top-18"
+      ],
+      "group": "ch18",
+      "id": "ch18-normal",
+      "mode": "insert-normal",
+      "presetId": "normal",
+      "to": [
+        "rear-bottom-18"
+      ]
+    },
+    {
+      "condition": "Broken only by a plug in the front bottom jack",
+      "from": [
+        "rear-top-18"
+      ],
+      "group": "ch18",
+      "id": "ch18-half-normal",
+      "mode": "insert-normal",
+      "presetId": "half-normal",
+      "to": [
+        "rear-bottom-18"
+      ]
+    },
+    {
+      "from": [
+        "rear-top-19"
+      ],
+      "id": "ch19-top",
+      "mode": "passthrough",
+      "to": [
+        "front-top-19"
+      ]
+    },
+    {
+      "from": [
+        "rear-bottom-19"
+      ],
+      "id": "ch19-bottom",
+      "mode": "passthrough",
+      "to": [
+        "front-bottom-19"
+      ]
+    },
+    {
+      "condition": "Broken by a plug in either front jack",
+      "from": [
+        "rear-top-19"
+      ],
+      "group": "ch19",
+      "id": "ch19-normal",
+      "mode": "insert-normal",
+      "presetId": "normal",
+      "to": [
+        "rear-bottom-19"
+      ]
+    },
+    {
+      "condition": "Broken only by a plug in the front bottom jack",
+      "from": [
+        "rear-top-19"
+      ],
+      "group": "ch19",
+      "id": "ch19-half-normal",
+      "mode": "insert-normal",
+      "presetId": "half-normal",
+      "to": [
+        "rear-bottom-19"
+      ]
+    },
+    {
+      "from": [
+        "rear-top-20"
+      ],
+      "id": "ch20-top",
+      "mode": "passthrough",
+      "to": [
+        "front-top-20"
+      ]
+    },
+    {
+      "from": [
+        "rear-bottom-20"
+      ],
+      "id": "ch20-bottom",
+      "mode": "passthrough",
+      "to": [
+        "front-bottom-20"
+      ]
+    },
+    {
+      "condition": "Broken by a plug in either front jack",
+      "from": [
+        "rear-top-20"
+      ],
+      "group": "ch20",
+      "id": "ch20-normal",
+      "mode": "insert-normal",
+      "presetId": "normal",
+      "to": [
+        "rear-bottom-20"
+      ]
+    },
+    {
+      "condition": "Broken only by a plug in the front bottom jack",
+      "from": [
+        "rear-top-20"
+      ],
+      "group": "ch20",
+      "id": "ch20-half-normal",
+      "mode": "insert-normal",
+      "presetId": "half-normal",
+      "to": [
+        "rear-bottom-20"
+      ]
+    },
+    {
+      "from": [
+        "rear-top-21"
+      ],
+      "id": "ch21-top",
+      "mode": "passthrough",
+      "to": [
+        "front-top-21"
+      ]
+    },
+    {
+      "from": [
+        "rear-bottom-21"
+      ],
+      "id": "ch21-bottom",
+      "mode": "passthrough",
+      "to": [
+        "front-bottom-21"
+      ]
+    },
+    {
+      "condition": "Broken by a plug in either front jack",
+      "from": [
+        "rear-top-21"
+      ],
+      "group": "ch21",
+      "id": "ch21-normal",
+      "mode": "insert-normal",
+      "presetId": "normal",
+      "to": [
+        "rear-bottom-21"
+      ]
+    },
+    {
+      "condition": "Broken only by a plug in the front bottom jack",
+      "from": [
+        "rear-top-21"
+      ],
+      "group": "ch21",
+      "id": "ch21-half-normal",
+      "mode": "insert-normal",
+      "presetId": "half-normal",
+      "to": [
+        "rear-bottom-21"
+      ]
+    },
+    {
+      "from": [
+        "rear-top-22"
+      ],
+      "id": "ch22-top",
+      "mode": "passthrough",
+      "to": [
+        "front-top-22"
+      ]
+    },
+    {
+      "from": [
+        "rear-bottom-22"
+      ],
+      "id": "ch22-bottom",
+      "mode": "passthrough",
+      "to": [
+        "front-bottom-22"
+      ]
+    },
+    {
+      "condition": "Broken by a plug in either front jack",
+      "from": [
+        "rear-top-22"
+      ],
+      "group": "ch22",
+      "id": "ch22-normal",
+      "mode": "insert-normal",
+      "presetId": "normal",
+      "to": [
+        "rear-bottom-22"
+      ]
+    },
+    {
+      "condition": "Broken only by a plug in the front bottom jack",
+      "from": [
+        "rear-top-22"
+      ],
+      "group": "ch22",
+      "id": "ch22-half-normal",
+      "mode": "insert-normal",
+      "presetId": "half-normal",
+      "to": [
+        "rear-bottom-22"
+      ]
+    },
+    {
+      "from": [
+        "rear-top-23"
+      ],
+      "id": "ch23-top",
+      "mode": "passthrough",
+      "to": [
+        "front-top-23"
+      ]
+    },
+    {
+      "from": [
+        "rear-bottom-23"
+      ],
+      "id": "ch23-bottom",
+      "mode": "passthrough",
+      "to": [
+        "front-bottom-23"
+      ]
+    },
+    {
+      "condition": "Broken by a plug in either front jack",
+      "from": [
+        "rear-top-23"
+      ],
+      "group": "ch23",
+      "id": "ch23-normal",
+      "mode": "insert-normal",
+      "presetId": "normal",
+      "to": [
+        "rear-bottom-23"
+      ]
+    },
+    {
+      "condition": "Broken only by a plug in the front bottom jack",
+      "from": [
+        "rear-top-23"
+      ],
+      "group": "ch23",
+      "id": "ch23-half-normal",
+      "mode": "insert-normal",
+      "presetId": "half-normal",
+      "to": [
+        "rear-bottom-23"
+      ]
+    },
+    {
+      "from": [
+        "rear-top-24"
+      ],
+      "id": "ch24-top",
+      "mode": "passthrough",
+      "to": [
+        "front-top-24"
+      ]
+    },
+    {
+      "from": [
+        "rear-bottom-24"
+      ],
+      "id": "ch24-bottom",
+      "mode": "passthrough",
+      "to": [
+        "front-bottom-24"
+      ]
+    },
+    {
+      "condition": "Broken by a plug in either front jack",
+      "from": [
+        "rear-top-24"
+      ],
+      "group": "ch24",
+      "id": "ch24-normal",
+      "mode": "insert-normal",
+      "presetId": "normal",
+      "to": [
+        "rear-bottom-24"
+      ]
+    },
+    {
+      "condition": "Broken only by a plug in the front bottom jack",
+      "from": [
+        "rear-top-24"
+      ],
+      "group": "ch24",
+      "id": "ch24-half-normal",
+      "mode": "insert-normal",
+      "presetId": "half-normal",
+      "to": [
+        "rear-bottom-24"
+      ]
+    }
+  ],
+  "manufacturer": "Behringer",
+  "mounting": {
+    "rackEars": true
+  },
+  "name": "Ultrapatch Pro PX3000",
+  "notes": "48-point balanced patchbay (24 channels × top/bottom), ¼\" TRS front and rear. Modes per channel: Normal / Half-Normal / Thru, selected per setup via unitConfig.pathPresets[chN] (\"thru\" activates no normalling path).",
+  "power": {
+    "mainsRegion": "unknown",
+    "sources": [],
+    "typicalW": 0
+  },
+  "provenance": {
+    "connectors.*.face": {
+      "kind": "estimated",
+      "note": "Rear panel assumed unless the reference states the panel."
+    },
+    "connectors.*.pos": {
+      "kind": "unknown",
+      "note": "Placeholder (0,0); place on a panel image."
+    },
+    "dimensions.d": {
+      "kind": "datasheet",
+      "note": "Gear reference v2"
+    },
+    "dimensions.h": {
+      "kind": "datasheet",
+      "note": "Gear reference v2"
+    },
+    "dimensions.w": {
+      "kind": "datasheet",
+      "note": "19\" rack panel."
+    },
+    "dimensions.weightKg": {
+      "kind": "datasheet",
+      "note": "Gear reference v2"
+    },
+    "power.sources": {
+      "kind": "datasheet",
+      "note": "Passive."
+    }
+  },
+  "sources": [
+    {
+      "label": "Home Studio Gear Reference v2 (docs/studio-gear-reference.md)",
+      "retrieved": "2026-10-04"
+    }
+  ],
+  "tags": [
+    "rack",
+    "patchbay"
+  ]
+}

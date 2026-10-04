@@ -1,0 +1,21 @@
+{
+  "carries": [
+    "usb.data",
+    "power.usb"
+  ],
+  "endA": "USB-A",
+  "endB": "USB-B",
+  "id": "cable-usb-a-b",
+  "kind": "cable",
+  "lengthsMm": [
+    300,
+    500,
+    1000,
+    1500,
+    2000,
+    3000,
+    5000
+  ],
+  "maxLengthMm": 5000,
+  "name": "USB-A – USB-B"
+}

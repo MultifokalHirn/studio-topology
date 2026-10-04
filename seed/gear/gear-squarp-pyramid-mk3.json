@@ -1,0 +1,605 @@
+{
+  "aliases": [],
+  "category": "sequencer",
+  "clock": {
+    "canBeMaster": true,
+    "canBeSlave": true,
+    "formats": [
+      "midi",
+      "dinsync24",
+      "dinsync48"
+    ],
+    "notes": "Master-capable. Converts incoming MIDI clock to DIN sync on Out B."
+  },
+  "connectors": [
+    {
+      "direction": "in",
+      "domain": "midi.din",
+      "face": "back",
+      "id": "midi-in",
+      "jack": "din5-f",
+      "label": "MIDI In",
+      "midi": {
+        "carries": [
+          "notes",
+          "cc",
+          "pc",
+          "sysex",
+          "clock",
+          "transport"
+        ]
+      },
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "direction": "out",
+      "domain": "midi.din",
+      "face": "back",
+      "id": "midi-out-a",
+      "jack": "din5-f",
+      "label": "MIDI Out A",
+      "midi": {
+        "carries": [
+          "notes",
+          "cc",
+          "pc",
+          "sysex",
+          "clock",
+          "transport"
+        ]
+      },
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "alternates": [
+        {
+          "domain": "clock.dinsync",
+          "id": "dinsync24",
+          "label": "DIN sync 24"
+        },
+        {
+          "domain": "clock.dinsync",
+          "id": "dinsync48",
+          "label": "DIN sync 48"
+        }
+      ],
+      "clock": {
+        "canMaster": true,
+        "format": "midi",
+        "note": "DIN sync (Sync24/Sync48 etc.) selectable on Out B."
+      },
+      "direction": "out",
+      "domain": "midi.din",
+      "face": "back",
+      "id": "midi-out-b",
+      "jack": "din5-f",
+      "label": "MIDI Out B",
+      "midi": {
+        "carries": [
+          "notes",
+          "cc",
+          "pc",
+          "sysex",
+          "clock",
+          "transport"
+        ]
+      },
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "direction": "out",
+      "domain": "cv",
+      "face": "back",
+      "id": "cv-out",
+      "jack": "jack-3.5",
+      "label": "CV Out",
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "direction": "out",
+      "domain": "cv",
+      "face": "back",
+      "id": "env-out",
+      "jack": "jack-3.5",
+      "label": "Env Out",
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "direction": "out",
+      "domain": "gate",
+      "face": "back",
+      "id": "gate-out",
+      "jack": "jack-3.5",
+      "label": "Gate Out",
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "channel": {
+        "index": 1,
+        "role": "numbered"
+      },
+      "direction": "in",
+      "domain": "cv",
+      "face": "back",
+      "id": "cv-in-1",
+      "jack": "jack-3.5",
+      "label": "CV/Gate In 1",
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "channel": {
+        "index": 2,
+        "role": "numbered"
+      },
+      "direction": "in",
+      "domain": "cv",
+      "face": "back",
+      "id": "cv-in-2",
+      "jack": "jack-3.5",
+      "label": "CV/Gate In 2",
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "channel": {
+        "index": 3,
+        "role": "numbered"
+      },
+      "direction": "in",
+      "domain": "cv",
+      "face": "back",
+      "id": "cv-in-3",
+      "jack": "jack-3.5",
+      "label": "CV/Gate In 3",
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "channel": {
+        "index": 4,
+        "role": "numbered"
+      },
+      "direction": "in",
+      "domain": "cv",
+      "face": "back",
+      "id": "cv-in-4",
+      "jack": "jack-3.5",
+      "label": "CV/Gate In 4",
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "channel": {
+        "index": 1,
+        "role": "numbered"
+      },
+      "direction": "in",
+      "domain": "footswitch",
+      "face": "back",
+      "id": "pedal-1",
+      "jack": "jack-6.35",
+      "label": "Pedal 1",
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "channel": {
+        "index": 2,
+        "role": "numbered"
+      },
+      "direction": "in",
+      "domain": "footswitch",
+      "face": "back",
+      "id": "pedal-2",
+      "jack": "jack-6.35",
+      "label": "Pedal 2",
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "direction": "bidir",
+      "domain": "usb.data",
+      "face": "back",
+      "id": "usb",
+      "jack": "usb-mini-b-f",
+      "label": "USB",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "usb": {
+        "busPowered": true,
+        "carries": [
+          "midi",
+          "power"
+        ],
+        "drawsBusPowerMa": null,
+        "role": "device",
+        "version": "unknown"
+      }
+    }
+  ],
+  "dimensions": {
+    "d": null,
+    "h": null,
+    "heightIncludesKnobsFeet": true,
+    "w": null,
+    "weightKg": null
+  },
+  "ergonomics": {
+    "defaultUsage": "primary",
+    "interaction": "knobs-buttons",
+    "needsDisplayVisibility": true
+  },
+  "faces": {},
+  "formFactor": "desktop",
+  "id": "gear-squarp-pyramid-mk3",
+  "images": {},
+  "internalPaths": [],
+  "manufacturer": "Squarp",
+  "midi": {
+    "clockIn": true,
+    "clockOut": true,
+    "tracks": [
+      {
+        "id": "t1",
+        "label": "Track 1"
+      },
+      {
+        "id": "t2",
+        "label": "Track 2"
+      },
+      {
+        "id": "t3",
+        "label": "Track 3"
+      },
+      {
+        "id": "t4",
+        "label": "Track 4"
+      },
+      {
+        "id": "t5",
+        "label": "Track 5"
+      },
+      {
+        "id": "t6",
+        "label": "Track 6"
+      },
+      {
+        "id": "t7",
+        "label": "Track 7"
+      },
+      {
+        "id": "t8",
+        "label": "Track 8"
+      },
+      {
+        "id": "t9",
+        "label": "Track 9"
+      },
+      {
+        "id": "t10",
+        "label": "Track 10"
+      },
+      {
+        "id": "t11",
+        "label": "Track 11"
+      },
+      {
+        "id": "t12",
+        "label": "Track 12"
+      },
+      {
+        "id": "t13",
+        "label": "Track 13"
+      },
+      {
+        "id": "t14",
+        "label": "Track 14"
+      },
+      {
+        "id": "t15",
+        "label": "Track 15"
+      },
+      {
+        "id": "t16",
+        "label": "Track 16"
+      },
+      {
+        "id": "t17",
+        "label": "Track 17"
+      },
+      {
+        "id": "t18",
+        "label": "Track 18"
+      },
+      {
+        "id": "t19",
+        "label": "Track 19"
+      },
+      {
+        "id": "t20",
+        "label": "Track 20"
+      },
+      {
+        "id": "t21",
+        "label": "Track 21"
+      },
+      {
+        "id": "t22",
+        "label": "Track 22"
+      },
+      {
+        "id": "t23",
+        "label": "Track 23"
+      },
+      {
+        "id": "t24",
+        "label": "Track 24"
+      },
+      {
+        "id": "t25",
+        "label": "Track 25"
+      },
+      {
+        "id": "t26",
+        "label": "Track 26"
+      },
+      {
+        "id": "t27",
+        "label": "Track 27"
+      },
+      {
+        "id": "t28",
+        "label": "Track 28"
+      },
+      {
+        "id": "t29",
+        "label": "Track 29"
+      },
+      {
+        "id": "t30",
+        "label": "Track 30"
+      },
+      {
+        "id": "t31",
+        "label": "Track 31"
+      },
+      {
+        "id": "t32",
+        "label": "Track 32"
+      },
+      {
+        "id": "t33",
+        "label": "Track 33"
+      },
+      {
+        "id": "t34",
+        "label": "Track 34"
+      },
+      {
+        "id": "t35",
+        "label": "Track 35"
+      },
+      {
+        "id": "t36",
+        "label": "Track 36"
+      },
+      {
+        "id": "t37",
+        "label": "Track 37"
+      },
+      {
+        "id": "t38",
+        "label": "Track 38"
+      },
+      {
+        "id": "t39",
+        "label": "Track 39"
+      },
+      {
+        "id": "t40",
+        "label": "Track 40"
+      },
+      {
+        "id": "t41",
+        "label": "Track 41"
+      },
+      {
+        "id": "t42",
+        "label": "Track 42"
+      },
+      {
+        "id": "t43",
+        "label": "Track 43"
+      },
+      {
+        "id": "t44",
+        "label": "Track 44"
+      },
+      {
+        "id": "t45",
+        "label": "Track 45"
+      },
+      {
+        "id": "t46",
+        "label": "Track 46"
+      },
+      {
+        "id": "t47",
+        "label": "Track 47"
+      },
+      {
+        "id": "t48",
+        "label": "Track 48"
+      },
+      {
+        "id": "t49",
+        "label": "Track 49"
+      },
+      {
+        "id": "t50",
+        "label": "Track 50"
+      },
+      {
+        "id": "t51",
+        "label": "Track 51"
+      },
+      {
+        "id": "t52",
+        "label": "Track 52"
+      },
+      {
+        "id": "t53",
+        "label": "Track 53"
+      },
+      {
+        "id": "t54",
+        "label": "Track 54"
+      },
+      {
+        "id": "t55",
+        "label": "Track 55"
+      },
+      {
+        "id": "t56",
+        "label": "Track 56"
+      },
+      {
+        "id": "t57",
+        "label": "Track 57"
+      },
+      {
+        "id": "t58",
+        "label": "Track 58"
+      },
+      {
+        "id": "t59",
+        "label": "Track 59"
+      },
+      {
+        "id": "t60",
+        "label": "Track 60"
+      },
+      {
+        "id": "t61",
+        "label": "Track 61"
+      },
+      {
+        "id": "t62",
+        "label": "Track 62"
+      },
+      {
+        "id": "t63",
+        "label": "Track 63"
+      },
+      {
+        "id": "t64",
+        "label": "Track 64"
+      }
+    ]
+  },
+  "mounting": {},
+  "name": "Pyramid",
+  "notes": "Dimensions not located (MK1/MK2 front panel 206 × 268 mm). Number of CV/Gate/Env outputs not stated; one of each modelled.",
+  "power": {
+    "mainsRegion": "unknown",
+    "sources": [
+      {
+        "drawMa": null,
+        "included": true,
+        "inputConnectorId": "usb",
+        "kind": "usb-bus",
+        "nominalV": 5,
+        "plug": {
+          "type": "usb"
+        }
+      }
+    ]
+  },
+  "provenance": {
+    "connectors.*.face": {
+      "kind": "estimated",
+      "note": "Rear panel assumed unless the reference states the panel."
+    },
+    "connectors.*.pos": {
+      "kind": "unknown",
+      "note": "Placeholder (0,0); place on a panel image."
+    },
+    "connectors.12.usb.drawsBusPowerMa": {
+      "kind": "unknown",
+      "note": "Not located in the gear reference."
+    },
+    "connectors.3": {
+      "kind": "estimated",
+      "note": "Output count not stated in the reference."
+    },
+    "dimensions.d": {
+      "kind": "unknown",
+      "note": "Not located in the gear reference."
+    },
+    "dimensions.h": {
+      "kind": "unknown",
+      "note": "Not located in the gear reference."
+    },
+    "dimensions.w": {
+      "kind": "unknown",
+      "note": "Not located in the gear reference."
+    },
+    "dimensions.weightKg": {
+      "kind": "unknown",
+      "note": "Not located in the gear reference."
+    },
+    "midi.tracks": {
+      "kind": "user",
+      "note": "64 tracks per spec §4.6."
+    },
+    "power.sources.0.drawMa": {
+      "kind": "unknown",
+      "note": "Not located in the gear reference."
+    }
+  },
+  "sources": [
+    {
+      "label": "Home Studio Gear Reference v2 (docs/studio-gear-reference.md)",
+      "retrieved": "2026-10-04"
+    }
+  ],
+  "tags": [
+    "sequencer",
+    "cv",
+    "clock-master"
+  ],
+  "variant": "MK3"
+}

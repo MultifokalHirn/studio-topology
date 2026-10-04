@@ -1,0 +1,157 @@
+{
+  "gear": {
+    "category": "effect",
+    "connectors": [
+      {
+        "channel": {
+          "group": "in",
+          "role": "L"
+        },
+        "direction": "in",
+        "domain": "audio.analog",
+        "face": "back",
+        "id": "in-l",
+        "jack": "jack-6.35-TRS",
+        "label": "In L",
+        "pos": {
+          "x": 0,
+          "y": 0
+        },
+        "signal": {
+          "balance": "balanced",
+          "level": "line"
+        }
+      },
+      {
+        "channel": {
+          "group": "in",
+          "role": "R"
+        },
+        "direction": "in",
+        "domain": "audio.analog",
+        "face": "back",
+        "id": "in-r",
+        "jack": "jack-6.35-TRS",
+        "label": "In R",
+        "pos": {
+          "x": 0,
+          "y": 0
+        },
+        "signal": {
+          "balance": "balanced",
+          "level": "line"
+        }
+      },
+      {
+        "channel": {
+          "group": "out",
+          "role": "L"
+        },
+        "direction": "out",
+        "domain": "audio.analog",
+        "face": "back",
+        "id": "out-l",
+        "jack": "jack-6.35-TRS",
+        "label": "Out L",
+        "pos": {
+          "x": 0,
+          "y": 0
+        },
+        "signal": {
+          "balance": "balanced",
+          "level": "line"
+        }
+      },
+      {
+        "channel": {
+          "group": "out",
+          "role": "R"
+        },
+        "direction": "out",
+        "domain": "audio.analog",
+        "face": "back",
+        "id": "out-r",
+        "jack": "jack-6.35-TRS",
+        "label": "Out R",
+        "pos": {
+          "x": 0,
+          "y": 0
+        },
+        "signal": {
+          "balance": "balanced",
+          "level": "line"
+        }
+      },
+      {
+        "direction": "in",
+        "domain": "power.dc",
+        "face": "back",
+        "id": "dc-in",
+        "jack": "dc-barrel-5.5x2.5",
+        "label": "DC In",
+        "pos": {
+          "x": 0,
+          "y": 0
+        }
+      }
+    ],
+    "dimensions": {
+      "d": null,
+      "h": null,
+      "heightIncludesKnobsFeet": true,
+      "w": null,
+      "weightKg": null
+    },
+    "ergonomics": {
+      "defaultUsage": "secondary",
+      "interaction": "knobs-buttons",
+      "needsDisplayVisibility": false
+    },
+    "formFactor": "desktop",
+    "internalPaths": [
+      {
+        "channelMap": [
+          {
+            "from": "in-l",
+            "to": "out-l"
+          },
+          {
+            "from": "in-r",
+            "to": "out-r"
+          }
+        ],
+        "from": [
+          "in-l",
+          "in-r"
+        ],
+        "id": "fx",
+        "mode": "process",
+        "to": [
+          "out-l",
+          "out-r"
+        ]
+      }
+    ],
+    "power": {
+      "sources": [
+        {
+          "drawMa": null,
+          "included": true,
+          "inputConnectorId": "dc-in",
+          "kind": "external-dc",
+          "nominalV": 12,
+          "plug": {
+            "idMm": 2.5,
+            "odMm": 5.5,
+            "polarity": "center-positive",
+            "type": "barrel"
+          }
+        }
+      ]
+    }
+  },
+  "group": "Effects",
+  "id": "tpl-desktop-effect",
+  "name": "Desktop effect (stereo)",
+  "target": "gear"
+}

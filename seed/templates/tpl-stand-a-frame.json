@@ -1,0 +1,38 @@
+{
+  "generator": "tiered-a-frame",
+  "group": "Stands",
+  "id": "tpl-stand-a-frame",
+  "name": "Tiered A-frame keyboard stand",
+  "params": [
+    {
+      "default": 3,
+      "key": "tiers",
+      "label": "Tiers"
+    },
+    {
+      "default": 1450,
+      "key": "innerSpanMm",
+      "label": "Inner span",
+      "unit": "mm"
+    },
+    {
+      "default": 400,
+      "key": "holderLengthMm",
+      "label": "Holder length",
+      "unit": "mm"
+    },
+    {
+      "default": 1400,
+      "key": "heightMm",
+      "label": "Max height",
+      "unit": "mm"
+    },
+    {
+      "default": 40,
+      "key": "poleDiameterMm",
+      "label": "Pole diameter",
+      "unit": "mm"
+    }
+  ],
+  "target": "stand"
+}

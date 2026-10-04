@@ -1,0 +1,35 @@
+{
+  "connectors": [
+    {
+      "cv": {
+        "standard": "1V/oct"
+      },
+      "direction": "out",
+      "domain": "cv",
+      "face": "back",
+      "id": "cv-out",
+      "jack": "jack-3.5",
+      "label": "CV Out",
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "direction": "out",
+      "domain": "gate",
+      "face": "back",
+      "id": "gate-out",
+      "jack": "jack-3.5",
+      "label": "Gate Out",
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    }
+  ],
+  "group": "Connector groups",
+  "id": "tpl-conn-cv-gate",
+  "name": "CV/Gate pair",
+  "target": "connectors"
+}

@@ -1,0 +1,240 @@
+{
+  "gear": {
+    "category": "dynamics",
+    "connectors": [
+      {
+        "channel": {
+          "role": "mono"
+        },
+        "direction": "in",
+        "domain": "audio.analog",
+        "face": "back",
+        "id": "in-1-xlr",
+        "jack": "xlr-f",
+        "label": "In 1 (XLR)",
+        "pos": {
+          "x": 0,
+          "y": 0
+        },
+        "signal": {
+          "balance": "balanced",
+          "level": "+4dBu"
+        }
+      },
+      {
+        "channel": {
+          "role": "mono"
+        },
+        "direction": "in",
+        "domain": "audio.analog",
+        "face": "back",
+        "id": "in-1-trs",
+        "jack": "jack-6.35-TRS",
+        "label": "In 1 (TRS)",
+        "pos": {
+          "x": 0,
+          "y": 0
+        },
+        "signal": {
+          "balance": "balanced",
+          "level": "+4dBu"
+        }
+      },
+      {
+        "channel": {
+          "role": "mono"
+        },
+        "direction": "out",
+        "domain": "audio.analog",
+        "face": "back",
+        "id": "out-1-xlr",
+        "jack": "xlr-m",
+        "label": "Out 1 (XLR)",
+        "pos": {
+          "x": 0,
+          "y": 0
+        },
+        "signal": {
+          "balance": "balanced",
+          "level": "+4dBu"
+        }
+      },
+      {
+        "channel": {
+          "role": "mono"
+        },
+        "direction": "out",
+        "domain": "audio.analog",
+        "face": "back",
+        "id": "out-1-trs",
+        "jack": "jack-6.35-TRS",
+        "label": "Out 1 (TRS)",
+        "pos": {
+          "x": 0,
+          "y": 0
+        },
+        "signal": {
+          "balance": "balanced",
+          "level": "+4dBu"
+        }
+      },
+      {
+        "direction": "bidir",
+        "domain": "audio.analog",
+        "face": "back",
+        "id": "sidechain-1",
+        "insert": {
+          "ring": "send",
+          "tip": "return"
+        },
+        "jack": "jack-6.35-TRS",
+        "label": "Sidechain 1",
+        "pos": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "channel": {
+          "role": "mono"
+        },
+        "direction": "in",
+        "domain": "audio.analog",
+        "face": "back",
+        "id": "in-2-xlr",
+        "jack": "xlr-f",
+        "label": "In 2 (XLR)",
+        "pos": {
+          "x": 0,
+          "y": 0
+        },
+        "signal": {
+          "balance": "balanced",
+          "level": "+4dBu"
+        }
+      },
+      {
+        "channel": {
+          "role": "mono"
+        },
+        "direction": "in",
+        "domain": "audio.analog",
+        "face": "back",
+        "id": "in-2-trs",
+        "jack": "jack-6.35-TRS",
+        "label": "In 2 (TRS)",
+        "pos": {
+          "x": 0,
+          "y": 0
+        },
+        "signal": {
+          "balance": "balanced",
+          "level": "+4dBu"
+        }
+      },
+      {
+        "channel": {
+          "role": "mono"
+        },
+        "direction": "out",
+        "domain": "audio.analog",
+        "face": "back",
+        "id": "out-2-xlr",
+        "jack": "xlr-m",
+        "label": "Out 2 (XLR)",
+        "pos": {
+          "x": 0,
+          "y": 0
+        },
+        "signal": {
+          "balance": "balanced",
+          "level": "+4dBu"
+        }
+      },
+      {
+        "channel": {
+          "role": "mono"
+        },
+        "direction": "out",
+        "domain": "audio.analog",
+        "face": "back",
+        "id": "out-2-trs",
+        "jack": "jack-6.35-TRS",
+        "label": "Out 2 (TRS)",
+        "pos": {
+          "x": 0,
+          "y": 0
+        },
+        "signal": {
+          "balance": "balanced",
+          "level": "+4dBu"
+        }
+      },
+      {
+        "direction": "bidir",
+        "domain": "audio.analog",
+        "face": "back",
+        "id": "sidechain-2",
+        "insert": {
+          "ring": "send",
+          "tip": "return"
+        },
+        "jack": "jack-6.35-TRS",
+        "label": "Sidechain 2",
+        "pos": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "direction": "in",
+        "domain": "power.ac",
+        "face": "back",
+        "id": "ac-in",
+        "jack": "iec-c14",
+        "label": "Mains (IEC)",
+        "pos": {
+          "x": 0,
+          "y": 0
+        }
+      }
+    ],
+    "dimensions": {
+      "d": null,
+      "h": 44.45,
+      "heightIncludesKnobsFeet": false,
+      "rack": {
+        "earsIncluded": true,
+        "u": 1
+      },
+      "w": 482.6,
+      "weightKg": null
+    },
+    "ergonomics": {
+      "defaultUsage": "rare",
+      "interaction": "set-and-forget",
+      "needsDisplayVisibility": false
+    },
+    "formFactor": "rack",
+    "mounting": {
+      "rackEars": true
+    },
+    "power": {
+      "mainsRegion": "unknown",
+      "sources": [
+        {
+          "included": true,
+          "inputConnectorId": "ac-in",
+          "kind": "internal-mains",
+          "plug": {
+            "type": "iec-c14"
+          }
+        }
+      ]
+    }
+  },
+  "group": "Effects",
+  "id": "tpl-dynamics-1u",
+  "name": "Dynamics 1U (dual channel XLR+TRS)",
+  "target": "gear"
+}

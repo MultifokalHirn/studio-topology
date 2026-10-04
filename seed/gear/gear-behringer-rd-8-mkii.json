@@ -1,0 +1,601 @@
+{
+  "aliases": [],
+  "category": "drum-machine",
+  "clock": {
+    "canBeMaster": true,
+    "canBeSlave": true,
+    "formats": [
+      "midi"
+    ],
+    "notes": "Sync modes: Internal / MIDI / USB / Clock. Clock jack PPQN not located."
+  },
+  "connectors": [
+    {
+      "channel": {
+        "role": "mono"
+      },
+      "direction": "out",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "out-main",
+      "jack": "jack-6.35-TRS",
+      "label": "Main Out (mono)",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "index": 1,
+        "role": "numbered"
+      },
+      "direction": "out",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "out-voice-1",
+      "jack": "jack-6.35-TS",
+      "label": "Voice out 1",
+      "notes": "Individual voice output; voice names not in the reference.",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "unbalanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "index": 2,
+        "role": "numbered"
+      },
+      "direction": "out",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "out-voice-2",
+      "jack": "jack-6.35-TS",
+      "label": "Voice out 2",
+      "notes": "Individual voice output; voice names not in the reference.",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "unbalanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "index": 3,
+        "role": "numbered"
+      },
+      "direction": "out",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "out-voice-3",
+      "jack": "jack-6.35-TS",
+      "label": "Voice out 3",
+      "notes": "Individual voice output; voice names not in the reference.",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "unbalanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "index": 4,
+        "role": "numbered"
+      },
+      "direction": "out",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "out-voice-4",
+      "jack": "jack-6.35-TS",
+      "label": "Voice out 4",
+      "notes": "Individual voice output; voice names not in the reference.",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "unbalanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "index": 5,
+        "role": "numbered"
+      },
+      "direction": "out",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "out-voice-5",
+      "jack": "jack-6.35-TS",
+      "label": "Voice out 5",
+      "notes": "Individual voice output; voice names not in the reference.",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "unbalanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "index": 6,
+        "role": "numbered"
+      },
+      "direction": "out",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "out-voice-6",
+      "jack": "jack-6.35-TS",
+      "label": "Voice out 6",
+      "notes": "Individual voice output; voice names not in the reference.",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "unbalanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "index": 7,
+        "role": "numbered"
+      },
+      "direction": "out",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "out-voice-7",
+      "jack": "jack-6.35-TS",
+      "label": "Voice out 7",
+      "notes": "Individual voice output; voice names not in the reference.",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "unbalanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "index": 8,
+        "role": "numbered"
+      },
+      "direction": "out",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "out-voice-8",
+      "jack": "jack-6.35-TS",
+      "label": "Voice out 8",
+      "notes": "Individual voice output; voice names not in the reference.",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "unbalanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "index": 9,
+        "role": "numbered"
+      },
+      "direction": "out",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "out-voice-9",
+      "jack": "jack-6.35-TS",
+      "label": "Voice out 9",
+      "notes": "Individual voice output; voice names not in the reference.",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "unbalanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "index": 10,
+        "role": "numbered"
+      },
+      "direction": "out",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "out-voice-10",
+      "jack": "jack-6.35-TS",
+      "label": "Voice out 10",
+      "notes": "Individual voice output; voice names not in the reference.",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "unbalanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "index": 11,
+        "role": "numbered"
+      },
+      "direction": "out",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "out-voice-11",
+      "jack": "jack-6.35-TS",
+      "label": "Voice out 11",
+      "notes": "Individual voice output; voice names not in the reference.",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "unbalanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "role": "stereo"
+      },
+      "direction": "out",
+      "domain": "audio.headphone",
+      "face": "back",
+      "id": "phones",
+      "jack": "jack-6.35-TRS",
+      "label": "Headphones",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "n/a",
+        "level": "headphone"
+      }
+    },
+    {
+      "channel": {
+        "index": 1,
+        "role": "numbered"
+      },
+      "direction": "out",
+      "domain": "gate",
+      "face": "back",
+      "id": "trig-out-1",
+      "jack": "unknown",
+      "label": "Trigger out 1",
+      "notes": "+5 V, 1 ms.",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "n/a",
+        "level": "gate-5v"
+      }
+    },
+    {
+      "channel": {
+        "index": 2,
+        "role": "numbered"
+      },
+      "direction": "out",
+      "domain": "gate",
+      "face": "back",
+      "id": "trig-out-2",
+      "jack": "unknown",
+      "label": "Trigger out 2",
+      "notes": "+5 V, 1 ms.",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "n/a",
+        "level": "gate-5v"
+      }
+    },
+    {
+      "channel": {
+        "index": 3,
+        "role": "numbered"
+      },
+      "direction": "out",
+      "domain": "gate",
+      "face": "back",
+      "id": "trig-out-3",
+      "jack": "unknown",
+      "label": "Trigger out 3",
+      "notes": "+5 V, 1 ms.",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "n/a",
+        "level": "gate-5v"
+      }
+    },
+    {
+      "clock": {
+        "canMaster": true,
+        "format": "pulse",
+        "note": "Jack type and PPQN not located."
+      },
+      "direction": "out",
+      "domain": "clock.pulse",
+      "face": "back",
+      "id": "clock-out",
+      "jack": "unknown",
+      "label": "Clock Out",
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "clock": {
+        "canSlave": true,
+        "format": "pulse",
+        "note": "Jack type and PPQN not located."
+      },
+      "direction": "in",
+      "domain": "clock.pulse",
+      "face": "back",
+      "id": "clock-in",
+      "jack": "unknown",
+      "label": "Clock In",
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "direction": "in",
+      "domain": "midi.din",
+      "face": "back",
+      "id": "midi-in",
+      "jack": "din5-f",
+      "label": "MIDI In",
+      "midi": {
+        "carries": [
+          "notes",
+          "cc",
+          "pc",
+          "sysex",
+          "clock",
+          "transport"
+        ]
+      },
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "direction": "out",
+      "domain": "midi.din",
+      "face": "back",
+      "id": "midi-out",
+      "jack": "din5-f",
+      "label": "MIDI Out",
+      "midi": {
+        "carries": [
+          "notes",
+          "cc",
+          "pc",
+          "sysex",
+          "clock",
+          "transport"
+        ]
+      },
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "direction": "thru",
+      "domain": "midi.din",
+      "face": "back",
+      "id": "midi-thru",
+      "jack": "din5-f",
+      "label": "MIDI Thru",
+      "midi": {
+        "carries": [
+          "notes",
+          "cc",
+          "pc",
+          "sysex",
+          "clock",
+          "transport"
+        ],
+        "thruMode": "hard"
+      },
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "direction": "bidir",
+      "domain": "usb.data",
+      "face": "back",
+      "id": "usb",
+      "jack": "usb-b-f",
+      "label": "USB",
+      "notes": "Class-compliant; also carries sync.",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "usb": {
+        "busPowered": false,
+        "carries": [
+          "midi"
+        ],
+        "role": "device",
+        "version": "unknown"
+      }
+    },
+    {
+      "direction": "in",
+      "domain": "power.dc",
+      "face": "back",
+      "id": "dc-in",
+      "jack": "unknown",
+      "label": "DC In",
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    }
+  ],
+  "dimensions": {
+    "d": 265,
+    "h": 77,
+    "heightIncludesKnobsFeet": true,
+    "w": 498,
+    "weightKg": 3
+  },
+  "ergonomics": {
+    "defaultUsage": "primary",
+    "interaction": "pads",
+    "needsDisplayVisibility": true
+  },
+  "faces": {},
+  "formFactor": "desktop",
+  "id": "gear-behringer-rd-8-mkii",
+  "images": {},
+  "internalPaths": [],
+  "manufacturer": "Behringer",
+  "midi": {
+    "clockIn": true,
+    "clockOut": true
+  },
+  "mounting": {},
+  "name": "RD-8",
+  "notes": "18 V supply, not 12 V: can damage 12 V units if swapped.",
+  "power": {
+    "mainsRegion": "unknown",
+    "sources": [
+      {
+        "drawMa": 833,
+        "included": true,
+        "inputConnectorId": "dc-in",
+        "kind": "external-dc",
+        "nominalV": 18,
+        "plug": {
+          "idMm": null,
+          "odMm": null,
+          "polarity": null,
+          "type": "barrel"
+        },
+        "suppliedModelId": "gear-behringer-rd-8-psu"
+      }
+    ],
+    "typicalW": 15
+  },
+  "provenance": {
+    "connectors.*.face": {
+      "kind": "estimated",
+      "note": "Rear panel assumed unless the reference states the panel."
+    },
+    "connectors.*.pos": {
+      "kind": "unknown",
+      "note": "Placeholder (0,0); place on a panel image."
+    },
+    "connectors.13.jack": {
+      "kind": "unknown",
+      "note": "Jack type not located in the gear reference."
+    },
+    "connectors.14.jack": {
+      "kind": "unknown",
+      "note": "Jack type not located in the gear reference."
+    },
+    "connectors.15.jack": {
+      "kind": "unknown",
+      "note": "Jack type not located in the gear reference."
+    },
+    "connectors.16.jack": {
+      "kind": "unknown",
+      "note": "Jack type not located in the gear reference."
+    },
+    "connectors.17.jack": {
+      "kind": "unknown",
+      "note": "Jack type not located in the gear reference."
+    },
+    "connectors.22.jack": {
+      "kind": "unknown",
+      "note": "Jack type not located in the gear reference."
+    },
+    "dimensions.d": {
+      "kind": "datasheet",
+      "note": "Gear reference v2"
+    },
+    "dimensions.h": {
+      "kind": "datasheet",
+      "note": "Gear reference v2"
+    },
+    "dimensions.w": {
+      "kind": "datasheet",
+      "note": "Gear reference v2"
+    },
+    "dimensions.weightKg": {
+      "kind": "datasheet",
+      "note": "Gear reference v2"
+    },
+    "power.sources.0.drawMa": {
+      "kind": "estimated",
+      "note": "Derived: 15 W typical / 18 V."
+    },
+    "power.sources.0.plug.idMm": {
+      "kind": "unknown",
+      "note": "Not located in the gear reference."
+    },
+    "power.sources.0.plug.odMm": {
+      "kind": "unknown",
+      "note": "Not located in the gear reference."
+    },
+    "power.sources.0.plug.polarity": {
+      "kind": "unknown",
+      "note": "Not located in the gear reference."
+    }
+  },
+  "sources": [
+    {
+      "label": "Home Studio Gear Reference v2 (docs/studio-gear-reference.md)",
+      "retrieved": "2026-10-04"
+    }
+  ],
+  "tags": [
+    "behringer"
+  ],
+  "variant": "MKII"
+}

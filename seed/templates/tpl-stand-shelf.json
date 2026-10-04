@@ -1,0 +1,32 @@
+{
+  "group": "Stands",
+  "id": "tpl-stand-shelf",
+  "name": "Shelf",
+  "stand": {
+    "dimensions": {
+      "d": 300,
+      "h": null,
+      "w": 800
+    },
+    "surfaces": [
+      {
+        "adjustable": {},
+        "anchor": {
+          "x": 0,
+          "y": 0,
+          "z": 1000
+        },
+        "id": "shelf",
+        "kind": "shelf",
+        "label": "Shelf",
+        "loadKg": null,
+        "usable": {
+          "d": 300,
+          "w": 800
+        }
+      }
+    ],
+    "type": "shelf"
+  },
+  "target": "stand"
+}

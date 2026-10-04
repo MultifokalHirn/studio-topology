@@ -13,7 +13,9 @@
     "format": "prettier --write .",
     "schema:gen": "tsx scripts/schema-gen.ts",
     "schema:check": "tsx scripts/schema-gen.ts --check",
-    "seed:validate": "tsx scripts/seed-validate.ts"
+    "seed:validate": "tsx scripts/seed-validate.ts",
+    "seed:build": "tsx scripts/seed-build.ts",
+    "seed:check": "tsx scripts/seed-build.ts --check"
   },
   "author": "",
   "license": "UNLICENSED",

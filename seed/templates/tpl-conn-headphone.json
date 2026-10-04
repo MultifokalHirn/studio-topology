@@ -1,0 +1,27 @@
+{
+  "connectors": [
+    {
+      "channel": {
+        "role": "stereo"
+      },
+      "direction": "out",
+      "domain": "audio.headphone",
+      "face": "back",
+      "id": "phones",
+      "jack": "jack-6.35-TRS",
+      "label": "Headphones",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "n/a",
+        "level": "headphone"
+      }
+    }
+  ],
+  "group": "Connector groups",
+  "id": "tpl-conn-headphone",
+  "name": "Headphone ¼\" stereo",
+  "target": "connectors"
+}

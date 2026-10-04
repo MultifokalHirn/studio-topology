@@ -1,0 +1,20 @@
+{
+  "carries": [
+    "audio.analog",
+    "midi.trs-a",
+    "midi.trs-b",
+    "clock.pulse"
+  ],
+  "endA": "TRS-3.5",
+  "endB": "TRS-3.5",
+  "id": "cable-trs-3.5",
+  "kind": "cable",
+  "lengthsMm": [
+    300,
+    500,
+    1000,
+    1500,
+    3000
+  ],
+  "name": "3.5 mm TRS – 3.5 mm TRS"
+}

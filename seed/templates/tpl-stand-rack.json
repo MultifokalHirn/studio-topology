@@ -1,0 +1,21 @@
+{
+  "generator": "rack",
+  "group": "Stands",
+  "id": "tpl-stand-rack",
+  "name": "19\" rack",
+  "params": [
+    {
+      "default": 12,
+      "key": "u",
+      "label": "Units",
+      "unit": "U"
+    },
+    {
+      "default": 400,
+      "key": "depthMm",
+      "label": "Depth",
+      "unit": "mm"
+    }
+  ],
+  "target": "stand"
+}

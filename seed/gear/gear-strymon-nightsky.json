@@ -1,0 +1,314 @@
+{
+  "aliases": [],
+  "category": "effect",
+  "clock": {
+    "canBeMaster": false,
+    "canBeSlave": true,
+    "formats": [
+      "midi"
+    ]
+  },
+  "connectors": [
+    {
+      "channel": {
+        "group": "out",
+        "role": "L"
+      },
+      "direction": "out",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "out-l",
+      "jack": "jack-6.35-TS",
+      "label": "Out L",
+      "notes": "Low impedance.",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "unbalanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "group": "out",
+        "role": "R"
+      },
+      "direction": "out",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "out-r",
+      "jack": "jack-6.35-TS",
+      "label": "Out R",
+      "notes": "Low impedance.",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "unbalanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "group": "in",
+        "role": "L"
+      },
+      "direction": "in",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "in-l",
+      "jack": "jack-6.35-TS",
+      "label": "In L",
+      "notes": "Mono uses L only.",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "unbalanced",
+        "level": "hi-z"
+      }
+    },
+    {
+      "channel": {
+        "group": "in",
+        "role": "R"
+      },
+      "direction": "in",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "in-r",
+      "jack": "jack-6.35-TS",
+      "label": "In R",
+      "notes": "Mono uses L only.",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "unbalanced",
+        "level": "hi-z"
+      }
+    },
+    {
+      "alternates": [
+        {
+          "domain": "midi.trs-a",
+          "id": "midi",
+          "label": "MIDI In (Strymon cable)",
+          "note": "Via Strymon MIDI EXP cable."
+        }
+      ],
+      "direction": "in",
+      "domain": "expression",
+      "face": "back",
+      "id": "exp",
+      "jack": "jack-6.35-TRS",
+      "label": "EXP",
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "direction": "in",
+      "domain": "midi.din",
+      "face": "back",
+      "id": "midi-in",
+      "jack": "din5-f",
+      "label": "MIDI In",
+      "midi": {
+        "carries": [
+          "notes",
+          "cc",
+          "pc",
+          "sysex",
+          "clock",
+          "transport"
+        ]
+      },
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "alternates": [
+        {
+          "direction": "thru",
+          "id": "thru",
+          "label": "Pass-through"
+        }
+      ],
+      "direction": "out",
+      "domain": "midi.din",
+      "face": "back",
+      "id": "midi-out",
+      "jack": "din5-f",
+      "label": "MIDI Out",
+      "midi": {
+        "carries": [
+          "notes",
+          "cc",
+          "pc",
+          "sysex",
+          "clock",
+          "transport"
+        ]
+      },
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "direction": "bidir",
+      "domain": "usb.data",
+      "face": "back",
+      "id": "usb",
+      "jack": "unknown",
+      "label": "USB",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "usb": {
+        "busPowered": false,
+        "carries": [
+          "midi",
+          "firmware"
+        ],
+        "role": "device",
+        "version": "unknown"
+      }
+    },
+    {
+      "direction": "in",
+      "domain": "power.dc",
+      "face": "back",
+      "id": "dc-in",
+      "jack": "dc-barrel-5.5x2.1",
+      "label": "DC In",
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    }
+  ],
+  "dimensions": {
+    "d": 114,
+    "h": 44,
+    "heightIncludesKnobsFeet": false,
+    "w": 178,
+    "weightKg": null
+  },
+  "ergonomics": {
+    "defaultUsage": "secondary",
+    "interaction": "footswitch",
+    "needsDisplayVisibility": false
+  },
+  "faces": {},
+  "formFactor": "pedal",
+  "id": "gear-strymon-nightsky",
+  "images": {},
+  "internalPaths": [
+    {
+      "channelMap": [
+        {
+          "from": "in-l",
+          "to": "out-l"
+        },
+        {
+          "from": "in-r",
+          "to": "out-r"
+        }
+      ],
+      "from": [
+        "in-l",
+        "in-r"
+      ],
+      "id": "fx",
+      "mode": "process",
+      "to": [
+        "out-l",
+        "out-r"
+      ]
+    }
+  ],
+  "manufacturer": "Strymon",
+  "midi": {
+    "clockIn": true
+  },
+  "mounting": {},
+  "name": "NightSky",
+  "notes": "Body height 44 mm; about 63 mm with footswitches. 8-step sequencer. Opposite polarity to Elektron/Eventide supplies.",
+  "power": {
+    "mainsRegion": "unknown",
+    "maxW": 2.7,
+    "sources": [
+      {
+        "drawMa": 300,
+        "included": true,
+        "inputConnectorId": "dc-in",
+        "kind": "external-dc",
+        "maxVoltageNote": "Maximum 9 V",
+        "nominalV": 9,
+        "plug": {
+          "idMm": 2.1,
+          "odMm": 5.5,
+          "polarity": "center-negative",
+          "type": "barrel"
+        },
+        "suppliedModelId": "gear-strymon-nightsky-psu",
+        "voltageMaxV": 9
+      }
+    ]
+  },
+  "provenance": {
+    "connectors.*.face": {
+      "kind": "estimated",
+      "note": "Rear panel assumed unless the reference states the panel."
+    },
+    "connectors.*.pos": {
+      "kind": "unknown",
+      "note": "Placeholder (0,0); place on a panel image."
+    },
+    "connectors.7.jack": {
+      "kind": "unknown",
+      "note": "Jack type not located in the gear reference."
+    },
+    "dimensions.d": {
+      "kind": "datasheet",
+      "note": "Gear reference v2"
+    },
+    "dimensions.h": {
+      "kind": "datasheet",
+      "note": "Gear reference v2"
+    },
+    "dimensions.w": {
+      "kind": "datasheet",
+      "note": "Gear reference v2"
+    },
+    "dimensions.weightKg": {
+      "kind": "unknown",
+      "note": "Not located in the gear reference."
+    },
+    "power.sources.0.drawMa": {
+      "kind": "datasheet",
+      "note": "≥300 mA required; used as the draw."
+    }
+  },
+  "sources": [
+    {
+      "label": "Home Studio Gear Reference v2 (docs/studio-gear-reference.md)",
+      "retrieved": "2026-10-04"
+    }
+  ],
+  "tags": [
+    "strymon",
+    "reverb"
+  ]
+}

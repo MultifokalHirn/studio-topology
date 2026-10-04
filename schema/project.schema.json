@@ -245,7 +245,8 @@
                 "mono",
                 "L",
                 "R",
-                "numbered"
+                "numbered",
+                "stereo"
               ],
               "type": "string"
             }
@@ -270,6 +271,7 @@
                 "dinsync24",
                 "dinsync48",
                 "pulse",
+                "po-sync",
                 "word",
                 "adat"
               ],
@@ -331,6 +333,26 @@
         "id": {
           "$ref": "#/$defs/__schema2"
         },
+        "insert": {
+          "additionalProperties": false,
+          "properties": {
+            "ring": {
+              "enum": [
+                "send",
+                "return"
+              ],
+              "type": "string"
+            },
+            "tip": {
+              "enum": [
+                "send",
+                "return"
+              ],
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
         "jack": {
           "anyOf": [
             {
@@ -353,7 +375,13 @@
                 "usb-mini-b-f",
                 "rj45",
                 "iec-c14",
-                "speakon"
+                "speakon",
+                "jack-6.35",
+                "jack-3.5",
+                "wireless",
+                "mains-plug",
+                "captive-cable",
+                "unknown"
               ],
               "type": "string"
             },
@@ -502,17 +530,31 @@
                   "type": "string"
                 },
                 "inChannels": {
-                  "maximum": 9007199254740991,
-                  "minimum": -9007199254740991,
-                  "type": "integer"
+                  "anyOf": [
+                    {
+                      "maximum": 9007199254740991,
+                      "minimum": -9007199254740991,
+                      "type": "integer"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
                 },
                 "maxRateHz": {
                   "type": "number"
                 },
                 "outChannels": {
-                  "maximum": 9007199254740991,
-                  "minimum": -9007199254740991,
-                  "type": "integer"
+                  "anyOf": [
+                    {
+                      "maximum": 9007199254740991,
+                      "minimum": -9007199254740991,
+                      "type": "integer"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
                 }
               },
               "required": [
@@ -649,13 +691,20 @@
           "additionalProperties": false,
           "properties": {
             "idMm": {
-              "type": "number"
+              "$ref": "#/$defs/__schema11"
             },
             "odMm": {
-              "type": "number"
+              "$ref": "#/$defs/__schema11"
             },
             "polarity": {
-              "$ref": "#/$defs/__schema23"
+              "anyOf": [
+                {
+                  "$ref": "#/$defs/__schema23"
+                },
+                {
+                  "type": "null"
+                }
+              ]
             },
             "type": {
               "const": "barrel",
@@ -754,6 +803,9 @@
             },
             "type": "array"
           },
+          "group": {
+            "type": "string"
+          },
           "id": {
             "$ref": "#/$defs/__schema2"
           },
@@ -791,6 +843,26 @@
     "__schema25": {
       "additionalProperties": false,
       "properties": {
+        "busRails": {
+          "additionalProperties": false,
+          "properties": {
+            "minus12Ma": {
+              "$ref": "#/$defs/__schema11"
+            },
+            "plus12Ma": {
+              "$ref": "#/$defs/__schema11"
+            },
+            "plus5Ma": {
+              "$ref": "#/$defs/__schema11"
+            }
+          },
+          "required": [
+            "plus12Ma",
+            "minus12Ma",
+            "plus5Ma"
+          ],
+          "type": "object"
+        },
         "inrushNote": {
           "type": "string"
         },
@@ -949,10 +1021,12 @@
               "midi",
               "dinsync24",
               "dinsync48",
+              "pulse-step",
               "pulse-1ppqn",
               "pulse-2ppqn",
               "pulse-24ppqn",
               "pulse-48ppqn",
+              "po-sync",
               "adat",
               "word"
             ],
@@ -2023,6 +2097,27 @@
           "items": {
             "additionalProperties": false,
             "properties": {
+              "connectorGroups": {
+                "items": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "connectors": {
+                      "items": {
+                        "$ref": "#/$defs/__schema18"
+                      },
+                      "type": "array"
+                    },
+                    "repeat": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "connectors"
+                  ],
+                  "type": "object"
+                },
+                "type": "array"
+              },
               "connectors": {
                 "items": {
                   "$ref": "#/$defs/__schema18"
@@ -2112,6 +2207,15 @@
                   }
                 },
                 "type": "object"
+              },
+              "generator": {
+                "enum": [
+                  "tiered-a-frame",
+                  "rack",
+                  "desk",
+                  "eurorack-stand"
+                ],
+                "type": "string"
               },
               "group": {
                 "type": "string"
@@ -2984,6 +3088,15 @@
                 },
                 "notes": {
                   "type": "string"
+                },
+                "pathPresets": {
+                  "additionalProperties": {
+                    "type": "string"
+                  },
+                  "propertyNames": {
+                    "type": "string"
+                  },
+                  "type": "object"
                 },
                 "powerAssignments": {
                   "items": {

@@ -1,0 +1,90 @@
+{
+  "description": "One model for the pair: In L feeds the left speaker, In R the right.",
+  "gear": {
+    "category": "monitor-speaker",
+    "connectors": [
+      {
+        "channel": {
+          "group": "in",
+          "role": "L"
+        },
+        "direction": "in",
+        "domain": "audio.analog",
+        "face": "back",
+        "id": "in-l",
+        "jack": "combo-xlr-trs",
+        "label": "In L",
+        "pos": {
+          "x": 0,
+          "y": 0
+        },
+        "signal": {
+          "balance": "balanced",
+          "level": "+4dBu"
+        }
+      },
+      {
+        "channel": {
+          "group": "in",
+          "role": "R"
+        },
+        "direction": "in",
+        "domain": "audio.analog",
+        "face": "back",
+        "id": "in-r",
+        "jack": "combo-xlr-trs",
+        "label": "In R",
+        "pos": {
+          "x": 0,
+          "y": 0
+        },
+        "signal": {
+          "balance": "balanced",
+          "level": "+4dBu"
+        }
+      },
+      {
+        "direction": "in",
+        "domain": "power.ac",
+        "face": "back",
+        "id": "ac-in",
+        "jack": "iec-c14",
+        "label": "Mains (IEC)",
+        "pos": {
+          "x": 0,
+          "y": 0
+        }
+      }
+    ],
+    "dimensions": {
+      "d": null,
+      "h": null,
+      "heightIncludesKnobsFeet": true,
+      "w": null,
+      "weightKg": null
+    },
+    "ergonomics": {
+      "defaultUsage": "rare",
+      "interaction": "set-and-forget",
+      "needsDisplayVisibility": false
+    },
+    "formFactor": "speaker",
+    "power": {
+      "mainsRegion": "unknown",
+      "sources": [
+        {
+          "included": true,
+          "inputConnectorId": "ac-in",
+          "kind": "internal-mains",
+          "plug": {
+            "type": "iec-c14"
+          }
+        }
+      ]
+    }
+  },
+  "group": "Computers",
+  "id": "tpl-monitor-speakers",
+  "name": "Monitor speakers (pair)",
+  "target": "gear"
+}

@@ -9,6 +9,8 @@ test.beforeEach(async ({ page }) => {
     delete (window as { showOpenFilePicker?: unknown }).showOpenFilePicker;
   });
   await page.goto('/');
+  // The sample studio loads on first launch; wait for it so it cannot race with the file we open.
+  await expect(page.getByTestId('project-name')).toHaveText('My studio (sample)');
 });
 
 async function openText(page: import('@playwright/test').Page, name: string, text: string) {

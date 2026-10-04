@@ -1,0 +1,38 @@
+{
+  "group": "Stands",
+  "id": "tpl-stand-x",
+  "name": "X-stand",
+  "stand": {
+    "dimensions": {
+      "d": 450,
+      "h": null,
+      "w": 1000
+    },
+    "surfaces": [
+      {
+        "adjustable": {
+          "z": {
+            "max": 1000,
+            "min": 600,
+            "step": 25
+          }
+        },
+        "anchor": {
+          "x": 0,
+          "y": 0,
+          "z": 800
+        },
+        "id": "top",
+        "kind": "tier",
+        "label": "Arms",
+        "loadKg": null,
+        "usable": {
+          "d": 450,
+          "w": 1000
+        }
+      }
+    ],
+    "type": "custom"
+  },
+  "target": "stand"
+}

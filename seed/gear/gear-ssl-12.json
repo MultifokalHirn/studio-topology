@@ -1,0 +1,545 @@
+{
+  "aliases": [
+    "SSL12"
+  ],
+  "audio": {
+    "adatMaxHzNote": "ADAT input runs at 44.1/48 kHz from the ADA8200.",
+    "sampleRatesHz": [
+      44100,
+      48000,
+      88200,
+      96000,
+      176400,
+      192000
+    ]
+  },
+  "category": "interface",
+  "clock": {
+    "canBeMaster": false,
+    "canBeSlave": true,
+    "formats": [
+      "adat"
+    ],
+    "notes": "Can lock to ADAT input."
+  },
+  "connectors": [
+    {
+      "alternates": [
+        {
+          "id": "line",
+          "label": "Line"
+        }
+      ],
+      "channel": {
+        "index": 1,
+        "role": "numbered"
+      },
+      "direction": "in",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "in-1",
+      "jack": "combo-xlr-trs",
+      "label": "Input 1",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "mic",
+        "phantom": "switchable"
+      }
+    },
+    {
+      "alternates": [
+        {
+          "id": "line",
+          "label": "Line"
+        }
+      ],
+      "channel": {
+        "index": 2,
+        "role": "numbered"
+      },
+      "direction": "in",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "in-2",
+      "jack": "combo-xlr-trs",
+      "label": "Input 2",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "mic",
+        "phantom": "switchable"
+      }
+    },
+    {
+      "alternates": [
+        {
+          "id": "line",
+          "label": "Line"
+        }
+      ],
+      "channel": {
+        "index": 3,
+        "role": "numbered"
+      },
+      "direction": "in",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "in-3",
+      "jack": "combo-xlr-trs",
+      "label": "Input 3",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "mic",
+        "phantom": "switchable"
+      }
+    },
+    {
+      "alternates": [
+        {
+          "id": "line",
+          "label": "Line"
+        }
+      ],
+      "channel": {
+        "index": 4,
+        "role": "numbered"
+      },
+      "direction": "in",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "in-4",
+      "jack": "combo-xlr-trs",
+      "label": "Input 4",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "mic",
+        "phantom": "switchable"
+      }
+    },
+    {
+      "channel": {
+        "index": 1,
+        "role": "numbered"
+      },
+      "direction": "in",
+      "domain": "audio.analog",
+      "face": "front",
+      "id": "inst-1",
+      "jack": "jack-6.35",
+      "label": "Instrument 1",
+      "notes": "Hi-Z input for channels 1–2.",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "unbalanced",
+        "level": "hi-z"
+      }
+    },
+    {
+      "channel": {
+        "index": 2,
+        "role": "numbered"
+      },
+      "direction": "in",
+      "domain": "audio.analog",
+      "face": "front",
+      "id": "inst-2",
+      "jack": "jack-6.35",
+      "label": "Instrument 2",
+      "notes": "Hi-Z input for channels 1–2.",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "unbalanced",
+        "level": "hi-z"
+      }
+    },
+    {
+      "channel": {
+        "index": 1,
+        "role": "numbered"
+      },
+      "direction": "out",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "out-1",
+      "jack": "jack-6.35-TRS",
+      "label": "Line Out 1",
+      "notes": "DC-coupled; usable for CV.",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "index": 2,
+        "role": "numbered"
+      },
+      "direction": "out",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "out-2",
+      "jack": "jack-6.35-TRS",
+      "label": "Line Out 2",
+      "notes": "DC-coupled; usable for CV.",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "index": 3,
+        "role": "numbered"
+      },
+      "direction": "out",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "out-3",
+      "jack": "jack-6.35-TRS",
+      "label": "Line Out 3",
+      "notes": "DC-coupled; usable for CV.",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "index": 4,
+        "role": "numbered"
+      },
+      "direction": "out",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "out-4",
+      "jack": "jack-6.35-TRS",
+      "label": "Line Out 4",
+      "notes": "DC-coupled; usable for CV.",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "line"
+      }
+    },
+    {
+      "alternates": [
+        {
+          "domain": "audio.analog",
+          "id": "line",
+          "label": "Mono line out",
+          "note": "Re-assignable as a mono line out (8 outs total)."
+        }
+      ],
+      "channel": {
+        "role": "stereo"
+      },
+      "direction": "out",
+      "domain": "audio.headphone",
+      "face": "front",
+      "id": "phones-1",
+      "jack": "jack-6.35",
+      "label": "Headphones A",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "n/a",
+        "level": "headphone"
+      }
+    },
+    {
+      "alternates": [
+        {
+          "domain": "audio.analog",
+          "id": "line",
+          "label": "Mono line out",
+          "note": "Re-assignable as a mono line out (8 outs total)."
+        }
+      ],
+      "channel": {
+        "role": "stereo"
+      },
+      "direction": "out",
+      "domain": "audio.headphone",
+      "face": "front",
+      "id": "phones-2",
+      "jack": "jack-6.35",
+      "label": "Headphones B",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "n/a",
+        "level": "headphone"
+      }
+    },
+    {
+      "channel": {
+        "bus": "adat",
+        "role": "numbered"
+      },
+      "direction": "in",
+      "domain": "audio.adat",
+      "face": "back",
+      "id": "adat-in",
+      "jack": "toslink-f",
+      "label": "ADAT In",
+      "notes": "8 channels. No ADAT out.",
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "direction": "in",
+      "domain": "midi.din",
+      "face": "back",
+      "id": "midi-in",
+      "jack": "din5-f",
+      "label": "MIDI In",
+      "midi": {
+        "carries": [
+          "notes",
+          "cc",
+          "pc",
+          "sysex",
+          "clock",
+          "transport"
+        ]
+      },
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "direction": "out",
+      "domain": "midi.din",
+      "face": "back",
+      "id": "midi-out",
+      "jack": "din5-f",
+      "label": "MIDI Out",
+      "midi": {
+        "carries": [
+          "notes",
+          "cc",
+          "pc",
+          "sysex",
+          "clock",
+          "transport"
+        ]
+      },
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "direction": "bidir",
+      "domain": "usb.data",
+      "face": "back",
+      "id": "usb",
+      "jack": "usb-c-f",
+      "label": "USB",
+      "notes": "USB 2.0 protocol; designed for a USB 3.0 port for bus power. Loopback.",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "usb": {
+        "audio": {
+          "compliance": "class-compliant",
+          "inChannels": 12,
+          "maxRateHz": 192000,
+          "outChannels": 8
+        },
+        "busPowered": true,
+        "carries": [
+          "audio",
+          "midi",
+          "power"
+        ],
+        "drawsBusPowerMa": null,
+        "role": "device",
+        "version": "2.0"
+      }
+    }
+  ],
+  "dimensions": {
+    "d": 154.9,
+    "h": 58.7,
+    "heightIncludesKnobsFeet": true,
+    "w": 286.7,
+    "weightKg": 1.4
+  },
+  "ergonomics": {
+    "defaultUsage": "secondary",
+    "interaction": "knobs-buttons",
+    "needsDisplayVisibility": false
+  },
+  "faces": {},
+  "formFactor": "desktop",
+  "id": "gear-ssl-12",
+  "images": {},
+  "internalPaths": [
+    {
+      "from": [
+        "in-1",
+        "in-2",
+        "in-3",
+        "in-4",
+        "inst-1",
+        "inst-2",
+        "adat-in"
+      ],
+      "id": "analog-to-host",
+      "mode": "host-bridge",
+      "to": [
+        "usb"
+      ]
+    },
+    {
+      "from": [
+        "usb"
+      ],
+      "id": "host-to-analog",
+      "mode": "host-bridge",
+      "to": [
+        "out-1",
+        "out-2",
+        "out-3",
+        "out-4",
+        "phones-1",
+        "phones-2"
+      ]
+    },
+    {
+      "from": [
+        "midi-in"
+      ],
+      "id": "midi-to-host",
+      "mode": "host-bridge",
+      "to": [
+        "usb"
+      ]
+    },
+    {
+      "from": [
+        "usb"
+      ],
+      "id": "host-to-midi",
+      "mode": "host-bridge",
+      "to": [
+        "midi-out"
+      ]
+    }
+  ],
+  "manufacturer": "Solid State Logic",
+  "midi": {
+    "notes": "MIDI In/Out exposed to the host over USB."
+  },
+  "mounting": {},
+  "name": "SSL 12",
+  "notes": "Bus-powered; power switch on the unit; talkback mic built in. Keep off unpowered hubs.",
+  "power": {
+    "mainsRegion": "unknown",
+    "sources": [
+      {
+        "drawMa": null,
+        "included": true,
+        "inputConnectorId": "usb",
+        "kind": "usb-bus",
+        "nominalV": 5,
+        "plug": {
+          "type": "usb"
+        }
+      }
+    ]
+  },
+  "provenance": {
+    "audio.sampleRatesHz": {
+      "kind": "estimated",
+      "note": "Reference states \"up to 192 kHz\"; intermediate rates assumed."
+    },
+    "connectors.*.face": {
+      "kind": "estimated",
+      "note": "Rear panel assumed unless the reference states the panel."
+    },
+    "connectors.*.pos": {
+      "kind": "unknown",
+      "note": "Placeholder (0,0); place on a panel image."
+    },
+    "connectors.15.usb.drawsBusPowerMa": {
+      "kind": "unknown",
+      "note": "Designed for a USB 3.0 port (900 mA nominal); actual draw not located."
+    },
+    "dimensions.d": {
+      "kind": "datasheet",
+      "note": "Gear reference v2"
+    },
+    "dimensions.h": {
+      "kind": "datasheet",
+      "note": "Gear reference v2"
+    },
+    "dimensions.w": {
+      "kind": "datasheet",
+      "note": "Gear reference v2"
+    },
+    "dimensions.weightKg": {
+      "kind": "datasheet",
+      "note": "Gear reference v2"
+    },
+    "power.sources.0.drawMa": {
+      "kind": "unknown",
+      "note": "Not located in the gear reference."
+    }
+  },
+  "sources": [
+    {
+      "label": "Home Studio Gear Reference v2 (docs/studio-gear-reference.md)",
+      "retrieved": "2026-10-04"
+    }
+  ],
+  "tags": [
+    "interface",
+    "usb-audio"
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "carries": [
+    "power.dc"
+  ],
+  "endA": "DC-barrel",
+  "endB": "DC-barrel",
+  "id": "cable-dc-extension",
+  "kind": "cable",
+  "lengthsMm": [
+    500,
+    1000,
+    2000
+  ],
+  "name": "DC barrel extension 5.5 × 2.1/2.5"
+}

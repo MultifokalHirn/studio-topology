@@ -1,0 +1,169 @@
+{
+  "dimensions": {
+    "d": 700,
+    "h": 1400,
+    "innerSpanMm": 1450,
+    "w": 1550,
+    "weightKg": null
+  },
+  "id": "stand-jaspers-3d-145b",
+  "images": {},
+  "manufacturer": "Jaspers",
+  "name": "3D-145B",
+  "notes": "Holder lengths and load limits from retailer specs; heights, tilt ranges and depth offsets are placeholders until measured.",
+  "provenance": {
+    "dimensions.w": {
+      "kind": "retailer",
+      "url": "https://www.musicstore.de/en_DE/EUR/Jaspers-3D-145B/art-KEY0003689-000"
+    },
+    "dimensions.weightKg": {
+      "kind": "unknown"
+    },
+    "structure.poleDiameterMm": {
+      "kind": "estimated",
+      "note": "Not published; measure."
+    },
+    "surfaces.0.adjustable.z": {
+      "kind": "estimated",
+      "note": "Retailer lists max height 140 cm only; measure the real stand."
+    },
+    "surfaces.0.loadKg": {
+      "kind": "retailer"
+    },
+    "surfaces.1.adjustable.y": {
+      "kind": "unknown",
+      "note": "Tier depth offsets (A-frame geometry) not published; measure."
+    },
+    "surfaces.1.loadKg": {
+      "kind": "retailer"
+    },
+    "surfaces.2.adjustable.y": {
+      "kind": "unknown",
+      "note": "Tier depth offsets (A-frame geometry) not published; measure."
+    },
+    "surfaces.2.loadKg": {
+      "kind": "retailer"
+    }
+  },
+  "sources": [
+    {
+      "label": "musicstore.de",
+      "url": "https://www.musicstore.de/en_DE/EUR/Jaspers-3D-145B/art-KEY0003689-000"
+    }
+  ],
+  "structure": {
+    "poleDiameterMm": 40
+  },
+  "surfaces": [
+    {
+      "adjustable": {
+        "tiltDeg": {
+          "max": 30,
+          "min": 0,
+          "step": 1
+        },
+        "z": {
+          "max": 1400,
+          "min": 300,
+          "step": 5
+        }
+      },
+      "anchor": {
+        "x": 0,
+        "y": 0,
+        "z": 400
+      },
+      "holders": {
+        "lengthMm": 600,
+        "pairMinSpacingMm": 150,
+        "protrusionAdjustable": false,
+        "thicknessMm": 30
+      },
+      "id": "tier-bottom",
+      "kind": "tier",
+      "label": "Bottom tier (reinforced)",
+      "loadKg": 40,
+      "usable": {
+        "d": 600,
+        "w": 1450
+      }
+    },
+    {
+      "adjustable": {
+        "tiltDeg": {
+          "max": 30,
+          "min": 0,
+          "step": 1
+        },
+        "y": {
+          "max": 300,
+          "min": -300,
+          "step": 5
+        },
+        "z": {
+          "max": 1400,
+          "min": 300,
+          "step": 5
+        }
+      },
+      "anchor": {
+        "x": 0,
+        "y": 0,
+        "z": 800
+      },
+      "holders": {
+        "lengthMm": 400,
+        "pairMinSpacingMm": 150,
+        "protrusionAdjustable": false,
+        "thicknessMm": 30
+      },
+      "id": "tier-middle",
+      "kind": "tier",
+      "label": "Middle tier",
+      "loadKg": 15,
+      "usable": {
+        "d": 400,
+        "w": 1450
+      }
+    },
+    {
+      "adjustable": {
+        "tiltDeg": {
+          "max": 30,
+          "min": 0,
+          "step": 1
+        },
+        "y": {
+          "max": 300,
+          "min": -300,
+          "step": 5
+        },
+        "z": {
+          "max": 1400,
+          "min": 300,
+          "step": 5
+        }
+      },
+      "anchor": {
+        "x": 0,
+        "y": 0,
+        "z": 1100
+      },
+      "holders": {
+        "lengthMm": 400,
+        "pairMinSpacingMm": 150,
+        "protrusionAdjustable": false,
+        "thicknessMm": 30
+      },
+      "id": "tier-top",
+      "kind": "tier",
+      "label": "Top tier",
+      "loadKg": 15,
+      "usable": {
+        "d": 400,
+        "w": 1450
+      }
+    }
+  ],
+  "type": "tiered-keyboard-stand"
+}

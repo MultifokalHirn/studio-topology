@@ -1,0 +1,18 @@
+{
+  "carries": [
+    "ethernet"
+  ],
+  "endA": "RJ45",
+  "endB": "RJ45",
+  "id": "cable-ethernet",
+  "kind": "cable",
+  "lengthsMm": [
+    500,
+    1000,
+    2000,
+    3000,
+    5000,
+    10000
+  ],
+  "name": "Ethernet (RJ45)"
+}

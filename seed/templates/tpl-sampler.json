@@ -1,0 +1,239 @@
+{
+  "gear": {
+    "category": "sampler",
+    "connectors": [
+      {
+        "channel": {
+          "group": "out",
+          "role": "L"
+        },
+        "direction": "out",
+        "domain": "audio.analog",
+        "face": "back",
+        "id": "out-l",
+        "jack": "jack-6.35-TRS",
+        "label": "Out L",
+        "pos": {
+          "x": 0,
+          "y": 0
+        },
+        "signal": {
+          "balance": "balanced",
+          "level": "line"
+        }
+      },
+      {
+        "channel": {
+          "group": "out",
+          "role": "R"
+        },
+        "direction": "out",
+        "domain": "audio.analog",
+        "face": "back",
+        "id": "out-r",
+        "jack": "jack-6.35-TRS",
+        "label": "Out R",
+        "pos": {
+          "x": 0,
+          "y": 0
+        },
+        "signal": {
+          "balance": "balanced",
+          "level": "line"
+        }
+      },
+      {
+        "channel": {
+          "group": "in",
+          "role": "L"
+        },
+        "direction": "in",
+        "domain": "audio.analog",
+        "face": "back",
+        "id": "in-l",
+        "jack": "jack-6.35-TRS",
+        "label": "In L",
+        "pos": {
+          "x": 0,
+          "y": 0
+        },
+        "signal": {
+          "balance": "balanced",
+          "level": "line"
+        }
+      },
+      {
+        "channel": {
+          "group": "in",
+          "role": "R"
+        },
+        "direction": "in",
+        "domain": "audio.analog",
+        "face": "back",
+        "id": "in-r",
+        "jack": "jack-6.35-TRS",
+        "label": "In R",
+        "pos": {
+          "x": 0,
+          "y": 0
+        },
+        "signal": {
+          "balance": "balanced",
+          "level": "line"
+        }
+      },
+      {
+        "channel": {
+          "role": "stereo"
+        },
+        "direction": "out",
+        "domain": "audio.headphone",
+        "face": "back",
+        "id": "phones",
+        "jack": "jack-6.35-TRS",
+        "label": "Headphones",
+        "pos": {
+          "x": 0,
+          "y": 0
+        },
+        "signal": {
+          "balance": "n/a",
+          "level": "headphone"
+        }
+      },
+      {
+        "direction": "in",
+        "domain": "midi.din",
+        "face": "back",
+        "id": "midi-in",
+        "jack": "din5-f",
+        "label": "MIDI In",
+        "midi": {
+          "carries": [
+            "notes",
+            "cc",
+            "pc",
+            "sysex",
+            "clock",
+            "transport"
+          ]
+        },
+        "pos": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "direction": "out",
+        "domain": "midi.din",
+        "face": "back",
+        "id": "midi-out",
+        "jack": "din5-f",
+        "label": "MIDI Out",
+        "midi": {
+          "carries": [
+            "notes",
+            "cc",
+            "pc",
+            "sysex",
+            "clock",
+            "transport"
+          ]
+        },
+        "pos": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "direction": "thru",
+        "domain": "midi.din",
+        "face": "back",
+        "id": "midi-thru",
+        "jack": "din5-f",
+        "label": "MIDI Thru",
+        "midi": {
+          "carries": [
+            "notes",
+            "cc",
+            "pc",
+            "sysex",
+            "clock",
+            "transport"
+          ],
+          "thruMode": "hard"
+        },
+        "pos": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "direction": "bidir",
+        "domain": "usb.data",
+        "face": "back",
+        "id": "usb",
+        "jack": "usb-b-f",
+        "label": "USB",
+        "pos": {
+          "x": 0,
+          "y": 0
+        },
+        "usb": {
+          "busPowered": false,
+          "carries": [
+            "midi"
+          ],
+          "role": "device",
+          "version": "2.0"
+        }
+      },
+      {
+        "direction": "in",
+        "domain": "power.dc",
+        "face": "back",
+        "id": "dc-in",
+        "jack": "dc-barrel-5.5x2.5",
+        "label": "DC In",
+        "pos": {
+          "x": 0,
+          "y": 0
+        }
+      }
+    ],
+    "dimensions": {
+      "d": null,
+      "h": null,
+      "heightIncludesKnobsFeet": true,
+      "w": null,
+      "weightKg": null
+    },
+    "ergonomics": {
+      "defaultUsage": "primary",
+      "interaction": "knobs-buttons",
+      "needsDisplayVisibility": true
+    },
+    "formFactor": "desktop",
+    "power": {
+      "sources": [
+        {
+          "drawMa": null,
+          "included": true,
+          "inputConnectorId": "dc-in",
+          "kind": "external-dc",
+          "nominalV": 12,
+          "plug": {
+            "idMm": 2.5,
+            "odMm": 5.5,
+            "polarity": "center-positive",
+            "type": "barrel"
+          }
+        }
+      ]
+    }
+  },
+  "group": "Desktop gear",
+  "id": "tpl-sampler",
+  "name": "Sampler / groovebox",
+  "target": "gear"
+}

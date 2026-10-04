@@ -1,0 +1,72 @@
+{
+  "connectorGroups": [
+    {
+      "connectors": [
+        {
+          "channel": {
+            "role": "numbered"
+          },
+          "direction": "out",
+          "domain": "power.ac",
+          "face": "back",
+          "id": "outlet-{i}",
+          "jack": "unknown",
+          "label": "Outlet {i}",
+          "pos": {
+            "x": 0,
+            "y": 0
+          },
+          "psu": {
+            "currentMaMax": null,
+            "voltage": 230
+          }
+        }
+      ],
+      "repeat": "outlets"
+    }
+  ],
+  "gear": {
+    "category": "power",
+    "connectors": [
+      {
+        "direction": "in",
+        "domain": "power.ac",
+        "face": "back",
+        "id": "ac",
+        "jack": "mains-plug",
+        "label": "Mains plug",
+        "pos": {
+          "x": 0,
+          "y": 0
+        }
+      }
+    ],
+    "dimensions": {
+      "d": null,
+      "h": null,
+      "heightIncludesKnobsFeet": true,
+      "w": null,
+      "weightKg": null
+    },
+    "ergonomics": {
+      "defaultUsage": "rare",
+      "interaction": "set-and-forget",
+      "needsDisplayVisibility": false
+    },
+    "formFactor": "other",
+    "power": {
+      "sources": []
+    }
+  },
+  "group": "Power",
+  "id": "tpl-power-strip",
+  "name": "Power strip (N outlets)",
+  "params": [
+    {
+      "default": 6,
+      "key": "outlets",
+      "label": "Outlets"
+    }
+  ],
+  "target": "gear"
+}

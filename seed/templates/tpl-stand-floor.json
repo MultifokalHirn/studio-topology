@@ -1,0 +1,32 @@
+{
+  "group": "Stands",
+  "id": "tpl-stand-floor",
+  "name": "Floor",
+  "stand": {
+    "dimensions": {
+      "d": null,
+      "h": 0,
+      "w": null
+    },
+    "surfaces": [
+      {
+        "adjustable": {},
+        "anchor": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "id": "floor",
+        "kind": "floor",
+        "label": "Floor",
+        "loadKg": null,
+        "usable": {
+          "d": 3000,
+          "w": 3000
+        }
+      }
+    ],
+    "type": "floor"
+  },
+  "target": "stand"
+}

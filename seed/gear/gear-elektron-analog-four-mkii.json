@@ -1,0 +1,593 @@
+{
+  "aliases": [],
+  "category": "synth",
+  "clock": {
+    "canBeMaster": true,
+    "canBeSlave": true,
+    "formats": [
+      "midi",
+      "dinsync24"
+    ],
+    "notes": "Master-capable."
+  },
+  "connectors": [
+    {
+      "channel": {
+        "group": "out-main",
+        "role": "L"
+      },
+      "direction": "out",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "out-main-l",
+      "jack": "jack-6.35-TRS",
+      "label": "Main Out L",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "imp-balanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "group": "out-main",
+        "role": "R"
+      },
+      "direction": "out",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "out-main-r",
+      "jack": "jack-6.35-TRS",
+      "label": "Main Out R",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "imp-balanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "index": 1,
+        "role": "numbered"
+      },
+      "direction": "out",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "out-voice-1",
+      "jack": "jack-6.35",
+      "label": "Voice 1 Out",
+      "notes": "Elektron: \"separate stereo voice output jacks\"; mono vs. stereo-pair wiring to verify.",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "unbalanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "index": 2,
+        "role": "numbered"
+      },
+      "direction": "out",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "out-voice-2",
+      "jack": "jack-6.35",
+      "label": "Voice 2 Out",
+      "notes": "Elektron: \"separate stereo voice output jacks\"; mono vs. stereo-pair wiring to verify.",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "unbalanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "index": 3,
+        "role": "numbered"
+      },
+      "direction": "out",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "out-voice-3",
+      "jack": "jack-6.35",
+      "label": "Voice 3 Out",
+      "notes": "Elektron: \"separate stereo voice output jacks\"; mono vs. stereo-pair wiring to verify.",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "unbalanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "index": 4,
+        "role": "numbered"
+      },
+      "direction": "out",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "out-voice-4",
+      "jack": "jack-6.35",
+      "label": "Voice 4 Out",
+      "notes": "Elektron: \"separate stereo voice output jacks\"; mono vs. stereo-pair wiring to verify.",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "unbalanced",
+        "level": "line"
+      }
+    },
+    {
+      "alternates": [
+        {
+          "domain": "gate",
+          "id": "gate",
+          "label": "Gate"
+        }
+      ],
+      "channel": {
+        "index": 1,
+        "role": "numbered"
+      },
+      "direction": "out",
+      "domain": "cv",
+      "face": "back",
+      "id": "cv-gate-1",
+      "jack": "jack-6.35",
+      "label": "CV/Gate A",
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "alternates": [
+        {
+          "domain": "gate",
+          "id": "gate",
+          "label": "Gate"
+        }
+      ],
+      "channel": {
+        "index": 2,
+        "role": "numbered"
+      },
+      "direction": "out",
+      "domain": "cv",
+      "face": "back",
+      "id": "cv-gate-2",
+      "jack": "jack-6.35",
+      "label": "CV/Gate B",
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "alternates": [
+        {
+          "domain": "gate",
+          "id": "gate",
+          "label": "Gate"
+        }
+      ],
+      "channel": {
+        "index": 3,
+        "role": "numbered"
+      },
+      "direction": "out",
+      "domain": "cv",
+      "face": "back",
+      "id": "cv-gate-3",
+      "jack": "jack-6.35",
+      "label": "CV/Gate C",
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "alternates": [
+        {
+          "domain": "gate",
+          "id": "gate",
+          "label": "Gate"
+        }
+      ],
+      "channel": {
+        "index": 4,
+        "role": "numbered"
+      },
+      "direction": "out",
+      "domain": "cv",
+      "face": "back",
+      "id": "cv-gate-4",
+      "jack": "jack-6.35",
+      "label": "CV/Gate D",
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "channel": {
+        "role": "stereo"
+      },
+      "direction": "out",
+      "domain": "audio.headphone",
+      "face": "back",
+      "id": "phones",
+      "jack": "jack-6.35",
+      "label": "Headphones",
+      "notes": "Not in the retrieved spec; verify.",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "n/a",
+        "level": "headphone"
+      }
+    },
+    {
+      "channel": {
+        "group": "in-ext",
+        "role": "L"
+      },
+      "direction": "in",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "in-ext-l",
+      "jack": "jack-6.35-TS",
+      "label": "Ext In L",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "unbalanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "group": "in-ext",
+        "role": "R"
+      },
+      "direction": "in",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "in-ext-r",
+      "jack": "jack-6.35-TS",
+      "label": "Ext In R",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "unbalanced",
+        "level": "line"
+      }
+    },
+    {
+      "alternates": [
+        {
+          "domain": "cv",
+          "id": "cv",
+          "label": "CV in"
+        }
+      ],
+      "channel": {
+        "index": 1,
+        "role": "numbered"
+      },
+      "direction": "in",
+      "domain": "expression",
+      "face": "back",
+      "id": "cv-exp-1",
+      "jack": "jack-6.35-TRS",
+      "label": "CV/Exp 1",
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "alternates": [
+        {
+          "domain": "cv",
+          "id": "cv",
+          "label": "CV in"
+        }
+      ],
+      "channel": {
+        "index": 2,
+        "role": "numbered"
+      },
+      "direction": "in",
+      "domain": "expression",
+      "face": "back",
+      "id": "cv-exp-2",
+      "jack": "jack-6.35-TRS",
+      "label": "CV/Exp 2",
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "direction": "in",
+      "domain": "midi.din",
+      "face": "back",
+      "id": "midi-in",
+      "jack": "din5-f",
+      "label": "MIDI In",
+      "midi": {
+        "carries": [
+          "notes",
+          "cc",
+          "pc",
+          "sysex",
+          "clock",
+          "transport"
+        ]
+      },
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "clock": {
+        "canMaster": true,
+        "format": "dinsync24",
+        "note": "DIN sync on Out"
+      },
+      "direction": "out",
+      "domain": "midi.din",
+      "face": "back",
+      "id": "midi-out",
+      "jack": "din5-f",
+      "label": "MIDI Out",
+      "midi": {
+        "carries": [
+          "notes",
+          "cc",
+          "pc",
+          "sysex",
+          "clock",
+          "transport"
+        ]
+      },
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "direction": "thru",
+      "domain": "midi.din",
+      "face": "back",
+      "id": "midi-thru",
+      "jack": "din5-f",
+      "label": "MIDI Thru",
+      "midi": {
+        "carries": [
+          "notes",
+          "cc",
+          "pc",
+          "sysex",
+          "clock",
+          "transport"
+        ],
+        "thruMode": "hard"
+      },
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "direction": "bidir",
+      "domain": "usb.data",
+      "face": "back",
+      "id": "usb",
+      "jack": "unknown",
+      "label": "USB",
+      "notes": "Isolated USB 2.0. Overbridge streams 4 voices, ext in and main to separate DAW tracks.",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "usb": {
+        "audio": {
+          "compliance": "class-compliant",
+          "inChannels": null,
+          "outChannels": null
+        },
+        "busPowered": false,
+        "carries": [
+          "midi",
+          "audio",
+          "firmware"
+        ],
+        "role": "device",
+        "version": "2.0"
+      }
+    },
+    {
+      "direction": "in",
+      "domain": "power.dc",
+      "face": "back",
+      "id": "dc-in",
+      "jack": "dc-barrel-5.5x2.5",
+      "label": "DC In",
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    }
+  ],
+  "dimensions": {
+    "d": 225,
+    "h": 82,
+    "heightIncludesKnobsFeet": true,
+    "w": 385,
+    "weightKg": 2.4
+  },
+  "ergonomics": {
+    "defaultUsage": "primary",
+    "interaction": "knobs-buttons",
+    "needsDisplayVisibility": true
+  },
+  "faces": {},
+  "formFactor": "desktop",
+  "id": "gear-elektron-analog-four-mkii",
+  "images": {},
+  "internalPaths": [
+    {
+      "channelMap": [
+        {
+          "from": "in-ext-l",
+          "to": "out-main-l"
+        },
+        {
+          "from": "in-ext-r",
+          "to": "out-main-r"
+        }
+      ],
+      "from": [
+        "in-ext-l",
+        "in-ext-r"
+      ],
+      "id": "ext-in-mix",
+      "mode": "process",
+      "to": [
+        "out-main-l",
+        "out-main-r"
+      ]
+    }
+  ],
+  "manufacturer": "Elektron",
+  "midi": {
+    "channelsRx": "per-track",
+    "clockIn": true,
+    "clockOut": true
+  },
+  "mounting": {},
+  "name": "Analog Four",
+  "notes": "",
+  "power": {
+    "mainsRegion": "unknown",
+    "maxW": 20,
+    "sources": [
+      {
+        "drawMa": 1250,
+        "included": true,
+        "inputConnectorId": "dc-in",
+        "kind": "external-dc",
+        "nominalV": 12,
+        "peakMa": 1667,
+        "plug": {
+          "idMm": 2.5,
+          "odMm": 5.5,
+          "polarity": "center-positive",
+          "type": "barrel"
+        },
+        "suppliedModelId": "gear-elektron-psu-3c"
+      }
+    ],
+    "typicalW": 15
+  },
+  "provenance": {
+    "connectors.*.face": {
+      "kind": "estimated",
+      "note": "Rear panel assumed unless the reference states the panel."
+    },
+    "connectors.*.pos": {
+      "kind": "unknown",
+      "note": "Placeholder (0,0); place on a panel image."
+    },
+    "connectors.10": {
+      "kind": "estimated",
+      "note": "Headphone out not in the retrieved spec."
+    },
+    "connectors.18.jack": {
+      "kind": "unknown",
+      "note": "USB receptacle type not stated in the reference."
+    },
+    "connectors.18.usb.audio": {
+      "kind": "unknown",
+      "note": "Class-compliant channel count not stated."
+    },
+    "connectors.2.channel": {
+      "kind": "estimated",
+      "note": "Mono vs. stereo-pair wiring to verify (⚠)."
+    },
+    "connectors.3.channel": {
+      "kind": "estimated",
+      "note": "Mono vs. stereo-pair wiring to verify (⚠)."
+    },
+    "connectors.4.channel": {
+      "kind": "estimated",
+      "note": "Mono vs. stereo-pair wiring to verify (⚠)."
+    },
+    "connectors.5.channel": {
+      "kind": "estimated",
+      "note": "Mono vs. stereo-pair wiring to verify (⚠)."
+    },
+    "dimensions.d": {
+      "kind": "datasheet",
+      "note": "Gear reference v2"
+    },
+    "dimensions.h": {
+      "kind": "datasheet",
+      "note": "Gear reference v2"
+    },
+    "dimensions.w": {
+      "kind": "datasheet",
+      "note": "Gear reference v2"
+    },
+    "dimensions.weightKg": {
+      "kind": "datasheet",
+      "note": "Gear reference v2"
+    },
+    "power.sources.0.drawMa": {
+      "kind": "estimated",
+      "note": "Derived: 15 W typical / 12 V."
+    },
+    "power.sources.0.peakMa": {
+      "kind": "estimated",
+      "note": "Derived: 20 W max / 12 V."
+    }
+  },
+  "sources": [
+    {
+      "label": "Home Studio Gear Reference v2 (docs/studio-gear-reference.md)",
+      "retrieved": "2026-10-04"
+    }
+  ],
+  "tags": [
+    "elektron",
+    "overbridge"
+  ],
+  "variant": "MKII"
+}

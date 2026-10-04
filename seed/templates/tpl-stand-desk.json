@@ -1,0 +1,27 @@
+{
+  "generator": "desk",
+  "group": "Stands",
+  "id": "tpl-stand-desk",
+  "name": "Desk",
+  "params": [
+    {
+      "default": 1600,
+      "key": "w",
+      "label": "Width",
+      "unit": "mm"
+    },
+    {
+      "default": 800,
+      "key": "d",
+      "label": "Depth",
+      "unit": "mm"
+    },
+    {
+      "default": 740,
+      "key": "h",
+      "label": "Height",
+      "unit": "mm"
+    }
+  ],
+  "target": "stand"
+}

@@ -66,6 +66,8 @@ export const FixedJackType = z.enum([
   'jack-6.35-TS', 'jack-6.35-TRS', 'jack-3.5-TS', 'jack-3.5-TRS', 'xlr-f', 'xlr-m', 'combo-xlr-trs', 'din5-f',
   'rca-f', 'toslink-f', 'bnc-f', 'usb-a-f', 'usb-b-f', 'usb-c-f', 'usb-micro-b-f', 'usb-mini-b-f', 'rj45',
   'iec-c14', 'speakon',
+  // Extensions (docs/decisions.md #15): pole count not documented, wireless ports, captive mains plugs, unknown.
+  'jack-6.35', 'jack-3.5', 'wireless', 'mains-plug', 'captive-cable', 'unknown',
 ]); // prettier-ignore
 export const DcBarrelJackType = z.templateLiteral(['dc-barrel-', z.number(), 'x', z.number()]);
 export const JackType = z.union([FixedJackType, DcBarrelJackType]);
@@ -77,7 +79,8 @@ export const PlugType = z.enum([
 
 export const Polarity = z.enum(['center-positive', 'center-negative']);
 export const PowerPlug = z.discriminatedUnion('type', [
-  z.object({ type: z.literal('barrel'), odMm: z.number(), idMm: z.number(), polarity: Polarity }),
+  // Barrel size or polarity may be unknown (null) when the source does not state them.
+  z.object({ type: z.literal('barrel'), odMm: nnum, idMm: nnum, polarity: Polarity.nullable() }),
   z.object({ type: z.literal('iec-c14') }),
   z.object({ type: z.literal('usb') }),
   z.object({ type: z.literal('other'), note: z.string() }),
@@ -109,7 +112,7 @@ export const Connector = z.object({
     .optional(),
   channel: z
     .object({
-      role: z.enum(['mono', 'L', 'R', 'numbered']),
+      role: z.enum(['mono', 'L', 'R', 'numbered', 'stereo']),
       group: z.string().optional(),
       index: z.number().int().optional(),
       bus: z.string().optional(),
@@ -129,8 +132,8 @@ export const Connector = z.object({
       carries: z.array(z.enum(['midi', 'audio', 'data', 'power', 'firmware'])),
       audio: z
         .object({
-          inChannels: z.number().int(),
-          outChannels: z.number().int(),
+          inChannels: z.number().int().nullable(),
+          outChannels: z.number().int().nullable(),
           compliance: z.enum(['class-compliant', 'driver-required', 'overbridge', 'unknown']),
           maxRateHz: z.number().optional(),
         })
@@ -142,7 +145,7 @@ export const Connector = z.object({
     .optional(),
   clock: z
     .object({
-      format: z.enum(['midi', 'dinsync24', 'dinsync48', 'pulse', 'word', 'adat']),
+      format: z.enum(['midi', 'dinsync24', 'dinsync48', 'pulse', 'po-sync', 'word', 'adat']),
       ppqn: z.number().optional(),
       canMaster: z.boolean().optional(),
       canSlave: z.boolean().optional(),
@@ -170,6 +173,11 @@ export const Connector = z.object({
       }),
     )
     .optional(),
+  /** Insert jacks (send and return on one TRS jack). */
+  insert: z
+    .object({ tip: z.enum(['send', 'return']), ring: z.enum(['send', 'return']) })
+    .partial()
+    .optional(),
   exclusiveWith: z.array(z.string()).optional(),
   notes: z.string().optional(),
 });
@@ -182,6 +190,8 @@ export const InternalPath = z.object({
   condition: z.string().optional(),
   channelMap: z.array(z.object({ from: z.string(), to: z.string() })).optional(),
   presetId: z.string().optional(),
+  /** Paths sharing a group switch presets together, independently of other groups (e.g. one patchbay channel). */
+  group: z.string().optional(),
 });
 
 export const PowerSource = z.object({
@@ -204,6 +214,8 @@ export const PowerSpec = z.object({
   maxW: nnum.optional(),
   inrushNote: z.string().optional(),
   mainsRegion: MainsRegion.optional(),
+  /** Eurorack bus capacity for cases (mA per rail). */
+  busRails: z.object({ plus12Ma: nnum, minus12Ma: nnum, plus5Ma: nnum }).optional(),
 });
 
 export const MidiSpec = z.object({
@@ -215,7 +227,8 @@ export const MidiSpec = z.object({
   notes: z.string().optional(),
 });
 export const ClockFormat = z.enum([
-  'midi', 'dinsync24', 'dinsync48', 'pulse-1ppqn', 'pulse-2ppqn', 'pulse-24ppqn', 'pulse-48ppqn', 'adat', 'word',
+  'midi', 'dinsync24', 'dinsync48', 'pulse-step', 'pulse-1ppqn', 'pulse-2ppqn', 'pulse-24ppqn', 'pulse-48ppqn',
+  'po-sync', 'adat', 'word',
 ]); // prettier-ignore
 export const ClockSpec = z.object({
   canBeMaster: z.boolean(),
@@ -370,6 +383,10 @@ export const Template = z.object({
   gear: GearModel.partial().optional(),
   stand: StandModel.partial().optional(),
   connectors: z.array(Connector).optional(),
+  /** Connectors repeated `params[repeat]` times; `{i}` in `id`/`label` is replaced by 1…n (decisions #16). */
+  connectorGroups: z.array(z.object({ repeat: z.string().optional(), connectors: z.array(Connector) })).optional(),
+  /** Stand templates: parametric generator in `domain/stands.ts`, fed with `params`. */
+  generator: z.enum(['tiered-a-frame', 'rack', 'desk', 'eurorack-stand']).optional(),
 });
 
 // ---------- inventory ----------
@@ -484,6 +501,8 @@ export const Connection = z.object({
 export const UnitConfig = z.object({
   activeAlternates: z.record(z.string(), z.string()),
   routingPresetId: z.string().optional(),
+  /** Preset per internal-path group (e.g. patchbay channel → 'half-normal'). */
+  pathPresets: z.record(z.string(), z.string()).optional(),
   clockSource: z.union([z.literal('internal'), z.object({ connectorId: z.string() })]).optional(),
   clockMaster: z.boolean().optional(),
   midiRxChannel: z.record(z.string(), z.number().int()).optional(),
@@ -604,4 +623,15 @@ export const Project = z.object({
   setups: z.array(Setup),
   activeSetupId: z.string().nullable(),
   assets: AssetIndex,
+});
+
+// ---------- library bundle (spec §5.2 bulk export/import) ----------
+
+export const LibraryBundle = z.object({
+  kind: z.literal('studio-planner-library-bundle'),
+  version: z.literal(1),
+  gearModels: z.array(GearModel),
+  standModels: z.array(StandModel),
+  cableModels: z.array(CableModel),
+  templates: z.array(Template),
 });

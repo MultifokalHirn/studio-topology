@@ -1,0 +1,2353 @@
+{
+  "aliases": [
+    "WZ3 16:2"
+  ],
+  "category": "mixer",
+  "connectors": [
+    {
+      "channel": {
+        "index": 1,
+        "role": "numbered"
+      },
+      "direction": "in",
+      "domain": "audio.analog",
+      "exclusiveWith": [
+        "ch1-line"
+      ],
+      "face": "back",
+      "id": "ch1-mic",
+      "jack": "xlr-f",
+      "label": "CH 1 Mic",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "mic",
+        "phantom": "switchable"
+      }
+    },
+    {
+      "channel": {
+        "index": 1,
+        "role": "numbered"
+      },
+      "direction": "in",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "ch1-line",
+      "jack": "jack-6.35-TRS",
+      "label": "CH 1 Line",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "index": 1,
+        "role": "numbered"
+      },
+      "direction": "bidir",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "ch1-insert",
+      "insert": {},
+      "jack": "jack-6.35-TRS",
+      "label": "CH 1 Insert",
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "channel": {
+        "index": 1,
+        "role": "numbered"
+      },
+      "direction": "out",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "ch1-direct",
+      "jack": "jack-6.35",
+      "label": "CH 1 Direct Out",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "index": 2,
+        "role": "numbered"
+      },
+      "direction": "in",
+      "domain": "audio.analog",
+      "exclusiveWith": [
+        "ch2-line"
+      ],
+      "face": "back",
+      "id": "ch2-mic",
+      "jack": "xlr-f",
+      "label": "CH 2 Mic",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "mic",
+        "phantom": "switchable"
+      }
+    },
+    {
+      "channel": {
+        "index": 2,
+        "role": "numbered"
+      },
+      "direction": "in",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "ch2-line",
+      "jack": "jack-6.35-TRS",
+      "label": "CH 2 Line",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "index": 2,
+        "role": "numbered"
+      },
+      "direction": "bidir",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "ch2-insert",
+      "insert": {},
+      "jack": "jack-6.35-TRS",
+      "label": "CH 2 Insert",
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "channel": {
+        "index": 2,
+        "role": "numbered"
+      },
+      "direction": "out",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "ch2-direct",
+      "jack": "jack-6.35",
+      "label": "CH 2 Direct Out",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "index": 3,
+        "role": "numbered"
+      },
+      "direction": "in",
+      "domain": "audio.analog",
+      "exclusiveWith": [
+        "ch3-line"
+      ],
+      "face": "back",
+      "id": "ch3-mic",
+      "jack": "xlr-f",
+      "label": "CH 3 Mic",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "mic",
+        "phantom": "switchable"
+      }
+    },
+    {
+      "channel": {
+        "index": 3,
+        "role": "numbered"
+      },
+      "direction": "in",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "ch3-line",
+      "jack": "jack-6.35-TRS",
+      "label": "CH 3 Line",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "index": 3,
+        "role": "numbered"
+      },
+      "direction": "bidir",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "ch3-insert",
+      "insert": {},
+      "jack": "jack-6.35-TRS",
+      "label": "CH 3 Insert",
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "channel": {
+        "index": 3,
+        "role": "numbered"
+      },
+      "direction": "out",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "ch3-direct",
+      "jack": "jack-6.35",
+      "label": "CH 3 Direct Out",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "index": 4,
+        "role": "numbered"
+      },
+      "direction": "in",
+      "domain": "audio.analog",
+      "exclusiveWith": [
+        "ch4-line"
+      ],
+      "face": "back",
+      "id": "ch4-mic",
+      "jack": "xlr-f",
+      "label": "CH 4 Mic",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "mic",
+        "phantom": "switchable"
+      }
+    },
+    {
+      "channel": {
+        "index": 4,
+        "role": "numbered"
+      },
+      "direction": "in",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "ch4-line",
+      "jack": "jack-6.35-TRS",
+      "label": "CH 4 Line",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "index": 4,
+        "role": "numbered"
+      },
+      "direction": "bidir",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "ch4-insert",
+      "insert": {},
+      "jack": "jack-6.35-TRS",
+      "label": "CH 4 Insert",
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "channel": {
+        "index": 4,
+        "role": "numbered"
+      },
+      "direction": "out",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "ch4-direct",
+      "jack": "jack-6.35",
+      "label": "CH 4 Direct Out",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "index": 5,
+        "role": "numbered"
+      },
+      "direction": "in",
+      "domain": "audio.analog",
+      "exclusiveWith": [
+        "ch5-line"
+      ],
+      "face": "back",
+      "id": "ch5-mic",
+      "jack": "xlr-f",
+      "label": "CH 5 Mic",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "mic",
+        "phantom": "switchable"
+      }
+    },
+    {
+      "channel": {
+        "index": 5,
+        "role": "numbered"
+      },
+      "direction": "in",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "ch5-line",
+      "jack": "jack-6.35-TRS",
+      "label": "CH 5 Line",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "index": 5,
+        "role": "numbered"
+      },
+      "direction": "bidir",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "ch5-insert",
+      "insert": {},
+      "jack": "jack-6.35-TRS",
+      "label": "CH 5 Insert",
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "channel": {
+        "index": 5,
+        "role": "numbered"
+      },
+      "direction": "out",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "ch5-direct",
+      "jack": "jack-6.35",
+      "label": "CH 5 Direct Out",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "index": 6,
+        "role": "numbered"
+      },
+      "direction": "in",
+      "domain": "audio.analog",
+      "exclusiveWith": [
+        "ch6-line"
+      ],
+      "face": "back",
+      "id": "ch6-mic",
+      "jack": "xlr-f",
+      "label": "CH 6 Mic",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "mic",
+        "phantom": "switchable"
+      }
+    },
+    {
+      "channel": {
+        "index": 6,
+        "role": "numbered"
+      },
+      "direction": "in",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "ch6-line",
+      "jack": "jack-6.35-TRS",
+      "label": "CH 6 Line",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "index": 6,
+        "role": "numbered"
+      },
+      "direction": "bidir",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "ch6-insert",
+      "insert": {},
+      "jack": "jack-6.35-TRS",
+      "label": "CH 6 Insert",
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "channel": {
+        "index": 6,
+        "role": "numbered"
+      },
+      "direction": "out",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "ch6-direct",
+      "jack": "jack-6.35",
+      "label": "CH 6 Direct Out",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "index": 7,
+        "role": "numbered"
+      },
+      "direction": "in",
+      "domain": "audio.analog",
+      "exclusiveWith": [
+        "ch7-line"
+      ],
+      "face": "back",
+      "id": "ch7-mic",
+      "jack": "xlr-f",
+      "label": "CH 7 Mic",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "mic",
+        "phantom": "switchable"
+      }
+    },
+    {
+      "channel": {
+        "index": 7,
+        "role": "numbered"
+      },
+      "direction": "in",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "ch7-line",
+      "jack": "jack-6.35-TRS",
+      "label": "CH 7 Line",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "index": 7,
+        "role": "numbered"
+      },
+      "direction": "bidir",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "ch7-insert",
+      "insert": {},
+      "jack": "jack-6.35-TRS",
+      "label": "CH 7 Insert",
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "channel": {
+        "index": 7,
+        "role": "numbered"
+      },
+      "direction": "out",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "ch7-direct",
+      "jack": "jack-6.35",
+      "label": "CH 7 Direct Out",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "index": 8,
+        "role": "numbered"
+      },
+      "direction": "in",
+      "domain": "audio.analog",
+      "exclusiveWith": [
+        "ch8-line"
+      ],
+      "face": "back",
+      "id": "ch8-mic",
+      "jack": "xlr-f",
+      "label": "CH 8 Mic",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "mic",
+        "phantom": "switchable"
+      }
+    },
+    {
+      "channel": {
+        "index": 8,
+        "role": "numbered"
+      },
+      "direction": "in",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "ch8-line",
+      "jack": "jack-6.35-TRS",
+      "label": "CH 8 Line",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "index": 8,
+        "role": "numbered"
+      },
+      "direction": "bidir",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "ch8-insert",
+      "insert": {},
+      "jack": "jack-6.35-TRS",
+      "label": "CH 8 Insert",
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "channel": {
+        "index": 8,
+        "role": "numbered"
+      },
+      "direction": "out",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "ch8-direct",
+      "jack": "jack-6.35",
+      "label": "CH 8 Direct Out",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "index": 9,
+        "role": "numbered"
+      },
+      "direction": "in",
+      "domain": "audio.analog",
+      "exclusiveWith": [
+        "ch9-line"
+      ],
+      "face": "back",
+      "id": "ch9-mic",
+      "jack": "xlr-f",
+      "label": "CH 9 Mic",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "mic",
+        "phantom": "switchable"
+      }
+    },
+    {
+      "channel": {
+        "index": 9,
+        "role": "numbered"
+      },
+      "direction": "in",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "ch9-line",
+      "jack": "jack-6.35-TRS",
+      "label": "CH 9 Line",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "index": 9,
+        "role": "numbered"
+      },
+      "direction": "bidir",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "ch9-insert",
+      "insert": {},
+      "jack": "jack-6.35-TRS",
+      "label": "CH 9 Insert",
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "channel": {
+        "index": 9,
+        "role": "numbered"
+      },
+      "direction": "out",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "ch9-direct",
+      "jack": "jack-6.35",
+      "label": "CH 9 Direct Out",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "index": 10,
+        "role": "numbered"
+      },
+      "direction": "in",
+      "domain": "audio.analog",
+      "exclusiveWith": [
+        "ch10-line"
+      ],
+      "face": "back",
+      "id": "ch10-mic",
+      "jack": "xlr-f",
+      "label": "CH 10 Mic",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "mic",
+        "phantom": "switchable"
+      }
+    },
+    {
+      "channel": {
+        "index": 10,
+        "role": "numbered"
+      },
+      "direction": "in",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "ch10-line",
+      "jack": "jack-6.35-TRS",
+      "label": "CH 10 Line",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "index": 10,
+        "role": "numbered"
+      },
+      "direction": "bidir",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "ch10-insert",
+      "insert": {},
+      "jack": "jack-6.35-TRS",
+      "label": "CH 10 Insert",
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "channel": {
+        "index": 10,
+        "role": "numbered"
+      },
+      "direction": "out",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "ch10-direct",
+      "jack": "jack-6.35",
+      "label": "CH 10 Direct Out",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "index": 11,
+        "role": "numbered"
+      },
+      "direction": "in",
+      "domain": "audio.analog",
+      "exclusiveWith": [
+        "ch11-line"
+      ],
+      "face": "back",
+      "id": "ch11-mic",
+      "jack": "xlr-f",
+      "label": "CH 11 Mic",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "mic",
+        "phantom": "switchable"
+      }
+    },
+    {
+      "channel": {
+        "index": 11,
+        "role": "numbered"
+      },
+      "direction": "in",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "ch11-line",
+      "jack": "jack-6.35-TRS",
+      "label": "CH 11 Line",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "index": 11,
+        "role": "numbered"
+      },
+      "direction": "bidir",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "ch11-insert",
+      "insert": {},
+      "jack": "jack-6.35-TRS",
+      "label": "CH 11 Insert",
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "channel": {
+        "index": 11,
+        "role": "numbered"
+      },
+      "direction": "out",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "ch11-direct",
+      "jack": "jack-6.35",
+      "label": "CH 11 Direct Out",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "index": 12,
+        "role": "numbered"
+      },
+      "direction": "in",
+      "domain": "audio.analog",
+      "exclusiveWith": [
+        "ch12-line"
+      ],
+      "face": "back",
+      "id": "ch12-mic",
+      "jack": "xlr-f",
+      "label": "CH 12 Mic",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "mic",
+        "phantom": "switchable"
+      }
+    },
+    {
+      "channel": {
+        "index": 12,
+        "role": "numbered"
+      },
+      "direction": "in",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "ch12-line",
+      "jack": "jack-6.35-TRS",
+      "label": "CH 12 Line",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "index": 12,
+        "role": "numbered"
+      },
+      "direction": "bidir",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "ch12-insert",
+      "insert": {},
+      "jack": "jack-6.35-TRS",
+      "label": "CH 12 Insert",
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "channel": {
+        "index": 12,
+        "role": "numbered"
+      },
+      "direction": "out",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "ch12-direct",
+      "jack": "jack-6.35",
+      "label": "CH 12 Direct Out",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "index": 13,
+        "role": "numbered"
+      },
+      "direction": "in",
+      "domain": "audio.analog",
+      "exclusiveWith": [
+        "ch13-line"
+      ],
+      "face": "back",
+      "id": "ch13-mic",
+      "jack": "xlr-f",
+      "label": "CH 13 Mic",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "mic",
+        "phantom": "switchable"
+      }
+    },
+    {
+      "channel": {
+        "index": 13,
+        "role": "numbered"
+      },
+      "direction": "in",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "ch13-line",
+      "jack": "jack-6.35-TRS",
+      "label": "CH 13 Line",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "index": 13,
+        "role": "numbered"
+      },
+      "direction": "bidir",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "ch13-insert",
+      "insert": {},
+      "jack": "jack-6.35-TRS",
+      "label": "CH 13 Insert",
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "channel": {
+        "index": 13,
+        "role": "numbered"
+      },
+      "direction": "out",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "ch13-direct",
+      "jack": "jack-6.35",
+      "label": "CH 13 Direct Out",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "index": 14,
+        "role": "numbered"
+      },
+      "direction": "in",
+      "domain": "audio.analog",
+      "exclusiveWith": [
+        "ch14-line"
+      ],
+      "face": "back",
+      "id": "ch14-mic",
+      "jack": "xlr-f",
+      "label": "CH 14 Mic",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "mic",
+        "phantom": "switchable"
+      }
+    },
+    {
+      "channel": {
+        "index": 14,
+        "role": "numbered"
+      },
+      "direction": "in",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "ch14-line",
+      "jack": "jack-6.35-TRS",
+      "label": "CH 14 Line",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "index": 14,
+        "role": "numbered"
+      },
+      "direction": "bidir",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "ch14-insert",
+      "insert": {},
+      "jack": "jack-6.35-TRS",
+      "label": "CH 14 Insert",
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "channel": {
+        "index": 14,
+        "role": "numbered"
+      },
+      "direction": "out",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "ch14-direct",
+      "jack": "jack-6.35",
+      "label": "CH 14 Direct Out",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "index": 15,
+        "role": "numbered"
+      },
+      "direction": "in",
+      "domain": "audio.analog",
+      "exclusiveWith": [
+        "ch15-line"
+      ],
+      "face": "back",
+      "id": "ch15-mic",
+      "jack": "xlr-f",
+      "label": "CH 15 Mic",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "mic",
+        "phantom": "switchable"
+      }
+    },
+    {
+      "channel": {
+        "index": 15,
+        "role": "numbered"
+      },
+      "direction": "in",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "ch15-line",
+      "jack": "jack-6.35-TRS",
+      "label": "CH 15 Line",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "index": 15,
+        "role": "numbered"
+      },
+      "direction": "bidir",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "ch15-insert",
+      "insert": {},
+      "jack": "jack-6.35-TRS",
+      "label": "CH 15 Insert",
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "channel": {
+        "index": 15,
+        "role": "numbered"
+      },
+      "direction": "out",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "ch15-direct",
+      "jack": "jack-6.35",
+      "label": "CH 15 Direct Out",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "index": 16,
+        "role": "numbered"
+      },
+      "direction": "in",
+      "domain": "audio.analog",
+      "exclusiveWith": [
+        "ch16-line"
+      ],
+      "face": "back",
+      "id": "ch16-mic",
+      "jack": "xlr-f",
+      "label": "CH 16 Mic",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "mic",
+        "phantom": "switchable"
+      }
+    },
+    {
+      "channel": {
+        "index": 16,
+        "role": "numbered"
+      },
+      "direction": "in",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "ch16-line",
+      "jack": "jack-6.35-TRS",
+      "label": "CH 16 Line",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "index": 16,
+        "role": "numbered"
+      },
+      "direction": "bidir",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "ch16-insert",
+      "insert": {},
+      "jack": "jack-6.35-TRS",
+      "label": "CH 16 Insert",
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "channel": {
+        "index": 16,
+        "role": "numbered"
+      },
+      "direction": "out",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "ch16-direct",
+      "jack": "jack-6.35",
+      "label": "CH 16 Direct Out",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "index": 1,
+        "role": "numbered"
+      },
+      "direction": "out",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "aux-1",
+      "jack": "jack-6.35-TRS",
+      "label": "Aux 1 Send",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "index": 2,
+        "role": "numbered"
+      },
+      "direction": "out",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "aux-2",
+      "jack": "jack-6.35-TRS",
+      "label": "Aux 2 Send",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "index": 3,
+        "role": "numbered"
+      },
+      "direction": "out",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "aux-3",
+      "jack": "jack-6.35-TRS",
+      "label": "Aux 3 Send",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "index": 4,
+        "role": "numbered"
+      },
+      "direction": "out",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "aux-4",
+      "jack": "jack-6.35-TRS",
+      "label": "Aux 4 Send",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "index": 5,
+        "role": "numbered"
+      },
+      "direction": "out",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "aux-5",
+      "jack": "jack-6.35-TRS",
+      "label": "Aux 5 Send",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "index": 6,
+        "role": "numbered"
+      },
+      "direction": "out",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "aux-6",
+      "jack": "jack-6.35-TRS",
+      "label": "Aux 6 Send",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "group": "ret1",
+        "role": "L"
+      },
+      "direction": "in",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "ret1-l",
+      "jack": "jack-6.35-TRS",
+      "label": "Stereo Return 1 L",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "group": "ret1",
+        "role": "R"
+      },
+      "direction": "in",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "ret1-r",
+      "jack": "jack-6.35-TRS",
+      "label": "Stereo Return 1 R",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "group": "ret2",
+        "role": "L"
+      },
+      "direction": "in",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "ret2-l",
+      "jack": "jack-6.35-TRS",
+      "label": "Stereo Return 2 L",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "group": "ret2",
+        "role": "R"
+      },
+      "direction": "in",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "ret2-r",
+      "jack": "jack-6.35-TRS",
+      "label": "Stereo Return 2 R",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "group": "out-main",
+        "role": "L"
+      },
+      "direction": "out",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "out-main-l",
+      "jack": "xlr-m",
+      "label": "Main Out L",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "+4dBu"
+      }
+    },
+    {
+      "channel": {
+        "group": "out-main",
+        "role": "R"
+      },
+      "direction": "out",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "out-main-r",
+      "jack": "xlr-m",
+      "label": "Main Out R",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "+4dBu"
+      }
+    },
+    {
+      "channel": {
+        "role": "mono"
+      },
+      "direction": "out",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "out-mono",
+      "jack": "xlr-m",
+      "label": "Mono Master Out",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "+4dBu"
+      }
+    },
+    {
+      "channel": {
+        "index": 1,
+        "role": "numbered"
+      },
+      "direction": "out",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "out-ab-1",
+      "jack": "jack-6.35-TRS",
+      "label": "A/B Out 1",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "index": 2,
+        "role": "numbered"
+      },
+      "direction": "out",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "out-ab-2",
+      "jack": "jack-6.35-TRS",
+      "label": "A/B Out 2",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "balanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "group": "main",
+        "role": "L"
+      },
+      "direction": "bidir",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "insert-main-l",
+      "insert": {},
+      "jack": "jack-6.35-TRS",
+      "label": "Main L Insert",
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "channel": {
+        "group": "main",
+        "role": "R"
+      },
+      "direction": "bidir",
+      "domain": "audio.analog",
+      "face": "back",
+      "id": "insert-main-r",
+      "insert": {},
+      "jack": "jack-6.35-TRS",
+      "label": "Main R Insert",
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "channel": {
+        "role": "stereo"
+      },
+      "direction": "out",
+      "domain": "audio.headphone",
+      "face": "front",
+      "id": "phones",
+      "jack": "jack-6.35",
+      "label": "Headphones",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "n/a",
+        "level": "headphone"
+      }
+    },
+    {
+      "channel": {
+        "group": "out-monitor",
+        "role": "L"
+      },
+      "direction": "out",
+      "domain": "audio.analog",
+      "face": "front",
+      "id": "out-monitor-l",
+      "jack": "jack-6.35",
+      "label": "Local Monitor L",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "unbalanced",
+        "level": "line"
+      }
+    },
+    {
+      "channel": {
+        "group": "out-monitor",
+        "role": "R"
+      },
+      "direction": "out",
+      "domain": "audio.analog",
+      "face": "front",
+      "id": "out-monitor-r",
+      "jack": "jack-6.35",
+      "label": "Local Monitor R",
+      "pos": {
+        "x": 0,
+        "y": 0
+      },
+      "signal": {
+        "balance": "unbalanced",
+        "level": "line"
+      }
+    },
+    {
+      "direction": "in",
+      "domain": "midi.din",
+      "face": "back",
+      "id": "midi",
+      "jack": "unknown",
+      "label": "MIDI (FX editor/control)",
+      "midi": {
+        "carries": [
+          "pc",
+          "cc",
+          "sysex"
+        ]
+      },
+      "notes": "Port type not confirmed.",
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "direction": "in",
+      "domain": "power.ac",
+      "face": "back",
+      "id": "ac-in",
+      "jack": "iec-c14",
+      "label": "Mains (IEC)",
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "direction": "in",
+      "domain": "power.dc",
+      "face": "back",
+      "id": "dc-backup",
+      "jack": "unknown",
+      "label": "Backup PSU (MPS12)",
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    }
+  ],
+  "dimensions": {
+    "d": 530,
+    "h": 194,
+    "heightIncludesKnobsFeet": true,
+    "rack": {
+      "depthBehindEarsMm": 122,
+      "earsIncluded": true,
+      "u": 10
+    },
+    "w": 507,
+    "weightKg": 10
+  },
+  "ergonomics": {
+    "defaultUsage": "primary",
+    "interaction": "fader",
+    "needsDisplayVisibility": false
+  },
+  "faces": {},
+  "formFactor": "desktop",
+  "id": "gear-allen-heath-mixwizard-wz3-16-2",
+  "images": {},
+  "internalPaths": [
+    {
+      "channelMap": [
+        {
+          "from": "ret1-l",
+          "to": "out-main-l"
+        },
+        {
+          "from": "ret1-r",
+          "to": "out-main-r"
+        },
+        {
+          "from": "ret2-l",
+          "to": "out-main-l"
+        },
+        {
+          "from": "ret2-r",
+          "to": "out-main-r"
+        }
+      ],
+      "from": [
+        "ch1-mic",
+        "ch1-line",
+        "ch2-mic",
+        "ch2-line",
+        "ch3-mic",
+        "ch3-line",
+        "ch4-mic",
+        "ch4-line",
+        "ch5-mic",
+        "ch5-line",
+        "ch6-mic",
+        "ch6-line",
+        "ch7-mic",
+        "ch7-line",
+        "ch8-mic",
+        "ch8-line",
+        "ch9-mic",
+        "ch9-line",
+        "ch10-mic",
+        "ch10-line",
+        "ch11-mic",
+        "ch11-line",
+        "ch12-mic",
+        "ch12-line",
+        "ch13-mic",
+        "ch13-line",
+        "ch14-mic",
+        "ch14-line",
+        "ch15-mic",
+        "ch15-line",
+        "ch16-mic",
+        "ch16-line",
+        "ret1-l",
+        "ret1-r",
+        "ret2-l",
+        "ret2-r"
+      ],
+      "id": "channels-to-main",
+      "mode": "sum",
+      "to": [
+        "out-main-l",
+        "out-main-r",
+        "out-mono",
+        "out-ab-1",
+        "out-ab-2",
+        "phones",
+        "out-monitor-l",
+        "out-monitor-r"
+      ]
+    },
+    {
+      "from": [
+        "ch1-mic",
+        "ch1-line",
+        "ch2-mic",
+        "ch2-line",
+        "ch3-mic",
+        "ch3-line",
+        "ch4-mic",
+        "ch4-line",
+        "ch5-mic",
+        "ch5-line",
+        "ch6-mic",
+        "ch6-line",
+        "ch7-mic",
+        "ch7-line",
+        "ch8-mic",
+        "ch8-line",
+        "ch9-mic",
+        "ch9-line",
+        "ch10-mic",
+        "ch10-line",
+        "ch11-mic",
+        "ch11-line",
+        "ch12-mic",
+        "ch12-line",
+        "ch13-mic",
+        "ch13-line",
+        "ch14-mic",
+        "ch14-line",
+        "ch15-mic",
+        "ch15-line",
+        "ch16-mic",
+        "ch16-line"
+      ],
+      "id": "aux-sends",
+      "mode": "sum",
+      "to": [
+        "aux-1",
+        "aux-2",
+        "aux-3",
+        "aux-4",
+        "aux-5",
+        "aux-6"
+      ]
+    },
+    {
+      "condition": "Insert send/return before the channel fader",
+      "from": [
+        "ch1-mic",
+        "ch1-line"
+      ],
+      "id": "ch1-insert",
+      "mode": "insert-normal",
+      "to": [
+        "ch1-insert"
+      ]
+    },
+    {
+      "condition": "Insert send/return before the channel fader",
+      "from": [
+        "ch2-mic",
+        "ch2-line"
+      ],
+      "id": "ch2-insert",
+      "mode": "insert-normal",
+      "to": [
+        "ch2-insert"
+      ]
+    },
+    {
+      "condition": "Insert send/return before the channel fader",
+      "from": [
+        "ch3-mic",
+        "ch3-line"
+      ],
+      "id": "ch3-insert",
+      "mode": "insert-normal",
+      "to": [
+        "ch3-insert"
+      ]
+    },
+    {
+      "condition": "Insert send/return before the channel fader",
+      "from": [
+        "ch4-mic",
+        "ch4-line"
+      ],
+      "id": "ch4-insert",
+      "mode": "insert-normal",
+      "to": [
+        "ch4-insert"
+      ]
+    },
+    {
+      "condition": "Insert send/return before the channel fader",
+      "from": [
+        "ch5-mic",
+        "ch5-line"
+      ],
+      "id": "ch5-insert",
+      "mode": "insert-normal",
+      "to": [
+        "ch5-insert"
+      ]
+    },
+    {
+      "condition": "Insert send/return before the channel fader",
+      "from": [
+        "ch6-mic",
+        "ch6-line"
+      ],
+      "id": "ch6-insert",
+      "mode": "insert-normal",
+      "to": [
+        "ch6-insert"
+      ]
+    },
+    {
+      "condition": "Insert send/return before the channel fader",
+      "from": [
+        "ch7-mic",
+        "ch7-line"
+      ],
+      "id": "ch7-insert",
+      "mode": "insert-normal",
+      "to": [
+        "ch7-insert"
+      ]
+    },
+    {
+      "condition": "Insert send/return before the channel fader",
+      "from": [
+        "ch8-mic",
+        "ch8-line"
+      ],
+      "id": "ch8-insert",
+      "mode": "insert-normal",
+      "to": [
+        "ch8-insert"
+      ]
+    },
+    {
+      "condition": "Insert send/return before the channel fader",
+      "from": [
+        "ch9-mic",
+        "ch9-line"
+      ],
+      "id": "ch9-insert",
+      "mode": "insert-normal",
+      "to": [
+        "ch9-insert"
+      ]
+    },
+    {
+      "condition": "Insert send/return before the channel fader",
+      "from": [
+        "ch10-mic",
+        "ch10-line"
+      ],
+      "id": "ch10-insert",
+      "mode": "insert-normal",
+      "to": [
+        "ch10-insert"
+      ]
+    },
+    {
+      "condition": "Insert send/return before the channel fader",
+      "from": [
+        "ch11-mic",
+        "ch11-line"
+      ],
+      "id": "ch11-insert",
+      "mode": "insert-normal",
+      "to": [
+        "ch11-insert"
+      ]
+    },
+    {
+      "condition": "Insert send/return before the channel fader",
+      "from": [
+        "ch12-mic",
+        "ch12-line"
+      ],
+      "id": "ch12-insert",
+      "mode": "insert-normal",
+      "to": [
+        "ch12-insert"
+      ]
+    },
+    {
+      "condition": "Insert send/return before the channel fader",
+      "from": [
+        "ch13-mic",
+        "ch13-line"
+      ],
+      "id": "ch13-insert",
+      "mode": "insert-normal",
+      "to": [
+        "ch13-insert"
+      ]
+    },
+    {
+      "condition": "Insert send/return before the channel fader",
+      "from": [
+        "ch14-mic",
+        "ch14-line"
+      ],
+      "id": "ch14-insert",
+      "mode": "insert-normal",
+      "to": [
+        "ch14-insert"
+      ]
+    },
+    {
+      "condition": "Insert send/return before the channel fader",
+      "from": [
+        "ch15-mic",
+        "ch15-line"
+      ],
+      "id": "ch15-insert",
+      "mode": "insert-normal",
+      "to": [
+        "ch15-insert"
+      ]
+    },
+    {
+      "condition": "Insert send/return before the channel fader",
+      "from": [
+        "ch16-mic",
+        "ch16-line"
+      ],
+      "id": "ch16-insert",
+      "mode": "insert-normal",
+      "to": [
+        "ch16-insert"
+      ]
+    },
+    {
+      "from": [
+        "ch1-mic",
+        "ch1-line"
+      ],
+      "id": "ch1-direct",
+      "mode": "split",
+      "to": [
+        "ch1-direct"
+      ]
+    },
+    {
+      "from": [
+        "ch2-mic",
+        "ch2-line"
+      ],
+      "id": "ch2-direct",
+      "mode": "split",
+      "to": [
+        "ch2-direct"
+      ]
+    },
+    {
+      "from": [
+        "ch3-mic",
+        "ch3-line"
+      ],
+      "id": "ch3-direct",
+      "mode": "split",
+      "to": [
+        "ch3-direct"
+      ]
+    },
+    {
+      "from": [
+        "ch4-mic",
+        "ch4-line"
+      ],
+      "id": "ch4-direct",
+      "mode": "split",
+      "to": [
+        "ch4-direct"
+      ]
+    },
+    {
+      "from": [
+        "ch5-mic",
+        "ch5-line"
+      ],
+      "id": "ch5-direct",
+      "mode": "split",
+      "to": [
+        "ch5-direct"
+      ]
+    },
+    {
+      "from": [
+        "ch6-mic",
+        "ch6-line"
+      ],
+      "id": "ch6-direct",
+      "mode": "split",
+      "to": [
+        "ch6-direct"
+      ]
+    },
+    {
+      "from": [
+        "ch7-mic",
+        "ch7-line"
+      ],
+      "id": "ch7-direct",
+      "mode": "split",
+      "to": [
+        "ch7-direct"
+      ]
+    },
+    {
+      "from": [
+        "ch8-mic",
+        "ch8-line"
+      ],
+      "id": "ch8-direct",
+      "mode": "split",
+      "to": [
+        "ch8-direct"
+      ]
+    },
+    {
+      "from": [
+        "ch9-mic",
+        "ch9-line"
+      ],
+      "id": "ch9-direct",
+      "mode": "split",
+      "to": [
+        "ch9-direct"
+      ]
+    },
+    {
+      "from": [
+        "ch10-mic",
+        "ch10-line"
+      ],
+      "id": "ch10-direct",
+      "mode": "split",
+      "to": [
+        "ch10-direct"
+      ]
+    },
+    {
+      "from": [
+        "ch11-mic",
+        "ch11-line"
+      ],
+      "id": "ch11-direct",
+      "mode": "split",
+      "to": [
+        "ch11-direct"
+      ]
+    },
+    {
+      "from": [
+        "ch12-mic",
+        "ch12-line"
+      ],
+      "id": "ch12-direct",
+      "mode": "split",
+      "to": [
+        "ch12-direct"
+      ]
+    },
+    {
+      "from": [
+        "ch13-mic",
+        "ch13-line"
+      ],
+      "id": "ch13-direct",
+      "mode": "split",
+      "to": [
+        "ch13-direct"
+      ]
+    },
+    {
+      "from": [
+        "ch14-mic",
+        "ch14-line"
+      ],
+      "id": "ch14-direct",
+      "mode": "split",
+      "to": [
+        "ch14-direct"
+      ]
+    },
+    {
+      "from": [
+        "ch15-mic",
+        "ch15-line"
+      ],
+      "id": "ch15-direct",
+      "mode": "split",
+      "to": [
+        "ch15-direct"
+      ]
+    },
+    {
+      "from": [
+        "ch16-mic",
+        "ch16-line"
+      ],
+      "id": "ch16-direct",
+      "mode": "split",
+      "to": [
+        "ch16-direct"
+      ]
+    },
+    {
+      "channelMap": [
+        {
+          "from": "out-main-l",
+          "to": "insert-main-l"
+        },
+        {
+          "from": "out-main-r",
+          "to": "insert-main-r"
+        }
+      ],
+      "from": [
+        "out-main-l",
+        "out-main-r"
+      ],
+      "id": "main-insert",
+      "mode": "insert-normal",
+      "to": [
+        "insert-main-l",
+        "insert-main-r"
+      ]
+    }
+  ],
+  "manufacturer": "Allen & Heath",
+  "mounting": {
+    "rackEars": true
+  },
+  "name": "MixWizard",
+  "notes": "Free-standing 507 × 530 × 194 mm. Rack-mount: 10U with underside connectors (444 mm, 122 mm deep) or 11.2U with rear connectors (497 mm, 193 mm deep). USB option only on the WZ4.",
+  "power": {
+    "inrushNote": "T630 mA fuse.",
+    "mainsRegion": "auto-100-240",
+    "maxW": 45,
+    "sources": [
+      {
+        "included": true,
+        "inputConnectorId": "ac-in",
+        "kind": "internal-mains",
+        "plug": {
+          "type": "iec-c14"
+        }
+      },
+      {
+        "drawMa": null,
+        "included": false,
+        "inputConnectorId": "dc-backup",
+        "kind": "optional-dc",
+        "maxVoltageNote": "Optional MPS12 backup PSU"
+      }
+    ]
+  },
+  "provenance": {
+    "connectors.*.face": {
+      "kind": "estimated",
+      "note": "Rear panel assumed unless the reference states the panel."
+    },
+    "connectors.*.pos": {
+      "kind": "unknown",
+      "note": "Placeholder (0,0); place on a panel image."
+    },
+    "connectors.3.jack": {
+      "kind": "unknown",
+      "note": "Direct out jack type not stated."
+    },
+    "connectors.84.jack": {
+      "kind": "unknown",
+      "note": "Jack type not located in the gear reference."
+    },
+    "connectors.86.jack": {
+      "kind": "unknown",
+      "note": "Jack type not located in the gear reference."
+    },
+    "dimensions.d": {
+      "kind": "datasheet",
+      "note": "Gear reference v2"
+    },
+    "dimensions.h": {
+      "kind": "datasheet",
+      "note": "Gear reference v2"
+    },
+    "dimensions.rack": {
+      "kind": "datasheet",
+      "note": "10U (underside connectors); 11.2U with rear connectors."
+    },
+    "dimensions.w": {
+      "kind": "datasheet",
+      "note": "Gear reference v2"
+    },
+    "dimensions.weightKg": {
+      "kind": "datasheet",
+      "note": "Gear reference v2"
+    },
+    "power.sources.1.drawMa": {
+      "kind": "unknown",
+      "note": "Not located in the gear reference."
+    }
+  },
+  "sources": [
+    {
+      "label": "Home Studio Gear Reference v2 (docs/studio-gear-reference.md)",
+      "retrieved": "2026-10-04"
+    }
+  ],
+  "tags": [
+    "mixer"
+  ],
+  "variant": "WZ3 16:2"
+}

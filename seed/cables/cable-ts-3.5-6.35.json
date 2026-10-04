@@ -1,0 +1,19 @@
+{
+  "carries": [
+    "audio.analog",
+    "cv",
+    "gate",
+    "clock.pulse"
+  ],
+  "endA": "TS-3.5",
+  "endB": "TS-6.35",
+  "id": "cable-ts-3.5-6.35",
+  "kind": "cable",
+  "lengthsMm": [
+    300,
+    1000,
+    2000,
+    3000
+  ],
+  "name": "3.5 mm TS – ¼\" TS"
+}

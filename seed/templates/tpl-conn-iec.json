@@ -1,0 +1,20 @@
+{
+  "connectors": [
+    {
+      "direction": "in",
+      "domain": "power.ac",
+      "face": "back",
+      "id": "ac-in",
+      "jack": "iec-c14",
+      "label": "Mains (IEC)",
+      "pos": {
+        "x": 0,
+        "y": 0
+      }
+    }
+  ],
+  "group": "Connector groups",
+  "id": "tpl-conn-iec",
+  "name": "IEC C14 inlet",
+  "target": "connectors"
+}

@@ -1,0 +1,21 @@
+{
+  "carries": [
+    "midi.din",
+    "clock.dinsync"
+  ],
+  "endA": "DIN5-M",
+  "endB": "DIN5-M",
+  "id": "cable-midi-din",
+  "kind": "cable",
+  "lengthsMm": [
+    300,
+    500,
+    1000,
+    1500,
+    3000,
+    5000,
+    10000,
+    15000
+  ],
+  "name": "MIDI DIN 5"
+}

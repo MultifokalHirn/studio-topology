@@ -1,0 +1,160 @@
+{
+  "connectorGroups": [
+    {
+      "connectors": [
+        {
+          "channel": {
+            "role": "numbered"
+          },
+          "direction": "in",
+          "domain": "audio.analog",
+          "face": "back",
+          "id": "ch{i}-mic",
+          "jack": "xlr-f",
+          "label": "CH {i} Mic",
+          "pos": {
+            "x": 0,
+            "y": 0
+          },
+          "signal": {
+            "balance": "balanced",
+            "level": "mic"
+          }
+        },
+        {
+          "channel": {
+            "role": "numbered"
+          },
+          "direction": "in",
+          "domain": "audio.analog",
+          "face": "back",
+          "id": "ch{i}-line",
+          "jack": "jack-6.35-TRS",
+          "label": "CH {i} Line",
+          "pos": {
+            "x": 0,
+            "y": 0
+          },
+          "signal": {
+            "balance": "balanced",
+            "level": "line"
+          }
+        }
+      ],
+      "repeat": "channels"
+    }
+  ],
+  "gear": {
+    "category": "mixer",
+    "connectors": [
+      {
+        "channel": {
+          "group": "out-main",
+          "role": "L"
+        },
+        "direction": "out",
+        "domain": "audio.analog",
+        "face": "back",
+        "id": "out-main-l",
+        "jack": "xlr-m",
+        "label": "Main Out L",
+        "pos": {
+          "x": 0,
+          "y": 0
+        },
+        "signal": {
+          "balance": "balanced",
+          "level": "+4dBu"
+        }
+      },
+      {
+        "channel": {
+          "group": "out-main",
+          "role": "R"
+        },
+        "direction": "out",
+        "domain": "audio.analog",
+        "face": "back",
+        "id": "out-main-r",
+        "jack": "xlr-m",
+        "label": "Main Out R",
+        "pos": {
+          "x": 0,
+          "y": 0
+        },
+        "signal": {
+          "balance": "balanced",
+          "level": "+4dBu"
+        }
+      },
+      {
+        "channel": {
+          "role": "stereo"
+        },
+        "direction": "out",
+        "domain": "audio.headphone",
+        "face": "back",
+        "id": "phones",
+        "jack": "jack-6.35-TRS",
+        "label": "Headphones",
+        "pos": {
+          "x": 0,
+          "y": 0
+        },
+        "signal": {
+          "balance": "n/a",
+          "level": "headphone"
+        }
+      },
+      {
+        "direction": "in",
+        "domain": "power.ac",
+        "face": "back",
+        "id": "ac-in",
+        "jack": "iec-c14",
+        "label": "Mains (IEC)",
+        "pos": {
+          "x": 0,
+          "y": 0
+        }
+      }
+    ],
+    "dimensions": {
+      "d": null,
+      "h": null,
+      "heightIncludesKnobsFeet": true,
+      "w": null,
+      "weightKg": null
+    },
+    "ergonomics": {
+      "defaultUsage": "primary",
+      "interaction": "fader",
+      "needsDisplayVisibility": false
+    },
+    "formFactor": "desktop",
+    "power": {
+      "mainsRegion": "unknown",
+      "sources": [
+        {
+          "included": true,
+          "inputConnectorId": "ac-in",
+          "kind": "internal-mains",
+          "plug": {
+            "type": "iec-c14"
+          }
+        }
+      ]
+    }
+  },
+  "group": "Audio infrastructure",
+  "id": "tpl-mixer",
+  "name": "Mixer (N-channel)",
+  "params": [
+    {
+      "default": 8,
+      "key": "channels",
+      "label": "Channels"
+    }
+  ],
+  "target": "gear"
+}

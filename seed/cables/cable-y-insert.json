@@ -1,0 +1,16 @@
+{
+  "carries": [
+    "audio.analog"
+  ],
+  "endA": "Y-insert",
+  "endB": "TS-6.35",
+  "id": "cable-y-insert",
+  "kind": "cable",
+  "lengthsMm": [
+    1000,
+    2000,
+    3000
+  ],
+  "name": "Insert Y: ¼\" TRS – 2 × ¼\" TS",
+  "notes": "Tip/ring to send/return per the insert jack."
+}

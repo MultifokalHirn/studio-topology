@@ -1,0 +1,19 @@
+{
+  "carries": [
+    "usb.data",
+    "power.usb"
+  ],
+  "endA": "USB-C",
+  "endB": "USB-C",
+  "id": "cable-usb-c-c",
+  "kind": "cable",
+  "lengthsMm": [
+    300,
+    500,
+    1000,
+    2000,
+    3000
+  ],
+  "maxLengthMm": 4000,
+  "name": "USB-C – USB-C"
+}

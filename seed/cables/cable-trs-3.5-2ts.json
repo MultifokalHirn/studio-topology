@@ -1,0 +1,17 @@
+{
+  "carries": [
+    "audio.analog"
+  ],
+  "endA": "TRS-3.5",
+  "endB": "TS-6.35",
+  "id": "cable-trs-3.5-2ts",
+  "kind": "cable",
+  "lengthsMm": [
+    1000,
+    2000,
+    3000
+  ],
+  "name": "3.5 mm TRS stereo – 2 × ¼\" TS",
+  "notes": "Tip = L, ring = R.",
+  "swap": "tip-ring-for-L-R"
+}

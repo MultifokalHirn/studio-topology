@@ -1,0 +1,16 @@
+{
+  "carries": [
+    "power.ac"
+  ],
+  "endA": "IEC-C13",
+  "endB": "IEC-C13",
+  "id": "cable-iec",
+  "kind": "cable",
+  "lengthsMm": [
+    1000,
+    1500,
+    2000,
+    3000
+  ],
+  "name": "IEC C13 mains cable"
+}

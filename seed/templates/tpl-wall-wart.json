@@ -1,0 +1,62 @@
+{
+  "gear": {
+    "category": "power",
+    "connectors": [
+      {
+        "direction": "in",
+        "domain": "power.ac",
+        "face": "back",
+        "id": "ac",
+        "jack": "mains-plug",
+        "label": "Mains plug",
+        "pos": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "direction": "out",
+        "domain": "power.dc",
+        "face": "back",
+        "id": "dc-out",
+        "jack": "captive-cable",
+        "label": "DC Out",
+        "pos": {
+          "x": 0,
+          "y": 0
+        },
+        "psu": {
+          "currentMaMax": 1000,
+          "plug": {
+            "idMm": 2.5,
+            "odMm": 5.5,
+            "polarity": "center-positive",
+            "type": "barrel"
+          },
+          "polarity": "center-positive",
+          "voltage": 12
+        }
+      }
+    ],
+    "dimensions": {
+      "d": null,
+      "h": null,
+      "heightIncludesKnobsFeet": true,
+      "w": null,
+      "weightKg": null
+    },
+    "ergonomics": {
+      "defaultUsage": "rare",
+      "interaction": "set-and-forget",
+      "needsDisplayVisibility": false
+    },
+    "formFactor": "other",
+    "power": {
+      "sources": []
+    }
+  },
+  "group": "Power",
+  "id": "tpl-wall-wart",
+  "name": "Wall-wart DC supply",
+  "target": "gear"
+}
