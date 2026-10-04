@@ -1,0 +1,3144 @@
+{
+  "$defs": {
+    "__schema0": {
+      "type": "string"
+    },
+    "__schema1": {
+      "type": "string"
+    },
+    "__schema10": {
+      "additionalProperties": false,
+      "properties": {
+        "d": {
+          "$ref": "#/$defs/__schema11"
+        },
+        "eurorack": {
+          "additionalProperties": false,
+          "properties": {
+            "depthMm": {
+              "type": "number"
+            },
+            "hp": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "hp"
+          ],
+          "type": "object"
+        },
+        "h": {
+          "$ref": "#/$defs/__schema11"
+        },
+        "heightIncludesKnobsFeet": {
+          "type": "boolean"
+        },
+        "keyboard": {
+          "additionalProperties": false,
+          "properties": {
+            "keyType": {
+              "enum": [
+                "slim",
+                "mini",
+                "full",
+                "semi-weighted",
+                "weighted"
+              ],
+              "type": "string"
+            },
+            "keys": {
+              "maximum": 9007199254740991,
+              "minimum": -9007199254740991,
+              "type": "integer"
+            }
+          },
+          "required": [
+            "keys",
+            "keyType"
+          ],
+          "type": "object"
+        },
+        "rack": {
+          "additionalProperties": false,
+          "properties": {
+            "depthBehindEarsMm": {
+              "type": "number"
+            },
+            "earsIncluded": {
+              "type": "boolean"
+            },
+            "u": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "u",
+            "earsIncluded"
+          ],
+          "type": "object"
+        },
+        "w": {
+          "$ref": "#/$defs/__schema11"
+        },
+        "weightKg": {
+          "$ref": "#/$defs/__schema11"
+        }
+      },
+      "required": [
+        "w",
+        "d",
+        "h",
+        "weightKg",
+        "heightIncludesKnobsFeet"
+      ],
+      "type": "object"
+    },
+    "__schema11": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "__schema12": {
+      "additionalProperties": false,
+      "properties": {
+        "nonSlipFeet": {
+          "type": "boolean"
+        },
+        "pegs": {
+          "type": "string"
+        },
+        "rackEars": {
+          "type": "boolean"
+        },
+        "slipRiskNote": {
+          "type": "string"
+        },
+        "vesa": {
+          "anyOf": [
+            {
+              "const": 75,
+              "type": "number"
+            },
+            {
+              "const": 100,
+              "type": "number"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "__schema13": {
+      "$ref": "#/$defs/__schema14"
+    },
+    "__schema14": {
+      "additionalProperties": false,
+      "properties": {
+        "h": {
+          "type": "number"
+        },
+        "w": {
+          "type": "number"
+        },
+        "x": {
+          "type": "number"
+        },
+        "y": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "x",
+        "y",
+        "w",
+        "h"
+      ],
+      "type": "object"
+    },
+    "__schema15": {
+      "additionalProperties": {
+        "additionalProperties": false,
+        "properties": {
+          "heightMm": {
+            "type": "number"
+          },
+          "widthMm": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "widthMm",
+          "heightMm"
+        ],
+        "type": "object"
+      },
+      "propertyNames": {
+        "$ref": "#/$defs/__schema16"
+      },
+      "type": "object"
+    },
+    "__schema16": {
+      "enum": [
+        "top",
+        "front",
+        "back",
+        "left",
+        "right",
+        "bottom"
+      ],
+      "type": "string"
+    },
+    "__schema17": {
+      "items": {
+        "$ref": "#/$defs/__schema18"
+      },
+      "type": "array"
+    },
+    "__schema18": {
+      "additionalProperties": false,
+      "properties": {
+        "alternates": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "direction": {
+                "$ref": "#/$defs/__schema21"
+              },
+              "domain": {
+                "$ref": "#/$defs/__schema20"
+              },
+              "id": {
+                "$ref": "#/$defs/__schema2"
+              },
+              "label": {
+                "type": "string"
+              },
+              "note": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id",
+              "label"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "channel": {
+          "additionalProperties": false,
+          "properties": {
+            "bus": {
+              "type": "string"
+            },
+            "group": {
+              "type": "string"
+            },
+            "index": {
+              "maximum": 9007199254740991,
+              "minimum": -9007199254740991,
+              "type": "integer"
+            },
+            "role": {
+              "enum": [
+                "mono",
+                "L",
+                "R",
+                "numbered"
+              ],
+              "type": "string"
+            }
+          },
+          "required": [
+            "role"
+          ],
+          "type": "object"
+        },
+        "clock": {
+          "additionalProperties": false,
+          "properties": {
+            "canMaster": {
+              "type": "boolean"
+            },
+            "canSlave": {
+              "type": "boolean"
+            },
+            "format": {
+              "enum": [
+                "midi",
+                "dinsync24",
+                "dinsync48",
+                "pulse",
+                "word",
+                "adat"
+              ],
+              "type": "string"
+            },
+            "note": {
+              "type": "string"
+            },
+            "ppqn": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "format"
+          ],
+          "type": "object"
+        },
+        "cv": {
+          "additionalProperties": false,
+          "properties": {
+            "rangeV": {
+              "items": false,
+              "maxItems": 2,
+              "minItems": 2,
+              "prefixItems": [
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "number"
+                }
+              ],
+              "type": "array"
+            },
+            "standard": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "standard"
+          ],
+          "type": "object"
+        },
+        "direction": {
+          "$ref": "#/$defs/__schema21"
+        },
+        "domain": {
+          "$ref": "#/$defs/__schema20"
+        },
+        "exclusiveWith": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "face": {
+          "$ref": "#/$defs/__schema16"
+        },
+        "id": {
+          "$ref": "#/$defs/__schema2"
+        },
+        "jack": {
+          "anyOf": [
+            {
+              "enum": [
+                "jack-6.35-TS",
+                "jack-6.35-TRS",
+                "jack-3.5-TS",
+                "jack-3.5-TRS",
+                "xlr-f",
+                "xlr-m",
+                "combo-xlr-trs",
+                "din5-f",
+                "rca-f",
+                "toslink-f",
+                "bnc-f",
+                "usb-a-f",
+                "usb-b-f",
+                "usb-c-f",
+                "usb-micro-b-f",
+                "usb-mini-b-f",
+                "rj45",
+                "iec-c14",
+                "speakon"
+              ],
+              "type": "string"
+            },
+            {
+              "pattern": "^dc-barrel--?\\d+(?:\\.\\d+)?x-?\\d+(?:\\.\\d+)?$",
+              "type": "string"
+            }
+          ]
+        },
+        "label": {
+          "type": "string"
+        },
+        "midi": {
+          "additionalProperties": false,
+          "properties": {
+            "carries": {
+              "items": {
+                "enum": [
+                  "notes",
+                  "cc",
+                  "pc",
+                  "sysex",
+                  "clock",
+                  "transport",
+                  "mtc",
+                  "aftertouch"
+                ],
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "thruMode": {
+              "enum": [
+                "hard",
+                "soft",
+                "switchable-with-out",
+                "none"
+              ],
+              "type": "string"
+            },
+            "trsType": {
+              "enum": [
+                "A",
+                "B"
+              ],
+              "type": "string"
+            }
+          },
+          "required": [
+            "carries"
+          ],
+          "type": "object"
+        },
+        "notes": {
+          "type": "string"
+        },
+        "pos": {
+          "$ref": "#/$defs/__schema19"
+        },
+        "psu": {
+          "additionalProperties": false,
+          "properties": {
+            "currentMaMax": {
+              "$ref": "#/$defs/__schema11"
+            },
+            "plug": {
+              "$ref": "#/$defs/__schema22"
+            },
+            "polarity": {
+              "$ref": "#/$defs/__schema23"
+            },
+            "voltage": {
+              "$ref": "#/$defs/__schema11"
+            }
+          },
+          "required": [
+            "voltage",
+            "currentMaMax"
+          ],
+          "type": "object"
+        },
+        "signal": {
+          "additionalProperties": false,
+          "properties": {
+            "balance": {
+              "enum": [
+                "balanced",
+                "imp-balanced",
+                "unbalanced",
+                "n/a"
+              ],
+              "type": "string"
+            },
+            "impedanceOhm": {
+              "type": "number"
+            },
+            "level": {
+              "enum": [
+                "mic",
+                "line",
+                "instrument",
+                "hi-z",
+                "+4dBu",
+                "-10dBV",
+                "speaker",
+                "headphone",
+                "eurorack-audio",
+                "cv-1v-oct",
+                "cv-unipolar",
+                "cv-bipolar",
+                "gate-5v",
+                "gate-12v"
+              ],
+              "type": "string"
+            },
+            "maxDbu": {
+              "type": "number"
+            },
+            "phantom": {
+              "enum": [
+                "none",
+                "switchable",
+                "always"
+              ],
+              "type": "string"
+            }
+          },
+          "required": [
+            "balance"
+          ],
+          "type": "object"
+        },
+        "usb": {
+          "additionalProperties": false,
+          "properties": {
+            "audio": {
+              "additionalProperties": false,
+              "properties": {
+                "compliance": {
+                  "enum": [
+                    "class-compliant",
+                    "driver-required",
+                    "overbridge",
+                    "unknown"
+                  ],
+                  "type": "string"
+                },
+                "inChannels": {
+                  "maximum": 9007199254740991,
+                  "minimum": -9007199254740991,
+                  "type": "integer"
+                },
+                "maxRateHz": {
+                  "type": "number"
+                },
+                "outChannels": {
+                  "maximum": 9007199254740991,
+                  "minimum": -9007199254740991,
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "inChannels",
+                "outChannels",
+                "compliance"
+              ],
+              "type": "object"
+            },
+            "busPowered": {
+              "type": "boolean"
+            },
+            "carries": {
+              "items": {
+                "enum": [
+                  "midi",
+                  "audio",
+                  "data",
+                  "power",
+                  "firmware"
+                ],
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "drawsBusPowerMa": {
+              "$ref": "#/$defs/__schema11"
+            },
+            "role": {
+              "enum": [
+                "host",
+                "device",
+                "otg"
+              ],
+              "type": "string"
+            },
+            "suppliesBusPowerMa": {
+              "$ref": "#/$defs/__schema11"
+            },
+            "version": {
+              "enum": [
+                "4",
+                "1.1",
+                "2.0",
+                "3.0",
+                "3.1",
+                "3.2",
+                "unknown"
+              ],
+              "type": "string"
+            }
+          },
+          "required": [
+            "role",
+            "version",
+            "carries"
+          ],
+          "type": "object"
+        }
+      },
+      "required": [
+        "id",
+        "label",
+        "face",
+        "pos",
+        "domain",
+        "direction",
+        "jack"
+      ],
+      "type": "object"
+    },
+    "__schema19": {
+      "additionalProperties": false,
+      "properties": {
+        "x": {
+          "type": "number"
+        },
+        "y": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "x",
+        "y"
+      ],
+      "type": "object"
+    },
+    "__schema2": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "__schema20": {
+      "enum": [
+        "audio.analog",
+        "audio.headphone",
+        "audio.adat",
+        "audio.spdif",
+        "audio.aes",
+        "audio.usb",
+        "midi.din",
+        "midi.trs-a",
+        "midi.trs-b",
+        "midi.usb",
+        "midi.ble",
+        "midi.network",
+        "cv",
+        "gate",
+        "clock.pulse",
+        "clock.dinsync",
+        "clock.word",
+        "expression",
+        "footswitch",
+        "usb.data",
+        "ethernet",
+        "power.dc",
+        "power.ac",
+        "power.usb",
+        "other"
+      ],
+      "type": "string"
+    },
+    "__schema21": {
+      "enum": [
+        "in",
+        "out",
+        "thru",
+        "bidir"
+      ],
+      "type": "string"
+    },
+    "__schema22": {
+      "oneOf": [
+        {
+          "additionalProperties": false,
+          "properties": {
+            "idMm": {
+              "type": "number"
+            },
+            "odMm": {
+              "type": "number"
+            },
+            "polarity": {
+              "$ref": "#/$defs/__schema23"
+            },
+            "type": {
+              "const": "barrel",
+              "type": "string"
+            }
+          },
+          "required": [
+            "type",
+            "odMm",
+            "idMm",
+            "polarity"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "type": {
+              "const": "iec-c14",
+              "type": "string"
+            }
+          },
+          "required": [
+            "type"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "type": {
+              "const": "usb",
+              "type": "string"
+            }
+          },
+          "required": [
+            "type"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "note": {
+              "type": "string"
+            },
+            "type": {
+              "const": "other",
+              "type": "string"
+            }
+          },
+          "required": [
+            "type",
+            "note"
+          ],
+          "type": "object"
+        }
+      ]
+    },
+    "__schema23": {
+      "enum": [
+        "center-positive",
+        "center-negative"
+      ],
+      "type": "string"
+    },
+    "__schema24": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "channelMap": {
+            "items": {
+              "additionalProperties": false,
+              "properties": {
+                "from": {
+                  "type": "string"
+                },
+                "to": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "from",
+                "to"
+              ],
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "condition": {
+            "type": "string"
+          },
+          "from": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "id": {
+            "$ref": "#/$defs/__schema2"
+          },
+          "mode": {
+            "enum": [
+              "passthrough",
+              "process",
+              "sum",
+              "split",
+              "host-bridge",
+              "insert-normal"
+            ],
+            "type": "string"
+          },
+          "presetId": {
+            "type": "string"
+          },
+          "to": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          }
+        },
+        "required": [
+          "id",
+          "from",
+          "to",
+          "mode"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "__schema25": {
+      "additionalProperties": false,
+      "properties": {
+        "inrushNote": {
+          "type": "string"
+        },
+        "mainsRegion": {
+          "enum": [
+            "selectable",
+            "auto-100-240",
+            "115-only",
+            "230-only",
+            "unknown"
+          ],
+          "type": "string"
+        },
+        "maxW": {
+          "$ref": "#/$defs/__schema11"
+        },
+        "sources": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "drawMa": {
+                "$ref": "#/$defs/__schema11"
+              },
+              "included": {
+                "type": "boolean"
+              },
+              "inputConnectorId": {
+                "type": "string"
+              },
+              "kind": {
+                "enum": [
+                  "external-dc",
+                  "internal-mains",
+                  "usb-bus",
+                  "battery",
+                  "eurorack-bus",
+                  "optional-dc"
+                ],
+                "type": "string"
+              },
+              "maxVoltageNote": {
+                "type": "string"
+              },
+              "nominalV": {
+                "type": "number"
+              },
+              "peakMa": {
+                "$ref": "#/$defs/__schema11"
+              },
+              "plug": {
+                "$ref": "#/$defs/__schema22"
+              },
+              "suppliedModelId": {
+                "type": "string"
+              },
+              "voltageMaxV": {
+                "type": "number"
+              },
+              "voltageMinV": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "kind",
+              "included"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "typicalW": {
+          "$ref": "#/$defs/__schema11"
+        }
+      },
+      "required": [
+        "sources"
+      ],
+      "type": "object"
+    },
+    "__schema26": {
+      "additionalProperties": false,
+      "properties": {
+        "channelsRx": {
+          "anyOf": [
+            {
+              "items": {
+                "maximum": 9007199254740991,
+                "minimum": -9007199254740991,
+                "type": "integer"
+              },
+              "type": "array"
+            },
+            {
+              "const": "omni",
+              "type": "string"
+            },
+            {
+              "const": "per-track",
+              "type": "string"
+            }
+          ]
+        },
+        "clockIn": {
+          "type": "boolean"
+        },
+        "clockOut": {
+          "type": "boolean"
+        },
+        "maxThruChain": {
+          "maximum": 9007199254740991,
+          "minimum": -9007199254740991,
+          "type": "integer"
+        },
+        "notes": {
+          "type": "string"
+        },
+        "tracks": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "defaultChannel": {
+                "maximum": 9007199254740991,
+                "minimum": -9007199254740991,
+                "type": "integer"
+              },
+              "id": {
+                "$ref": "#/$defs/__schema2"
+              },
+              "label": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id",
+              "label"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "__schema27": {
+      "additionalProperties": false,
+      "properties": {
+        "canBeMaster": {
+          "type": "boolean"
+        },
+        "canBeSlave": {
+          "type": "boolean"
+        },
+        "formats": {
+          "items": {
+            "enum": [
+              "midi",
+              "dinsync24",
+              "dinsync48",
+              "pulse-1ppqn",
+              "pulse-2ppqn",
+              "pulse-24ppqn",
+              "pulse-48ppqn",
+              "adat",
+              "word"
+            ],
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "notes": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "canBeMaster",
+        "canBeSlave",
+        "formats"
+      ],
+      "type": "object"
+    },
+    "__schema28": {
+      "additionalProperties": false,
+      "properties": {
+        "adatMaxHzNote": {
+          "type": "string"
+        },
+        "bitDepths": {
+          "items": {
+            "type": "number"
+          },
+          "type": "array"
+        },
+        "sampleRatesHz": {
+          "items": {
+            "type": "number"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "__schema29": {
+      "additionalProperties": false,
+      "properties": {
+        "defaultUsage": {
+          "$ref": "#/$defs/__schema30"
+        },
+        "interaction": {
+          "enum": [
+            "keys",
+            "knobs-buttons",
+            "pads",
+            "touch",
+            "fader",
+            "footswitch",
+            "set-and-forget"
+          ],
+          "type": "string"
+        },
+        "needsDisplayVisibility": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "interaction",
+        "defaultUsage",
+        "needsDisplayVisibility"
+      ],
+      "type": "object"
+    },
+    "__schema3": {
+      "type": "string"
+    },
+    "__schema30": {
+      "enum": [
+        "primary",
+        "secondary",
+        "rare"
+      ],
+      "type": "string"
+    },
+    "__schema31": {
+      "additionalProperties": {
+        "$ref": "#/$defs/__schema32"
+      },
+      "propertyNames": {
+        "enum": [
+          "top",
+          "front",
+          "back",
+          "left",
+          "right",
+          "bottom",
+          "photo"
+        ],
+        "type": "string"
+      },
+      "type": "object"
+    },
+    "__schema32": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/__schema2"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "type": "object"
+    },
+    "__schema33": {
+      "additionalProperties": {
+        "additionalProperties": false,
+        "properties": {
+          "cropRect": {
+            "$ref": "#/$defs/__schema14"
+          },
+          "pxPerMm": {
+            "type": "number"
+          },
+          "rectified": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "pxPerMm"
+        ],
+        "type": "object"
+      },
+      "propertyNames": {
+        "$ref": "#/$defs/__schema16"
+      },
+      "type": "object"
+    },
+    "__schema34": {
+      "type": "string"
+    },
+    "__schema35": {
+      "items": {
+        "$ref": "#/$defs/__schema36"
+      },
+      "type": "array"
+    },
+    "__schema36": {
+      "additionalProperties": false,
+      "properties": {
+        "label": {
+          "type": "string"
+        },
+        "retrieved": {
+          "$ref": "#/$defs/__schema0"
+        },
+        "url": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "label"
+      ],
+      "type": "object"
+    },
+    "__schema37": {
+      "additionalProperties": {
+        "additionalProperties": false,
+        "properties": {
+          "kind": {
+            "enum": [
+              "manufacturer",
+              "datasheet",
+              "retailer",
+              "measured",
+              "estimated",
+              "user",
+              "unknown"
+            ],
+            "type": "string"
+          },
+          "note": {
+            "type": "string"
+          },
+          "retrieved": {
+            "$ref": "#/$defs/__schema0"
+          },
+          "url": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "kind"
+        ],
+        "type": "object"
+      },
+      "propertyNames": {
+        "type": "string"
+      },
+      "type": "object"
+    },
+    "__schema38": {
+      "type": "string"
+    },
+    "__schema39": {
+      "type": "string"
+    },
+    "__schema4": {
+      "type": "string"
+    },
+    "__schema40": {
+      "type": "string"
+    },
+    "__schema41": {
+      "enum": [
+        "tiered-keyboard-stand",
+        "desk",
+        "rack",
+        "eurorack-case",
+        "shelf",
+        "pedalboard",
+        "floor",
+        "custom"
+      ],
+      "type": "string"
+    },
+    "__schema42": {
+      "additionalProperties": false,
+      "properties": {
+        "d": {
+          "$ref": "#/$defs/__schema11"
+        },
+        "h": {
+          "$ref": "#/$defs/__schema11"
+        },
+        "innerSpanMm": {
+          "$ref": "#/$defs/__schema11"
+        },
+        "w": {
+          "$ref": "#/$defs/__schema11"
+        },
+        "weightKg": {
+          "$ref": "#/$defs/__schema11"
+        }
+      },
+      "required": [
+        "w",
+        "d",
+        "h"
+      ],
+      "type": "object"
+    },
+    "__schema43": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "adjustable": {
+            "additionalProperties": false,
+            "properties": {
+              "tiltDeg": {
+                "$ref": "#/$defs/__schema44"
+              },
+              "y": {
+                "$ref": "#/$defs/__schema44"
+              },
+              "z": {
+                "$ref": "#/$defs/__schema44"
+              }
+            },
+            "type": "object"
+          },
+          "anchor": {
+            "additionalProperties": false,
+            "properties": {
+              "x": {
+                "type": "number"
+              },
+              "y": {
+                "type": "number"
+              },
+              "z": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "x",
+              "y",
+              "z"
+            ],
+            "type": "object"
+          },
+          "holders": {
+            "additionalProperties": false,
+            "properties": {
+              "lengthMm": {
+                "type": "number"
+              },
+              "pairMinSpacingMm": {
+                "type": "number"
+              },
+              "protrusionAdjustable": {
+                "type": "boolean"
+              },
+              "thicknessMm": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "lengthMm",
+              "thicknessMm",
+              "pairMinSpacingMm",
+              "protrusionAdjustable"
+            ],
+            "type": "object"
+          },
+          "id": {
+            "$ref": "#/$defs/__schema2"
+          },
+          "kind": {
+            "enum": [
+              "tier",
+              "desktop",
+              "rack-bay",
+              "shelf",
+              "floor",
+              "rail"
+            ],
+            "type": "string"
+          },
+          "label": {
+            "type": "string"
+          },
+          "lipFrontMm": {
+            "type": "number"
+          },
+          "loadKg": {
+            "$ref": "#/$defs/__schema11"
+          },
+          "rack": {
+            "additionalProperties": false,
+            "properties": {
+              "depthMm": {
+                "type": "number"
+              },
+              "innerWidthMm": {
+                "const": 450,
+                "type": "number"
+              },
+              "u": {
+                "maximum": 9007199254740991,
+                "minimum": -9007199254740991,
+                "type": "integer"
+              }
+            },
+            "required": [
+              "u",
+              "innerWidthMm",
+              "depthMm"
+            ],
+            "type": "object"
+          },
+          "usable": {
+            "additionalProperties": false,
+            "properties": {
+              "d": {
+                "type": "number"
+              },
+              "w": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "w",
+              "d"
+            ],
+            "type": "object"
+          }
+        },
+        "required": [
+          "id",
+          "label",
+          "kind",
+          "usable",
+          "anchor",
+          "adjustable",
+          "loadKg"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "__schema44": {
+      "additionalProperties": false,
+      "properties": {
+        "max": {
+          "type": "number"
+        },
+        "min": {
+          "type": "number"
+        },
+        "step": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "min",
+        "max",
+        "step"
+      ],
+      "type": "object"
+    },
+    "__schema45": {
+      "additionalProperties": false,
+      "properties": {
+        "frameLines": {
+          "items": {
+            "items": {
+              "$ref": "#/$defs/__schema19"
+            },
+            "type": "array"
+          },
+          "type": "array"
+        },
+        "legSpreadMm": {
+          "type": "number"
+        },
+        "poleDiameterMm": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "poleDiameterMm"
+      ],
+      "type": "object"
+    },
+    "__schema46": {
+      "additionalProperties": {
+        "$ref": "#/$defs/__schema32"
+      },
+      "propertyNames": {
+        "enum": [
+          "front",
+          "side",
+          "top",
+          "photo"
+        ],
+        "type": "string"
+      },
+      "type": "object"
+    },
+    "__schema47": {
+      "type": "string"
+    },
+    "__schema48": {
+      "items": {
+        "$ref": "#/$defs/__schema36"
+      },
+      "type": "array"
+    },
+    "__schema49": {
+      "enum": [
+        "TS-6.35",
+        "TRS-6.35",
+        "TS-3.5",
+        "TRS-3.5",
+        "XLR-M",
+        "XLR-F",
+        "DIN5-M",
+        "RCA-M",
+        "TOSLINK",
+        "BNC",
+        "USB-A",
+        "USB-B",
+        "USB-C",
+        "USB-micro-B",
+        "USB-mini-B",
+        "RJ45",
+        "DC-barrel",
+        "IEC-C13",
+        "Y-insert"
+      ],
+      "type": "string"
+    },
+    "__schema5": {
+      "type": "string"
+    },
+    "__schema50": {
+      "enum": [
+        0,
+        90,
+        180,
+        270
+      ],
+      "type": "number"
+    },
+    "__schema51": {
+      "additionalProperties": false,
+      "properties": {
+        "connectorId": {
+          "type": "string"
+        },
+        "unitId": {
+          "$ref": "#/$defs/__schema2"
+        }
+      },
+      "required": [
+        "unitId",
+        "connectorId"
+      ],
+      "type": "object"
+    },
+    "__schema6": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "__schema7": {
+      "enum": [
+        "synth",
+        "drum-machine",
+        "sampler",
+        "sequencer",
+        "controller",
+        "effect",
+        "dynamics",
+        "mixer",
+        "interface",
+        "converter",
+        "midi-hub",
+        "patchbay",
+        "eurorack-case",
+        "power",
+        "computer",
+        "tablet",
+        "monitor-speaker",
+        "headphones",
+        "microphone",
+        "accessory",
+        "other"
+      ],
+      "type": "string"
+    },
+    "__schema8": {
+      "enum": [
+        "desktop",
+        "keyboard",
+        "rack",
+        "pedal",
+        "eurorack",
+        "handheld",
+        "tablet",
+        "speaker",
+        "other"
+      ],
+      "type": "string"
+    },
+    "__schema9": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "$id": "https://studio-planner.local/schema/project.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "activeSetupId": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "assets": {
+      "additionalProperties": false,
+      "properties": {
+        "items": {
+          "additionalProperties": {
+            "additionalProperties": false,
+            "properties": {
+              "bytes": {
+                "maximum": 9007199254740991,
+                "minimum": -9007199254740991,
+                "type": "integer"
+              },
+              "dataUri": {
+                "type": "string"
+              },
+              "heightPx": {
+                "maximum": 9007199254740991,
+                "minimum": -9007199254740991,
+                "type": "integer"
+              },
+              "mime": {
+                "enum": [
+                  "image/webp",
+                  "image/png",
+                  "image/jpeg",
+                  "image/svg+xml"
+                ],
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "path": {
+                "type": "string"
+              },
+              "widthPx": {
+                "maximum": 9007199254740991,
+                "minimum": -9007199254740991,
+                "type": "integer"
+              }
+            },
+            "required": [
+              "name",
+              "mime",
+              "widthPx",
+              "heightPx",
+              "bytes"
+            ],
+            "type": "object"
+          },
+          "propertyNames": {
+            "type": "string"
+          },
+          "type": "object"
+        },
+        "mode": {
+          "enum": [
+            "embedded",
+            "folder"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "mode",
+        "items"
+      ],
+      "type": "object"
+    },
+    "bodyProfiles": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "handedness": {
+            "enum": [
+              "right",
+              "left"
+            ],
+            "type": "string"
+          },
+          "heightMm": {
+            "type": "number"
+          },
+          "id": {
+            "$ref": "#/$defs/__schema2"
+          },
+          "name": {
+            "type": "string"
+          },
+          "overrides": {
+            "additionalProperties": false,
+            "properties": {
+              "elbowSeatedAboveSeatMm": {
+                "type": "number"
+              },
+              "elbowStandingMm": {
+                "type": "number"
+              },
+              "eyeSeatedAboveSeatMm": {
+                "type": "number"
+              },
+              "eyeStandingMm": {
+                "type": "number"
+              },
+              "forearmHandMm": {
+                "type": "number"
+              },
+              "seatHeightMm": {
+                "type": "number"
+              },
+              "shoulderStandingMm": {
+                "type": "number"
+              }
+            },
+            "type": "object"
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "heightMm",
+          "handedness"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "inventory": {
+      "additionalProperties": false,
+      "properties": {
+        "cables": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "$ref": "#/$defs/__schema2"
+              },
+              "inStock": {
+                "type": "boolean"
+              },
+              "label": {
+                "type": "string"
+              },
+              "lengthMm": {
+                "type": "number"
+              },
+              "modelId": {
+                "$ref": "#/$defs/__schema2"
+              }
+            },
+            "required": [
+              "id",
+              "modelId",
+              "lengthMm",
+              "inStock"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "gearUnits": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "$ref": "#/$defs/__schema2"
+              },
+              "modelId": {
+                "$ref": "#/$defs/__schema2"
+              },
+              "nickname": {
+                "type": "string"
+              },
+              "notes": {
+                "type": "string"
+              },
+              "overrides": {
+                "additionalProperties": {},
+                "propertyNames": {
+                  "type": "string"
+                },
+                "type": "object"
+              },
+              "purchaseDate": {
+                "$ref": "#/$defs/__schema0"
+              },
+              "serial": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id",
+              "modelId",
+              "nickname"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "rooms": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "d": {
+                "type": "number"
+              },
+              "h": {
+                "type": "number"
+              },
+              "id": {
+                "$ref": "#/$defs/__schema2"
+              },
+              "name": {
+                "type": "string"
+              },
+              "notes": {
+                "type": "string"
+              },
+              "w": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "id",
+              "name",
+              "w",
+              "d"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "standUnits": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "$ref": "#/$defs/__schema2"
+              },
+              "modelId": {
+                "$ref": "#/$defs/__schema2"
+              },
+              "nickname": {
+                "type": "string"
+              },
+              "notes": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id",
+              "modelId",
+              "nickname"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "gearUnits",
+        "standUnits",
+        "cables",
+        "rooms"
+      ],
+      "type": "object"
+    },
+    "library": {
+      "additionalProperties": false,
+      "properties": {
+        "cableModels": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "balanced": {
+                "type": "boolean"
+              },
+              "carries": {
+                "items": {
+                  "$ref": "#/$defs/__schema20"
+                },
+                "type": "array"
+              },
+              "endA": {
+                "$ref": "#/$defs/__schema49"
+              },
+              "endB": {
+                "$ref": "#/$defs/__schema49"
+              },
+              "id": {
+                "$ref": "#/$defs/__schema2"
+              },
+              "kind": {
+                "enum": [
+                  "cable",
+                  "adapter"
+                ],
+                "type": "string"
+              },
+              "lengthsMm": {
+                "items": {
+                  "type": "number"
+                },
+                "type": "array"
+              },
+              "maxLengthMm": {
+                "type": "number"
+              },
+              "name": {
+                "type": "string"
+              },
+              "notes": {
+                "type": "string"
+              },
+              "provenance": {
+                "$ref": "#/$defs/__schema37"
+              },
+              "swap": {
+                "enum": [
+                  "none",
+                  "tip-ring-for-L-R",
+                  "trs-a-to-b"
+                ],
+                "type": "string"
+              }
+            },
+            "required": [
+              "id",
+              "name",
+              "kind",
+              "endA",
+              "endB",
+              "carries",
+              "lengthsMm"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "gearModels": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "aliases": {
+                "$ref": "#/$defs/__schema6"
+              },
+              "audio": {
+                "$ref": "#/$defs/__schema28"
+              },
+              "category": {
+                "$ref": "#/$defs/__schema7"
+              },
+              "clock": {
+                "$ref": "#/$defs/__schema27"
+              },
+              "connectors": {
+                "$ref": "#/$defs/__schema17"
+              },
+              "controlsRegion": {
+                "$ref": "#/$defs/__schema13"
+              },
+              "createdFromTemplateId": {
+                "$ref": "#/$defs/__schema38"
+              },
+              "dimensions": {
+                "$ref": "#/$defs/__schema10"
+              },
+              "ergonomics": {
+                "$ref": "#/$defs/__schema29"
+              },
+              "faces": {
+                "$ref": "#/$defs/__schema15"
+              },
+              "formFactor": {
+                "$ref": "#/$defs/__schema8"
+              },
+              "id": {
+                "$ref": "#/$defs/__schema2"
+              },
+              "imageCalibration": {
+                "$ref": "#/$defs/__schema33"
+              },
+              "images": {
+                "$ref": "#/$defs/__schema31"
+              },
+              "internalPaths": {
+                "$ref": "#/$defs/__schema24"
+              },
+              "manufacturer": {
+                "$ref": "#/$defs/__schema3"
+              },
+              "midi": {
+                "$ref": "#/$defs/__schema26"
+              },
+              "mounting": {
+                "$ref": "#/$defs/__schema12"
+              },
+              "name": {
+                "$ref": "#/$defs/__schema4"
+              },
+              "notes": {
+                "$ref": "#/$defs/__schema34"
+              },
+              "power": {
+                "$ref": "#/$defs/__schema25"
+              },
+              "provenance": {
+                "$ref": "#/$defs/__schema37"
+              },
+              "sources": {
+                "$ref": "#/$defs/__schema35"
+              },
+              "tags": {
+                "$ref": "#/$defs/__schema9"
+              },
+              "variant": {
+                "$ref": "#/$defs/__schema5"
+              }
+            },
+            "required": [
+              "id",
+              "manufacturer",
+              "name",
+              "aliases",
+              "category",
+              "formFactor",
+              "tags",
+              "dimensions",
+              "mounting",
+              "faces",
+              "connectors",
+              "internalPaths",
+              "power",
+              "ergonomics",
+              "images",
+              "notes",
+              "sources",
+              "provenance"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "standModels": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "dimensions": {
+                "$ref": "#/$defs/__schema42"
+              },
+              "id": {
+                "$ref": "#/$defs/__schema2"
+              },
+              "images": {
+                "$ref": "#/$defs/__schema46"
+              },
+              "manufacturer": {
+                "$ref": "#/$defs/__schema39"
+              },
+              "name": {
+                "$ref": "#/$defs/__schema40"
+              },
+              "notes": {
+                "$ref": "#/$defs/__schema47"
+              },
+              "provenance": {
+                "$ref": "#/$defs/__schema37"
+              },
+              "sources": {
+                "$ref": "#/$defs/__schema48"
+              },
+              "structure": {
+                "$ref": "#/$defs/__schema45"
+              },
+              "surfaces": {
+                "$ref": "#/$defs/__schema43"
+              },
+              "type": {
+                "$ref": "#/$defs/__schema41"
+              }
+            },
+            "required": [
+              "id",
+              "manufacturer",
+              "name",
+              "type",
+              "dimensions",
+              "surfaces",
+              "images",
+              "notes",
+              "sources",
+              "provenance"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "templates": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "connectors": {
+                "items": {
+                  "$ref": "#/$defs/__schema18"
+                },
+                "type": "array"
+              },
+              "description": {
+                "type": "string"
+              },
+              "gear": {
+                "additionalProperties": false,
+                "properties": {
+                  "aliases": {
+                    "$ref": "#/$defs/__schema6"
+                  },
+                  "audio": {
+                    "$ref": "#/$defs/__schema28"
+                  },
+                  "category": {
+                    "$ref": "#/$defs/__schema7"
+                  },
+                  "clock": {
+                    "$ref": "#/$defs/__schema27"
+                  },
+                  "connectors": {
+                    "$ref": "#/$defs/__schema17"
+                  },
+                  "controlsRegion": {
+                    "$ref": "#/$defs/__schema13"
+                  },
+                  "createdFromTemplateId": {
+                    "$ref": "#/$defs/__schema38"
+                  },
+                  "dimensions": {
+                    "$ref": "#/$defs/__schema10"
+                  },
+                  "ergonomics": {
+                    "$ref": "#/$defs/__schema29"
+                  },
+                  "faces": {
+                    "$ref": "#/$defs/__schema15"
+                  },
+                  "formFactor": {
+                    "$ref": "#/$defs/__schema8"
+                  },
+                  "id": {
+                    "$ref": "#/$defs/__schema2"
+                  },
+                  "imageCalibration": {
+                    "$ref": "#/$defs/__schema33"
+                  },
+                  "images": {
+                    "$ref": "#/$defs/__schema31"
+                  },
+                  "internalPaths": {
+                    "$ref": "#/$defs/__schema24"
+                  },
+                  "manufacturer": {
+                    "$ref": "#/$defs/__schema3"
+                  },
+                  "midi": {
+                    "$ref": "#/$defs/__schema26"
+                  },
+                  "mounting": {
+                    "$ref": "#/$defs/__schema12"
+                  },
+                  "name": {
+                    "$ref": "#/$defs/__schema4"
+                  },
+                  "notes": {
+                    "$ref": "#/$defs/__schema34"
+                  },
+                  "power": {
+                    "$ref": "#/$defs/__schema25"
+                  },
+                  "provenance": {
+                    "$ref": "#/$defs/__schema37"
+                  },
+                  "sources": {
+                    "$ref": "#/$defs/__schema35"
+                  },
+                  "tags": {
+                    "$ref": "#/$defs/__schema9"
+                  },
+                  "variant": {
+                    "$ref": "#/$defs/__schema5"
+                  }
+                },
+                "type": "object"
+              },
+              "group": {
+                "type": "string"
+              },
+              "id": {
+                "$ref": "#/$defs/__schema2"
+              },
+              "name": {
+                "type": "string"
+              },
+              "params": {
+                "items": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "default": {
+                      "type": "number"
+                    },
+                    "key": {
+                      "type": "string"
+                    },
+                    "label": {
+                      "type": "string"
+                    },
+                    "unit": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "key",
+                    "label",
+                    "default"
+                  ],
+                  "type": "object"
+                },
+                "type": "array"
+              },
+              "stand": {
+                "additionalProperties": false,
+                "properties": {
+                  "dimensions": {
+                    "$ref": "#/$defs/__schema42"
+                  },
+                  "id": {
+                    "$ref": "#/$defs/__schema2"
+                  },
+                  "images": {
+                    "$ref": "#/$defs/__schema46"
+                  },
+                  "manufacturer": {
+                    "$ref": "#/$defs/__schema39"
+                  },
+                  "name": {
+                    "$ref": "#/$defs/__schema40"
+                  },
+                  "notes": {
+                    "$ref": "#/$defs/__schema47"
+                  },
+                  "provenance": {
+                    "$ref": "#/$defs/__schema37"
+                  },
+                  "sources": {
+                    "$ref": "#/$defs/__schema48"
+                  },
+                  "structure": {
+                    "$ref": "#/$defs/__schema45"
+                  },
+                  "surfaces": {
+                    "$ref": "#/$defs/__schema43"
+                  },
+                  "type": {
+                    "$ref": "#/$defs/__schema41"
+                  }
+                },
+                "type": "object"
+              },
+              "target": {
+                "enum": [
+                  "gear",
+                  "stand",
+                  "connectors"
+                ],
+                "type": "string"
+              }
+            },
+            "required": [
+              "id",
+              "name",
+              "group",
+              "target"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "gearModels",
+        "standModels",
+        "cableModels",
+        "templates"
+      ],
+      "type": "object"
+    },
+    "meta": {
+      "additionalProperties": false,
+      "properties": {
+        "author": {
+          "type": "string"
+        },
+        "createdAt": {
+          "$ref": "#/$defs/__schema0"
+        },
+        "name": {
+          "type": "string"
+        },
+        "notes": {
+          "type": "string"
+        },
+        "updatedAt": {
+          "$ref": "#/$defs/__schema0"
+        }
+      },
+      "required": [
+        "name",
+        "createdAt",
+        "updatedAt"
+      ],
+      "type": "object"
+    },
+    "schemaVersion": {
+      "maximum": 9007199254740991,
+      "minimum": -9007199254740991,
+      "type": "integer"
+    },
+    "settings": {
+      "additionalProperties": false,
+      "properties": {
+        "animation": {
+          "additionalProperties": false,
+          "properties": {
+            "bpm": {
+              "maximum": 300,
+              "minimum": 30,
+              "type": "number"
+            },
+            "enabled": {
+              "type": "boolean"
+            },
+            "reducedMotion": {
+              "enum": [
+                "system",
+                "reduce",
+                "allow"
+              ],
+              "type": "string"
+            },
+            "speed": {
+              "exclusiveMinimum": 0,
+              "type": "number"
+            }
+          },
+          "required": [
+            "enabled",
+            "speed",
+            "reducedMotion",
+            "bpm"
+          ],
+          "type": "object"
+        },
+        "autosaveIntervalS": {
+          "exclusiveMinimum": 0,
+          "type": "number"
+        },
+        "cables": {
+          "additionalProperties": false,
+          "properties": {
+            "serviceLoopMm": {
+              "minimum": 0,
+              "type": "number"
+            },
+            "slack": {
+              "minimum": 0,
+              "type": "number"
+            },
+            "viaHeightMm": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "slack",
+            "serviceLoopMm",
+            "viaHeightMm"
+          ],
+          "type": "object"
+        },
+        "defaultBodyProfileId": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "ergonomics": {
+          "additionalProperties": false,
+          "properties": {
+            "acceptableLowerMm": {
+              "type": "number"
+            },
+            "comfortBandMm": {
+              "type": "number"
+            },
+            "handClearanceMm": {
+              "type": "number"
+            },
+            "holderThicknessMm": {
+              "type": "number"
+            },
+            "viewDistanceMm": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "handClearanceMm",
+            "holderThicknessMm",
+            "viewDistanceMm",
+            "comfortBandMm",
+            "acceptableLowerMm"
+          ],
+          "type": "object"
+        },
+        "labelDensity": {
+          "enum": [
+            "off",
+            "minimal",
+            "full"
+          ],
+          "type": "string"
+        },
+        "mainsVoltage": {
+          "enum": [
+            115,
+            230
+          ],
+          "type": "number"
+        },
+        "palette": {
+          "additionalProperties": false,
+          "properties": {
+            "domains": {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "propertyNames": {
+                "type": "string"
+              },
+              "type": "object"
+            },
+            "midiChannels": {
+              "items": {
+                "$ref": "#/$defs/__schema1"
+              },
+              "maxItems": 16,
+              "minItems": 16,
+              "type": "array"
+            }
+          },
+          "required": [
+            "domains",
+            "midiChannels"
+          ],
+          "type": "object"
+        },
+        "snap": {
+          "additionalProperties": false,
+          "properties": {
+            "enabled": {
+              "type": "boolean"
+            },
+            "fineMm": {
+              "exclusiveMinimum": 0,
+              "type": "number"
+            },
+            "gridMm": {
+              "exclusiveMinimum": 0,
+              "type": "number"
+            }
+          },
+          "required": [
+            "enabled",
+            "gridMm",
+            "fineMm"
+          ],
+          "type": "object"
+        },
+        "theme": {
+          "enum": [
+            "light",
+            "dark",
+            "system"
+          ],
+          "type": "string"
+        },
+        "units": {
+          "additionalProperties": false,
+          "properties": {
+            "decimals": {
+              "maximum": 4,
+              "minimum": 0,
+              "type": "integer"
+            },
+            "length": {
+              "enum": [
+                "mm",
+                "cm",
+                "in"
+              ],
+              "type": "string"
+            }
+          },
+          "required": [
+            "length",
+            "decimals"
+          ],
+          "type": "object"
+        }
+      },
+      "required": [
+        "units",
+        "theme",
+        "palette",
+        "snap",
+        "animation",
+        "labelDensity",
+        "ergonomics",
+        "cables",
+        "mainsVoltage",
+        "defaultBodyProfileId",
+        "autosaveIntervalS"
+      ],
+      "type": "object"
+    },
+    "setups": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "annotations": {
+            "items": {
+              "additionalProperties": false,
+              "properties": {
+                "id": {
+                  "$ref": "#/$defs/__schema2"
+                },
+                "kind": {
+                  "enum": [
+                    "note",
+                    "measurement",
+                    "dimension"
+                  ],
+                  "type": "string"
+                },
+                "points": {
+                  "items": {
+                    "$ref": "#/$defs/__schema19"
+                  },
+                  "type": "array"
+                },
+                "text": {
+                  "type": "string"
+                },
+                "view": {
+                  "enum": [
+                    "front",
+                    "side",
+                    "plan",
+                    "patch"
+                  ],
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id",
+                "kind",
+                "view",
+                "points"
+              ],
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "bodyProfileId": {
+            "$ref": "#/$defs/__schema2"
+          },
+          "connections": {
+            "items": {
+              "additionalProperties": false,
+              "properties": {
+                "a": {
+                  "$ref": "#/$defs/__schema51"
+                },
+                "b": {
+                  "$ref": "#/$defs/__schema51"
+                },
+                "bundleId": {
+                  "type": "string"
+                },
+                "cable": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "adapters": {
+                      "items": {
+                        "type": "string"
+                      },
+                      "type": "array"
+                    },
+                    "autoLength": {
+                      "type": "boolean"
+                    },
+                    "lengthMm": {
+                      "type": "number"
+                    },
+                    "modelId": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "adapters",
+                    "autoLength"
+                  ],
+                  "type": "object"
+                },
+                "color": {
+                  "type": "string"
+                },
+                "enabled": {
+                  "type": "boolean"
+                },
+                "id": {
+                  "$ref": "#/$defs/__schema2"
+                },
+                "label": {
+                  "type": "string"
+                },
+                "mapping": {
+                  "items": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "fromChannel": {
+                        "type": "string"
+                      },
+                      "toChannel": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "fromChannel",
+                      "toChannel"
+                    ],
+                    "type": "object"
+                  },
+                  "type": "array"
+                },
+                "midi": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "channels": {
+                      "anyOf": [
+                        {
+                          "items": {
+                            "maximum": 9007199254740991,
+                            "minimum": -9007199254740991,
+                            "type": "integer"
+                          },
+                          "type": "array"
+                        },
+                        {
+                          "const": "omni",
+                          "type": "string"
+                        },
+                        {
+                          "const": "per-track",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "purposes": {
+                      "items": {
+                        "enum": [
+                          "notes",
+                          "clock",
+                          "transport",
+                          "cc",
+                          "pc",
+                          "sysex"
+                        ],
+                        "type": "string"
+                      },
+                      "type": "array"
+                    },
+                    "trackMap": {
+                      "items": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "fromTrack": {
+                            "type": "string"
+                          },
+                          "toChannel": {
+                            "maximum": 9007199254740991,
+                            "minimum": -9007199254740991,
+                            "type": "integer"
+                          }
+                        },
+                        "required": [
+                          "toChannel"
+                        ],
+                        "type": "object"
+                      },
+                      "type": "array"
+                    }
+                  },
+                  "required": [
+                    "channels",
+                    "purposes"
+                  ],
+                  "type": "object"
+                },
+                "notes": {
+                  "type": "string"
+                },
+                "usb": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "hostUnitId": {
+                      "$ref": "#/$defs/__schema2"
+                    }
+                  },
+                  "required": [
+                    "hostUnitId"
+                  ],
+                  "type": "object"
+                },
+                "waypoints": {
+                  "items": {
+                    "$ref": "#/$defs/__schema19"
+                  },
+                  "type": "array"
+                }
+              },
+              "required": [
+                "id",
+                "a",
+                "b",
+                "cable",
+                "enabled"
+              ],
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "createdAt": {
+            "$ref": "#/$defs/__schema0"
+          },
+          "derivedFromId": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "id": {
+            "$ref": "#/$defs/__schema2"
+          },
+          "name": {
+            "type": "string"
+          },
+          "placements": {
+            "items": {
+              "additionalProperties": false,
+              "properties": {
+                "groupId": {
+                  "type": "string"
+                },
+                "locked": {
+                  "type": "boolean"
+                },
+                "mount": {
+                  "oneOf": [
+                    {
+                      "additionalProperties": false,
+                      "properties": {
+                        "standUnitId": {
+                          "$ref": "#/$defs/__schema2"
+                        },
+                        "surfaceId": {
+                          "$ref": "#/$defs/__schema2"
+                        },
+                        "type": {
+                          "const": "surface",
+                          "type": "string"
+                        },
+                        "x": {
+                          "type": "number"
+                        },
+                        "y": {
+                          "type": "number"
+                        }
+                      },
+                      "required": [
+                        "type",
+                        "standUnitId",
+                        "surfaceId",
+                        "x",
+                        "y"
+                      ],
+                      "type": "object"
+                    },
+                    {
+                      "additionalProperties": false,
+                      "properties": {
+                        "standUnitId": {
+                          "$ref": "#/$defs/__schema2"
+                        },
+                        "surfaceId": {
+                          "$ref": "#/$defs/__schema2"
+                        },
+                        "type": {
+                          "const": "rack",
+                          "type": "string"
+                        },
+                        "uStart": {
+                          "type": "number"
+                        }
+                      },
+                      "required": [
+                        "type",
+                        "standUnitId",
+                        "surfaceId",
+                        "uStart"
+                      ],
+                      "type": "object"
+                    },
+                    {
+                      "additionalProperties": false,
+                      "properties": {
+                        "parentUnitId": {
+                          "$ref": "#/$defs/__schema2"
+                        },
+                        "type": {
+                          "const": "stacked",
+                          "type": "string"
+                        },
+                        "x": {
+                          "type": "number"
+                        },
+                        "y": {
+                          "type": "number"
+                        }
+                      },
+                      "required": [
+                        "type",
+                        "parentUnitId",
+                        "x",
+                        "y"
+                      ],
+                      "type": "object"
+                    },
+                    {
+                      "additionalProperties": false,
+                      "properties": {
+                        "pos": {
+                          "$ref": "#/$defs/__schema19"
+                        },
+                        "type": {
+                          "const": "floor",
+                          "type": "string"
+                        },
+                        "z": {
+                          "type": "number"
+                        }
+                      },
+                      "required": [
+                        "type",
+                        "pos"
+                      ],
+                      "type": "object"
+                    }
+                  ]
+                },
+                "rotationDeg": {
+                  "$ref": "#/$defs/__schema50"
+                },
+                "unitId": {
+                  "$ref": "#/$defs/__schema2"
+                },
+                "zIndex": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "unitId",
+                "mount",
+                "rotationDeg",
+                "locked",
+                "zIndex"
+              ],
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "posture": {
+            "enum": [
+              "standing",
+              "seated"
+            ],
+            "type": "string"
+          },
+          "roomId": {
+            "type": "string"
+          },
+          "seatHeightMm": {
+            "type": "number"
+          },
+          "stands": {
+            "items": {
+              "additionalProperties": false,
+              "properties": {
+                "pos": {
+                  "$ref": "#/$defs/__schema19"
+                },
+                "rotationDeg": {
+                  "$ref": "#/$defs/__schema50"
+                },
+                "standUnitId": {
+                  "$ref": "#/$defs/__schema2"
+                },
+                "surfaceStates": {
+                  "additionalProperties": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "tiltDeg": {
+                        "type": "number"
+                      },
+                      "y": {
+                        "type": "number"
+                      },
+                      "z": {
+                        "type": "number"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "propertyNames": {
+                    "type": "string"
+                  },
+                  "type": "object"
+                }
+              },
+              "required": [
+                "standUnitId",
+                "pos",
+                "rotationDeg",
+                "surfaceStates"
+              ],
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "status": {
+            "enum": [
+              "current",
+              "planned",
+              "idea",
+              "archived"
+            ],
+            "type": "string"
+          },
+          "suppressedIssues": {
+            "items": {
+              "additionalProperties": false,
+              "properties": {
+                "entityIds": {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                "reason": {
+                  "type": "string"
+                },
+                "ruleId": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "ruleId",
+                "entityIds",
+                "reason"
+              ],
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "tags": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "unitConfigs": {
+            "additionalProperties": {
+              "additionalProperties": false,
+              "properties": {
+                "activeAlternates": {
+                  "additionalProperties": {
+                    "type": "string"
+                  },
+                  "propertyNames": {
+                    "type": "string"
+                  },
+                  "type": "object"
+                },
+                "clockMaster": {
+                  "type": "boolean"
+                },
+                "clockSource": {
+                  "anyOf": [
+                    {
+                      "const": "internal",
+                      "type": "string"
+                    },
+                    {
+                      "additionalProperties": false,
+                      "properties": {
+                        "connectorId": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "connectorId"
+                      ],
+                      "type": "object"
+                    }
+                  ]
+                },
+                "mainsVoltage": {
+                  "enum": [
+                    115,
+                    230
+                  ],
+                  "type": "number"
+                },
+                "midiRxChannel": {
+                  "additionalProperties": {
+                    "maximum": 9007199254740991,
+                    "minimum": -9007199254740991,
+                    "type": "integer"
+                  },
+                  "propertyNames": {
+                    "type": "string"
+                  },
+                  "type": "object"
+                },
+                "midiTxChannel": {
+                  "additionalProperties": {
+                    "maximum": 9007199254740991,
+                    "minimum": -9007199254740991,
+                    "type": "integer"
+                  },
+                  "propertyNames": {
+                    "type": "string"
+                  },
+                  "type": "object"
+                },
+                "notes": {
+                  "type": "string"
+                },
+                "powerAssignments": {
+                  "items": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "connectorId": {
+                        "type": "string"
+                      },
+                      "supplyConnectorId": {
+                        "type": "string"
+                      },
+                      "supplyUnitId": {
+                        "$ref": "#/$defs/__schema2"
+                      }
+                    },
+                    "required": [
+                      "connectorId",
+                      "supplyUnitId",
+                      "supplyConnectorId"
+                    ],
+                    "type": "object"
+                  },
+                  "type": "array"
+                },
+                "routingPresetId": {
+                  "type": "string"
+                },
+                "usage": {
+                  "$ref": "#/$defs/__schema30"
+                },
+                "usbMode": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "activeAlternates",
+                "powerAssignments",
+                "usage"
+              ],
+              "type": "object"
+            },
+            "propertyNames": {
+              "type": "string"
+            },
+            "type": "object"
+          },
+          "updatedAt": {
+            "$ref": "#/$defs/__schema0"
+          },
+          "viewState": {
+            "additionalProperties": false,
+            "properties": {
+              "layoutView": {
+                "enum": [
+                  "front",
+                  "side",
+                  "plan"
+                ],
+                "type": "string"
+              },
+              "patchPositions": {
+                "additionalProperties": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "pinned": {
+                      "type": "boolean"
+                    },
+                    "x": {
+                      "type": "number"
+                    },
+                    "y": {
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "x",
+                    "y",
+                    "pinned"
+                  ],
+                  "type": "object"
+                },
+                "propertyNames": {
+                  "type": "string"
+                },
+                "type": "object"
+              },
+              "viewports": {
+                "additionalProperties": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "x": {
+                      "type": "number"
+                    },
+                    "y": {
+                      "type": "number"
+                    },
+                    "zoom": {
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "x",
+                    "y",
+                    "zoom"
+                  ],
+                  "type": "object"
+                },
+                "propertyNames": {
+                  "type": "string"
+                },
+                "type": "object"
+              }
+            },
+            "required": [
+              "layoutView",
+              "viewports",
+              "patchPositions"
+            ],
+            "type": "object"
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "description",
+          "status",
+          "tags",
+          "bodyProfileId",
+          "posture",
+          "stands",
+          "placements",
+          "connections",
+          "unitConfigs",
+          "annotations",
+          "viewState",
+          "createdAt",
+          "updatedAt",
+          "suppressedIssues"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "schemaVersion",
+    "meta",
+    "settings",
+    "library",
+    "inventory",
+    "bodyProfiles",
+    "setups",
+    "activeSetupId",
+    "assets"
+  ],
+  "title": "Studio Planner project (schemaVersion 1)",
+  "type": "object"
+}

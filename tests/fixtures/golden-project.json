@@ -1,0 +1,710 @@
+{
+  "activeSetupId": "setup-current",
+  "assets": {
+    "items": {
+      "asset-dt2-back": {
+        "bytes": 30,
+        "dataUri": "data:image/webp;base64,UklGRhoAAABXRUJQVlA4TA0AAAAvAAAAEAcQERGIiP4HAA==",
+        "heightPx": 1,
+        "mime": "image/webp",
+        "name": "dt2-back.webp",
+        "widthPx": 1
+      }
+    },
+    "mode": "embedded"
+  },
+  "bodyProfiles": [
+    {
+      "handedness": "right",
+      "heightMm": 1730,
+      "id": "body-default",
+      "name": "Default (173 cm)"
+    }
+  ],
+  "inventory": {
+    "cables": [
+      {
+        "id": "cable-unit-1",
+        "inStock": true,
+        "lengthMm": 1000,
+        "modelId": "cable-midi-din"
+      }
+    ],
+    "gearUnits": [
+      {
+        "id": "unit-dt2-a",
+        "modelId": "gear-elektron-digitone-ii",
+        "nickname": "Digitone II",
+        "serial": "X123"
+      },
+      {
+        "id": "unit-dt2-b",
+        "modelId": "gear-elektron-digitone-ii",
+        "nickname": "Digitone II #2",
+        "overrides": {
+          "dimensions.h": 64
+        }
+      }
+    ],
+    "rooms": [],
+    "standUnits": [
+      {
+        "id": "stand-unit-jaspers",
+        "modelId": "stand-jaspers-3d-145b",
+        "nickname": "Jaspers"
+      }
+    ]
+  },
+  "library": {
+    "cableModels": [
+      {
+        "carries": [
+          "midi.din",
+          "clock.dinsync"
+        ],
+        "endA": "DIN5-M",
+        "endB": "DIN5-M",
+        "id": "cable-midi-din",
+        "kind": "cable",
+        "lengthsMm": [
+          300,
+          500,
+          1000,
+          1500,
+          3000,
+          5000,
+          10000,
+          15000
+        ],
+        "name": "MIDI DIN 5"
+      }
+    ],
+    "gearModels": [
+      {
+        "aliases": [],
+        "category": "synth",
+        "connectors": [
+          {
+            "channel": {
+              "group": "main",
+              "role": "L"
+            },
+            "direction": "out",
+            "domain": "audio.analog",
+            "face": "back",
+            "id": "out-main-l",
+            "jack": "jack-6.35-TRS",
+            "label": "Main L",
+            "pos": {
+              "x": 0,
+              "y": 0
+            },
+            "signal": {
+              "balance": "imp-balanced",
+              "level": "line"
+            }
+          },
+          {
+            "channel": {
+              "group": "main",
+              "role": "R"
+            },
+            "direction": "out",
+            "domain": "audio.analog",
+            "face": "back",
+            "id": "out-main-r",
+            "jack": "jack-6.35-TRS",
+            "label": "Main R",
+            "pos": {
+              "x": 0,
+              "y": 0
+            },
+            "signal": {
+              "balance": "imp-balanced",
+              "level": "line"
+            }
+          },
+          {
+            "channel": {
+              "group": "in",
+              "role": "L"
+            },
+            "direction": "in",
+            "domain": "audio.analog",
+            "face": "back",
+            "id": "in-l",
+            "jack": "jack-6.35-TRS",
+            "label": "In L",
+            "pos": {
+              "x": 0,
+              "y": 0
+            },
+            "signal": {
+              "balance": "balanced",
+              "level": "line"
+            }
+          },
+          {
+            "channel": {
+              "group": "in",
+              "role": "R"
+            },
+            "direction": "in",
+            "domain": "audio.analog",
+            "face": "back",
+            "id": "in-r",
+            "jack": "jack-6.35-TRS",
+            "label": "In R",
+            "pos": {
+              "x": 0,
+              "y": 0
+            },
+            "signal": {
+              "balance": "balanced",
+              "level": "line"
+            }
+          },
+          {
+            "direction": "out",
+            "domain": "audio.headphone",
+            "face": "back",
+            "id": "phones",
+            "jack": "jack-6.35-TRS",
+            "label": "Headphones",
+            "pos": {
+              "x": 0,
+              "y": 0
+            }
+          },
+          {
+            "direction": "in",
+            "domain": "midi.din",
+            "face": "back",
+            "id": "midi-in",
+            "jack": "din5-f",
+            "label": "MIDI In",
+            "midi": {
+              "carries": [
+                "notes",
+                "cc",
+                "pc",
+                "clock",
+                "transport",
+                "sysex"
+              ]
+            },
+            "pos": {
+              "x": 0,
+              "y": 0
+            }
+          },
+          {
+            "clock": {
+              "canMaster": true,
+              "format": "dinsync24",
+              "note": "DIN sync on Out"
+            },
+            "direction": "out",
+            "domain": "midi.din",
+            "face": "back",
+            "id": "midi-out",
+            "jack": "din5-f",
+            "label": "MIDI Out",
+            "midi": {
+              "carries": [
+                "notes",
+                "cc",
+                "pc",
+                "clock",
+                "transport",
+                "sysex"
+              ]
+            },
+            "pos": {
+              "x": 0,
+              "y": 0
+            }
+          },
+          {
+            "direction": "thru",
+            "domain": "midi.din",
+            "face": "back",
+            "id": "midi-thru",
+            "jack": "din5-f",
+            "label": "MIDI Thru",
+            "midi": {
+              "carries": [
+                "notes",
+                "cc",
+                "pc",
+                "clock",
+                "transport",
+                "sysex"
+              ],
+              "thruMode": "hard"
+            },
+            "pos": {
+              "x": 0,
+              "y": 0
+            }
+          },
+          {
+            "direction": "bidir",
+            "domain": "usb.data",
+            "face": "back",
+            "id": "usb",
+            "jack": "usb-b-f",
+            "label": "USB",
+            "pos": {
+              "x": 0,
+              "y": 0
+            },
+            "usb": {
+              "audio": {
+                "compliance": "overbridge",
+                "inChannels": 2,
+                "outChannels": 2
+              },
+              "busPowered": false,
+              "carries": [
+                "midi",
+                "audio",
+                "firmware"
+              ],
+              "role": "device",
+              "version": "2.0"
+            }
+          },
+          {
+            "direction": "in",
+            "domain": "power.dc",
+            "face": "back",
+            "id": "dc-in",
+            "jack": "dc-barrel-5.5x2.5",
+            "label": "DC In",
+            "pos": {
+              "x": 0,
+              "y": 0
+            }
+          }
+        ],
+        "dimensions": {
+          "d": 176,
+          "h": 63,
+          "heightIncludesKnobsFeet": true,
+          "w": 215,
+          "weightKg": 1.48
+        },
+        "ergonomics": {
+          "defaultUsage": "primary",
+          "interaction": "knobs-buttons",
+          "needsDisplayVisibility": true
+        },
+        "faces": {},
+        "formFactor": "desktop",
+        "id": "gear-elektron-digitone-ii",
+        "images": {
+          "back": {
+            "id": "asset-dt2-back"
+          }
+        },
+        "internalPaths": [],
+        "manufacturer": "Elektron",
+        "mounting": {
+          "vesa": 100
+        },
+        "name": "Digitone II",
+        "notes": "",
+        "power": {
+          "mainsRegion": "unknown",
+          "sources": [
+            {
+              "drawMa": 1000,
+              "included": true,
+              "inputConnectorId": "dc-in",
+              "kind": "external-dc",
+              "nominalV": 12,
+              "plug": {
+                "idMm": 2.5,
+                "odMm": 5.5,
+                "polarity": "center-positive",
+                "type": "barrel"
+              }
+            }
+          ]
+        },
+        "provenance": {
+          "connectors.0.pos": {
+            "kind": "unknown",
+            "note": "Place on a back-panel image."
+          },
+          "dimensions.w": {
+            "kind": "manufacturer"
+          }
+        },
+        "sources": [
+          {
+            "label": "Elektron Digitone II user manual"
+          }
+        ],
+        "tags": [
+          "elektron"
+        ]
+      }
+    ],
+    "standModels": [
+      {
+        "dimensions": {
+          "d": 700,
+          "h": 1400,
+          "innerSpanMm": 1450,
+          "w": 1550,
+          "weightKg": null
+        },
+        "id": "stand-jaspers-3d-145b",
+        "images": {},
+        "manufacturer": "Jaspers",
+        "name": "3D-145B",
+        "notes": "",
+        "provenance": {
+          "dimensions.w": {
+            "kind": "retailer",
+            "url": "https://www.musicstore.de/en_DE/EUR/Jaspers-3D-145B/art-KEY0003689-000"
+          },
+          "surfaces.0.adjustable.z": {
+            "kind": "estimated",
+            "note": "Retailer lists max height 140 cm only; measure the real stand."
+          },
+          "surfaces.1.adjustable.y": {
+            "kind": "unknown",
+            "note": "Tier depth offsets (A-frame geometry) not published; measure."
+          }
+        },
+        "sources": [
+          {
+            "label": "musicstore.de",
+            "url": "https://www.musicstore.de/en_DE/EUR/Jaspers-3D-145B/art-KEY0003689-000"
+          }
+        ],
+        "surfaces": [
+          {
+            "adjustable": {
+              "tiltDeg": {
+                "max": 30,
+                "min": 0,
+                "step": 1
+              },
+              "z": {
+                "max": 1400,
+                "min": 300,
+                "step": 5
+              }
+            },
+            "anchor": {
+              "x": 0,
+              "y": 0,
+              "z": 400
+            },
+            "holders": {
+              "lengthMm": 600,
+              "pairMinSpacingMm": 150,
+              "protrusionAdjustable": false,
+              "thicknessMm": 30
+            },
+            "id": "tier-bottom",
+            "kind": "tier",
+            "label": "Bottom tier (reinforced)",
+            "loadKg": 40,
+            "usable": {
+              "d": 600,
+              "w": 1450
+            }
+          },
+          {
+            "adjustable": {
+              "tiltDeg": {
+                "max": 30,
+                "min": 0,
+                "step": 1
+              },
+              "y": {
+                "max": 300,
+                "min": -300,
+                "step": 5
+              },
+              "z": {
+                "max": 1400,
+                "min": 300,
+                "step": 5
+              }
+            },
+            "anchor": {
+              "x": 0,
+              "y": 0,
+              "z": 800
+            },
+            "holders": {
+              "lengthMm": 400,
+              "pairMinSpacingMm": 150,
+              "protrusionAdjustable": false,
+              "thicknessMm": 30
+            },
+            "id": "tier-middle",
+            "kind": "tier",
+            "label": "Middle tier",
+            "loadKg": 15,
+            "usable": {
+              "d": 400,
+              "w": 1450
+            }
+          },
+          {
+            "adjustable": {
+              "tiltDeg": {
+                "max": 30,
+                "min": 0,
+                "step": 1
+              },
+              "y": {
+                "max": 300,
+                "min": -300,
+                "step": 5
+              },
+              "z": {
+                "max": 1400,
+                "min": 300,
+                "step": 5
+              }
+            },
+            "anchor": {
+              "x": 0,
+              "y": 0,
+              "z": 1100
+            },
+            "holders": {
+              "lengthMm": 400,
+              "pairMinSpacingMm": 150,
+              "protrusionAdjustable": false,
+              "thicknessMm": 30
+            },
+            "id": "tier-top",
+            "kind": "tier",
+            "label": "Top tier",
+            "loadKg": 15,
+            "usable": {
+              "d": 400,
+              "w": 1450
+            }
+          }
+        ],
+        "type": "tiered-keyboard-stand"
+      }
+    ],
+    "templates": []
+  },
+  "meta": {
+    "author": "Test",
+    "createdAt": "2026-10-04T12:00:00.000Z",
+    "name": "Golden fixture",
+    "updatedAt": "2026-10-04T12:00:00.000Z"
+  },
+  "schemaVersion": 1,
+  "settings": {
+    "animation": {
+      "bpm": 120,
+      "enabled": true,
+      "reducedMotion": "system",
+      "speed": 1
+    },
+    "autosaveIntervalS": 5,
+    "cables": {
+      "serviceLoopMm": 150,
+      "slack": 0.15,
+      "viaHeightMm": 0
+    },
+    "defaultBodyProfileId": "body-default",
+    "ergonomics": {
+      "acceptableLowerMm": 150,
+      "comfortBandMm": 100,
+      "handClearanceMm": 90,
+      "holderThicknessMm": 30,
+      "viewDistanceMm": 550
+    },
+    "labelDensity": "minimal",
+    "mainsVoltage": 230,
+    "palette": {
+      "domains": {
+        "audio.L": "#2563EB",
+        "audio.R": "#DC2626",
+        "audio.mono": "#374151",
+        "clock": "#C026D3",
+        "cv": "#EA580C",
+        "digital": "#0D9488",
+        "error": "#B91C1C",
+        "expression": "#92400E",
+        "info": "#1D4ED8",
+        "midi": "#16A34A",
+        "power": "#6B7280",
+        "usb": "#7C3AED",
+        "warning": "#B45309"
+      },
+      "midiChannels": [
+        "#E69F00",
+        "#56B4E9",
+        "#009E73",
+        "#F0E442",
+        "#0072B2",
+        "#D55E00",
+        "#CC79A7",
+        "#000000",
+        "#994F00",
+        "#7FC6F0",
+        "#66C5AB",
+        "#B8A900",
+        "#66AAD1",
+        "#F09A66",
+        "#E0AFCA",
+        "#7F7F7F"
+      ]
+    },
+    "snap": {
+      "enabled": true,
+      "fineMm": 1,
+      "gridMm": 5
+    },
+    "theme": "system",
+    "units": {
+      "decimals": 0,
+      "length": "mm"
+    }
+  },
+  "setups": [
+    {
+      "annotations": [
+        {
+          "id": "ann-1",
+          "kind": "measurement",
+          "points": [
+            {
+              "x": 0,
+              "y": 0
+            },
+            {
+              "x": 100,
+              "y": 0
+            }
+          ],
+          "view": "front"
+        }
+      ],
+      "bodyProfileId": "body-default",
+      "connections": [
+        {
+          "a": {
+            "connectorId": "midi-out",
+            "unitId": "unit-dt2-a"
+          },
+          "b": {
+            "connectorId": "midi-in",
+            "unitId": "unit-dt2-b"
+          },
+          "cable": {
+            "adapters": [],
+            "autoLength": true,
+            "lengthMm": 1000,
+            "modelId": "cable-midi-din"
+          },
+          "enabled": true,
+          "id": "conn-1",
+          "midi": {
+            "channels": [
+              3
+            ],
+            "purposes": [
+              "notes",
+              "clock"
+            ]
+          }
+        }
+      ],
+      "createdAt": "2026-10-04T12:00:00.000Z",
+      "description": "Fixture setup",
+      "id": "setup-current",
+      "name": "Current",
+      "placements": [
+        {
+          "locked": false,
+          "mount": {
+            "standUnitId": "stand-unit-jaspers",
+            "surfaceId": "tier-top",
+            "type": "surface",
+            "x": 100,
+            "y": 20
+          },
+          "rotationDeg": 0,
+          "unitId": "unit-dt2-a",
+          "zIndex": 0
+        },
+        {
+          "locked": true,
+          "mount": {
+            "pos": {
+              "x": -400,
+              "y": 200
+            },
+            "type": "floor"
+          },
+          "rotationDeg": 90,
+          "unitId": "unit-dt2-b",
+          "zIndex": 1
+        }
+      ],
+      "posture": "standing",
+      "stands": [
+        {
+          "pos": {
+            "x": 0,
+            "y": 0
+          },
+          "rotationDeg": 0,
+          "standUnitId": "stand-unit-jaspers",
+          "surfaceStates": {
+            "tier-middle": {
+              "z": 937
+            },
+            "tier-top": {
+              "tiltDeg": 6,
+              "z": 1127
+            }
+          }
+        }
+      ],
+      "status": "current",
+      "suppressedIssues": [],
+      "tags": [
+        "fixture"
+      ],
+      "unitConfigs": {
+        "unit-dt2-a": {
+          "activeAlternates": {},
+          "clockMaster": true,
+          "clockSource": "internal",
+          "powerAssignments": [],
+          "usage": "primary"
+        }
+      },
+      "updatedAt": "2026-10-04T12:00:00.000Z",
+      "viewState": {
+        "layoutView": "front",
+        "patchPositions": {},
+        "viewports": {
+          "front": {
+            "x": 0,
+            "y": 0,
+            "zoom": 1
+          }
+        }
+      }
+    }
+  ]
+}
