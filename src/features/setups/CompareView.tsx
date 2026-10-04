@@ -266,15 +266,19 @@ function MetricsTable({
   lengthUnit: 'mm' | 'cm' | 'in';
 }) {
   const unknown = (n: number) => (n ? ` + ${n} ${t('unknown')}` : '');
-  const rows: [string, string, string, number | null][] = [
+  // Label, A, B, delta, and whether a higher value is better (colours the delta).
+  const rows: [string, string, string, number | null, boolean?][] = [
     [t('Errors'), String(a.issues.error), String(b.issues.error), b.issues.error - a.issues.error],
     [t('Warnings'), String(a.issues.warning), String(b.issues.warning), b.issues.warning - a.issues.warning],
     [t('Infos'), String(a.issues.info), String(b.issues.info), b.issues.info - a.issues.info],
     [
       t('Ergonomic score'),
-      a.ergonomicScore === null ? '—' : String(a.ergonomicScore),
-      b.ergonomicScore === null ? '—' : String(b.ergonomicScore),
-      null,
+      a.ergonomicScore === null ? '—' : String(Math.round(a.ergonomicScore)),
+      b.ergonomicScore === null ? '—' : String(Math.round(b.ergonomicScore)),
+      a.ergonomicScore === null || b.ergonomicScore === null
+        ? null
+        : Math.round(b.ergonomicScore) - Math.round(a.ergonomicScore),
+      true,
     ],
     [t('Rack U used'), String(a.rackU), String(b.rackU), b.rackU - a.rackU],
     [
@@ -313,13 +317,19 @@ function MetricsTable({
         </tr>
       </thead>
       <tbody>
-        {rows.map(([label, x, y, d]) => (
+        {rows.map(([label, x, y, d, higherBetter]) => (
           <tr key={label} className="border-t border-neutral-100 dark:border-neutral-800">
             <td>{label}</td>
             <td>{x}</td>
             <td>{y}</td>
             <td
-              className={d ? (d > 0 ? 'text-amber-700 dark:text-amber-400' : 'text-green-700 dark:text-green-400') : ''}
+              className={
+                d
+                  ? d > 0 !== !!higherBetter
+                    ? 'text-amber-700 dark:text-amber-400'
+                    : 'text-green-700 dark:text-green-400'
+                  : ''
+              }
             >
               {d === null || d === 0 ? '' : d > 0 ? `+${d}` : d}
             </td>

@@ -3,6 +3,7 @@ import type { Project, Setup } from '@/domain/types';
 import type { Issue } from '../issues';
 import { clockRules, continuityIssues } from './clock';
 import { connectivityRules } from './connectivity';
+import { ergonomicRules } from './ergonomics';
 import { buildContext, type Rule, type RuleDep, type SetupContext } from './context';
 import { midiUsbPowerRules } from './midiUsbPower';
 import { placementDataRules } from './placementData';
@@ -16,7 +17,13 @@ const baseSig006 = sig006.run;
 sig006.run = (ctx) => [...baseSig006(ctx), ...continuityIssues(ctx)];
 sig006.dependsOn = [...new Set([...sig006.dependsOn, 'unitConfigs' as const, 'library' as const])];
 
-export const rules: Rule[] = [...connectivityRules, ...midiUsbPowerRules, ...clockRules, ...placementDataRules];
+export const rules: Rule[] = [
+  ...connectivityRules,
+  ...midiUsbPowerRules,
+  ...clockRules,
+  ...placementDataRules,
+  ...ergonomicRules,
+];
 export const ruleById = new Map(rules.map((r) => [r.id, r]));
 
 export interface RuleRun {

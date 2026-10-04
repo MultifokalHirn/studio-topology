@@ -463,6 +463,65 @@ const CASES: Record<string, Case> = {
       s.connections.push(wire(['pyramid', 'midi-out-a'], ['keystep', 'midi-in']));
     },
   },
+  'ERG-001': {
+    severity: 'error',
+    // Standing: a primary unit on a 740 mm desk sits far below the elbow; seated it is within the band.
+    fail: (s) => s.placements.push(onDesk('dt2', 0)),
+    pass: (s) => {
+      s.posture = 'seated';
+      s.placements.push(onDesk('dt2', 0));
+    },
+  },
+  'ERG-002': {
+    fail: (s) => {
+      s.stands[1]!.surfaceStates = { 'tier-middle': { z: 900 }, 'tier-top': { z: 1000 } };
+      s.placements.push(
+        {
+          ...onDesk('ot', 0),
+          mount: { type: 'surface', standUnitId: 'stand-unit-jaspers', surfaceId: 'tier-middle', x: 100, y: 20 },
+        },
+        {
+          ...onDesk('dt2', 0),
+          mount: { type: 'surface', standUnitId: 'stand-unit-jaspers', surfaceId: 'tier-top', x: 100, y: 20 },
+        },
+      );
+    },
+    pass: (s) => {
+      s.stands[1]!.surfaceStates = { 'tier-middle': { z: 900 }, 'tier-top': { z: 1150 } };
+      s.placements.push(
+        {
+          ...onDesk('ot', 0),
+          mount: { type: 'surface', standUnitId: 'stand-unit-jaspers', surfaceId: 'tier-middle', x: 100, y: 20 },
+        },
+        {
+          ...onDesk('dt2', 0),
+          mount: { type: 'surface', standUnitId: 'stand-unit-jaspers', surfaceId: 'tier-top', x: 100, y: 20 },
+        },
+      );
+    },
+  },
+  'ERG-003': {
+    fail: (s) => {
+      s.posture = 'seated';
+      s.unitConfigs['unit-heat'] = { activeAlternates: {}, powerAssignments: [], usage: 'rare' };
+      s.placements.push(onDesk('heat', 0), onDesk('dt2', 1000));
+    },
+    pass: (s) => {
+      s.posture = 'seated';
+      s.placements.push(onDesk('heat', 0), onDesk('dt2', 1000));
+    },
+  },
+  'ERG-004': {
+    fail: (s) => s.placements.push(onDesk('dt2', 0)),
+    pass: (s) => {
+      s.posture = 'seated';
+      s.placements.push(onDesk('dt2', 0));
+    },
+  },
+  'ERG-005': {
+    fail: (s) => s.placements.push(onDesk('dt2', 1000)),
+    pass: (s) => s.placements.push(onDesk('dt2', 0)),
+  },
   'PLC-001': {
     fail: (s) => s.placements.push(onDesk('dt2', 0), onDesk('heat', 100)),
     pass: (s) => s.placements.push(onDesk('dt2', 0), onDesk('heat', 300)),

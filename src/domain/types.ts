@@ -24,6 +24,8 @@ export type PowerSource = z.infer<typeof S.PowerSource>;
 export type PowerSpec = z.infer<typeof S.PowerSpec>;
 export type MidiSpec = z.infer<typeof S.MidiSpec>;
 export type ClockSpec = z.infer<typeof S.ClockSpec>;
+export type Usage = z.infer<typeof S.Usage>;
+export type Interaction = z.infer<typeof S.Interaction>;
 export type GearModel = z.infer<typeof S.GearModel>;
 
 export type StandType = z.infer<typeof S.StandType>;

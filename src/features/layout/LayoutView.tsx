@@ -19,12 +19,14 @@ import {
 import type { Point, Project, Setup } from '@/domain/types';
 import { RACK_UNIT_MM } from '@/domain/units';
 import { landmarks } from '@/engine/body';
+import { ergonomicsReport } from '@/engine/ergonomics';
 import { analyzeLayout, type LayoutReport } from '@/engine/layout';
 import { resolveLayout, unitSize, type ResolvedSurface, type ResolvedUnit } from '@/engine/placement';
 import { t } from '@/i18n';
 import { projectStore, uiStore, useProject, useUi } from '@/store';
 import { useViewport, Viewport } from '@/render/Viewport';
 import { dragTypes } from './dragTypes';
+import { ErgonomicsPanel } from './ErgonomicsPanel';
 import { LayoutReportPanel } from './LayoutReportPanel';
 
 export type LayoutViewKind = 'front' | 'side' | 'plan';
@@ -50,7 +52,14 @@ export function LayoutView() {
   const setup = project.setups.find((s) => s.id === project.activeSetupId);
   const [view, setView] = useState<LayoutViewKind>('front');
   const [overlays, setOverlays] = useState(true);
+  const [heatOn, setHeatOn] = useState(false);
+  const [ergoOpen, setErgoOpen] = useState(false);
   const report = useMemo(() => (setup ? analyzeLayout(project, setup) : null), [project, setup]);
+  const heat = useMemo(() => {
+    if (!heatOn || !setup || !report) return null;
+    const e = ergonomicsReport(project, setup, report.layout);
+    return new Map((e?.units ?? []).map((u) => [u.unitId, u.score]));
+  }, [heatOn, project, setup, report]);
   if (!setup || !report) return <p className="p-4 text-sm text-neutral-500">{t('No active setup.')}</p>;
 
   const unknownOffsets = setup.stands.flatMap((st) => {
@@ -88,6 +97,20 @@ export function LayoutView() {
           <input type="checkbox" checked={overlays} onChange={(e) => setOverlays(e.target.checked)} />
           {t('Ergonomic overlays')}
         </label>
+        <label className="flex items-center gap-1">
+          <input type="checkbox" checked={heatOn} onChange={(e) => setHeatOn(e.target.checked)} />
+          {t('Comfort heat map')}
+        </label>
+        <button
+          className={clsx(
+            'rounded border px-2 py-0.5',
+            ergoOpen ? 'border-neutral-900 dark:border-neutral-100' : 'border-neutral-300 dark:border-neutral-600',
+          )}
+          aria-pressed={ergoOpen}
+          onClick={() => setErgoOpen(!ergoOpen)}
+        >
+          {t('Ergonomics…')}
+        </button>
         <span className="ml-auto text-neutral-500">
           {t('Drag gear or stands from the Inventory. R rotate · Del remove · arrows nudge (Shift ×10)')}
         </span>
@@ -103,16 +126,20 @@ export function LayoutView() {
           )}
         </div>
       )}
-      <div className="min-h-0 flex-1">
-        <LayoutCanvas
-          key={view}
-          view={view}
-          project={project}
-          setup={setup}
-          report={report}
-          readOnly={readOnly}
-          overlays={overlays}
-        />
+      <div className="flex min-h-0 flex-1">
+        <div className="min-w-0 flex-1">
+          <LayoutCanvas
+            key={view}
+            view={view}
+            project={project}
+            setup={setup}
+            report={report}
+            readOnly={readOnly}
+            overlays={overlays}
+            heat={heat}
+          />
+        </div>
+        {ergoOpen && <ErgonomicsPanel project={project} setup={setup} report={report} readOnly={readOnly} />}
       </div>
       <LayoutReportPanel project={project} setup={setup} report={report} />
     </div>
@@ -159,6 +186,8 @@ interface CanvasProps {
   report: LayoutReport;
   readOnly: boolean;
   overlays: boolean;
+  /** Comfort score per unit when the heat map is on. */
+  heat: Map<string, number> | null;
 }
 
 function LayoutCanvas(props: CanvasProps) {
@@ -602,6 +631,7 @@ function UnitShape({
   readOnly,
   project,
   report,
+  ...props
 }: CanvasProps & { u: ResolvedUnit; selected: boolean }) {
   const vp = useViewport();
   const drag = useRef<{
@@ -685,6 +715,15 @@ function UnitShape({
         strokeDasharray={u.size.estimated ? '6 4' : undefined}
         vectorEffect="non-scaling-stroke"
       />
+      {props.heat?.has(u.unitId) && (
+        <polygon
+          points={poly.map((p) => `${p.x},${p.y}`).join(' ')}
+          fill={heatColor(props.heat.get(u.unitId)!)}
+          fillOpacity={0.6}
+          pointerEvents="none"
+          data-comfort={Math.round(props.heat.get(u.unitId)!)}
+        />
+      )}
       {frontImg && (
         <image
           href={frontImg}
@@ -882,3 +921,6 @@ function Ghosts({ view, project, report, other }: CanvasProps & { other: Setup }
     </g>
   );
 }
+
+/** Comfort 0 → red, 100 → green. */
+const heatColor = (score: number) => `hsl(${Math.round(score * 1.2)} 75% 45%)`;

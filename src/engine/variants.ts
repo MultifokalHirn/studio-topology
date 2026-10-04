@@ -4,6 +4,7 @@ import { rackHeightU } from '@/domain/rack';
 import { formatLength, RACK_UNIT_MM } from '@/domain/units';
 import { connectionFlow, requiredLength, stockedLength, suggestCable } from './connections';
 import type { LayoutReport, SurfaceReport } from './layout';
+import { ergonomicsReport } from './ergonomics';
 import { modelWatts } from './power';
 import { buildContext, runRules, type SetupContext } from './rules';
 import { endLabel } from './rules/context';
@@ -122,7 +123,7 @@ export interface Metrics {
   standLoadKg: number;
   /** Highest surface load as a share of its capacity (0–1+), null when no capacity is known. */
   maxLoadShare: number | null;
-  /** Ergonomic score arrives with M9. */
+  /** Usage-weighted comfort (0–100), spec §5.13. */
   ergonomicScore: number | null;
 }
 
@@ -225,7 +226,7 @@ export function metricsOf(ctx: SetupContext): Metrics {
     cableUnknown,
     standLoadKg,
     maxLoadShare: shares.length ? Math.max(...shares) : null,
-    ergonomicScore: null,
+    ergonomicScore: ergonomicsReport(ctx.project, ctx.setup, ctx.layout.layout)?.score ?? null,
   };
 }
 

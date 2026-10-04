@@ -2,6 +2,7 @@
 import { useMemo } from 'react';
 import { Button, Checkbox, Select } from '@/components/ui';
 import { nextFreeX, placeOnSurface, removeFromSetup } from '@/domain/setupOps';
+import { ergonomicsReport } from '@/engine/ergonomics';
 import { analyzeLayout } from '@/engine/layout';
 import { unitSize } from '@/engine/placement';
 import { t } from '@/i18n';
@@ -13,7 +14,12 @@ export function PlacementBlock({ unitId }: { unitId: string }) {
   const readOnly = useProject((s) => s.readOnly);
   const setup = project.setups.find((s) => s.id === project.activeSetupId);
   const report = useMemo(() => (setup ? analyzeLayout(project, setup) : null), [project, setup]);
+  const ergo = useMemo(
+    () => (setup && report ? ergonomicsReport(project, setup, report.layout) : null),
+    [project, setup, report],
+  );
   if (!setup || !report) return null;
+  const ue = ergo?.units.find((u) => u.unitId === unitId);
   const placement = setup.placements.find((p) => p.unitId === unitId);
   const r = report.layout.units.get(unitId);
   const unit = project.inventory.gearUnits.find((u) => u.id === unitId);
@@ -120,6 +126,23 @@ export function PlacementBlock({ unitId }: { unitId: string }) {
             })
           }
         />
+      )}
+      {ue && ergo && (
+        <p className="mt-1 text-xs text-neutral-500" aria-label={t('Ergonomics summary')}>
+          {t(
+            'Comfort {s} ({usage}) · plane {p} mm ({d} vs elbow) · forearm {f}° · line of sight {l}° · tilt {tilt}° (rec. {r}°)',
+            {
+              s: Math.round(ue.score),
+              usage: ue.usage,
+              p: Math.round(ue.plane),
+              d: `${ue.plane >= ergo.lm.elbowMm ? '+' : ''}${Math.round(ue.plane - ergo.lm.elbowMm)}`,
+              f: Math.round(ue.forearmDeg),
+              l: Math.round(ue.losDeg),
+              tilt: ue.tiltDeg,
+              r: Math.round(ue.recommendedTiltDeg),
+            },
+          )}
+        </p>
       )}
       <div className="mt-1">
         <IssueList entityId={unitId} />

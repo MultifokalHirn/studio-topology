@@ -87,7 +87,7 @@ describe('scenario 5: variants (spec §11)', () => {
     expect(d.connections.changed).toEqual([expect.objectContaining({ key: changedKey, changes: ['length'] })]);
     expect(d.metrics.a.rackU).toBe(d.metrics.b.rackU);
     expect(d.metrics.b.issues.error + d.metrics.b.issues.warning + d.metrics.b.issues.info).toBeGreaterThan(0);
-    expect(d.metrics.a.ergonomicScore).toBeNull();
+    expect(d.metrics.a.ergonomicScore).toBeGreaterThan(0);
   });
 
   it('checklist lists disconnect, move, adjust, reconnect steps in order; Markdown export', () => {
