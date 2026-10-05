@@ -1,7 +1,8 @@
 // Issues tab (spec §5.12): grouped by severity, filter by family and entity, suppress with a reason.
 import clsx from 'clsx';
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import { Button, Checkbox, Select, TextInput } from '@/components/ui';
+import { checkProject } from '@/domain/integrity';
 import type { Issue } from '@/engine/issues';
 import { ruleById } from '@/engine/rules';
 import { t } from '@/i18n';
@@ -18,7 +19,7 @@ const SEV_CLS = {
 };
 
 export function IssuesPanel() {
-  const [tab, setTab] = useState<'issues' | 'unverified'>('issues');
+  const [tab, setTab] = useState<'issues' | 'project' | 'unverified'>('issues');
   return (
     <div className="flex h-full flex-col text-sm">
       <div
@@ -29,6 +30,7 @@ export function IssuesPanel() {
         {(
           [
             ['issues', 'Setup issues'],
+            ['project', 'Project'],
             ['unverified', 'Unverified fields'],
           ] as const
         ).map(([id, label]) => (
@@ -43,7 +45,9 @@ export function IssuesPanel() {
           </button>
         ))}
       </div>
-      <div className="min-h-0 flex-1">{tab === 'issues' ? <SetupIssues /> : <UnverifiedList />}</div>
+      <div className="min-h-0 flex-1">
+        {tab === 'issues' ? <SetupIssues /> : tab === 'project' ? <ProjectIntegrity /> : <UnverifiedList />}
+      </div>
     </div>
   );
 }
@@ -224,5 +228,33 @@ export function ValidationBadge() {
       <span className="font-semibold text-amber-700 dark:text-amber-400">▲ {n.warning}</span>
       <span className="text-blue-700 dark:text-blue-300">ⓘ {n.info}</span>
     </button>
+  );
+}
+
+/** Project-wide integrity (dangling references, missing images …), independent of the active setup. */
+function ProjectIntegrity() {
+  const project = useProject((s) => s.project);
+  const readOnly = useProject((s) => s.readOnly);
+  const issues = useMemo(() => {
+    try {
+      return checkProject(project);
+    } catch (e) {
+      // Read-only documents may not match the schema; report instead of crashing.
+      return [{ level: 'error' as const, path: '', message: (e as Error).message }];
+    }
+  }, [project]);
+  return (
+    <div className="h-full overflow-auto p-2 text-xs" aria-label={t('Project integrity')} role="region">
+      {readOnly && <p className="mb-2 text-amber-700">{t('Read-only document: checks may be incomplete.')}</p>}
+      {issues.length === 0 && <p className="text-neutral-500">{t('No project problems.')}</p>}
+      <ul className="space-y-1">
+        {issues.map((i, k) => (
+          <li key={k}>
+            <span className={SEV_CLS[i.level]}>{t(i.level)}</span> {i.message}
+            {i.path && <code className="ml-1 text-neutral-500">{i.path}</code>}
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 }

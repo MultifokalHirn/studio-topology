@@ -30,6 +30,7 @@ import { glyphRadius } from '@/render/glyphSize';
 import { useViewport, Viewport } from '@/render/Viewport';
 import { projectStore, uiStore, useProject, useUi } from '@/store';
 import { useValidation } from '../issues/useValidation';
+import { useReducedMotion } from '../settings/motion';
 import { dragTypes } from '../layout/dragTypes';
 
 const MAX_ANIMATED = 300;
@@ -56,10 +57,12 @@ export function PatchView() {
   const readOnly = useProject((s) => s.readOnly);
   const setup = project.setups.find((s) => s.id === project.activeSetupId);
   const [allPorts, setAllPorts] = useState(false);
-  const [legend, setLegend] = useState(true);
+  const legend = useUi((s) => s.legend);
+  const setLegend = uiStore.getState().setLegend;
   const [hidden, setHidden] = useState<Set<string>>(new Set());
   const [density, setDensity] = useState(project.settings.labelDensity);
   const [animate, setAnimate] = useState(project.settings.animation.enabled);
+  const reduceMotion = useReducedMotion();
   const [midiPrompt, setMidiPrompt] = useState<string[] | null>(null);
   const [menu, setMenu] = useState<{ id: string; x: number; y: number } | null>(null);
   const [bulk, setBulk] = useState(false);
@@ -132,14 +135,6 @@ export function PatchView() {
       }
     return m;
   }, [issues]);
-
-  useEffect(() => {
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === 'l' && !(e.target instanceof HTMLInputElement) && !e.metaKey && !e.ctrlKey) setLegend((v) => !v);
-    };
-    window.addEventListener('keydown', onKey);
-    return () => window.removeEventListener('keydown', onKey);
-  }, []);
 
   if (!setup || !graph) return <p className="p-4 text-sm text-neutral-500">{t('No active setup.')}</p>;
 
@@ -280,7 +275,7 @@ export function PatchView() {
           styles={styles}
           hidden={hidden}
           density={density}
-          animate={animate}
+          animate={animate && !reduceMotion}
           readOnly={readOnly}
           onCreate={create}
           onMenu={setMenu}

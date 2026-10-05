@@ -1,0 +1,25 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`golden drawings (spec §10) > golden fixture: layout SVG text is stable 1`] = `
+[
+  "front:1e33e40dc53a41fb",
+  "side:4d5b4712749db363",
+  "plan:49482df82147985c",
+]
+`;
+
+exports[`golden drawings (spec §10) > sample · Current: layout SVG text is stable 1`] = `
+[
+  "front:da2b3f3bdf0cdb42",
+  "side:96da9f5a9d3b188c",
+  "plan:9f1b74d796be2236",
+]
+`;
+
+exports[`golden drawings (spec §10) > sample · Planned (standing): layout SVG text is stable 1`] = `
+[
+  "front:bba3b408bcdc861b",
+  "side:5ff29d1564d21a2b",
+  "plan:c9d0ccc12718ed8c",
+]
+`;

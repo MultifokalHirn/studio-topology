@@ -4,7 +4,7 @@ import type { Draft } from 'immer';
 import { useMemo, useRef, useState } from 'react';
 import { assetUrl } from '@/domain/assets';
 import { categoryTint, snapPoint } from '@/domain/faces';
-import { rotatePoint, surfaceToWorld, type Vec3 } from '@/domain/geometry';
+import { rotatePoint, surfaceToWorld } from '@/domain/geometry';
 import { provenanceFor } from '@/domain/integrity';
 import {
   addStandToSetup,
@@ -24,12 +24,18 @@ import { analyzeLayout, type LayoutReport } from '@/engine/layout';
 import { resolveLayout, unitSize, type ResolvedSurface, type ResolvedUnit } from '@/engine/placement';
 import { t } from '@/i18n';
 import { projectStore, uiStore, useProject, useUi } from '@/store';
+import {
+  drawOrder,
+  layoutBounds,
+  type LayoutViewKind,
+  surfaceCorners,
+  toView,
+  unitOutline,
+} from '@/render/layoutGeometry';
 import { useViewport, Viewport } from '@/render/Viewport';
 import { dragTypes } from './dragTypes';
 import { ErgonomicsPanel } from './ErgonomicsPanel';
 import { LayoutReportPanel } from './LayoutReportPanel';
-
-export type LayoutViewKind = 'front' | 'side' | 'plan';
 
 function editSetup(
   setupId: string,
@@ -50,7 +56,8 @@ export function LayoutView() {
   const project = useProject((s) => s.project);
   const readOnly = useProject((s) => s.readOnly);
   const setup = project.setups.find((s) => s.id === project.activeSetupId);
-  const [view, setView] = useState<LayoutViewKind>('front');
+  const view = useUi((s) => s.layoutView);
+  const setView = uiStore.getState().setLayoutView;
   const [overlays, setOverlays] = useState(true);
   const [heatOn, setHeatOn] = useState(false);
   const [ergoOpen, setErgoOpen] = useState(false);
@@ -146,37 +153,9 @@ export function LayoutView() {
   );
 }
 
-/** Map world → view coordinates (SVG y grows downward). */
-function toView(view: LayoutViewKind, p: Vec3): Point {
-  if (view === 'front') return { x: p.x, y: -p.z };
-  if (view === 'side') return { x: p.y, y: -p.z };
-  return { x: p.x, y: -p.y };
-}
 function fromView(_view: LayoutViewKind, p: Point): { a: number; b: number } {
   // a = horizontal world axis, b = vertical world axis of the view.
   return { a: p.x, b: -p.y };
-}
-
-function bounds(view: LayoutViewKind, report: LayoutReport) {
-  const pts: Point[] = [];
-  for (const u of report.layout.units.values()) for (const c of u.corners) pts.push(toView(view, c));
-  for (const s of report.layout.surfaces) for (const c of surfaceCorners(s)) pts.push(toView(view, c));
-  pts.push(toView(view, { x: 0, y: 0, z: 0 }), toView(view, report.eye));
-  const xs = pts.map((p) => p.x);
-  const ys = pts.map((p) => p.y);
-  const minX = Math.min(...xs) - 200;
-  const minY = Math.min(...ys) - 150;
-  return { x: minX, y: minY, w: Math.max(...xs) + 200 - minX, h: Math.max(...ys) + 150 - minY };
-}
-
-function surfaceCorners(s: ResolvedSurface): Vec3[] {
-  const { w, d } = s.surface.usable;
-  return [
-    { x: 0, y: 0, z: 0 },
-    { x: w, y: 0, z: 0 },
-    { x: w, y: d, z: 0 },
-    { x: 0, y: d, z: 0 },
-  ].map((p) => surfaceToWorld(s.frame, p));
 }
 
 interface CanvasProps {
@@ -194,7 +173,7 @@ function LayoutCanvas(props: CanvasProps) {
   const { view, project, setup, report } = props;
   const selection = useUi((s) => s.selection);
   const selectedUnit = selection?.kind === 'gear-unit' ? selection.id : null;
-  const box = useMemo(() => bounds(view, report), [view, report]);
+  const box = useMemo(() => layoutBounds(view, report), [view, report]);
   const [cursor, setCursor] = useState<Point | null>(null);
   const ghostsFrom = useUi((s) => s.ghostsFrom);
   const ghostSetup =
@@ -244,7 +223,10 @@ function LayoutCanvas(props: CanvasProps) {
       } else if (target && !target.surface.rack) {
         const local =
           view === 'plan' ? toSurfaceLocal(target, w.a, w.b) : { x: w.a - target.frame.origin.x - size.w / 2, y: 0 };
-        const snapped = snapPoint({ x: Math.max(0, local.x), y: Math.max(0, local.y) }, project.settings.snap.gridMm);
+        const snapped = snapPoint(
+          { x: Math.max(0, local.x), y: Math.max(0, local.y) },
+          project.settings.snap.enabled ? project.settings.snap.gridMm : 0,
+        );
         placeOnSurface(s, gearId, target.standUnitId, target.surface.id, snapped.x, snapped.y);
       } else placeOnFloor(s, gearId, Math.round(w.a), view === 'plan' ? Math.round(w.b) : 0);
     });
@@ -297,13 +279,9 @@ function LayoutCanvas(props: CanvasProps) {
       {report.layout.surfaces.map((s) => (
         <SurfaceShape key={`${s.standUnitId}/${s.surface.id}`} {...props} s={s} />
       ))}
-      {[...report.layout.units.values()]
-        .sort((a, b) =>
-          view === 'front' ? b.min.y - a.min.y : view === 'side' ? a.min.x - b.min.x : a.max.z - b.max.z,
-        )
-        .map((u) => (
-          <UnitShape key={u.unitId} {...props} u={u} selected={selectedUnit === u.unitId} />
-        ))}
+      {[...report.layout.units.values()].sort(drawOrder(view)).map((u) => (
+        <UnitShape key={u.unitId} {...props} u={u} selected={selectedUnit === u.unitId} />
+      ))}
       {props.overlays && view === 'side' && <SideSightLines {...props} />}
       {ghostSetup && <Ghosts {...props} other={ghostSetup} />}
     </Viewport>
@@ -645,13 +623,7 @@ function UnitShape({
     : issues.some((i) => i.severity === 'warning')
       ? 'warning'
       : null;
-  const c = u.corners;
-  const poly =
-    view === 'front'
-      ? [c[0]!, c[1]!, c[5]!, c[4]!].map((p) => toView(view, p))
-      : view === 'side'
-        ? sideHull(u).map((p) => ({ x: p.x, y: p.y }))
-        : u.plan.map((p) => ({ x: p.x, y: -p.y }));
+  const poly = unitOutline(view, u);
   const xs = poly.map((p) => p.x);
   const ys = poly.map((p) => p.y);
   const bb = {
@@ -693,7 +665,8 @@ function UnitShape({
         const db = now.b - d.start.b;
         if (!d.moved && Math.hypot(da, db) * vp.zoom < 3) return;
         d.moved = true;
-        const grid = e.altKey ? 0 : e.shiftKey ? project.settings.snap.fineMm : project.settings.snap.gridMm;
+        const { snap } = project.settings;
+        const grid = !snap.enabled || e.altKey ? 0 : e.shiftKey ? snap.fineMm : snap.gridMm;
         editSetup(
           setup.id,
           'Move unit',
@@ -750,24 +723,6 @@ function UnitShape({
       )}
     </g>
   );
-}
-
-function sideHull(u: ResolvedUnit): Point[] {
-  const pts = u.corners.map((c) => ({ x: c.y, y: -c.z }));
-  // Convex hull in view space (y down), small n.
-  const sorted = [...pts].sort((a, b) => a.x - b.x || a.y - b.y);
-  const cross = (o: Point, a: Point, b: Point) => (a.x - o.x) * (b.y - o.y) - (a.y - o.y) * (b.x - o.x);
-  const lower: Point[] = [];
-  for (const p of sorted) {
-    while (lower.length >= 2 && cross(lower[lower.length - 2]!, lower[lower.length - 1]!, p) <= 0) lower.pop();
-    lower.push(p);
-  }
-  const upper: Point[] = [];
-  for (const p of [...sorted].reverse()) {
-    while (upper.length >= 2 && cross(upper[upper.length - 2]!, upper[upper.length - 1]!, p) <= 0) upper.pop();
-    upper.push(p);
-  }
-  return [...lower.slice(0, -1), ...upper.slice(0, -1)];
 }
 
 /** Apply a drag delta (in the view's horizontal `a` and vertical `b` world axes) to a placement. */

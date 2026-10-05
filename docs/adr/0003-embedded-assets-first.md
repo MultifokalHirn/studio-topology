@@ -1,6 +1,6 @@
 # ADR 0003: Images are embedded in the project file until the export milestone
 
-- Status: accepted
+- Status: accepted; folder mode added in M10 (decision 88)
 - Date: 2026-10-04
 
 ## Context

@@ -91,7 +91,7 @@ export function ImagesSection({ api }: { api: EditorApi }) {
               highlighted={pasteTarget === slot}
               onFocusSlot={() => setPasteTarget(slot)}
               url={item?.dataUri ?? null}
-              missing={!!ref && !item}
+              missing={!!ref && !item?.dataUri}
               info={
                 item
                   ? `${item.widthPx} × ${item.heightPx} px · ${(item.bytes / 1024).toFixed(0)} kB${cal ? ` · ${cal.pxPerMm.toFixed(2)} px/mm${cal.rectified ? ` · ${t('rectified')}` : ''}` : ''}`

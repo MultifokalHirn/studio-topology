@@ -2,18 +2,22 @@ import { useEffect, useState } from 'react';
 import {
   IconArrowBackUp,
   IconArrowForwardUp,
+  IconCommand,
   IconDeviceFloppy,
   IconFile,
+  IconFileExport,
   IconFolderOpen,
+  IconKeyboard,
   IconMoon,
+  IconSettings,
   IconSparkles,
   IconSun,
 } from '@tabler/icons-react';
 import { ErrorBoundary } from './components/ErrorBoundary';
+import { listArrowNav } from './components/listNav';
 import { t } from './i18n';
 import { projectStore, uiStore, useProject, useUi } from './store';
 import { isDirty } from './store/projectStore';
-import type { CanvasTab, SidebarTab } from './store/uiStore';
 import { GearEditorHost } from './features/gear-editor/GearEditor';
 import { Inspector } from './features/inspector/Inspector';
 import { TablesView } from './features/tables/TablesView';
@@ -35,37 +39,17 @@ import {
 } from './features/project/actions';
 import { LoadErrorDialog } from './features/project/LoadErrorDialog';
 import { useAutosave, useRecoverySnapshot } from './features/project/useAutosave';
-
-const SIDEBAR_TABS: [SidebarTab, string][] = [
-  ['inventory', 'Inventory'],
-  ['library', 'Library'],
-  ['setups', 'Setups'],
-  ['issues', 'Issues'],
-];
-const CANVAS_TABS: [CanvasTab, string][] = [
-  ['layout', 'Layout'],
-  ['patch', 'Patch'],
-  ['face', 'Face'],
-  ['tables', 'Tables'],
-  ['compare', 'Compare'],
-];
+import { CommandPalette, ShortcutSheet } from './features/commands/CommandPalette';
+import { CANVAS_TABS, duplicateSelectedUnit, SIDEBAR_TABS, toggleAB } from './features/commands/commands';
+import { ExportDialog } from './features/reports/ExportDialog';
+import { SettingsDialog } from './features/settings/SettingsDialog';
+import { StatusBar } from './features/project/StatusBar';
 
 const isTyping = (t: EventTarget | null) =>
   t instanceof HTMLInputElement ||
   t instanceof HTMLTextAreaElement ||
   t instanceof HTMLSelectElement ||
   (t instanceof HTMLElement && t.isContentEditable);
-
-/** A/B toggle (spec §5.11): swap to the previously active setup (else the one this was derived from). */
-function toggleAB() {
-  const { project } = projectStore.getState();
-  const prev = uiStore.getState().previousSetupId;
-  const active = project.setups.find((s) => s.id === project.activeSetupId);
-  const target = [prev, active?.derivedFromId].find(
-    (id) => id && id !== active?.id && project.setups.some((s) => s.id === id),
-  );
-  if (target) projectStore.getState().change((p) => void (p.activeSetupId = target), { label: 'A/B toggle' });
-}
 
 function ToolButton(props: { label: string; onClick: () => void; disabled?: boolean; children: React.ReactNode }) {
   return (
@@ -91,8 +75,8 @@ export function App() {
   const readOnly = useProject((s) => s.readOnly);
   const canUndo = useProject((s) => s.history.past.length > 0);
   const canRedo = useProject((s) => s.history.future.length > 0);
-  const lastAutosaveAt = useProject((s) => s.lastAutosaveAt);
-  const lengthUnit = useProject((s) => s.project.settings.units.length);
+  const theme = useProject((s) => s.project.settings.theme);
+  const dialog = useUi((s) => s.dialog);
   const setups = useProject((s) => s.project.setups);
   const activeSetupId = useProject((s) => s.project.activeSetupId);
   const [pending, setPending] = useState<PendingLoad | null>(null);
@@ -106,6 +90,12 @@ export function App() {
 
   useAutosave();
 
+  // The project's theme setting applies on load and when changed; the top-bar toggle overrides it for the session.
+  useEffect(() => {
+    if (theme !== 'system') uiStore.getState().setDarkMode(theme === 'dark');
+    else uiStore.getState().setDarkMode(window.matchMedia?.('(prefers-color-scheme: dark)').matches ?? false);
+  }, [theme]);
+
   // First launch (nothing autosaved): start with the sample studio built from the gear reference.
   useEffect(() => {
     if (snapshotsChecked && !recovery && projectStore.getState().revision === 0 && !projectStore.getState().fileName)
@@ -116,17 +106,29 @@ export function App() {
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       const mod = e.metaKey || e.ctrlKey;
-      if (!mod && !e.altKey && e.key === '\\' && !isTyping(e.target)) {
+      const ui = uiStore.getState();
+      const dialogOpen = !!document.querySelector('[role="dialog"]');
+      if (!mod && !e.altKey && !isTyping(e.target) && !dialogOpen) {
+        const tab = CANVAS_TABS[Number(e.key) - 1];
+        if (e.key === '\\') toggleAB();
+        else if (e.key === '?') ui.setDialog('shortcuts');
+        else if ((e.key === 'l' || e.key === 'L') && !e.shiftKey) ui.setLegend(!ui.legend);
+        else if (tab && /^[1-5]$/.test(e.key)) ui.setCanvasTab(tab[0]);
+        else return;
         e.preventDefault();
-        toggleAB();
         return;
       }
       if (!mod) return;
       const key = e.key.toLowerCase();
-      if (key === 'z' && !e.shiftKey) projectStore.getState().undo();
+      if (key === 'k') ui.setDialog(ui.dialog === 'palette' ? null : 'palette');
+      else if (dialogOpen) return;
+      else if (key === 'z' && !e.shiftKey) projectStore.getState().undo();
       else if (key === 'y' || (key === 'z' && e.shiftKey)) projectStore.getState().redo();
       else if (key === 's') void saveProject(e.shiftKey);
       else if (key === 'o') void openProject().then(setPending);
+      else if (key === 'e') ui.setDialog('export');
+      else if (key === ',') ui.setDialog('settings');
+      else if (key === 'd' && !isTyping(e.target) && ui.selection?.kind === 'gear-unit') duplicateSelectedUnit();
       else return;
       e.preventDefault();
     };
@@ -187,6 +189,10 @@ export function App() {
               {t('Save as…')}
             </button>
             <span className="mx-1 h-5 w-px bg-neutral-300 dark:bg-neutral-700" />
+            <ToolButton label={t('Export…')} onClick={() => uiStore.getState().setDialog('export')}>
+              <IconFileExport size={18} />
+            </ToolButton>
+            <span className="mx-1 h-5 w-px bg-neutral-300 dark:bg-neutral-700" />
             <ToolButton label={t('Undo')} disabled={!canUndo} onClick={() => projectStore.getState().undo()}>
               <IconArrowBackUp size={18} />
             </ToolButton>
@@ -217,6 +223,15 @@ export function App() {
               </select>
             </label>
           )}
+          <ToolButton label={t('Command palette (Ctrl+K)')} onClick={() => uiStore.getState().setDialog('palette')}>
+            <IconCommand size={18} />
+          </ToolButton>
+          <ToolButton label={t('Keyboard shortcuts (?)')} onClick={() => uiStore.getState().setDialog('shortcuts')}>
+            <IconKeyboard size={18} />
+          </ToolButton>
+          <ToolButton label={t('Settings…')} onClick={() => uiStore.getState().setDialog('settings')}>
+            <IconSettings size={18} />
+          </ToolButton>
           <ToolButton label={t('Toggle theme')} onClick={() => uiStore.getState().setDarkMode(!dark)}>
             {dark ? <IconSun size={18} /> : <IconMoon size={18} />}
           </ToolButton>
@@ -267,7 +282,7 @@ export function App() {
                 </button>
               ))}
             </nav>
-            <div className="min-h-0 flex-1">
+            <div className="min-h-0 flex-1" onKeyDown={listArrowNav}>
               <ErrorBoundary label={t('Sidebar')}>
                 {sidebarTab === 'inventory' && <InventoryPanel />}
                 {sidebarTab === 'library' && <LibraryPanel />}
@@ -296,18 +311,12 @@ export function App() {
                   <TablesView />
                 ) : canvasTab === 'face' ? (
                   <FaceView />
-                ) : canvasTab === 'layout' ? (
-                  <LayoutView />
                 ) : canvasTab === 'patch' ? (
                   <PatchView />
                 ) : canvasTab === 'compare' ? (
                   <CompareView />
                 ) : (
-                  <div className="flex h-full items-center justify-center text-sm text-neutral-500">
-                    {t('{view} view arrives in a later milestone', {
-                      view: t(CANVAS_TABS.find(([id]) => id === canvasTab)?.[1] ?? ''),
-                    })}
-                  </div>
+                  <LayoutView />
                 )}
               </ErrorBoundary>
             </div>
@@ -322,18 +331,16 @@ export function App() {
           </aside>
         </div>
 
-        <footer className="flex gap-4 border-t border-neutral-200 px-3 py-1 text-xs text-neutral-500 dark:border-neutral-700">
-          <span>{lengthUnit}</span>
-          <span className="flex-1" />
-          {lastAutosaveAt && (
-            <span>{t('Autosaved {time}', { time: new Date(lastAutosaveAt).toLocaleTimeString() })}</span>
-          )}
-        </footer>
+        <StatusBar />
       </div>
       <ErrorBoundary label={t('Gear editor')}>
         <GearEditorHost />
       </ErrorBoundary>
       {pending && <LoadErrorDialog pending={pending} onClose={() => setPending(null)} />}
+      {dialog === 'export' && <ExportDialog />}
+      {dialog === 'settings' && <SettingsDialog />}
+      {dialog === 'palette' && <CommandPalette onPending={setPending} />}
+      {dialog === 'shortcuts' && <ShortcutSheet />}
     </div>
   );
 }

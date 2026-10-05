@@ -36,11 +36,15 @@ body,
   stroke-dasharray: 2 22;
   animation-duration: calc(3s / var(--flow-speed, 1));
 }
-@media (prefers-reduced-motion: reduce) {
-  .flow-audio,
-  .flow-midi,
-  .flow-data,
-  .flow-power {
-    animation: none;
-  }
+/* Reduced motion is decided in JS (system preference unless overridden in Settings): no animated paths render. */
+
+/* Visible focus for keyboard users everywhere (spec §5.16 accessibility). */
+:focus-visible {
+  outline: 2px solid #2563eb;
+  outline-offset: 1px;
+}
+svg :focus-visible {
+  outline: none;
+  stroke: #2563eb;
+  stroke-width: 3px;
 }

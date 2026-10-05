@@ -5,6 +5,8 @@ export type SidebarTab = 'inventory' | 'library' | 'setups' | 'issues';
 export type CanvasTab = 'layout' | 'patch' | 'face' | 'tables' | 'compare';
 export type SelectionKind =
   'gear-unit' | 'gear-model' | 'stand-unit' | 'stand-model' | 'cable-model' | 'connection' | 'port';
+export type LayoutView = 'front' | 'side' | 'plan';
+export type DialogId = 'export' | 'settings' | 'palette' | 'shortcuts';
 export interface Selection {
   kind: SelectionKind;
   id: string;
@@ -25,6 +27,15 @@ export interface UiState {
   previousSetupId: string | null;
   /** Setup whose unit positions are drawn as ghosts on the layout canvas (compare overlay). */
   ghostsFrom: string | null;
+  /** Layout canvas projection (front/side elevation, plan); exports default to it. */
+  layoutView: LayoutView;
+  /** Top-level dialog that is open (export, settings, command palette, shortcut sheet). */
+  dialog: DialogId | null;
+  /** Patch legend visibility (`L`). */
+  legend: boolean;
+  setLayoutView(v: LayoutView): void;
+  setDialog(d: DialogId | null): void;
+  setLegend(v: boolean): void;
   setPreviousSetupId(id: string | null): void;
   setGhostsFrom(id: string | null): void;
   setTrace(t: { start: string; pinned: boolean } | null): void;
@@ -47,6 +58,12 @@ export function createUiStore(initialDark = false) {
     follow: null,
     previousSetupId: null,
     ghostsFrom: null,
+    layoutView: 'front',
+    dialog: null,
+    legend: true,
+    setLayoutView: (layoutView) => set({ layoutView }),
+    setDialog: (dialog) => set({ dialog }),
+    setLegend: (legend) => set({ legend }),
     setPreviousSetupId: (previousSetupId) => set({ previousSetupId }),
     setGhostsFrom: (ghostsFrom) => set({ ghostsFrom }),
     setTrace: (trace) => set({ trace }),

@@ -55,7 +55,7 @@ export function FaceView() {
           readOnly={readOnly}
           image={{
             url: assetUrl(project.assets, ref?.id),
-            missing: !!ref && !item,
+            missing: !!ref && !item?.dataUri,
             widthPx: item?.widthPx,
             heightPx: item?.heightPx,
             pxPerMm: cal?.pxPerMm,

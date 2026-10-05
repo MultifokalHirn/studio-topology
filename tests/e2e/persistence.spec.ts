@@ -41,3 +41,15 @@ test('a future schemaVersion is offered read-only', async ({ page }) => {
   await openText(page, 'future.json', JSON.stringify(doc));
   await expect(page.getByRole('dialog')).toContainText('schemaVersion 999');
 });
+
+test('a missing image asset shows a placeholder and a project warning (scenario 10)', async ({ page }) => {
+  const doc = JSON.parse(golden);
+  doc.library.gearModels[0].images = { front: { id: 'asset-gone' } };
+  await openText(page, 'missing-asset.json', JSON.stringify(doc));
+  await expect(page.getByTestId('project-name')).toHaveText('Golden fixture');
+  await page.getByRole('tab', { name: 'Issues' }).click();
+  await page.getByRole('tab', { name: 'Project' }).click();
+  await expect(page.getByRole('region', { name: 'Project integrity' })).toContainText(
+    'Image asset "asset-gone" is missing; a placeholder is shown',
+  );
+});
